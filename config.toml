@@ -1,0 +1,13 @@
+# Fixed settings for every condition (README Step 1.4). Change them only before a scored run.
+
+[llm]
+model = "deepseek/deepseek-v4.1-flash"  # proposed default, confirmed by the pilot in scripts/pilot_models.py
+temperature = 0
+seed = 4213
+max_tokens = 1024
+reasoning_enabled = false
+
+[mem0]
+embedder_model = "sentence-transformers/all-MiniLM-L6-v2"
+embedding_dims = 384
+qdrant_path = ".qdrant"
