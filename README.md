@@ -81,12 +81,15 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 
 ## Step 2: Install the baseline memory systems
 
-1. Install Supermemory from its repository and confirm it can store and retrieve a test memory.
-2. Install Mem0 from its repository and confirm the same.
-3. Build a thin adapter for each system exposing two functions:
+1. Mem0 (`mem0ai`) and Supermemory (`supermemory`, hosted API) are installed by `uv sync`.
+2. Run `uv run python scripts/smoke_baselines.py` to confirm each system can store and retrieve a test memory. It prints the hits and the cost the run added to the ledger.
+3. The adapters in `baselines/` expose the same interface (`baselines/base.py`):
    - `write(session_text)`: ingest a session into the memory system
-   - `retrieve(query)`: return the memories surfaced for a probe
-4. Run both systems as shipped, without modification. These are the baseline conditions.
+   - `retrieve(query)`: return the memories surfaced for a probe, each with its text, score and the raw metadata the system returned
+   - `reset()`: delete the namespace
+   Each adapter takes a `namespace` (episode id plus condition) so episodes cannot see each other's memories.
+4. Both systems run as shipped, with their default extraction and search. The only configuration is the LLM endpoint (Mem0 calls the `config.toml` model through OpenRouter) and the embedder (Mem0 uses a local sentence-transformers model). Mem0's internal LLM calls are logged to the ledger. Supermemory's hosted processing is billed by Supermemory, so the ledger records its requests at $0.
+5. These are the baseline conditions.
 
 ## Scope model and labelling rules
 

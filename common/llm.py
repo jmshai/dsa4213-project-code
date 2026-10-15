@@ -116,3 +116,18 @@ def chat(messages, *, component, episode=None, condition=None, model=None, **ove
     )
     record_usage(resp, component=component, episode=episode, condition=condition)
     return resp
+
+
+def instrument_client(openai_client, *, component):
+    """Route a third-party library's OpenAI client through the budget guard and ledger (used for Mem0's internal calls)."""
+    create = openai_client.chat.completions.create
+
+    def tracked(**kwargs):
+        check_budget()
+        kwargs["extra_body"] = {**extra_body(), **(kwargs.get("extra_body") or {})}
+        resp = create(**kwargs)
+        record_usage(resp, component=component)
+        return resp
+
+    openai_client.chat.completions.create = tracked
+    return openai_client
