@@ -1,0 +1,37 @@
+{
+  "pair_id": "po-02",
+  "conflict_type": "project_override",
+  "domain": "python test framework",
+  "sessions": [
+    {
+      "session_id": "s1", "order": 1, "task_id": "t-po02-1", "active_project": null,
+      "text": "User: I need a few unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens.\nAssistant: Happy to help. Do you have a preferred test framework or a style for the reply?\nUser: In general, I prefer pytest with plain assert statements. Also, always finish your answers with a final line that starts with 'TL;DR:'.\nAssistant: Noted. I'll use pytest with plain asserts by default, and I'll close every answer with a TL;DR line.\nUser: Good. Here is the helper, go ahead and write the tests.\nAssistant: Done, the tests are below. TL;DR: four pytest cases cover casing, spaces, empty input and punctuation."
+    },
+    {
+      "session_id": "s2", "order": 2, "task_id": "t-po02-2", "active_project": "Project Atlas",
+      "text": "User: I'm joining Project Atlas, a billing service that runs in a locked-down build container.\nAssistant: Sounds good. Is there anything about the test setup I should know?\nUser: For Project Atlas, use unittest. The CI image only has the standard library installed.\nAssistant: Understood. For Project Atlas I'll write tests with unittest.TestCase.\nUser: Great. I'll send the first function next time."
+    }
+  ],
+  "memories": [
+    {"memory_id": "m1", "session_id": "s1", "text": "In general, I prefer pytest with plain assert statements.", "role": "standing", "decision": "python_test_framework", "action": "pytest", "gold": {"scope": "standing", "key": null, "condition": null}},
+    {"memory_id": "m2", "session_id": "s2", "text": "For Project Atlas, use unittest.", "role": "scoped", "decision": "python_test_framework", "action": "unittest", "gold": {"scope": "project", "key": "Project Atlas", "condition": null}},
+    {"memory_id": "m3", "session_id": "s1", "text": "always finish your answers with a final line that starts with 'TL;DR:'", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-po02-3", "active_project": "Project Atlas",
+      "text": "Write tests for a function apply_discount(price: float, code: str) -> float in Project Atlas. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+      "facts": {},
+      "in_scope": true, "decision": "python_test_framework", "expected_action": "unittest", "expected_memory": "m2", "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-po02-4", "active_project": "Project Cobalt",
+      "text": "Write tests for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+      "facts": {},
+      "in_scope": false, "decision": "python_test_framework", "expected_action": "pytest", "expected_memory": "m1", "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {"memory_id": "m3", "check": "The agent's answer ends with a final line that starts with 'TL;DR:'"}
+  ]
+}

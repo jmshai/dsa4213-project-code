@@ -44,6 +44,9 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 ├── episodes/              # 40-episode suite (20 mirrored pairs)
 │   ├── labelling_guide.md # scope labelling rules shared by annotators and taggers
 │   ├── schema.json
+│   ├── validate.py        # schema and gold-label consistency checks
+│   ├── annotate.py        # blind labelling export and agreement
+│   ├── loader.py
 │   └── pairs/
 ├── config.toml            # fixed model and sampling settings
 ├── common/                # OpenRouter client and cost ledger
@@ -147,23 +150,20 @@ The suite contains no genuine ties, so rule 5 fires only when a tagger error or 
 
 ## Step 3: Build the episode suite
 
-The suite contains 40 episodes arranged as 20 mirrored pairs.
+The suite contains 40 episodes arranged as 20 mirrored pairs, one JSON file per pair in `episodes/pairs/`. The format is `episodes/schema.json`. Load them with `episodes.loader.episodes()`, which yields the 40 episodes.
 
-1. Define an episode schema containing:
-   - Session 1 text (standing preference)
-   - Session 2 text (scoped instruction)
-   - An optional Session 3 text, used for same-scope conflicts (for example, Session 2 says "Project X: use pandas" and Session 3 says "Project X: switch to Polars")
-   - Session order or timestamp, `task_id`, and active project for each session and probe
-   - Gold `{scope, key, condition}` for every memory
-   - Probe A (inside the scope)
-   - Probe B (outside the scope; mirrored)
-   - Expected action for each probe
-   - Conflict type label
-   - One or more unrelated standing preferences, for the retention metric
-2. Author 20 scenarios. Each yields one in-scope probe and one out-of-scope probe.
-3. Vary the conflict type across pairs (for example: tool choice, formatting, project-level versus single-task scope, conditional preferences such as "rows &gt; 1M", same-scope supersession, same-scope specificity). The two same-scope types exercise rules 3 and 4 of the conflict resolution pipeline.
-4. Label the correct action for every probe before running any system. Every probe has exactly one correct action, and scenarios that would be a genuine tie are excluded.
-5. Hand-label every memory's scope, key and condition following [Scope model and labelling rules](#scope-model-and-labelling-rules). These labels are the reference for tagging accuracy.
+1. Each pair file holds:
+   - Two or three sessions (standing preference, scoped instruction, and an optional later session for same-scope conflicts such as "Project X: switch to Polars"), each with order, `task_id` and active project
+   - Every memory with its gold `{scope, key, condition}`, the decision it bears on and the action it calls for
+   - Probe A (inside the scope) and probe B (outside the scope; mirrored), each with the expected action, the memory that should win and the pipeline rule that decides it
+   - One or more unrelated standing preferences, with retention checks
+2. Systems see only session text and probe text. Project, task and fact values (`active_project`, `task_id`, `facts`) are gold-only, so every scope signal is written into the text itself.
+3. The suite has four pairs for each of five conflict types: project override, single-task override, conditional project scope, same-scope supersession, and same-scope specificity. The last two exercise rules 4 and 3 of the conflict resolution pipeline.
+4. `uv run python -m episodes.validate` checks the schema and that each memory is a verbatim quote of its session. It also checks that every scope signal appears in the text, and that a walk of the five resolution rules over the gold tags reproduces every probe's expected memory and rule. Every probe has exactly one correct action, and genuine ties are excluded.
+5. Gold labels follow [Scope model and labelling rules](#scope-model-and-labelling-rules) and `episodes/labelling_guide.md`. The drafted labels are the author's intent. Two annotators then label independently, without seeing them:
+   - `uv run python -m episodes.annotate export labels/` writes a blank CSV per annotator.
+   - `uv run python -m episodes.annotate agree labels/annotator_a.csv labels/annotator_b.csv --draft` reports per-field agreement and the disagreements.
+   - The annotators settle disagreements between themselves. The adjudicated labels replace the drafted `gold` fields, and the tagging accuracy in Step 7 is scored against them.
 
 ## Step 4: Implement the scope-tagged memory layer
 

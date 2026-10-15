@@ -1,0 +1,112 @@
+{
+  "pair_id": "ss-03",
+  "conflict_type": "same_scope_supersession",
+  "domain": "linter",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss03-1",
+      "active_project": null,
+      "text": "User: I'm setting up some Python tooling on my laptop.\nAssistant: Nice. Do you have a linter you like?\nUser: I prefer flake8 for linting. Also, always write commit messages in the imperative mood.\nAssistant: Understood. I'll default to flake8 and write imperative commit messages.\nUser: Cool, that's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss03-2",
+      "active_project": "Project Eclipse",
+      "text": "User: Starting Project Eclipse today, a scheduling service for the ops team.\nAssistant: Good luck. Any tooling constraints?\nUser: For Project Eclipse, use Ruff for linting because it is much faster in CI.\nAssistant: Got it. For Project Eclipse I'll use Ruff.\nUser: Thanks. See you next time."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss03-3",
+      "active_project": "Project Eclipse",
+      "text": "User: One more thing on Project Eclipse.\nAssistant: Sure, what is it?\nUser: Actually, for Project Eclipse, switch to Pylint for linting because the team wants its deeper checks.\nAssistant: Noted. Project Eclipse moves to Pylint.\nUser: Great. That's all."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer flake8 for linting.",
+      "role": "standing",
+      "decision": "python_linter",
+      "action": "flake8",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Eclipse, use Ruff for linting because it is much faster in CI.",
+      "role": "scoped",
+      "decision": "python_linter",
+      "action": "ruff",
+      "gold": {
+        "scope": "project",
+        "key": "Project Eclipse",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s3",
+      "text": "Actually, for Project Eclipse, switch to Pylint for linting because the team wants its deeper checks.",
+      "role": "scoped",
+      "decision": "python_linter",
+      "action": "pylint",
+      "gold": {
+        "scope": "project",
+        "key": "Project Eclipse",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s1",
+      "text": "always write commit messages in the imperative mood",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss03-4",
+      "active_project": "Project Eclipse",
+      "text": "Set up linting for Project Eclipse: tell me which linter you are using, give the config file name, and write the commit message for adding it.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "python_linter",
+      "expected_action": "pylint",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss03-5",
+      "active_project": "Project Fjord",
+      "text": "Set up linting for Project Fjord: tell me which linter you are using, give the config file name, and write the commit message for adding it.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "python_linter",
+      "expected_action": "flake8",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The commit message subject is in the imperative mood (for example 'Add ...') and not past tense ('Added ...')"
+    }
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "pair_id": "sp-03",
+  "conflict_type": "same_scope_specificity",
+  "domain": "code review depth by diff size",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-sp03-1",
+      "active_project": null,
+      "text": "User: I've got a stack of pull requests waiting on me and I need a review routine.\nAssistant: Happy to help. How thorough do you want me to be?\nUser: In general, when a diff is over 500 lines, I prefer a high-level review of design and risk areas. Also, always start your answer with the heading '## Summary'.\nAssistant: Understood: high-level review for big diffs, and every answer starts with '## Summary'.\nUser: Thanks. I'll send the first diff soon."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-sp03-2",
+      "active_project": null,
+      "text": "User: Unrelated: we're tightening up how the team reviews code.\nAssistant: Sounds good. What's your usual preference?\nUser: I prefer a line-by-line review by default. Small mistakes slip through otherwise.\nAssistant: Noted, line-by-line review by default.\nUser: That's all for now."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "I prefer a line-by-line review by default.",
+      "role": "standing",
+      "decision": "review_depth",
+      "action": "line-by-line",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "In general, when a diff is over 500 lines, I prefer a high-level review of design and risk areas.",
+      "role": "standing",
+      "decision": "review_depth",
+      "action": "high-level",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": "diff_lines > 500"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always start your answer with the heading '## Summary'",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-sp03-3",
+      "active_project": null,
+      "text": "I'm about to send you a diff of 800 lines for the billing-retry change. Describe how you will review it and write the opening of your review.",
+      "facts": {
+        "diff_lines": {
+          "value": 800,
+          "text": "800 lines"
+        }
+      },
+      "in_scope": true,
+      "decision": "review_depth",
+      "expected_action": "high-level",
+      "expected_memory": "m2",
+      "deciding_rule": 3
+    },
+    "B": {
+      "task_id": "t-sp03-4",
+      "active_project": null,
+      "text": "I'm about to send you a diff of 120 lines for the billing-retry change. Describe how you will review it and write the opening of your review.",
+      "facts": {
+        "diff_lines": {
+          "value": 120,
+          "text": "120 lines"
+        }
+      },
+      "in_scope": false,
+      "decision": "review_depth",
+      "expected_action": "line-by-line",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The agent's answer begins with the heading '## Summary'"
+    }
+  ]
+}

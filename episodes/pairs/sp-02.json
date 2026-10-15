@@ -1,0 +1,102 @@
+{
+  "pair_id": "sp-02",
+  "conflict_type": "same_scope_specificity",
+  "domain": "writing tone by audience",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-sp02-1",
+      "active_project": null,
+      "text": "User: I have a pile of replies to write this week and I'm behind.\nAssistant: Let's get through them. Any style preferences I should remember?\nUser: In general, when I'm writing for a customer, I prefer a warm and friendly tone. Also, always sign off with the line 'Best, Sam'.\nAssistant: Got it: warm and friendly for customers, and every message ends with 'Best, Sam'.\nUser: Perfect. Let's start on the replies next time."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-sp02-2",
+      "active_project": null,
+      "text": "User: Separate thing: I'm drafting some documentation.\nAssistant: Okay. Do you have a preferred style for it?\nUser: I prefer a formal, concise tone by default. Long preambles waste people's time.\nAssistant: Understood, formal and concise by default.\nUser: Thanks, that's all for now."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "I prefer a formal, concise tone by default.",
+      "role": "standing",
+      "decision": "writing_tone",
+      "action": "formal",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "In general, when I'm writing for a customer, I prefer a warm and friendly tone.",
+      "role": "standing",
+      "decision": "writing_tone",
+      "action": "friendly",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": "audience == customer"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always sign off with the line 'Best, Sam'",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-sp02-3",
+      "active_project": null,
+      "text": "Draft a short email to a customer about the two-day delay on their warehouse shipment, and tell me which tone you used.",
+      "facts": {
+        "audience": {
+          "value": "customer",
+          "text": "customer"
+        }
+      },
+      "in_scope": true,
+      "decision": "writing_tone",
+      "expected_action": "friendly",
+      "expected_memory": "m2",
+      "deciding_rule": 3
+    },
+    "B": {
+      "task_id": "t-sp02-4",
+      "active_project": null,
+      "text": "Draft a short email to a colleague about the two-day delay on their warehouse shipment, and tell me which tone you used.",
+      "facts": {
+        "audience": {
+          "value": "colleague",
+          "text": "colleague"
+        }
+      },
+      "in_scope": false,
+      "decision": "writing_tone",
+      "expected_action": "formal",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The drafted email ends with the line 'Best, Sam'"
+    }
+  ]
+}

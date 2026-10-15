@@ -1,0 +1,92 @@
+{
+  "pair_id": "st-04",
+  "conflict_type": "single_task_override",
+  "domain": "SQL style",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st04-1",
+      "active_project": null,
+      "text": "User: I'll be sending you a lot of SQL questions this quarter.\nAssistant: Happy to help. Any defaults for how I write the queries?\nUser: I prefer CTEs over nested subqueries in SQL. Also, always finish your answers with an Assumptions: line.\nAssistant: Noted. I'll structure queries with CTEs and finish each answer with an Assumptions: line.\nUser: Thanks. That's everything for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st04-2",
+      "active_project": null,
+      "text": "User: I'm working on the quarterly revenue query for the reporting tool.\nAssistant: Okay. Anything I should know about the tool?\nUser: Just this time, write the quarterly revenue query with nested subqueries, because the reporting tool can't parse WITH clauses.\nAssistant: Understood. I'll use nested subqueries for the quarterly revenue query.\nUser: Great. We'll pick that job up again later."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer CTEs over nested subqueries in SQL.",
+      "role": "standing",
+      "decision": "sql_style",
+      "action": "ctes",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "Just this time, write the quarterly revenue query with nested subqueries",
+      "role": "scoped",
+      "decision": "sql_style",
+      "action": "subqueries",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st04-2",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always finish your answers with an Assumptions: line",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st04-2",
+      "active_project": null,
+      "text": "Continue the quarterly revenue query job from earlier: write a SQL query that returns the top 3 products by revenue in each region from sales(region, product, revenue).",
+      "facts": {},
+      "in_scope": true,
+      "decision": "sql_style",
+      "expected_action": "subqueries",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st04-3",
+      "active_project": null,
+      "text": "New task: write a SQL query that returns the top 3 products by revenue in each region from sales(region, product, revenue).",
+      "facts": {},
+      "in_scope": false,
+      "decision": "sql_style",
+      "expected_action": "ctes",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The agent's answer ends with a line starting with Assumptions:"
+    }
+  ]
+}

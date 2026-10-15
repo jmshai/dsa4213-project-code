@@ -1,0 +1,37 @@
+{
+  "pair_id": "po-01",
+  "conflict_type": "project_override",
+  "domain": "dataframe library",
+  "sessions": [
+    {
+      "session_id": "s1", "order": 1, "task_id": "t-po01-1", "active_project": null,
+      "text": "User: Can you help me clean up a customer export? It has duplicate rows.\nAssistant: Sure. How big is the file, and do you have a preferred library?\nUser: For datasets over 1M rows, I prefer Polars. Also, always add type hints to Python functions.\nAssistant: Got it. I'll default to Polars for datasets over 1M rows and I'll add type hints to every function.\nUser: Great, thanks. That's all for now."
+    },
+    {
+      "session_id": "s2", "order": 2, "task_id": "t-po01-2", "active_project": "Project X",
+      "text": "User: I'm starting on Project X, a reporting pipeline for the finance team.\nAssistant: Nice. Anything I should know about the setup?\nUser: For Project X, use pandas because my teammate only knows pandas.\nAssistant: Understood. For Project X I'll use pandas.\nUser: Perfect. Let's get going next time."
+    }
+  ],
+  "memories": [
+    {"memory_id": "m1", "session_id": "s1", "text": "For datasets over 1M rows, I prefer Polars.", "role": "standing", "decision": "dataframe_library", "action": "polars", "gold": {"scope": "standing", "key": null, "condition": "rows > 1000000"}},
+    {"memory_id": "m2", "session_id": "s2", "text": "For Project X, use pandas because my teammate only knows pandas.", "role": "scoped", "decision": "dataframe_library", "action": "pandas", "gold": {"scope": "project", "key": "Project X", "condition": null}},
+    {"memory_id": "m3", "session_id": "s1", "text": "always add type hints to Python functions", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-po01-3", "active_project": "Project X",
+      "text": "Write a Python function that deduplicates the 5M-row orders table for Project X by order_id.",
+      "facts": {"rows": {"value": 5000000, "text": "5M-row"}},
+      "in_scope": true, "decision": "dataframe_library", "expected_action": "pandas", "expected_memory": "m2", "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-po01-4", "active_project": "Project Y",
+      "text": "Write a Python function that deduplicates the 5M-row orders table for Project Y by order_id.",
+      "facts": {"rows": {"value": 5000000, "text": "5M-row"}},
+      "in_scope": false, "decision": "dataframe_library", "expected_action": "polars", "expected_memory": "m1", "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {"memory_id": "m3", "check": "Every function in the agent's code has type hints on its parameters and return value"}
+  ]
+}

@@ -1,0 +1,102 @@
+{
+  "pair_id": "cs-02",
+  "conflict_type": "conditional_scope",
+  "domain": "response length by audience",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-cs02-1",
+      "active_project": null,
+      "text": "User: I write a lot of project updates and want to set some ground rules for your replies.\nAssistant: Sure. What should I know?\nUser: I prefer detailed, multi-paragraph answers by default. Also, always write dates in ISO format (YYYY-MM-DD).\nAssistant: Got it. Detailed answers by default, and dates in ISO format.\nUser: Perfect. That's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-cs02-2",
+      "active_project": "Project Helios",
+      "text": "User: I've just taken over Project Helios, a warehouse automation rollout.\nAssistant: Congratulations. How do you want me to help with it?\nUser: For Project Helios, when writing for executives, keep it to a three-line summary because they rarely read past the top.\nAssistant: Understood. For Project Helios, executive updates get a three-line summary.\nUser: Thanks. Talk next time."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer detailed, multi-paragraph answers by default.",
+      "role": "standing",
+      "decision": "response_length",
+      "action": "detailed",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Helios, when writing for executives, keep it to a three-line summary",
+      "role": "scoped",
+      "decision": "response_length",
+      "action": "three-line summary",
+      "gold": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == exec"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always write dates in ISO format (YYYY-MM-DD)",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-cs02-3",
+      "active_project": "Project Helios",
+      "text": "Draft the weekly status update for Project Helios, aimed at the executives. Mention that the beta review is on 14 March 2027.",
+      "facts": {
+        "audience": {
+          "value": "exec",
+          "text": "executives"
+        }
+      },
+      "in_scope": true,
+      "decision": "response_length",
+      "expected_action": "three-line summary",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-cs02-4",
+      "active_project": "Project Helios",
+      "text": "Draft the weekly status update for Project Helios, aimed at the engineers. Mention that the beta review is on 14 March 2027.",
+      "facts": {
+        "audience": {
+          "value": "engineer",
+          "text": "engineers"
+        }
+      },
+      "in_scope": false,
+      "decision": "response_length",
+      "expected_action": "detailed",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The beta review date appears in ISO format as 2027-03-14, not as 14 March 2027 or 03/14/2027"
+    }
+  ]
+}

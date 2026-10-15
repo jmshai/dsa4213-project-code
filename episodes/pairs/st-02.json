@@ -1,0 +1,92 @@
+{
+  "pair_id": "st-02",
+  "conflict_type": "single_task_override",
+  "domain": "code comment verbosity",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st02-1",
+      "active_project": null,
+      "text": "User: I'm going to hand you a lot of small Python snippets this month.\nAssistant: Happy to help. Any defaults I should follow?\nUser: I prefer minimal comments, only where the code isn't obvious. Also, always end your answers with a one-line TL;DR.\nAssistant: Noted. Sparse comments, and a one-line TL;DR at the end of each answer.\nUser: Thanks, that's it for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st02-2",
+      "active_project": null,
+      "text": "User: I need the sales rollup script written up for our new intern.\nAssistant: Sure. How should I tailor it for them?\nUser: Just for this one, comment every step in detail, because the intern is new to Python.\nAssistant: Understood. I'll comment every step of the sales rollup script in detail.\nUser: Great. We'll pick the job up again later."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer minimal comments, only where the code isn't obvious.",
+      "role": "standing",
+      "decision": "comment_verbosity",
+      "action": "minimal",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "Just for this one, comment every step in detail",
+      "role": "scoped",
+      "decision": "comment_verbosity",
+      "action": "detailed",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st02-2",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always end your answers with a one-line TL;DR",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st02-2",
+      "active_project": null,
+      "text": "Continue the sales rollup job from earlier: write a Python function that computes the 7-day rolling average of the daily_sales column in a pandas dataframe.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "comment_verbosity",
+      "expected_action": "detailed",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st02-3",
+      "active_project": null,
+      "text": "New task: write a Python function that computes the 7-day rolling average of the daily_sales column in a pandas dataframe.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "comment_verbosity",
+      "expected_action": "minimal",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The agent's answer ends with a one-line summary starting with TL;DR"
+    }
+  ]
+}

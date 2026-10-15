@@ -1,0 +1,102 @@
+{
+  "pair_id": "cs-03",
+  "conflict_type": "conditional_scope",
+  "domain": "alert channel by severity",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-cs03-1",
+      "active_project": null,
+      "text": "User: Our alerting code is a mess and I want you to follow some conventions when you write it.\nAssistant: Happy to. What conventions do you use?\nUser: I prefer Slack for all alert notifications. Also, always use f-strings instead of str.format() or % formatting.\nAssistant: Noted. Slack for alerts, and f-strings for any string formatting.\nUser: Great, thanks. That's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-cs03-2",
+      "active_project": "Project Orion",
+      "text": "User: I'm joining Project Orion, the payments platform migration.\nAssistant: Nice. Is there anything specific about its on-call setup?\nUser: On Project Orion, critical alerts should page the on-call engineer through PagerDuty because the team has a 24/7 rotation.\nAssistant: Understood. On Project Orion, critical alerts go to PagerDuty.\nUser: Thanks. Let's continue later."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer Slack for all alert notifications.",
+      "role": "standing",
+      "decision": "alert_channel",
+      "action": "slack",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "On Project Orion, critical alerts should page the on-call engineer through PagerDuty",
+      "role": "scoped",
+      "decision": "alert_channel",
+      "action": "pagerduty",
+      "gold": {
+        "scope": "project",
+        "key": "Project Orion",
+        "condition": "severity == critical"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always use f-strings instead of str.format() or % formatting",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-cs03-3",
+      "active_project": "Project Orion",
+      "text": "Write a Python function that notifies the team about a critical disk-full incident on Project Orion, including the hostname and free space.",
+      "facts": {
+        "severity": {
+          "value": "critical",
+          "text": "critical"
+        }
+      },
+      "in_scope": true,
+      "decision": "alert_channel",
+      "expected_action": "pagerduty",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-cs03-4",
+      "active_project": "Project Orion",
+      "text": "Write a Python function that notifies the team about a warning disk-full incident on Project Orion, including the hostname and free space.",
+      "facts": {
+        "severity": {
+          "value": "warning",
+          "text": "warning"
+        }
+      },
+      "in_scope": false,
+      "decision": "alert_channel",
+      "expected_action": "slack",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "Every formatted string in the agent's code uses an f-string, with no str.format() or % formatting"
+    }
+  ]
+}

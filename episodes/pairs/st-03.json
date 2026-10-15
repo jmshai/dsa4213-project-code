@@ -1,0 +1,92 @@
+{
+  "pair_id": "st-03",
+  "conflict_type": "single_task_override",
+  "domain": "plotting library",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st03-1",
+      "active_project": null,
+      "text": "User: Over the next few weeks I'll be asking for a bunch of chart scripts.\nAssistant: Sounds good. Do you have any standing preferences for them?\nUser: I prefer matplotlib for charts. Also, always write a Google-style docstring for every function.\nAssistant: Got it. I'll use matplotlib and give every function a Google-style docstring.\nUser: Thanks. That's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st03-2",
+      "active_project": null,
+      "text": "User: I'm building the regional revenue chart for tomorrow's review meeting.\nAssistant: Nice. Is there anything specific the chart needs to do?\nUser: For this one, use plotly for the regional revenue chart, because people will want hover tooltips.\nAssistant: Understood. I'll build the regional revenue chart in plotly.\nUser: Perfect. We'll finish that job later."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer matplotlib for charts.",
+      "role": "standing",
+      "decision": "plotting_library",
+      "action": "matplotlib",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For this one, use plotly for the regional revenue chart",
+      "role": "scoped",
+      "decision": "plotting_library",
+      "action": "plotly",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st03-2",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always write a Google-style docstring for every function",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st03-2",
+      "active_project": null,
+      "text": "Continue the regional revenue chart job from earlier: write a Python function that plots monthly revenue for each region as a line chart.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "plotting_library",
+      "expected_action": "plotly",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st03-3",
+      "active_project": null,
+      "text": "New task: write a Python function that plots monthly revenue for each region as a line chart.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "plotting_library",
+      "expected_action": "matplotlib",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "Every function in the agent's code has a Google-style docstring with Args and Returns sections"
+    }
+  ]
+}

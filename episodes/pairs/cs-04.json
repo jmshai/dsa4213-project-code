@@ -1,0 +1,102 @@
+{
+  "pair_id": "cs-04",
+  "conflict_type": "conditional_scope",
+  "domain": "retry policy by timeout",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-cs04-1",
+      "active_project": null,
+      "text": "User: I'm cleaning up how our services call external APIs.\nAssistant: Okay. Do you have any standing preferences for the code?\nUser: I prefer retrying failed requests with exponential backoff. Also, always write docstrings in Google style.\nAssistant: Got it. Exponential backoff on retries, Google-style docstrings.\nUser: Thanks. That's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-cs04-2",
+      "active_project": "Project Vega",
+      "text": "User: Next up is Project Vega, a billing sync service for the finance team.\nAssistant: Sounds good. Any constraints on how it calls other services?\nUser: For Project Vega, when the timeout is over 30 seconds, fail fast with no retries because the upstream gateway already retries internally.\nAssistant: Understood. For Project Vega, long-timeout calls fail fast.\nUser: Great. Let's get going next time."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer retrying failed requests with exponential backoff.",
+      "role": "standing",
+      "decision": "retry_policy",
+      "action": "exponential backoff",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Vega, when the timeout is over 30 seconds, fail fast with no retries",
+      "role": "scoped",
+      "decision": "retry_policy",
+      "action": "fail fast",
+      "gold": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout_s > 30"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always write docstrings in Google style",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-cs04-3",
+      "active_project": "Project Vega",
+      "text": "Write a Python function that calls the Project Vega invoice API with a 45-second timeout.",
+      "facts": {
+        "timeout_s": {
+          "value": 45,
+          "text": "45-second"
+        }
+      },
+      "in_scope": true,
+      "decision": "retry_policy",
+      "expected_action": "fail fast",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-cs04-4",
+      "active_project": "Project Vega",
+      "text": "Write a Python function that calls the Project Vega invoice API with a 10-second timeout.",
+      "facts": {
+        "timeout_s": {
+          "value": 10,
+          "text": "10-second"
+        }
+      },
+      "in_scope": false,
+      "decision": "retry_policy",
+      "expected_action": "exponential backoff",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The function has a docstring in Google style, with Args: and Returns: sections"
+    }
+  ]
+}

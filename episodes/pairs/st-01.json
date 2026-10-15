@@ -1,0 +1,92 @@
+{
+  "pair_id": "st-01",
+  "conflict_type": "single_task_override",
+  "domain": "export file format",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st01-1",
+      "active_project": null,
+      "text": "User: I'm going to ask for a lot of small data scripts over the next few weeks.\nAssistant: Sounds good. Is there anything you'd like me to keep in mind by default?\nUser: I prefer exporting tables as parquet. Also, always add type hints to Python functions.\nAssistant: Understood. I'll export tables as parquet and add type hints to every function.\nUser: Great. That's all for now, talk soon."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st01-2",
+      "active_project": null,
+      "text": "User: I need to send the client churn export to a customer this afternoon.\nAssistant: Okay. Is there anything special about how the file should be delivered?\nUser: This time, export the client churn file as CSV, because the customer only opens files in Excel.\nAssistant: Got it. I'll write the client churn export as CSV.\nUser: Perfect. We'll keep going on that job later."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer exporting tables as parquet.",
+      "role": "standing",
+      "decision": "export_file_format",
+      "action": "parquet",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "This time, export the client churn file as CSV",
+      "role": "scoped",
+      "decision": "export_file_format",
+      "action": "csv",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st01-2",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always add type hints to Python functions",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st01-2",
+      "active_project": null,
+      "text": "Continue the client churn export job from earlier: write a Python function that saves the cleaned customers dataframe to disk.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "export_file_format",
+      "expected_action": "csv",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st01-3",
+      "active_project": null,
+      "text": "New task: write a Python function that saves the cleaned customers dataframe to disk.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "export_file_format",
+      "expected_action": "parquet",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "Every function in the agent's code has type hints on its parameters and return value"
+    }
+  ]
+}

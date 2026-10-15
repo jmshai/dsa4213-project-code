@@ -1,0 +1,112 @@
+{
+  "pair_id": "ss-02",
+  "conflict_type": "same_scope_supersession",
+  "domain": "documentation format",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss02-1",
+      "active_project": null,
+      "text": "User: I want to tidy up how I write docs for my tools.\nAssistant: Sure. Which format do you usually write in?\nUser: I prefer Markdown for documentation. Also, always use British spelling in prose.\nAssistant: Got it. I'll default to Markdown and use British spelling.\nUser: Thanks, that's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss02-2",
+      "active_project": "Project Borealis",
+      "text": "User: I've just joined Project Borealis, a data catalogue for the research office.\nAssistant: Welcome. Is there a documentation setup already?\nUser: For Project Borealis, write the docs in reStructuredText because Sphinx builds our site.\nAssistant: Understood. For Project Borealis I'll write reStructuredText.\nUser: Great. Catch you later."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss02-3",
+      "active_project": "Project Borealis",
+      "text": "User: Quick follow-up on Project Borealis docs.\nAssistant: Go ahead.\nUser: Actually, for Project Borealis, switch to AsciiDoc because we are moving the site to Antora.\nAssistant: Noted. Project Borealis docs will use AsciiDoc from now on.\nUser: Thanks. That's everything."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer Markdown for documentation.",
+      "role": "standing",
+      "decision": "documentation_format",
+      "action": "markdown",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Borealis, write the docs in reStructuredText because Sphinx builds our site.",
+      "role": "scoped",
+      "decision": "documentation_format",
+      "action": "restructuredtext",
+      "gold": {
+        "scope": "project",
+        "key": "Project Borealis",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s3",
+      "text": "Actually, for Project Borealis, switch to AsciiDoc because we are moving the site to Antora.",
+      "role": "scoped",
+      "decision": "documentation_format",
+      "action": "asciidoc",
+      "gold": {
+        "scope": "project",
+        "key": "Project Borealis",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s1",
+      "text": "always use British spelling in prose",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss02-4",
+      "active_project": "Project Borealis",
+      "text": "Write the opening section of the docs for Project Borealis. Say which documentation format you are using, and explain how users customize the color theme and organize their settings files.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "documentation_format",
+      "expected_action": "asciidoc",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss02-5",
+      "active_project": "Project Cobalt",
+      "text": "Write the opening section of the docs for Project Cobalt. Say which documentation format you are using, and explain how users customize the color theme and organize their settings files.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "documentation_format",
+      "expected_action": "markdown",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The prose uses British spellings such as 'colour', 'customise' and 'organise' rather than American ones"
+    }
+  ]
+}

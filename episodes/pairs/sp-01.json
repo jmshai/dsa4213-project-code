@@ -1,0 +1,102 @@
+{
+  "pair_id": "sp-01",
+  "conflict_type": "same_scope_specificity",
+  "domain": "logging verbosity by environment",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-sp01-1",
+      "active_project": null,
+      "text": "User: Can you look at our invoice-sync worker? It keeps flooding the logs.\nAssistant: Happy to help. What should the logging look like?\nUser: In general, when the service runs in prod, I prefer WARN-level logging. Also, always give every Python function a one-line docstring.\nAssistant: Noted: WARN-level logging in prod, and a one-line docstring on every function.\nUser: Great. I'll send over the actual config later."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-sp01-2",
+      "active_project": null,
+      "text": "User: Different topic: I'm setting up the notification service this afternoon.\nAssistant: Sure. Anything about how you like it configured?\nUser: I prefer DEBUG-level logging by default. That way I can trace every request.\nAssistant: Understood, DEBUG-level logging by default.\nUser: Thanks, that's all for now."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "I prefer DEBUG-level logging by default.",
+      "role": "standing",
+      "decision": "log_level",
+      "action": "debug",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "In general, when the service runs in prod, I prefer WARN-level logging.",
+      "role": "standing",
+      "decision": "log_level",
+      "action": "warn",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == prod"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "always give every Python function a one-line docstring",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-sp01-3",
+      "active_project": null,
+      "text": "Write the Python logging.basicConfig call for the prod deploy of our invoice-sync service, and tell me which log level you chose.",
+      "facts": {
+        "env": {
+          "value": "prod",
+          "text": "prod"
+        }
+      },
+      "in_scope": true,
+      "decision": "log_level",
+      "expected_action": "warn",
+      "expected_memory": "m2",
+      "deciding_rule": 3
+    },
+    "B": {
+      "task_id": "t-sp01-4",
+      "active_project": null,
+      "text": "Write the Python logging.basicConfig call for the staging deploy of our invoice-sync service, and tell me which log level you chose.",
+      "facts": {
+        "env": {
+          "value": "staging",
+          "text": "staging"
+        }
+      },
+      "in_scope": false,
+      "decision": "log_level",
+      "expected_action": "debug",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "Every Python function in the agent's code has a one-line docstring"
+    }
+  ]
+}

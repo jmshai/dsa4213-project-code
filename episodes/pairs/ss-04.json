@@ -1,0 +1,112 @@
+{
+  "pair_id": "ss-04",
+  "conflict_type": "same_scope_supersession",
+  "domain": "cloud region",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss04-1",
+      "active_project": null,
+      "text": "User: I'm planning where to host a few small AWS workloads.\nAssistant: Okay. Do you have a default region?\nUser: I prefer us-east-1 for deployments. Also, always add an owner tag with the value data-team to every cloud resource you define.\nAssistant: Understood. I'll default to us-east-1 and tag every resource with owner=data-team.\nUser: Thanks, that's all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss04-2",
+      "active_project": "Project Gannet",
+      "text": "User: I'm onboarding Project Gannet, a document archive for our European clients.\nAssistant: Great. Any hosting constraints?\nUser: For Project Gannet, deploy to eu-west-1 because of data residency rules.\nAssistant: Understood. For Project Gannet I'll deploy to eu-west-1.\nUser: Thanks. Talk soon."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss04-3",
+      "active_project": "Project Gannet",
+      "text": "User: Update on Project Gannet hosting.\nAssistant: Go ahead.\nUser: Actually, for Project Gannet, switch to ap-southeast-1 because our new client base is in Singapore.\nAssistant: Noted. Project Gannet will deploy to ap-southeast-1 from now on.\nUser: Perfect. That's it."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I prefer us-east-1 for deployments.",
+      "role": "standing",
+      "decision": "cloud_region",
+      "action": "us-east-1",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Gannet, deploy to eu-west-1 because of data residency rules.",
+      "role": "scoped",
+      "decision": "cloud_region",
+      "action": "eu-west-1",
+      "gold": {
+        "scope": "project",
+        "key": "Project Gannet",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s3",
+      "text": "Actually, for Project Gannet, switch to ap-southeast-1 because our new client base is in Singapore.",
+      "role": "scoped",
+      "decision": "cloud_region",
+      "action": "ap-southeast-1",
+      "gold": {
+        "scope": "project",
+        "key": "Project Gannet",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s1",
+      "text": "always add an owner tag with the value data-team to every cloud resource you define",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss04-4",
+      "active_project": "Project Gannet",
+      "text": "Write the Terraform for the S3 bucket for Project Gannet: say which AWS region you are deploying to and include the full resource block.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "cloud_region",
+      "expected_action": "ap-southeast-1",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss04-5",
+      "active_project": "Project Harbor",
+      "text": "Write the Terraform for the S3 bucket for Project Harbor: say which AWS region you are deploying to and include the full resource block.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "cloud_region",
+      "expected_action": "us-east-1",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The Terraform resource block includes an owner tag set to data-team"
+    }
+  ]
+}

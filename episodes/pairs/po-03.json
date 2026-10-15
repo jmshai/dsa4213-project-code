@@ -1,0 +1,37 @@
+{
+  "pair_id": "po-03",
+  "conflict_type": "project_override",
+  "domain": "git integration style",
+  "sessions": [
+    {
+      "session_id": "s1", "order": 1, "task_id": "t-po03-1", "active_project": null,
+      "text": "User: My feature branch is a few commits behind main and I'm never sure what the cleanest way to sync is.\nAssistant: There are a couple of options. Do you have a general preference for how branches get integrated, or a preference for how I format git instructions?\nUser: In general, I prefer rebasing feature branches onto main over merge commits. Also, always put a one-line comment above every git command explaining what it does.\nAssistant: Got it. I'll default to rebasing and I'll comment every command.\nUser: Perfect. I'll come back when I have the next branch to sort out."
+    },
+    {
+      "session_id": "s2", "order": 2, "task_id": "t-po03-2", "active_project": "Project Helios",
+      "text": "User: I just got access to Project Helios, a telemetry dashboard with a big shared repo.\nAssistant: Welcome aboard. Anything about the git workflow I should keep in mind?\nUser: On Project Helios, bring branches up to date with merge commits. Several of us push to the same feature branches, so history rewrites cause trouble.\nAssistant: Understood. On Project Helios I'll use merge commits when syncing a branch with main.\nUser: Thanks. That's all for now."
+    }
+  ],
+  "memories": [
+    {"memory_id": "m1", "session_id": "s1", "text": "In general, I prefer rebasing feature branches onto main over merge commits.", "role": "standing", "decision": "git_integration_style", "action": "rebase", "gold": {"scope": "standing", "key": null, "condition": null}},
+    {"memory_id": "m2", "session_id": "s2", "text": "On Project Helios, bring branches up to date with merge commits.", "role": "scoped", "decision": "git_integration_style", "action": "merge", "gold": {"scope": "project", "key": "Project Helios", "condition": null}},
+    {"memory_id": "m3", "session_id": "s1", "text": "always put a one-line comment above every git command explaining what it does", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-po03-3", "active_project": "Project Helios",
+      "text": "My feature branch for Project Helios is four commits behind main. Give me the git commands to bring it up to date so it is ready for review.",
+      "facts": {},
+      "in_scope": true, "decision": "git_integration_style", "expected_action": "merge", "expected_memory": "m2", "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-po03-4", "active_project": "Project Quill",
+      "text": "My feature branch for Project Quill is four commits behind main. Give me the git commands to bring it up to date so it is ready for review.",
+      "facts": {},
+      "in_scope": false, "decision": "git_integration_style", "expected_action": "rebase", "expected_memory": "m1", "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {"memory_id": "m3", "check": "Every git command in the agent's answer has a one-line comment directly above it explaining what it does"}
+  ]
+}
