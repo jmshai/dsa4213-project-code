@@ -96,3 +96,48 @@ def test_new_combinations_are_covered():
 
 def test_memory_spans_have_no_reason_clauses():
     assert [p["pair_id"] for p in PAIRS if any("because" in m["text"].lower() for m in p["memories"])] == []
+
+
+STANDING_CUE = re.compile(
+    r"\b(always|in general|from now on|by default|whenever|every|never|stick to|standardize|usually|default|go with|"
+    r"most of the time|everywhere|anything|any code)\b", re.I)
+
+
+def test_unrelated_memories_carry_an_explicit_standing_cue():
+    """A bare instruction would label as single_task under the guide's default, so retention would not be justified."""
+    bare = []
+    for p in PAIRS:
+        for m in p["memories"]:
+            if m["role"] == "unrelated":
+                line = next(l for l in sessions_by_id(p)[m["session_id"]]["text"].split("\n") if m["text"] in l)
+                if not STANDING_CUE.search(line):
+                    bare.append((p["pair_id"], m["text"]))
+    assert bare == []
+
+
+def test_task_boundary_cues_vary():
+    forms = {" ".join(p["probes"]["A"]["text"].lower().split()[:2]) for p in PAIRS if p["conflict_type"] == "single_task_override"}
+    assert len(forms) >= 3, forms
+
+
+def test_corrections_are_not_all_phrased_alike():
+    openings = []
+    for p in PAIRS:
+        if p["conflict_type"] != "same_scope_supersession":
+            continue
+        later = max((m for m in p["memories"] if m["gold"]["scope"] == "project"),
+                    key=lambda m: next(s["order"] for s in p["sessions"] if s["session_id"] == m["session_id"]))
+        openings.append(later["text"].split()[0].lower())
+    assert openings.count("actually,") <= 2, openings
+
+
+def test_conditional_memory_is_sometimes_the_later_one():
+    later = 0
+    for p in PAIRS:
+        if p["conflict_type"] != "same_scope_specificity":
+            continue
+        order = {s["session_id"]: s["order"] for s in p["sessions"]}
+        cond = next(m for m in p["memories"] if m["gold"]["condition"] and m["role"] != "unrelated")
+        plain = next(m for m in p["memories"] if not m["gold"]["condition"] and m["role"] != "unrelated")
+        later += order[cond["session_id"]] > order[plain["session_id"]]
+    assert later >= 1

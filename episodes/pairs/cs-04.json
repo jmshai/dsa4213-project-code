@@ -1,103 +1,103 @@
 {
- "pair_id": "cs-04",
- "conflict_type": "conditional_scope",
- "domain": "retry policy by timeout",
- "domain_kind": "developer",
- "sessions": [
-  {
-   "session_id": "s1",
-   "order": 1,
-   "task_id": "t-cs04-1",
-   "active_project": "Project Vega",
-   "text": "User: Starting on Project Vega, a billing sync service for the finance team.\nAssistant: Sounds good. Where do you want to begin?\nUser: While we're at it, write docstrings in Google style. I keep getting review comments about it.\nAssistant: Will do, Google-style docstrings.\nUser: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait.\nAssistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API?\nUser: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries.\nAssistant: Understood. On Vega, long-timeout calls fail fast with no retries.\nUser: Good. We'll start on the client code next time."
-  },
-  {
-   "session_id": "s2",
-   "order": 2,
-   "task_id": "t-cs04-2",
-   "active_project": null,
-   "text": "User: Different topic, I'm reviewing some old scripts of mine.\nAssistant: Okay. What are you looking for?\nUser: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere.\nAssistant: That's common. Do you have a standard you want me to follow?\nUser: Yes. Never write your own retry loops, stick to tenacity."
-  }
- ],
- "memories": [
-  {
-   "memory_id": "m1",
-   "session_id": "s2",
-   "text": "Never write your own retry loops, stick to tenacity.",
-   "role": "standing",
-   "decision": "retry_policy",
-   "action": "tenacity",
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  },
-  {
-   "memory_id": "m2",
-   "session_id": "s1",
-   "text": "On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries.",
-   "role": "scoped",
-   "decision": "retry_policy",
-   "action": "fail fast",
-   "gold": {
-    "scope": "project",
-    "key": "Project Vega",
-    "condition": "timeout_s > 30"
-   }
-  },
-  {
-   "memory_id": "m3",
-   "session_id": "s1",
-   "text": "write docstrings in Google style",
-   "role": "unrelated",
-   "decision": null,
-   "action": null,
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  }
- ],
- "probes": {
-  "A": {
-   "task_id": "t-cs04-3",
-   "active_project": "Project Vega",
-   "text": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
-   "facts": {
-    "timeout_s": {
-     "value": 45,
-     "text": "45-second"
+  "pair_id": "cs-04",
+  "conflict_type": "conditional_scope",
+  "domain": "retry policy by timeout",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-cs04-1",
+      "active_project": "Project Vega",
+      "text": "User: Starting on Project Vega, a billing sync service for the finance team.\nAssistant: Sounds good. Where do you want to begin?\nUser: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it.\nAssistant: Will do, Google-style docstrings.\nUser: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait.\nAssistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API?\nUser: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries.\nAssistant: Understood. On Vega, long-timeout calls fail fast with no retries.\nUser: Good. We'll start on the client code next time."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-cs04-2",
+      "active_project": null,
+      "text": "User: Different topic, I'm reviewing some old scripts of mine.\nAssistant: Okay. What are you looking for?\nUser: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere.\nAssistant: That's common. Do you have a standard you want me to follow?\nUser: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop."
     }
-   },
-   "in_scope": true,
-   "decision": "retry_policy",
-   "expected_action": "fail fast",
-   "expected_memory": "m2",
-   "deciding_rule": 2
-  },
-  "B": {
-   "task_id": "t-cs04-4",
-   "active_project": "Project Vega",
-   "text": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 10-second timeout and returns it as a dict.",
-   "facts": {
-    "timeout_s": {
-     "value": 10,
-     "text": "10-second"
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "role": "standing",
+      "decision": "retry_policy",
+      "action": "tenacity",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries.",
+      "role": "scoped",
+      "decision": "retry_policy",
+      "action": "fail fast",
+      "gold": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout_s > 30"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "from now on, in every project, write docstrings in Google style",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
     }
-   },
-   "in_scope": false,
-   "decision": "retry_policy",
-   "expected_action": "tenacity",
-   "expected_memory": "m1",
-   "deciding_rule": 1
-  }
- },
- "retention_checks": [
-  {
-   "memory_id": "m3",
-   "check": "The function has a Google-style docstring with an Args: section (naming invoice_id) and a Returns: section, since it returns the invoice dict"
-  }
- ]
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-cs04-3",
+      "active_project": "Project Vega",
+      "text": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+      "facts": {
+        "timeout_s": {
+          "value": 45,
+          "text": "45-second"
+        }
+      },
+      "in_scope": true,
+      "decision": "retry_policy",
+      "expected_action": "fail fast",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-cs04-4",
+      "active_project": "Project Vega",
+      "text": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 10-second timeout and returns it as a dict.",
+      "facts": {
+        "timeout_s": {
+          "value": 10,
+          "text": "10-second"
+        }
+      },
+      "in_scope": false,
+      "decision": "retry_policy",
+      "expected_action": "tenacity",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The function has a Google-style docstring with an Args: section (naming invoice_id) and a Returns: section, since it returns the invoice dict"
+    }
+  ]
 }

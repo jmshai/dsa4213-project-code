@@ -9,24 +9,24 @@
       "order": 1,
       "task_id": "t-sp03-1",
       "active_project": null,
-      "text": "User: I'm planning my aunt's retirement party and a few other family events this year.\nAssistant: Nice. What do you need help with first?\nUser: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list?\nAssistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling.\nUser: Good to know. I also keep losing track of who has replied.\nAssistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events?\nUser: Whenever an event has more than 50 guests, I'd rather post one thank-you in the family WhatsApp group.\nAssistant: Noted: for events with more than 50 guests, one thank-you post in the family WhatsApp group."
+      "text": "User: I'm planning my aunt's retirement party and a few other family events this year.\nAssistant: Nice. What do you need help with first?\nUser: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list?\nAssistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling.\nUser: Good to know. I also keep losing track of who has replied.\nAssistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events?\nUser: Whenever an event has more than 50 guests, I'd rather send handwritten postcards.\nAssistant: Noted: for events with more than 50 guests, handwritten postcards."
     },
     {
       "session_id": "s2",
       "order": 2,
       "task_id": "t-sp03-2",
       "active_project": null,
-      "text": "User: Different event now, my cousin's wedding shower. In general, I stick to handwritten postcards for event thank-yous.\nAssistant: Handwritten postcards for event thank-yous, noted. Anything else?\nUser: One thing I keep forgetting: write every date in ISO format, like 2026-03-04.\nAssistant: Got it, ISO dates everywhere.\nUser: That's everything for now."
+      "text": "User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous.\nAssistant: A WhatsApp group post for event thank-yous, noted. Anything else?\nUser: One thing I keep forgetting: write every date in ISO format, like 2026-03-04.\nAssistant: Got it, ISO dates everywhere.\nUser: That's everything for now."
     }
   ],
   "memories": [
     {
       "memory_id": "m1",
       "session_id": "s2",
-      "text": "In general, I stick to handwritten postcards for event thank-yous",
+      "text": "In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous",
       "role": "standing",
       "decision": "thank_you_channel",
-      "action": "handwritten postcards",
+      "action": "whatsapp group post",
       "gold": {
         "scope": "standing",
         "key": null,
@@ -36,10 +36,10 @@
     {
       "memory_id": "m2",
       "session_id": "s1",
-      "text": "Whenever an event has more than 50 guests, I'd rather post one thank-you in the family WhatsApp group",
+      "text": "Whenever an event has more than 50 guests, I'd rather send handwritten postcards",
       "role": "standing",
       "decision": "thank_you_channel",
-      "action": "whatsapp group post",
+      "action": "handwritten postcards",
       "gold": {
         "scope": "standing",
         "key": null,
@@ -73,7 +73,7 @@
       },
       "in_scope": true,
       "decision": "thank_you_channel",
-      "expected_action": "whatsapp group post",
+      "expected_action": "handwritten postcards",
       "expected_memory": "m2",
       "deciding_rule": 3
     },
@@ -89,7 +89,7 @@
       },
       "in_scope": false,
       "decision": "thank_you_channel",
-      "expected_action": "handwritten postcards",
+      "expected_action": "whatsapp group post",
       "expected_memory": "m1",
       "deciding_rule": 1
     }

@@ -1,1 +1,113 @@
-{"pair_id": "ss-02", "conflict_type": "same_scope_supersession", "domain": "documentation format", "domain_kind": "developer", "sessions": [{"session_id": "s1", "order": 1, "task_id": "t-ss02-1", "active_project": null, "text": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms.\nAssistant: Understood, durations in milliseconds from here on. What are we working on?\nUser: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages?\nAssistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review.\nUser: I go with AsciiDoc for documentation.\nAssistant: Noted, AsciiDoc is your default format for documentation.\nUser: Thanks, that is all for now."}, {"session_id": "s2", "order": 2, "task_id": "t-ss02-2", "active_project": "Project Orchid", "text": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library.\nAssistant: Nice. Do you want to settle the doc format first, or the structure?\nUser: For Project Orchid, use Markdown. The contributors are all more comfortable with it.\nAssistant: Markdown for Project Orchid, got it. I'll start with the getting-started page.\nUser: Sounds good, I'll review it tomorrow."}, {"session_id": "s3", "order": 3, "task_id": "t-ss02-3", "active_project": "Project Orchid", "text": "User: Quick update from the design team. Actually, for Project Orchid, switch to reStructuredText. Sphinx is now the standard on their side.\nAssistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too?\nUser: Yes, convert it in the next pass.\nAssistant: Will do. I'll convert the getting-started page first."}], "memories": [{"memory_id": "m1", "session_id": "s1", "text": "I go with AsciiDoc for documentation.", "role": "standing", "decision": "documentation_format", "action": "asciidoc", "gold": {"scope": "standing", "key": null, "condition": null}}, {"memory_id": "m2", "session_id": "s2", "text": "For Project Orchid, use Markdown.", "role": "scoped", "decision": "documentation_format", "action": "markdown", "gold": {"scope": "project", "key": "Project Orchid", "condition": null}}, {"memory_id": "m3", "session_id": "s3", "text": "Actually, for Project Orchid, switch to reStructuredText.", "role": "scoped", "decision": "documentation_format", "action": "restructuredtext", "gold": {"scope": "project", "key": "Project Orchid", "condition": null}}, {"memory_id": "m4", "session_id": "s1", "text": "whenever you write docs for me, give every duration in milliseconds, like 30000 ms.", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}], "probes": {"A": {"task_id": "t-ss02-4", "active_project": "Project Orchid", "text": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).", "facts": {}, "in_scope": true, "decision": "documentation_format", "expected_action": "restructuredtext", "expected_memory": "m3", "deciding_rule": 4}, "B": {"task_id": "t-ss02-5", "active_project": "Project Quill", "text": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).", "facts": {}, "in_scope": false, "decision": "documentation_format", "expected_action": "asciidoc", "expected_memory": "m1", "deciding_rule": 1}}, "retention_checks": [{"memory_id": "m4", "check": "Every duration is written in milliseconds (90000 ms and 2000 ms), with no value in seconds"}]}
+{
+  "pair_id": "ss-02",
+  "conflict_type": "same_scope_supersession",
+  "domain": "documentation format",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss02-1",
+      "active_project": null,
+      "text": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms.\nAssistant: Understood, durations in milliseconds from here on. What are we working on?\nUser: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages?\nAssistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review.\nUser: I go with AsciiDoc for documentation.\nAssistant: Noted, AsciiDoc is your default format for documentation.\nUser: Thanks, that is all for now."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss02-2",
+      "active_project": "Project Orchid",
+      "text": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library.\nAssistant: Nice. Do you want to settle the doc format first, or the structure?\nUser: For Project Orchid, use Markdown. The contributors are all more comfortable with it.\nAssistant: Markdown for Project Orchid, got it. I'll start with the getting-started page.\nUser: Sounds good, I'll review it tomorrow."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss02-3",
+      "active_project": "Project Orchid",
+      "text": "User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side.\nAssistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too?\nUser: Yes, the getting-started page is the one they read first.\nAssistant: Understood. I'll convert it first."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I go with AsciiDoc for documentation.",
+      "role": "standing",
+      "decision": "documentation_format",
+      "action": "asciidoc",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Orchid, use Markdown.",
+      "role": "scoped",
+      "decision": "documentation_format",
+      "action": "markdown",
+      "gold": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s3",
+      "text": "Change of plan: for Project Orchid, write the docs in reStructuredText instead.",
+      "role": "scoped",
+      "decision": "documentation_format",
+      "action": "restructuredtext",
+      "gold": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s1",
+      "text": "whenever you write docs for me, give every duration in milliseconds, like 30000 ms.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss02-4",
+      "active_project": "Project Orchid",
+      "text": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+      "facts": {},
+      "in_scope": true,
+      "decision": "documentation_format",
+      "expected_action": "restructuredtext",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss02-5",
+      "active_project": "Project Quill",
+      "text": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+      "facts": {},
+      "in_scope": false,
+      "decision": "documentation_format",
+      "expected_action": "asciidoc",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "Every duration is written in milliseconds (90000 ms and 2000 ms), with no value in seconds"
+    }
+  ]
+}

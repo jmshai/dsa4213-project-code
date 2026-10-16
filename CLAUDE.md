@@ -1,0 +1,67 @@
+# Project guide for teammates (and your Claude)
+
+`README.md` is the study plan (Steps 0-10). This file says what already exists for Steps 1-3 and how to build on it. Roles: Steps 1-3 @thunder_chin, Steps 4 and 6 @ed3ard, Steps 5 and 7 @nicngck, Steps 8 and 10 @iveryshai. Step 9 has no owner.
+
+## Setup
+
+```
+uv sync
+cp .env.example .env     # fill in OPENROUTER_API_KEY and SUPERMEMORY_API_KEY
+uv run pytest            # 36 tests, no network
+uv run python -m episodes.validate   # expect: 20/20 pairs valid
+```
+
+The team shares a $15 OpenRouter budget. Set a credit limit of about $12 on your key in the OpenRouter dashboard. The `BUDGET_USD` guard in code only sees spend logged on your own machine.
+
+## What exists
+
+| Path | What it is |
+| --- | --- |
+| `config.toml` | The fixed agent model, temperature, seed and reasoning setting. Identical for every condition. Change it only before a scored run. |
+| `common/llm.py` | The only way to call an LLM. `chat()` sends the call, logs it and enforces the budget. Wrap work in `with llm.context(episode=..., condition=...)` to label the cost. |
+| `common/ledger.py` | Append-only `runs/ledger.jsonl`, one line per call (tokens, reasoning tokens, `cost_usd`). Field list is in the docstring. Step 6 cost logs should read this. |
+| `baselines/base.py` | The adapter interface: `write(session_text)`, `retrieve(query) -> list[RetrievedMemory]`, `reset()`. `RetrievedMemory.raw` holds whatever metadata the system returned, which read-time tagging can use. |
+| `baselines/mem0/`, `baselines/supermemory/` | Both systems as shipped. Construct with a `namespace` (episode id plus condition) so episodes never share memories. |
+| `agent/prompt.md` | Draft agent prompt with `{memories}` and `{probe}` slots. Fix it before any scored run. |
+| `episodes/` | The suite: `schema.json`, `labelling_guide.md`, `validate.py`, `annotate.py`, `loader.py`, and 20 pair files in `pairs/`. |
+| `scripts/` | `spend.py` (ledger vs OpenRouter's usage), `smoke_baselines.py`, `pilot_models.py`. |
+
+## Using the episodes
+
+```python
+from episodes.loader import episodes
+for ep in episodes():          # 40 episodes, A and B probe of each pair
+    ep["episode_id"]           # "po-01a"
+    ep["pair"]["sessions"]     # write these to the memory system, in "order"
+    ep["probe"]["text"]        # retrieve and act on this
+    ep["probe"]["expected_action"]
+```
+
+Systems and the agent may use only the session `text` and the probe `text`. Everything else is gold: `active_project`, `task_id`, `facts`, `decision`, `in_scope`, `expected_*`, `deciding_rule` and `gold`. Every scope signal is written into the text itself. If your code passes a gold field to a system, the results are invalid.
+
+## By role
+
+- **@ed3ard (Steps 4 and 6).**
+  - The resolver rules are in the README section "Scope model and labelling rules". `episodes/validate.py: resolve()` is a reference walk of those rules over gold tags. Test `scope_layer/resolver.py` against it: for each probe it should give `expected_memory` and `deciding_rule`.
+  - Taggers output `{scope, key, condition}` per memory. The write-time tagger sees full session text. The read-time tagger sees only retrieved text.
+  - Log the tags, the decision and the rule that fired, next to the ledger.
+- **@nicngck (Steps 5 and 7).**
+  - Each memory has an `action`, so you can map the agent's chosen action back to a `memory_id`. That separates under-applying, over-applying and picking a superseded memory.
+  - Retention checks are in each pair's `retention_checks`. They are descriptions to judge by reading the answer, not code.
+  - Tagging accuracy is scored per field against `gold`, once the gold labels are adjudicated.
+- **@iveryshai (Steps 8 and 10).** Nothing in Steps 1-3 touches MemoryBench. The Step 8 check is the most expensive run (large haystacks through Mem0). Budget for it before starting.
+
+## Rules that matter
+
+- Call LLMs only through `common/llm.py`. A call with no cost data raises instead of logging $0.
+- Do not edit a pair's `gold`, `expected_*` or `deciding_rule` without rerunning `episodes.validate`. Keep memory `text` as a verbatim quote of its session.
+- Never commit `.env`, `runs/` or `.qdrant/` (all gitignored). `.claude/` stays untracked.
+- Mem0's embedder runs locally and Qdrant is on disk, so neither spends credits. Supermemory is billed by Supermemory, so the ledger records its calls at $0.
+
+## Not done yet
+
+- The smoke test and model pilot have not run, because they need real keys. The Supermemory status polling in `baselines/supermemory/adapter.py` is untested against the live API.
+- Whether `reasoning: {"enabled": false}` actually turns reasoning off for `deepseek/deepseek-v4.1-flash` is unconfirmed. Run `scripts/pilot_models.py` and check `reasoning=0` in its output.
+- Gold labels are drafts. Two annotators still need to label blind (`python -m episodes.annotate export`, then `agree --draft`) and adjudicate before tagging accuracy means anything.
+- Agents drafted 19 of the 20 pairs. Codex and Antigravity reviewed them, and the pairs were revised and reviewed once more by Codex. A human should still read all 20 for naturalness. `tests/test_suite.py` enforces the structural variety (memory position, session length, phrasing, chronology, domains).
+- Known gaps in the suite: thresholds are tested far from their boundaries (no equality cases), the supersession and three-scope pairs are all developer scenarios, and memories are still fairly conspicuous directives. The no-memory shortcut rate per pair is unmeasured until Step 6.

@@ -6,14 +6,14 @@
   "sessions": [
     {
       "session_id": "s1",
-      "order": 1,
+      "order": 2,
       "task_id": "t-sp04-1",
       "active_project": "Project Kestrel",
       "text": "User: Our dispatch API on Project Kestrel is slow and I want to sort out the caching.\nAssistant: Sure. Where is the time going?\nUser: Mostly the database queries, plus some repeated calls to the maps service. I also wonder if we need an index on pickup_zone.\nAssistant: An index on pickup_zone would likely help the lookups. Do you have caching rules for Project Kestrel?\nUser: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.\nAssistant: Noted: on Project Kestrel, no cache and a direct database query when the freshness window is under 5 minutes."
     },
     {
       "session_id": "s2",
-      "order": 2,
+      "order": 1,
       "task_id": "t-sp04-2",
       "active_project": "Project Kestrel",
       "text": "User: Quick aside before we start on Project Kestrel: from now on, in every project, write every code comment in Spanish.\nAssistant: Understood: every code comment in Spanish, in every project. What are we doing on Project Kestrel today?\nUser: The reporting endpoints need caching. On Project Kestrel, default to a 90-second TTL cache.\nAssistant: Got it: a 90-second TTL cache by default on Project Kestrel.\nUser: Thanks, that's all for now."

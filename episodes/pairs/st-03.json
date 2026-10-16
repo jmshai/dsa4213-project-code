@@ -1,113 +1,113 @@
 {
- "pair_id": "st-03",
- "conflict_type": "single_task_override",
- "domain": "plotting library",
- "domain_kind": "developer",
- "sessions": [
-  {
-   "session_id": "s1",
-   "order": 1,
-   "task_id": "t-st03-1",
-   "active_project": null,
-   "text": "User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts.\nAssistant: Sounds good. Any tooling constraints I should keep in mind?\nUser: I go with matplotlib for all my charts.\nAssistant: Matplotlib as your default, noted. Anything else before we start?\nUser: A small thing while I think of it: put units in square brackets in axis labels, like Revenue [USD]."
+  "pair_id": "st-03",
+  "conflict_type": "single_task_override",
+  "domain": "plotting library",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st03-1",
+      "active_project": null,
+      "text": "User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts.\nAssistant: Sounds good. Any tooling constraints I should keep in mind?\nUser: I go with matplotlib for all my charts.\nAssistant: Matplotlib as your default, noted. Anything else before we start?\nUser: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD]."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st03-2",
+      "active_project": "Project Lantern",
+      "text": "User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building.\nAssistant: Understood, plotly for Project Lantern. What does the dashboard cover?\nUser: Vehicle uptime, fuel burn per route, and a map of depot locations.\nAssistant: Those all fit well. Do you want hover tooltips on the line charts?\nUser: Not sure yet. The ops lead hasn't signed off on the depot map.\nAssistant: Understood, the map waits for sign-off."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-st03-3",
+      "active_project": "Project Lantern",
+      "text": "User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck.\nAssistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup?\nUser: It's a slide export with one line per route.\nAssistant: One line per route. What date range?\nUser: January to December 2025, monthly points. The depot map is still on hold, by the way.\nAssistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it?\nUser: Just for this one, use altair for the chart."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "I go with matplotlib for all my charts.",
+      "role": "standing",
+      "decision": "plotting_library",
+      "action": "matplotlib",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "On Project Lantern, use plotly for every chart.",
+      "role": "scoped",
+      "decision": "plotting_library",
+      "action": "plotly",
+      "gold": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s3",
+      "text": "Just for this one, use altair for the chart.",
+      "role": "scoped",
+      "decision": "plotting_library",
+      "action": "altair",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st03-3",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s1",
+      "text": "for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st03-3",
+      "active_project": "Project Lantern",
+      "text": "Still working on the route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "plotting_library",
+      "expected_action": "altair",
+      "expected_memory": "m3",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st03-4",
+      "active_project": "Project Lantern",
+      "text": "Another task, route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "plotting_library",
+      "expected_action": "plotly",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    }
   },
-  {
-   "session_id": "s2",
-   "order": 2,
-   "task_id": "t-st03-2",
-   "active_project": "Project Lantern",
-   "text": "User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building.\nAssistant: Understood, plotly for Project Lantern. What does the dashboard cover?\nUser: Vehicle uptime, fuel burn per route, and a map of depot locations.\nAssistant: Those all fit well. Do you want hover tooltips on the line charts?\nUser: Not sure yet. The ops lead hasn't signed off on the depot map, so let's park that.\nAssistant: Fine, we'll leave the map out until then."
-  },
-  {
-   "session_id": "s3",
-   "order": 3,
-   "task_id": "t-st03-3",
-   "active_project": "Project Lantern",
-   "text": "User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck.\nAssistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup?\nUser: It's a slide export, so one line per route and nothing fancy.\nAssistant: One line per route. What date range?\nUser: January to December 2025, monthly points. The depot map is still on hold, by the way.\nAssistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it?\nUser: Just for this one, use altair for the chart."
-  }
- ],
- "memories": [
-  {
-   "memory_id": "m1",
-   "session_id": "s1",
-   "text": "I go with matplotlib for all my charts.",
-   "role": "standing",
-   "decision": "plotting_library",
-   "action": "matplotlib",
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  },
-  {
-   "memory_id": "m2",
-   "session_id": "s2",
-   "text": "On Project Lantern, use plotly for every chart.",
-   "role": "scoped",
-   "decision": "plotting_library",
-   "action": "plotly",
-   "gold": {
-    "scope": "project",
-    "key": "Project Lantern",
-    "condition": null
-   }
-  },
-  {
-   "memory_id": "m3",
-   "session_id": "s3",
-   "text": "Just for this one, use altair for the chart.",
-   "role": "scoped",
-   "decision": "plotting_library",
-   "action": "altair",
-   "gold": {
-    "scope": "single_task",
-    "key": "t-st03-3",
-    "condition": null
-   }
-  },
-  {
-   "memory_id": "m4",
-   "session_id": "s1",
-   "text": "put units in square brackets in axis labels, like Revenue [USD].",
-   "role": "unrelated",
-   "decision": null,
-   "action": null,
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  }
- ],
- "probes": {
-  "A": {
-   "task_id": "t-st03-3",
-   "active_project": "Project Lantern",
-   "text": "Continue the route fuel cost chart job from earlier on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
-   "facts": {},
-   "in_scope": true,
-   "decision": "plotting_library",
-   "expected_action": "altair",
-   "expected_memory": "m3",
-   "deciding_rule": 2
-  },
-  "B": {
-   "task_id": "t-st03-4",
-   "active_project": "Project Lantern",
-   "text": "New task, route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
-   "facts": {},
-   "in_scope": false,
-   "decision": "plotting_library",
-   "expected_action": "plotly",
-   "expected_memory": "m2",
-   "deciding_rule": 2
-  }
- },
- "retention_checks": [
-  {
-   "memory_id": "m4",
-   "check": "The y-axis label puts the unit in square brackets, for example 'Fuel cost [USD]'"
-  }
- ]
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The y-axis label puts the unit in square brackets, for example 'Fuel cost [USD]'"
+    }
+  ]
 }

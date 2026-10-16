@@ -1,103 +1,103 @@
 {
- "pair_id": "cs-02",
- "conflict_type": "conditional_scope",
- "domain": "status update length by audience",
- "domain_kind": "general",
- "sessions": [
-  {
-   "session_id": "s1",
-   "order": 1,
-   "task_id": "t-cs02-1",
-   "active_project": null,
-   "text": "User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules.\nAssistant: Understood, two sentences per status update. Who do you usually write them for?\nUser: Mostly the rollout team and our department leads.\nAssistant: Good to know. Do you want me to keep a template handy?\nUser: No template. Oh, and write dates as YYYY-MM-DD in anything you draft."
-  },
-  {
-   "session_id": "s2",
-   "order": 2,
-   "task_id": "t-cs02-2",
-   "active_project": "Project Helios",
-   "text": "User: I've just taken over Project Helios, a warehouse robot rollout.\nAssistant: Congratulations. Where do things stand?\nUser: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month.\nAssistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal?\nUser: Not yet, I'll ask when the paperwork arrives. Let's stick to updates for now.\nAssistant: Sure. Who reads the updates?\nUser: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture.\nAssistant: Understood. Helios updates for the board run exactly eight sentences."
-  }
- ],
- "memories": [
-  {
-   "memory_id": "m1",
-   "session_id": "s1",
-   "text": "Default to exactly two sentences for any status update you draft for me.",
-   "role": "standing",
-   "decision": "update_length",
-   "action": "two sentences",
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  },
-  {
-   "memory_id": "m2",
-   "session_id": "s2",
-   "text": "For Project Helios, when the update is for the board, make it exactly eight sentences.",
-   "role": "scoped",
-   "decision": "update_length",
-   "action": "eight sentences",
-   "gold": {
-    "scope": "project",
-    "key": "Project Helios",
-    "condition": "audience == board"
-   }
-  },
-  {
-   "memory_id": "m3",
-   "session_id": "s1",
-   "text": "write dates as YYYY-MM-DD in anything you draft",
-   "role": "unrelated",
-   "decision": null,
-   "action": null,
-   "gold": {
-    "scope": "standing",
-    "key": null,
-    "condition": null
-   }
-  }
- ],
- "probes": {
-  "A": {
-   "task_id": "t-cs02-3",
-   "active_project": "Project Helios",
-   "text": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
-   "facts": {
-    "audience": {
-     "value": "board",
-     "text": "board"
+  "pair_id": "cs-02",
+  "conflict_type": "conditional_scope",
+  "domain": "status update length by audience",
+  "domain_kind": "general",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-cs02-1",
+      "active_project": null,
+      "text": "User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules.\nAssistant: Understood, two sentences per status update. Who do you usually write them for?\nUser: Mostly the rollout team and our department leads.\nAssistant: Good to know. Do you want me to keep a template handy?\nUser: No template. Oh, and write dates as YYYY-MM-DD in anything you draft."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-cs02-2",
+      "active_project": "Project Helios",
+      "text": "User: I've just taken over Project Helios, a warehouse robot rollout.\nAssistant: Congratulations. Where do things stand?\nUser: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month.\nAssistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal?\nUser: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates.\nAssistant: Sure. Who reads the updates?\nUser: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture.\nAssistant: Understood. Helios updates for the board run exactly eight sentences."
     }
-   },
-   "in_scope": true,
-   "decision": "update_length",
-   "expected_action": "eight sentences",
-   "expected_memory": "m2",
-   "deciding_rule": 2
-  },
-  "B": {
-   "task_id": "t-cs02-4",
-   "active_project": "Project Helios",
-   "text": "Draft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
-   "facts": {
-    "audience": {
-     "value": "engineers",
-     "text": "engineers"
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "Default to exactly two sentences for any status update you draft for me.",
+      "role": "standing",
+      "decision": "update_length",
+      "action": "two sentences",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Helios, when the update is for the board, make it exactly eight sentences.",
+      "role": "scoped",
+      "decision": "update_length",
+      "action": "eight sentences",
+      "gold": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "write dates as YYYY-MM-DD in anything you draft",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
     }
-   },
-   "in_scope": false,
-   "decision": "update_length",
-   "expected_action": "two sentences",
-   "expected_memory": "m1",
-   "deciding_rule": 1
-  }
- },
- "retention_checks": [
-  {
-   "memory_id": "m3",
-   "check": "The beta review date appears as 2027-03-14, not as 14 March 2027 or 03/14/2027"
-  }
- ]
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-cs02-3",
+      "active_project": "Project Helios",
+      "text": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+      "facts": {
+        "audience": {
+          "value": "board",
+          "text": "board"
+        }
+      },
+      "in_scope": true,
+      "decision": "update_length",
+      "expected_action": "eight sentences",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-cs02-4",
+      "active_project": "Project Helios",
+      "text": "Draft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+      "facts": {
+        "audience": {
+          "value": "engineers",
+          "text": "engineers"
+        }
+      },
+      "in_scope": false,
+      "decision": "update_length",
+      "expected_action": "two sentences",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The beta review date appears as 2027-03-14, not as 14 March 2027 or 03/14/2027"
+    }
+  ]
 }
