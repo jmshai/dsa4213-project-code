@@ -62,3 +62,49 @@ def test_blind_export_leaks_no_gold_and_identical_labels_agree():
     other = copy.deepcopy(gold)
     other["po-01/m2"]["scope"] = "single_task"
     assert annotate.agreement(gold, other)[1] == [("po-01/m2", "scope", "project", "single_task")]
+
+
+def three_scope_pair():
+    """Standing, project and single_task memories together. B is a new task in the same project, so rule 2 picks the project memory."""
+    mem = lambda i, sid, text, role, scope, key, action: {
+        "memory_id": i, "session_id": sid, "text": text, "role": role, "decision": None if role == "unrelated" else "export_format",
+        "action": None if role == "unrelated" else action, "gold": {"scope": scope, "key": key, "condition": None}}
+    probe = lambda task, text, in_scope, action, memory: {
+        "task_id": task, "active_project": "Project Atlas", "text": text, "facts": {}, "in_scope": in_scope,
+        "decision": "export_format", "expected_action": action, "expected_memory": memory, "deciding_rule": 2}
+    return {
+        "pair_id": "st-99", "conflict_type": "single_task_override", "domain": "export format",
+        "sessions": [
+            {"session_id": "s1", "order": 1, "task_id": "t1", "active_project": None, "text": "User: I prefer exporting tables as parquet.\nAssistant: Noted."},
+            {"session_id": "s2", "order": 2, "task_id": "t2", "active_project": "Project Atlas", "text": "User: On Project Atlas, export tables as csv.\nAssistant: Noted."},
+            {"session_id": "s3", "order": 3, "task_id": "t3", "active_project": "Project Atlas", "text": "User: Back on Project Atlas.\nAssistant: Welcome back.\nUser: This time, export the weekly file as json.\nAssistant: Noted."},
+        ],
+        "memories": [
+            mem("m1", "s1", "I prefer exporting tables as parquet.", "standing", "standing", None, "parquet"),
+            mem("m2", "s2", "On Project Atlas, export tables as csv.", "scoped", "project", "Project Atlas", "csv"),
+            mem("m3", "s3", "This time, export the weekly file as json.", "scoped", "single_task", "t3", "json"),
+            mem("m4", "s1", "Noted.", "unrelated", "standing", None, None),
+        ],
+        "probes": {
+            "A": probe("t3", "Continue the weekly export job from earlier for Project Atlas: write a function that saves the dataframe.", True, "json", "m3"),
+            "B": probe("t4", "New task, weekly export job for Project Atlas: write a function that saves the dataframe.", False, "csv", "m2"),
+        },
+        "retention_checks": [{"memory_id": "m4", "check": "anything"}],
+    }
+
+
+def test_three_scope_variant_is_valid_and_resolves_by_rules_2_and_2():
+    pair = three_scope_pair()
+    assert check_pair(pair) == []
+
+
+def test_three_scope_variant_not_allowed_for_other_types():
+    pair = three_scope_pair()
+    pair["conflict_type"] = "project_override"
+    assert any("needs deciding rules" in e for e in check_pair(pair))
+
+
+def test_probes_must_be_mirrored():
+    def asymmetric(p):
+        p["probes"]["B"]["text"] = "Please write a Python function, in any style you like, that removes duplicate rows from the 5M-row orders table for Project Y using the order_id column as the key."
+    assert any("differ in" in e and "words" in e for e in broken(asymmetric))

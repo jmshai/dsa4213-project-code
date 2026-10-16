@@ -8,6 +8,7 @@ import json
 import operator
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 import jsonschema
@@ -17,11 +18,14 @@ from episodes.loader import PAIRS_DIR
 SCHEMA = json.loads((Path(__file__).parent / "schema.json").read_text())
 SCOPE_RANK = {"single_task": 0, "project": 1, "standing": 2}
 OPS = {">": operator.gt, ">=": operator.ge, "<": operator.lt, "<=": operator.le, "==": operator.eq, "!=": operator.ne}
-# Rule that decides each probe, per conflict type (README: Conflict resolution).
+# Allowed (A, B) deciding rules per conflict type (README: Conflict resolution).
+# single_task_override also allows (2, 2): standing, project and single_task memories together, where probe B is a
+# new task in the same project and the project memory beats the standing one.
 EXPECTED_RULES = {
-    "project_override": (2, 1), "single_task_override": (2, 1), "conditional_scope": (2, 1),
-    "same_scope_supersession": (4, 1), "same_scope_specificity": (3, 1),
+    "project_override": {(2, 1)}, "single_task_override": {(2, 1), (2, 2)}, "conditional_scope": {(2, 1)},
+    "same_scope_supersession": {(4, 1)}, "same_scope_specificity": {(3, 1)},
 }
+MAX_PROBE_WORD_DIFF = 8  # probes A and B may differ in at most this many words
 SAME_TASK_CUE = re.compile(r"\b(continue|continuing|same (task|job)|from earlier|still working on)\b", re.I)
 NEW_TASK_CUE = re.compile(r"\b(new task|different task|separate task|another task|unrelated task|new job|different job)\b", re.I)
 
@@ -68,6 +72,12 @@ def resolve(pair, probe):
     if len(cands) == 1:
         return cands[0]["memory_id"], 4
     raise ValueError(f"tie between {[m['memory_id'] for m in cands]}")
+
+
+def word_diff(a, b):
+    """Number of words that differ between two texts, ignoring case and punctuation."""
+    ca, cb = (Counter(re.findall(r"[a-z0-9$%.-]+", t.lower())) for t in (a, b))
+    return sum(((ca - cb) + (cb - ca)).values())
 
 
 def check_pair(pair):
@@ -131,8 +141,11 @@ def check_pair(pair):
         if mems.get(p["expected_memory"], {}).get("action") != p["expected_action"]:
             errs.append(f"probe {label}: expected_action does not match the action of {p['expected_memory']}")
     want = EXPECTED_RULES[pair["conflict_type"]]
-    if (a["deciding_rule"], b["deciding_rule"]) != want:
-        errs.append(f"{pair['conflict_type']} needs deciding rules {want} for (A, B)")
+    if (a["deciding_rule"], b["deciding_rule"]) not in want:
+        errs.append(f"{pair['conflict_type']} needs deciding rules {sorted(want)} for (A, B)")
+    diff = word_diff(a["text"], b["text"])
+    if diff > MAX_PROBE_WORD_DIFF:
+        errs.append(f"probes A and B differ in {diff} words (max {MAX_PROBE_WORD_DIFF}); they should differ only in the scope variable")
     if pair["conflict_type"] == "single_task_override":
         if not SAME_TASK_CUE.search(a["text"]) or a["task_id"] not in {s["task_id"] for s in pair["sessions"]}:
             errs.append("single_task probe A needs a same-task cue in its text and the memory session's task_id")

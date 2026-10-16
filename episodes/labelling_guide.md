@@ -6,6 +6,8 @@ This file is the prompt for the two scope-layer taggers and the instructions for
 
 Label each **instruction or preference the user states** (one sentence or clause, copied verbatim from the session). Do not label facts, questions, the assistant's replies, or the user's reasons ("because my teammate only knows pandas" is a reason, not a separate memory).
 
+The memory `text` ends where the instruction ends. Leave out "because ..." clauses, so the quoted span is the same kind of thing in every pair. Clauses that do not change what is asked ("please", "if that's okay") are optional.
+
 Each memory gets three fields:
 
 | Field | Values |
@@ -20,10 +22,14 @@ Decide in this order and stop at the first cue that fires.
 
 1. **`single_task`**: the user limits the instruction to the current task. Cues: "this time", "for this one", "just for now", "for this job", "only for this". Key is the task id of the session. If a sentence has both a task cue and a project cue ("for Project X, just this time"), the narrower one wins, so label `single_task`.
 2. **`project`**: the user names a project ("for Project X", "on Project X", "in the Atlas repo"), or says "in this project". Key is the project name as written. A bare instruction in a session whose declared active project is X also counts (see the default below).
-3. **`standing`**: the user generalises. Cues: "always", "in general", "I prefer", "from now on", "by default", "whenever", with no project or task named.
+3. **`standing`**: the user generalises. Cues: "always", "in general", "I prefer", "I tend to", "usually", "most of the time", "from now on", "by default", "whenever", "stick to", "standardize on", "go with", with no project or task named. A hedged cue ("usually", "most of the time") is still a standing preference, so label it like "I prefer".
 4. **No cue at all.** Use the narrowest scope the session context supports: `single_task` if a task is active, otherwise `project` if a project is active, otherwise `standing`. In this suite every session has a task, so an uncued instruction would be `single_task`. Episodes therefore avoid uncued instructions. If you meet one, flag it. It will be rewritten.
 
 A bare "from now on" inside a project session is ambiguous (standing cue, project context). Flag it. It will be rewritten ("from now on, on Project X" or "from now on, everywhere").
+
+### Negative cues
+
+"Never use X" and "don't use X" state the same choice as "use Y instead", so the memory's action is the alternative the same sentence names ("never use unittest, stick to pytest" has action `pytest`). Pairs use a negative cue only when the sentence names the alternative, so the action stays unambiguous. Scope cues work as before: "On Project Atlas, never use unittest" is `project`.
 
 ## Condition
 
@@ -50,6 +56,9 @@ Each session and each probe has a task id. A probe is the same task as a `single
 | "Use Polars for this one." (task t7) | single_task | t7 | null | "for this one". |
 | "For Project X, just this time, write it in R." (task t7) | single_task | t7 | null | Task cue is narrower than the project cue. |
 | "For datasets over 1M rows, I prefer Polars." | standing | null | `rows > 1000000` | Generalised, with a condition. |
+| "I usually write summaries as bullet points." | standing | null | null | Hedged, but it still generalises. |
+| "Never use unittest on Project Atlas, stick to pytest." | project | Project Atlas | null | Negative cue. The action is `pytest`. |
+| "This time, give the amounts in cups." (task t4, active project Lumen, after "On Lumen, use grams" and "I prefer metric") | single_task | t4 | null | Task cue beats the project memory (rule 2), and the project memory beats the standing one for any other Lumen task. |
 | "On Project X, files over 100MB should be parquet." | project | Project X | `size_mb > 100` | Scope and condition are labelled separately. |
 | "Actually, on Project X switch to Polars." (after "on Project X use pandas") | project | Project X | null | Same scope and key as the earlier memory. This is a correction, so the later memory wins. |
 | "On Project X, for datasets over 1M rows, use Polars." (after "on Project X use pandas") | project | Project X | `rows > 1000000` | Adds a condition, so it is a more specific memory, not a correction. |
