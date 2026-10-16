@@ -1,92 +1,113 @@
 {
-  "pair_id": "st-04",
-  "conflict_type": "single_task_override",
-  "domain": "SQL style",
-  "sessions": [
-    {
-      "session_id": "s1",
-      "order": 1,
-      "task_id": "t-st04-1",
-      "active_project": null,
-      "text": "User: I'll be sending you a lot of SQL questions this quarter.\nAssistant: Happy to help. Any defaults for how I write the queries?\nUser: I prefer CTEs over nested subqueries in SQL. Also, always finish your answers with an Assumptions: line.\nAssistant: Noted. I'll structure queries with CTEs and finish each answer with an Assumptions: line.\nUser: Thanks. That's everything for now."
-    },
-    {
-      "session_id": "s2",
-      "order": 2,
-      "task_id": "t-st04-2",
-      "active_project": null,
-      "text": "User: I'm working on the quarterly revenue query for the reporting tool.\nAssistant: Okay. Anything I should know about the tool?\nUser: Just this time, write the quarterly revenue query with nested subqueries, because the reporting tool can't parse WITH clauses.\nAssistant: Understood. I'll use nested subqueries for the quarterly revenue query.\nUser: Great. We'll pick that job up again later."
-    }
-  ],
-  "memories": [
-    {
-      "memory_id": "m1",
-      "session_id": "s1",
-      "text": "I prefer CTEs over nested subqueries in SQL.",
-      "role": "standing",
-      "decision": "sql_style",
-      "action": "ctes",
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    },
-    {
-      "memory_id": "m2",
-      "session_id": "s2",
-      "text": "Just this time, write the quarterly revenue query with nested subqueries",
-      "role": "scoped",
-      "decision": "sql_style",
-      "action": "subqueries",
-      "gold": {
-        "scope": "single_task",
-        "key": "t-st04-2",
-        "condition": null
-      }
-    },
-    {
-      "memory_id": "m3",
-      "session_id": "s1",
-      "text": "always finish your answers with an Assumptions: line",
-      "role": "unrelated",
-      "decision": null,
-      "action": null,
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    }
-  ],
-  "probes": {
-    "A": {
-      "task_id": "t-st04-2",
-      "active_project": null,
-      "text": "Continue the quarterly revenue query job from earlier: write a SQL query that returns the top 3 products by revenue in each region from sales(region, product, revenue).",
-      "facts": {},
-      "in_scope": true,
-      "decision": "sql_style",
-      "expected_action": "subqueries",
-      "expected_memory": "m2",
-      "deciding_rule": 2
-    },
-    "B": {
-      "task_id": "t-st04-3",
-      "active_project": null,
-      "text": "New task: write a SQL query that returns the top 3 products by revenue in each region from sales(region, product, revenue).",
-      "facts": {},
-      "in_scope": false,
-      "decision": "sql_style",
-      "expected_action": "ctes",
-      "expected_memory": "m1",
-      "deciding_rule": 1
-    }
+ "pair_id": "st-04",
+ "conflict_type": "single_task_override",
+ "domain": "SQL query structure",
+ "domain_kind": "developer",
+ "sessions": [
+  {
+   "session_id": "s1",
+   "order": 1,
+   "task_id": "t-st04-1",
+   "active_project": null,
+   "text": "User: Quick style note before anything else: write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today.\nAssistant: Comma-first it is. Which queries are we starting with?\nUser: The weekly signups report and the churn rollup, both against the warehouse.\nAssistant: Do you want me to keep their structure or restructure them?\nUser: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight.\nAssistant: Inline subqueries as your default, understood. Send them whenever you're ready."
   },
-  "retention_checks": [
-    {
-      "memory_id": "m3",
-      "check": "The agent's answer ends with a line starting with Assumptions:"
-    }
-  ]
+  {
+   "session_id": "s2",
+   "order": 2,
+   "task_id": "t-st04-2",
+   "active_project": "Project Marlin",
+   "text": "User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse.\nAssistant: Nice. Any conventions I should follow in the SQL?\nUser: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them.\nAssistant: Understood. On Project Marlin I'll use CTEs and no subqueries.\nUser: Great. The first queries come next week."
+  },
+  {
+   "session_id": "s3",
+   "order": 3,
+   "task_id": "t-st04-3",
+   "active_project": "Project Marlin",
+   "text": "User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries.\nAssistant: Views for this one, then. What is the query computing?\nUser: The average sale revenue per region, and which regions sit above the overall average.\nAssistant: Got it. Send the table definition when you have it."
+  }
+ ],
+ "memories": [
+  {
+   "memory_id": "m1",
+   "session_id": "s1",
+   "text": "I standardize on inline subqueries for multi-step SQL.",
+   "role": "standing",
+   "decision": "sql_style",
+   "action": "subqueries",
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  },
+  {
+   "memory_id": "m2",
+   "session_id": "s2",
+   "text": "On Project Marlin, never use subqueries, use CTEs.",
+   "role": "scoped",
+   "decision": "sql_style",
+   "action": "ctes",
+   "gold": {
+    "scope": "project",
+    "key": "Project Marlin",
+    "condition": null
+   }
+  },
+  {
+   "memory_id": "m3",
+   "session_id": "s3",
+   "text": "For this one, build it with views instead of CTEs or subqueries.",
+   "role": "scoped",
+   "decision": "sql_style",
+   "action": "views",
+   "gold": {
+    "scope": "single_task",
+    "key": "t-st04-3",
+    "condition": null
+   }
+  },
+  {
+   "memory_id": "m4",
+   "session_id": "s1",
+   "text": "write select lists comma-first, with the comma at the start of each line.",
+   "role": "unrelated",
+   "decision": null,
+   "action": null,
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  }
+ ],
+ "probes": {
+  "A": {
+   "task_id": "t-st04-3",
+   "active_project": "Project Marlin",
+   "text": "Continue the regional revenue job from earlier on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+   "facts": {},
+   "in_scope": true,
+   "decision": "sql_style",
+   "expected_action": "views",
+   "expected_memory": "m3",
+   "deciding_rule": 2
+  },
+  "B": {
+   "task_id": "t-st04-4",
+   "active_project": "Project Marlin",
+   "text": "New task, regional revenue job on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+   "facts": {},
+   "in_scope": false,
+   "decision": "sql_style",
+   "expected_action": "ctes",
+   "expected_memory": "m2",
+   "deciding_rule": 2
+  }
+ },
+ "retention_checks": [
+  {
+   "memory_id": "m4",
+   "check": "In every SELECT list, the second and later columns sit on their own line starting with a comma"
+  }
+ ]
 }

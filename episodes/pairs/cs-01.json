@@ -1,102 +1,103 @@
 {
-  "pair_id": "cs-01",
-  "conflict_type": "conditional_scope",
-  "domain": "storage format by file size",
-  "sessions": [
-    {
-      "session_id": "s1",
-      "order": 1,
-      "task_id": "t-cs01-1",
-      "active_project": null,
-      "text": "User: I'm tidying up how our team exports telemetry data. Any suggestions?\nAssistant: Happy to help. Do you have a preferred storage format?\nUser: In general, I prefer storing exports as CSV. Also, always end your replies with the line \"Happy shipping!\".\nAssistant: Noted. I'll default to CSV and close each reply with that line.\nUser: Thanks, that's all for now."
-    },
-    {
-      "session_id": "s2",
-      "order": 2,
-      "task_id": "t-cs01-2",
-      "active_project": "Project Atlas",
-      "text": "User: I'm kicking off Project Atlas, a telemetry archive for the ops team.\nAssistant: Sounds good. Any storage constraints I should know about?\nUser: For Project Atlas, files over 100MB should be stored as parquet because the archive gets queried by Spark.\nAssistant: Understood. For Project Atlas, files over 100MB go to parquet.\nUser: Great. Let's pick this up next time."
-    }
-  ],
-  "memories": [
-    {
-      "memory_id": "m1",
-      "session_id": "s1",
-      "text": "In general, I prefer storing exports as CSV.",
-      "role": "standing",
-      "decision": "storage_format",
-      "action": "csv",
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    },
-    {
-      "memory_id": "m2",
-      "session_id": "s2",
-      "text": "For Project Atlas, files over 100MB should be stored as parquet",
-      "role": "scoped",
-      "decision": "storage_format",
-      "action": "parquet",
-      "gold": {
-        "scope": "project",
-        "key": "Project Atlas",
-        "condition": "size_mb > 100"
-      }
-    },
-    {
-      "memory_id": "m3",
-      "session_id": "s1",
-      "text": "always end your replies with the line \"Happy shipping!\"",
-      "role": "unrelated",
-      "decision": null,
-      "action": null,
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    }
-  ],
-  "probes": {
-    "A": {
-      "task_id": "t-cs01-3",
-      "active_project": "Project Atlas",
-      "text": "Write a Python function that saves the 250MB telemetry export for Project Atlas to disk.",
-      "facts": {
-        "size_mb": {
-          "value": 250,
-          "text": "250MB"
-        }
-      },
-      "in_scope": true,
-      "decision": "storage_format",
-      "expected_action": "parquet",
-      "expected_memory": "m2",
-      "deciding_rule": 2
-    },
-    "B": {
-      "task_id": "t-cs01-4",
-      "active_project": "Project Atlas",
-      "text": "Write a Python function that saves the 30MB telemetry export for Project Atlas to disk.",
-      "facts": {
-        "size_mb": {
-          "value": 30,
-          "text": "30MB"
-        }
-      },
-      "in_scope": false,
-      "decision": "storage_format",
-      "expected_action": "csv",
-      "expected_memory": "m1",
-      "deciding_rule": 1
-    }
+ "pair_id": "cs-01",
+ "conflict_type": "conditional_scope",
+ "domain": "storage format by file size",
+ "domain_kind": "developer",
+ "sessions": [
+  {
+   "session_id": "s1",
+   "order": 1,
+   "task_id": "t-cs01-1",
+   "active_project": "Project Marlin",
+   "text": "User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet.\nAssistant: Sounds good. What are you tackling first?\nUser: Mostly the ingestion cron job. It keeps timing out on the Monday run.\nAssistant: Timeouts on one weekday usually point to load. We can dig into that later. Anything about how the exported files should look?\nUser: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool.\nAssistant: Understood. Marlin exports over 100MB go out as Feather files.\nUser: Thanks, the ingest job is next time."
   },
-  "retention_checks": [
-    {
-      "memory_id": "m3",
-      "check": "The reply ends with the exact line \"Happy shipping!\""
+  {
+   "session_id": "s2",
+   "order": 2,
+   "task_id": "t-cs01-2",
+   "active_project": null,
+   "text": "User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write.\nAssistant: Fair point, pathlib.Path from here on. What are we working on?\nUser: Cleaning up our export scripts. Standardize on JSON Lines for exports in general.\nAssistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts?\nUser: Not today, thanks. That's all for now."
+  }
+ ],
+ "memories": [
+  {
+   "memory_id": "m1",
+   "session_id": "s2",
+   "text": "Standardize on JSON Lines for exports in general.",
+   "role": "standing",
+   "decision": "storage_format",
+   "action": "jsonl",
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  },
+  {
+   "memory_id": "m2",
+   "session_id": "s1",
+   "text": "On Project Marlin, make anything over 100MB a Feather file.",
+   "role": "scoped",
+   "decision": "storage_format",
+   "action": "feather",
+   "gold": {
+    "scope": "project",
+    "key": "Project Marlin",
+    "condition": "size_mb > 100"
+   }
+  },
+  {
+   "memory_id": "m3",
+   "session_id": "s2",
+   "text": "Use pathlib.Path for file paths in any code you write.",
+   "role": "unrelated",
+   "decision": null,
+   "action": null,
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  }
+ ],
+ "probes": {
+  "A": {
+   "task_id": "t-cs01-3",
+   "active_project": "Project Marlin",
+   "text": "Write a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+   "facts": {
+    "size_mb": {
+     "value": 250,
+     "text": "250MB"
     }
-  ]
+   },
+   "in_scope": true,
+   "decision": "storage_format",
+   "expected_action": "feather",
+   "expected_memory": "m2",
+   "deciding_rule": 2
+  },
+  "B": {
+   "task_id": "t-cs01-4",
+   "active_project": "Project Marlin",
+   "text": "Write a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+   "facts": {
+    "size_mb": {
+     "value": 30,
+     "text": "30MB"
+    }
+   },
+   "in_scope": false,
+   "decision": "storage_format",
+   "expected_action": "jsonl",
+   "expected_memory": "m1",
+   "deciding_rule": 1
+  }
+ },
+ "retention_checks": [
+  {
+   "memory_id": "m3",
+   "check": "The function builds and uses the output path with pathlib.Path (for example Path(out_dir) / name) and never calls os.path"
+  }
+ ]
 }

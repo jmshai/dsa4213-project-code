@@ -2,36 +2,102 @@
   "pair_id": "po-01",
   "conflict_type": "project_override",
   "domain": "dataframe library",
+  "domain_kind": "developer",
   "sessions": [
     {
-      "session_id": "s1", "order": 1, "task_id": "t-po01-1", "active_project": null,
-      "text": "User: Can you help me clean up a customer export? It has duplicate rows.\nAssistant: Sure. How big is the file, and do you have a preferred library?\nUser: For datasets over 1M rows, I prefer Polars. Also, always add type hints to Python functions.\nAssistant: Got it. I'll default to Polars for datasets over 1M rows and I'll add type hints to every function.\nUser: Great, thanks. That's all for now."
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-po01-1",
+      "active_project": "Project Marlin",
+      "text": "User: I'm kicking off Project Marlin, a nightly sales rollup for the finance team. For Project Marlin, use pandas. My teammate only knows pandas.\nAssistant: Understood, pandas for Marlin. What does the first job look like?\nUser: It reads a CSV with an order_date column written day/month/year. How should I parse those dates?\nAssistant: Tell the parser the day comes first, for example with dayfirst=True, and then check a few rows around the 12th of each month.\nUser: That works. I'll come back with the next job."
     },
     {
-      "session_id": "s2", "order": 2, "task_id": "t-po01-2", "active_project": "Project X",
-      "text": "User: I'm starting on Project X, a reporting pipeline for the finance team.\nAssistant: Nice. Anything I should know about the setup?\nUser: For Project X, use pandas because my teammate only knows pandas.\nAssistant: Understood. For Project X I'll use pandas.\nUser: Perfect. Let's get going next time."
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-po01-2",
+      "active_project": null,
+      "text": "User: Our load script reads a big CSV and takes ages. Any quick wins?\nAssistant: Read only the columns you need and give the parser explicit column types. Here is a sketch: def load(path): return read_csv(path, usecols=['id', 'total'])\nUser: That snippet had no type hints. Whenever you write a function for me, give every parameter and the return value a type hint.\nAssistant: Sorry about that. From here on every function I write will have type hints on its parameters and its return value.\nUser: On the library question, I usually go with Polars when a dataset is over 1M rows.\nAssistant: Got it. I'll keep that in mind for large datasets.\nUser: Thanks, that's all for now."
     }
   ],
   "memories": [
-    {"memory_id": "m1", "session_id": "s1", "text": "For datasets over 1M rows, I prefer Polars.", "role": "standing", "decision": "dataframe_library", "action": "polars", "gold": {"scope": "standing", "key": null, "condition": "rows > 1000000"}},
-    {"memory_id": "m2", "session_id": "s2", "text": "For Project X, use pandas because my teammate only knows pandas.", "role": "scoped", "decision": "dataframe_library", "action": "pandas", "gold": {"scope": "project", "key": "Project X", "condition": null}},
-    {"memory_id": "m3", "session_id": "s1", "text": "always add type hints to Python functions", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "I usually go with Polars when a dataset is over 1M rows.",
+      "role": "standing",
+      "decision": "dataframe_library",
+      "action": "polars",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": "rows > 1000000"
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "For Project Marlin, use pandas.",
+      "role": "scoped",
+      "decision": "dataframe_library",
+      "action": "pandas",
+      "gold": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "Whenever you write a function for me, give every parameter and the return value a type hint.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
   ],
   "probes": {
     "A": {
-      "task_id": "t-po01-3", "active_project": "Project X",
-      "text": "Write a Python function that deduplicates the 5M-row orders table for Project X by order_id.",
-      "facts": {"rows": {"value": 5000000, "text": "5M-row"}},
-      "in_scope": true, "decision": "dataframe_library", "expected_action": "pandas", "expected_memory": "m2", "deciding_rule": 2
+      "task_id": "t-po01-3",
+      "active_project": "Project Marlin",
+      "text": "Write a Python function that deduplicates the 5M-row orders table for Project Marlin by order_id, keeping the row with the latest updated_at, and returns the cleaned dataframe.",
+      "facts": {
+        "rows": {
+          "value": 5000000,
+          "text": "5M-row"
+        }
+      },
+      "in_scope": true,
+      "decision": "dataframe_library",
+      "expected_action": "pandas",
+      "expected_memory": "m2",
+      "deciding_rule": 2
     },
     "B": {
-      "task_id": "t-po01-4", "active_project": "Project Y",
-      "text": "Write a Python function that deduplicates the 5M-row orders table for Project Y by order_id.",
-      "facts": {"rows": {"value": 5000000, "text": "5M-row"}},
-      "in_scope": false, "decision": "dataframe_library", "expected_action": "polars", "expected_memory": "m1", "deciding_rule": 1
+      "task_id": "t-po01-4",
+      "active_project": "Project Tern",
+      "text": "Write a Python function that deduplicates the 5M-row orders table for Project Tern by order_id, keeping the row with the latest updated_at, and returns the cleaned dataframe.",
+      "facts": {
+        "rows": {
+          "value": 5000000,
+          "text": "5M-row"
+        }
+      },
+      "in_scope": false,
+      "decision": "dataframe_library",
+      "expected_action": "polars",
+      "expected_memory": "m1",
+      "deciding_rule": 1
     }
   },
   "retention_checks": [
-    {"memory_id": "m3", "check": "Every function in the agent's code has type hints on its parameters and return value"}
+    {
+      "memory_id": "m3",
+      "check": "The function in the agent's code has a type hint on every parameter and on the return value"
+    }
   ]
 }

@@ -1,54 +1,55 @@
 {
   "pair_id": "sp-04",
   "conflict_type": "same_scope_specificity",
-  "domain": "cache policy by data freshness",
+  "domain": "cache policy by freshness window",
+  "domain_kind": "developer",
   "sessions": [
     {
       "session_id": "s1",
       "order": 1,
       "task_id": "t-sp04-1",
-      "active_project": null,
-      "text": "User: Our dispatch API is slow and I want to sort out caching.\nAssistant: Sure. What are your caching preferences?\nUser: In general, when the freshness window is under 5 minutes, I prefer skipping the cache and hitting the database directly. Also, always add type hints to Python functions.\nAssistant: Got it: no cache for freshness windows under 5 minutes, and type hints on every function.\nUser: Good. I'll share the endpoint code later."
+      "active_project": "Project Kestrel",
+      "text": "User: Our dispatch API on Project Kestrel is slow and I want to sort out the caching.\nAssistant: Sure. Where is the time going?\nUser: Mostly the database queries, plus some repeated calls to the maps service. I also wonder if we need an index on pickup_zone.\nAssistant: An index on pickup_zone would likely help the lookups. Do you have caching rules for Project Kestrel?\nUser: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.\nAssistant: Noted: on Project Kestrel, no cache and a direct database query when the freshness window is under 5 minutes."
     },
     {
       "session_id": "s2",
       "order": 2,
       "task_id": "t-sp04-2",
-      "active_project": null,
-      "text": "User: Separate topic: the reporting service needs some tuning.\nAssistant: Okay. Any caching defaults I should know about?\nUser: I prefer a 10-minute cache TTL by default. It keeps load down without going stale.\nAssistant: Noted, a 10-minute cache TTL by default.\nUser: Thanks, that's all for now."
+      "active_project": "Project Kestrel",
+      "text": "User: Quick aside before we start on Project Kestrel: from now on, in every project, write every code comment in Spanish.\nAssistant: Understood: every code comment in Spanish, in every project. What are we doing on Project Kestrel today?\nUser: The reporting endpoints need caching. On Project Kestrel, default to a 90-second TTL cache.\nAssistant: Got it: a 90-second TTL cache by default on Project Kestrel.\nUser: Thanks, that's all for now."
     }
   ],
   "memories": [
     {
       "memory_id": "m1",
       "session_id": "s2",
-      "text": "I prefer a 10-minute cache TTL by default.",
-      "role": "standing",
+      "text": "On Project Kestrel, default to a 90-second TTL cache",
+      "role": "scoped",
       "decision": "cache_policy",
-      "action": "10-minute ttl",
+      "action": "90-second ttl cache",
       "gold": {
-        "scope": "standing",
-        "key": null,
+        "scope": "project",
+        "key": "Project Kestrel",
         "condition": null
       }
     },
     {
       "memory_id": "m2",
       "session_id": "s1",
-      "text": "In general, when the freshness window is under 5 minutes, I prefer skipping the cache and hitting the database directly.",
-      "role": "standing",
+      "text": "On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly",
+      "role": "scoped",
       "decision": "cache_policy",
       "action": "no cache",
       "gold": {
-        "scope": "standing",
-        "key": null,
+        "scope": "project",
+        "key": "Project Kestrel",
         "condition": "ttl_minutes < 5"
       }
     },
     {
       "memory_id": "m3",
-      "session_id": "s1",
-      "text": "always add type hints to Python functions",
+      "session_id": "s2",
+      "text": "from now on, in every project, write every code comment in Spanish",
       "role": "unrelated",
       "decision": null,
       "action": null,
@@ -62,8 +63,8 @@
   "probes": {
     "A": {
       "task_id": "t-sp04-3",
-      "active_project": null,
-      "text": "Write a Python function get_pickup_estimates() for our dispatch API. The freshness window is 2 minutes. Add whatever caching policy fits and name it in a comment.",
+      "active_project": "Project Kestrel",
+      "text": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 2 minutes. Pick the caching policy and state it in a one-line comment.",
       "facts": {
         "ttl_minutes": {
           "value": 2,
@@ -78,8 +79,8 @@
     },
     "B": {
       "task_id": "t-sp04-4",
-      "active_project": null,
-      "text": "Write a Python function get_pickup_estimates() for our dispatch API. The freshness window is 30 minutes. Add whatever caching policy fits and name it in a comment.",
+      "active_project": "Project Kestrel",
+      "text": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.",
       "facts": {
         "ttl_minutes": {
           "value": 30,
@@ -88,7 +89,7 @@
       },
       "in_scope": false,
       "decision": "cache_policy",
-      "expected_action": "10-minute ttl",
+      "expected_action": "90-second ttl cache",
       "expected_memory": "m1",
       "deciding_rule": 1
     }
@@ -96,7 +97,7 @@
   "retention_checks": [
     {
       "memory_id": "m3",
-      "check": "Every Python function in the agent's code has type hints on its parameters and return value"
+      "check": "The policy comment (and any other code comment) in the agent's function is written in Spanish"
     }
   ]
 }

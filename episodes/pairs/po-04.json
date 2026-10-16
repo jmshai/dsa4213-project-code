@@ -1,37 +1,93 @@
 {
   "pair_id": "po-04",
   "conflict_type": "project_override",
-  "domain": "deployment target",
+  "domain": "citation style",
+  "domain_kind": "general",
   "sessions": [
     {
-      "session_id": "s1", "order": 1, "task_id": "t-po04-1", "active_project": null,
-      "text": "User: I'm sketching how to host a few small internal services and I keep going back and forth on the platform.\nAssistant: That depends on the load. Do you have a rule of thumb, and anything about how you want my answers laid out?\nUser: When a service handles under 100 requests per minute, I prefer serverless functions over containers. Also, always end with a line starting with 'Watch out:' that names the main operational risk.\nAssistant: Understood. I'll lean serverless for low-traffic services and close each answer with a Watch out line.\nUser: Thanks, that covers it for today."
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-po04-1",
+      "active_project": null,
+      "text": "User: I'm setting ground rules for the essays you'll help me with this term. Standardize on APA 7 for citations in anything I write.\nAssistant: Understood. I'll use APA 7 for citations. What is the first essay?\nUser: A 1,500-word essay on urban heat islands. How should I structure the introduction?\nAssistant: Open with the problem and one concrete number, narrow to the question your essay answers, then end the introduction with your thesis statement.\nUser: Sounds good. One more thing: by default, keep any explanation you give me to exactly two sentences."
     },
     {
-      "session_id": "s2", "order": 2, "task_id": "t-po04-2", "active_project": "Project Orion",
-      "text": "User: Project Orion is our new order-sync platform, and the ops team already runs a Kubernetes cluster for it.\nAssistant: Good to know. Is there a deployment convention I should follow?\nUser: For Project Orion, deploy services as containers. Ops only supports the cluster.\nAssistant: Understood. For Project Orion I'll plan every service as a container image on the cluster.\nUser: Great. Let's pick this up next time."
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-po04-2",
+      "active_project": "Project Lumen",
+      "text": "User: I'm starting my Project Lumen thesis on coastal erosion policy. It's a long document with a lot of sources.\nAssistant: That sounds substantial. Is there a formatting requirement for the sources?\nUser: For the Project Lumen thesis, use Chicago notes-bibliography. My supervisor insists on it.\nAssistant: Understood. For the Project Lumen thesis I'll use Chicago notes-bibliography.\nUser: Different question: roughly how long should the literature review chapter be in a 20,000-word thesis?\nAssistant: Most theses give it 15 to 25 percent of the total, so about 3,000 to 5,000 words."
     }
   ],
   "memories": [
-    {"memory_id": "m1", "session_id": "s1", "text": "When a service handles under 100 requests per minute, I prefer serverless functions over containers.", "role": "standing", "decision": "deployment_target", "action": "serverless", "gold": {"scope": "standing", "key": null, "condition": "requests_per_minute < 100"}},
-    {"memory_id": "m2", "session_id": "s2", "text": "For Project Orion, deploy services as containers.", "role": "scoped", "decision": "deployment_target", "action": "containers", "gold": {"scope": "project", "key": "Project Orion", "condition": null}},
-    {"memory_id": "m3", "session_id": "s1", "text": "always end with a line starting with 'Watch out:' that names the main operational risk", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "Standardize on APA 7 for citations in anything I write.",
+      "role": "standing",
+      "decision": "citation_style",
+      "action": "apa",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "role": "scoped",
+      "decision": "citation_style",
+      "action": "chicago",
+      "gold": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "by default, keep any explanation you give me to exactly two sentences.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
   ],
   "probes": {
     "A": {
-      "task_id": "t-po04-3", "active_project": "Project Orion",
-      "text": "Where should I deploy the new 20-requests-per-minute webhook receiver for Project Orion? Name the platform and outline the deployment steps.",
-      "facts": {"requests_per_minute": {"value": 20, "text": "20-requests-per-minute"}},
-      "in_scope": true, "decision": "deployment_target", "expected_action": "containers", "expected_memory": "m2", "deciding_rule": 2
+      "task_id": "t-po04-3",
+      "active_project": "Project Lumen",
+      "text": "For Project Lumen, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "citation_style",
+      "expected_action": "chicago",
+      "expected_memory": "m2",
+      "deciding_rule": 2
     },
     "B": {
-      "task_id": "t-po04-4", "active_project": "Project Vega",
-      "text": "Where should I deploy the new 20-requests-per-minute webhook receiver for Project Vega? Name the platform and outline the deployment steps.",
-      "facts": {"requests_per_minute": {"value": 20, "text": "20-requests-per-minute"}},
-      "in_scope": false, "decision": "deployment_target", "expected_action": "serverless", "expected_memory": "m1", "deciding_rule": 1
+      "task_id": "t-po04-4",
+      "active_project": "Project Sable",
+      "text": "For Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "citation_style",
+      "expected_action": "apa",
+      "expected_memory": "m1",
+      "deciding_rule": 1
     }
   },
   "retention_checks": [
-    {"memory_id": "m3", "check": "The agent's answer ends with a line starting with 'Watch out:' that names the main operational risk"}
+    {
+      "memory_id": "m3",
+      "check": "The formatting note in the agent's answer is exactly two sentences"
+    }
   ]
 }

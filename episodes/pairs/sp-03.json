@@ -1,31 +1,32 @@
 {
   "pair_id": "sp-03",
   "conflict_type": "same_scope_specificity",
-  "domain": "code review depth by diff size",
+  "domain": "event thank-you channel by guest count",
+  "domain_kind": "general",
   "sessions": [
     {
       "session_id": "s1",
       "order": 1,
       "task_id": "t-sp03-1",
       "active_project": null,
-      "text": "User: I've got a stack of pull requests waiting on me and I need a review routine.\nAssistant: Happy to help. How thorough do you want me to be?\nUser: In general, when a diff is over 500 lines, I prefer a high-level review of design and risk areas. Also, always start your answer with the heading '## Summary'.\nAssistant: Understood: high-level review for big diffs, and every answer starts with '## Summary'.\nUser: Thanks. I'll send the first diff soon."
+      "text": "User: I'm planning my aunt's retirement party and a few other family events this year.\nAssistant: Nice. What do you need help with first?\nUser: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list?\nAssistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling.\nUser: Good to know. I also keep losing track of who has replied.\nAssistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events?\nUser: Whenever an event has more than 50 guests, I'd rather post one thank-you in the family WhatsApp group.\nAssistant: Noted: for events with more than 50 guests, one thank-you post in the family WhatsApp group."
     },
     {
       "session_id": "s2",
       "order": 2,
       "task_id": "t-sp03-2",
       "active_project": null,
-      "text": "User: Unrelated: we're tightening up how the team reviews code.\nAssistant: Sounds good. What's your usual preference?\nUser: I prefer a line-by-line review by default. Small mistakes slip through otherwise.\nAssistant: Noted, line-by-line review by default.\nUser: That's all for now."
+      "text": "User: Different event now, my cousin's wedding shower. In general, I stick to handwritten postcards for event thank-yous.\nAssistant: Handwritten postcards for event thank-yous, noted. Anything else?\nUser: One thing I keep forgetting: write every date in ISO format, like 2026-03-04.\nAssistant: Got it, ISO dates everywhere.\nUser: That's everything for now."
     }
   ],
   "memories": [
     {
       "memory_id": "m1",
       "session_id": "s2",
-      "text": "I prefer a line-by-line review by default.",
+      "text": "In general, I stick to handwritten postcards for event thank-yous",
       "role": "standing",
-      "decision": "review_depth",
-      "action": "line-by-line",
+      "decision": "thank_you_channel",
+      "action": "handwritten postcards",
       "gold": {
         "scope": "standing",
         "key": null,
@@ -35,20 +36,20 @@
     {
       "memory_id": "m2",
       "session_id": "s1",
-      "text": "In general, when a diff is over 500 lines, I prefer a high-level review of design and risk areas.",
+      "text": "Whenever an event has more than 50 guests, I'd rather post one thank-you in the family WhatsApp group",
       "role": "standing",
-      "decision": "review_depth",
-      "action": "high-level",
+      "decision": "thank_you_channel",
+      "action": "whatsapp group post",
       "gold": {
         "scope": "standing",
         "key": null,
-        "condition": "diff_lines > 500"
+        "condition": "guests > 50"
       }
     },
     {
       "memory_id": "m3",
-      "session_id": "s1",
-      "text": "always start your answer with the heading '## Summary'",
+      "session_id": "s2",
+      "text": "write every date in ISO format, like 2026-03-04",
       "role": "unrelated",
       "decision": null,
       "action": null,
@@ -63,32 +64,32 @@
     "A": {
       "task_id": "t-sp03-3",
       "active_project": null,
-      "text": "I'm about to send you a diff of 800 lines for the billing-retry change. Describe how you will review it and write the opening of your review.",
+      "text": "My aunt's 80-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
       "facts": {
-        "diff_lines": {
-          "value": 800,
-          "text": "800 lines"
+        "guests": {
+          "value": 80,
+          "text": "80-guest"
         }
       },
       "in_scope": true,
-      "decision": "review_depth",
-      "expected_action": "high-level",
+      "decision": "thank_you_channel",
+      "expected_action": "whatsapp group post",
       "expected_memory": "m2",
       "deciding_rule": 3
     },
     "B": {
       "task_id": "t-sp03-4",
       "active_project": null,
-      "text": "I'm about to send you a diff of 120 lines for the billing-retry change. Describe how you will review it and write the opening of your review.",
+      "text": "My aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
       "facts": {
-        "diff_lines": {
-          "value": 120,
-          "text": "120 lines"
+        "guests": {
+          "value": 30,
+          "text": "30-guest"
         }
       },
       "in_scope": false,
-      "decision": "review_depth",
-      "expected_action": "line-by-line",
+      "decision": "thank_you_channel",
+      "expected_action": "handwritten postcards",
       "expected_memory": "m1",
       "deciding_rule": 1
     }
@@ -96,7 +97,7 @@
   "retention_checks": [
     {
       "memory_id": "m3",
-      "check": "The agent's answer begins with the heading '## Summary'"
+      "check": "The one-line reminder writes the party date as 2026-06-12, not '12 June 2026'"
     }
   ]
 }

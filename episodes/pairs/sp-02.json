@@ -1,31 +1,32 @@
 {
   "pair_id": "sp-02",
   "conflict_type": "same_scope_specificity",
-  "domain": "writing tone by audience",
+  "domain": "email greeting by recipient",
+  "domain_kind": "general",
   "sessions": [
     {
       "session_id": "s1",
       "order": 1,
       "task_id": "t-sp02-1",
       "active_project": null,
-      "text": "User: I have a pile of replies to write this week and I'm behind.\nAssistant: Let's get through them. Any style preferences I should remember?\nUser: In general, when I'm writing for a customer, I prefer a warm and friendly tone. Also, always sign off with the line 'Best, Sam'.\nAssistant: Got it: warm and friendly for customers, and every message ends with 'Best, Sam'.\nUser: Perfect. Let's start on the replies next time."
+      "text": "User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line.\nAssistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile?\nUser: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'.\nAssistant: Understood: for neighbours the first line is 'Hey there,'.\nUser: Thanks. I'll send the first one soon."
     },
     {
       "session_id": "s2",
       "order": 2,
       "task_id": "t-sp02-2",
       "active_project": null,
-      "text": "User: Separate thing: I'm drafting some documentation.\nAssistant: Okay. Do you have a preferred style for it?\nUser: I prefer a formal, concise tone by default. Long preambles waste people's time.\nAssistant: Understood, formal and concise by default.\nUser: Thanks, that's all for now."
+      "text": "User: Separate thing: I'm sorting out my inbox and some old drafts.\nAssistant: Okay. Anything about how you want the replies to open?\nUser: Quick question first: how long is it polite to wait before sending a reminder?\nAssistant: A week is usually fine for non-urgent matters, a few days if there's a deadline.\nUser: By default, open every email with 'To whom it may concern,'.\nAssistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise.\nUser: Thanks, that's all for now."
     }
   ],
   "memories": [
     {
       "memory_id": "m1",
       "session_id": "s2",
-      "text": "I prefer a formal, concise tone by default.",
+      "text": "By default, open every email with 'To whom it may concern,'",
       "role": "standing",
-      "decision": "writing_tone",
-      "action": "formal",
+      "decision": "email_greeting",
+      "action": "to whom it may concern",
       "gold": {
         "scope": "standing",
         "key": null,
@@ -35,20 +36,20 @@
     {
       "memory_id": "m2",
       "session_id": "s1",
-      "text": "In general, when I'm writing for a customer, I prefer a warm and friendly tone.",
+      "text": "From now on, when I write to a neighbour, make the first line 'Hey there,'",
       "role": "standing",
-      "decision": "writing_tone",
-      "action": "friendly",
+      "decision": "email_greeting",
+      "action": "hey there",
       "gold": {
         "scope": "standing",
         "key": null,
-        "condition": "audience == customer"
+        "condition": "audience == neighbour"
       }
     },
     {
       "memory_id": "m3",
       "session_id": "s1",
-      "text": "always sign off with the line 'Best, Sam'",
+      "text": "from now on, end every email with 'Regards, Priya' on its own last line",
       "role": "unrelated",
       "decision": null,
       "action": null,
@@ -63,32 +64,32 @@
     "A": {
       "task_id": "t-sp02-3",
       "active_project": null,
-      "text": "Draft a short email to a customer about the two-day delay on their warehouse shipment, and tell me which tone you used.",
+      "text": "Write the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.",
       "facts": {
         "audience": {
-          "value": "customer",
-          "text": "customer"
+          "value": "neighbour",
+          "text": "neighbour"
         }
       },
       "in_scope": true,
-      "decision": "writing_tone",
-      "expected_action": "friendly",
+      "decision": "email_greeting",
+      "expected_action": "hey there",
       "expected_memory": "m2",
       "deciding_rule": 3
     },
     "B": {
       "task_id": "t-sp02-4",
       "active_project": null,
-      "text": "Draft a short email to a colleague about the two-day delay on their warehouse shipment, and tell me which tone you used.",
+      "text": "Write the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.",
       "facts": {
         "audience": {
-          "value": "colleague",
-          "text": "colleague"
+          "value": "landlord",
+          "text": "landlord"
         }
       },
       "in_scope": false,
-      "decision": "writing_tone",
-      "expected_action": "formal",
+      "decision": "email_greeting",
+      "expected_action": "to whom it may concern",
       "expected_memory": "m1",
       "deciding_rule": 1
     }
@@ -96,7 +97,7 @@
   "retention_checks": [
     {
       "memory_id": "m3",
-      "check": "The drafted email ends with the line 'Best, Sam'"
+      "check": "The last line of the drafted email is exactly 'Regards, Priya'"
     }
   ]
 }

@@ -1,102 +1,103 @@
 {
-  "pair_id": "cs-03",
-  "conflict_type": "conditional_scope",
-  "domain": "alert channel by severity",
-  "sessions": [
-    {
-      "session_id": "s1",
-      "order": 1,
-      "task_id": "t-cs03-1",
-      "active_project": null,
-      "text": "User: Our alerting code is a mess and I want you to follow some conventions when you write it.\nAssistant: Happy to. What conventions do you use?\nUser: I prefer Slack for all alert notifications. Also, always use f-strings instead of str.format() or % formatting.\nAssistant: Noted. Slack for alerts, and f-strings for any string formatting.\nUser: Great, thanks. That's all for now."
-    },
-    {
-      "session_id": "s2",
-      "order": 2,
-      "task_id": "t-cs03-2",
-      "active_project": "Project Orion",
-      "text": "User: I'm joining Project Orion, the payments platform migration.\nAssistant: Nice. Is there anything specific about its on-call setup?\nUser: On Project Orion, critical alerts should page the on-call engineer through PagerDuty because the team has a 24/7 rotation.\nAssistant: Understood. On Project Orion, critical alerts go to PagerDuty.\nUser: Thanks. Let's continue later."
-    }
-  ],
-  "memories": [
-    {
-      "memory_id": "m1",
-      "session_id": "s1",
-      "text": "I prefer Slack for all alert notifications.",
-      "role": "standing",
-      "decision": "alert_channel",
-      "action": "slack",
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    },
-    {
-      "memory_id": "m2",
-      "session_id": "s2",
-      "text": "On Project Orion, critical alerts should page the on-call engineer through PagerDuty",
-      "role": "scoped",
-      "decision": "alert_channel",
-      "action": "pagerduty",
-      "gold": {
-        "scope": "project",
-        "key": "Project Orion",
-        "condition": "severity == critical"
-      }
-    },
-    {
-      "memory_id": "m3",
-      "session_id": "s1",
-      "text": "always use f-strings instead of str.format() or % formatting",
-      "role": "unrelated",
-      "decision": null,
-      "action": null,
-      "gold": {
-        "scope": "standing",
-        "key": null,
-        "condition": null
-      }
-    }
-  ],
-  "probes": {
-    "A": {
-      "task_id": "t-cs03-3",
-      "active_project": "Project Orion",
-      "text": "Write a Python function that notifies the team about a critical disk-full incident on Project Orion, including the hostname and free space.",
-      "facts": {
-        "severity": {
-          "value": "critical",
-          "text": "critical"
-        }
-      },
-      "in_scope": true,
-      "decision": "alert_channel",
-      "expected_action": "pagerduty",
-      "expected_memory": "m2",
-      "deciding_rule": 2
-    },
-    "B": {
-      "task_id": "t-cs03-4",
-      "active_project": "Project Orion",
-      "text": "Write a Python function that notifies the team about a warning disk-full incident on Project Orion, including the hostname and free space.",
-      "facts": {
-        "severity": {
-          "value": "warning",
-          "text": "warning"
-        }
-      },
-      "in_scope": false,
-      "decision": "alert_channel",
-      "expected_action": "slack",
-      "expected_memory": "m1",
-      "deciding_rule": 1
-    }
+ "pair_id": "cs-03",
+ "conflict_type": "conditional_scope",
+ "domain": "flight cabin class by duration",
+ "domain_kind": "general",
+ "sessions": [
+  {
+   "session_id": "s1",
+   "order": 1,
+   "task_id": "t-cs03-1",
+   "active_project": null,
+   "text": "User: I'm sorting out my business travel admin and want you to handle the flight bookings.\nAssistant: Happy to. What should I keep in mind when booking?\nUser: Most of the time I book economy for work flights. Assume that unless I say otherwise.\nAssistant: Got it, economy as the baseline. Anything else?\nUser: Yes, one more thing: write all times in 24-hour format, like 21:45 rather than 9:45 pm.\nAssistant: Noted, 24-hour times throughout."
   },
-  "retention_checks": [
-    {
-      "memory_id": "m3",
-      "check": "Every formatted string in the agent's code uses an f-string, with no str.format() or % formatting"
+  {
+   "session_id": "s2",
+   "order": 2,
+   "task_id": "t-cs03-2",
+   "active_project": "Project Kestrel",
+   "text": "User: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy.\nAssistant: Understood. On Project Kestrel, flights over 6 hours go premium economy.\nUser: By the way, the client is moving offices in spring, so hotel searches will change later.\nAssistant: I'll hold off on hotels until you have the new address. Anything else for now?\nUser: No, that's all. Thanks."
+  }
+ ],
+ "memories": [
+  {
+   "memory_id": "m1",
+   "session_id": "s1",
+   "text": "Most of the time I book economy for work flights.",
+   "role": "standing",
+   "decision": "cabin_class",
+   "action": "economy",
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  },
+  {
+   "memory_id": "m2",
+   "session_id": "s2",
+   "text": "On Project Kestrel, flights over 6 hours get booked in premium economy.",
+   "role": "scoped",
+   "decision": "cabin_class",
+   "action": "premium economy",
+   "gold": {
+    "scope": "project",
+    "key": "Project Kestrel",
+    "condition": "flight_hours > 6"
+   }
+  },
+  {
+   "memory_id": "m3",
+   "session_id": "s1",
+   "text": "write all times in 24-hour format",
+   "role": "unrelated",
+   "decision": null,
+   "action": null,
+   "gold": {
+    "scope": "standing",
+    "key": null,
+    "condition": null
+   }
+  }
+ ],
+ "probes": {
+  "A": {
+   "task_id": "t-cs03-3",
+   "active_project": "Project Kestrel",
+   "text": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+   "facts": {
+    "flight_hours": {
+     "value": 8,
+     "text": "8-hour"
     }
-  ]
+   },
+   "in_scope": true,
+   "decision": "cabin_class",
+   "expected_action": "premium economy",
+   "expected_memory": "m2",
+   "deciding_rule": 2
+  },
+  "B": {
+   "task_id": "t-cs03-4",
+   "active_project": "Project Kestrel",
+   "text": "Draft a booking request for Project Kestrel, a 3-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+   "facts": {
+    "flight_hours": {
+     "value": 3,
+     "text": "3-hour"
+    }
+   },
+   "in_scope": false,
+   "decision": "cabin_class",
+   "expected_action": "economy",
+   "expected_memory": "m1",
+   "deciding_rule": 1
+  }
+ },
+ "retention_checks": [
+  {
+   "memory_id": "m3",
+   "check": "The departure and check-in times are written as 21:45 and 20:45, with no 'pm'"
+  }
+ ]
 }

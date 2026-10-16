@@ -2,36 +2,92 @@
   "pair_id": "po-02",
   "conflict_type": "project_override",
   "domain": "python test framework",
+  "domain_kind": "developer",
   "sessions": [
     {
-      "session_id": "s1", "order": 1, "task_id": "t-po02-1", "active_project": null,
-      "text": "User: I need a few unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens.\nAssistant: Happy to help. Do you have a preferred test framework or a style for the reply?\nUser: In general, I prefer pytest with plain assert statements. Also, always finish your answers with a final line that starts with 'TL;DR:'.\nAssistant: Noted. I'll use pytest with plain asserts by default, and I'll close every answer with a TL;DR line.\nUser: Good. Here is the helper, go ahead and write the tests.\nAssistant: Done, the tests are below. TL;DR: four pytest cases cover casing, spaces, empty input and punctuation."
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-po02-1",
+      "active_project": null,
+      "text": "User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens.\nAssistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation?\nUser: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'.\nAssistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests?\nUser: Yes, a firm rule on that: never use unittest, stick to pytest.\nAssistant: Understood, pytest only. Send me the helper when you're ready.\nUser: Here it is: def slugify(title): return title.lower().replace(' ', '-')\nAssistant: Here are four pytest cases for casing, spaces, empty input and punctuation.\ndef test_lowercases(): assert slugify('Hello') == 'hello'\ndef test_spaces(): assert slugify('a b') == 'a-b'\ndef test_empty(): assert slugify('') == ''\ndef test_punctuation(): assert slugify('a, b') == 'a,-b'\nNext step: add a test for titles with leading and trailing spaces."
     },
     {
-      "session_id": "s2", "order": 2, "task_id": "t-po02-2", "active_project": "Project Atlas",
-      "text": "User: I'm joining Project Atlas, a billing service that runs in a locked-down build container.\nAssistant: Sounds good. Is there anything about the test setup I should know?\nUser: For Project Atlas, use unittest. The CI image only has the standard library installed.\nAssistant: Understood. For Project Atlas I'll write tests with unittest.TestCase.\nUser: Great. I'll send the first function next time."
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-po02-2",
+      "active_project": "Project Tessera",
+      "text": "User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library.\nAssistant: Understood. I'll keep the test setup to the standard library. Anything else about the container?\nUser: How do I run the tests in the container?\nAssistant: From the repo root, run python -m unittest discover.\nUser: Perfect. I'll send the first function soon."
     }
   ],
   "memories": [
-    {"memory_id": "m1", "session_id": "s1", "text": "In general, I prefer pytest with plain assert statements.", "role": "standing", "decision": "python_test_framework", "action": "pytest", "gold": {"scope": "standing", "key": null, "condition": null}},
-    {"memory_id": "m2", "session_id": "s2", "text": "For Project Atlas, use unittest.", "role": "scoped", "decision": "python_test_framework", "action": "unittest", "gold": {"scope": "project", "key": "Project Atlas", "condition": null}},
-    {"memory_id": "m3", "session_id": "s1", "text": "always finish your answers with a final line that starts with 'TL;DR:'", "role": "unrelated", "decision": null, "action": null, "gold": {"scope": "standing", "key": null, "condition": null}}
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "never use unittest, stick to pytest.",
+      "role": "standing",
+      "decision": "python_test_framework",
+      "action": "pytest",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For Project Tessera, write tests with unittest.",
+      "role": "scoped",
+      "decision": "python_test_framework",
+      "action": "unittest",
+      "gold": {
+        "scope": "project",
+        "key": "Project Tessera",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "from now on, end every answer with a final line that starts with 'Next step:'.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
   ],
   "probes": {
     "A": {
-      "task_id": "t-po02-3", "active_project": "Project Atlas",
-      "text": "Write tests for a function apply_discount(price: float, code: str) -> float in Project Atlas. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+      "task_id": "t-po02-3",
+      "active_project": "Project Tessera",
+      "text": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Tessera. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
       "facts": {},
-      "in_scope": true, "decision": "python_test_framework", "expected_action": "unittest", "expected_memory": "m2", "deciding_rule": 2
+      "in_scope": true,
+      "decision": "python_test_framework",
+      "expected_action": "unittest",
+      "expected_memory": "m2",
+      "deciding_rule": 2
     },
     "B": {
-      "task_id": "t-po02-4", "active_project": "Project Cobalt",
-      "text": "Write tests for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+      "task_id": "t-po02-4",
+      "active_project": "Project Cobalt",
+      "text": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
       "facts": {},
-      "in_scope": false, "decision": "python_test_framework", "expected_action": "pytest", "expected_memory": "m1", "deciding_rule": 1
+      "in_scope": false,
+      "decision": "python_test_framework",
+      "expected_action": "pytest",
+      "expected_memory": "m1",
+      "deciding_rule": 1
     }
   },
   "retention_checks": [
-    {"memory_id": "m3", "check": "The agent's answer ends with a final line that starts with 'TL;DR:'"}
+    {
+      "memory_id": "m3",
+      "check": "The last line of the agent's answer starts with 'Next step:'"
+    }
   ]
 }
