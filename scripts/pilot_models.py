@@ -1,6 +1,6 @@
 """Pick the agent model: run a few probes under the full-transcript condition on candidate models and print the answers.
 
-    uv run python scripts/pilot_models.py [pair_id ...]
+    uv run python -m scripts.pilot_models [pair_id ...]
 
 Read the answers yourself (scoring is Step 7). Confirm that reasoning_tokens is 0, because hidden reasoning is billed as output.
 Costs about $0.01 per model for two pairs. Needs OPENROUTER_API_KEY.

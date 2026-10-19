@@ -60,8 +60,8 @@ Systems and the agent may use only the session `text` and the probe `text`. Ever
 
 ## Not done yet
 
-- The smoke test and model pilot have not run, because they need real keys. The Supermemory status polling in `baselines/supermemory/adapter.py` is untested against the live API.
-- Whether `reasoning: {"enabled": false}` actually turns reasoning off for `deepseek/deepseek-v4.1-flash` is unconfirmed. Run `scripts/pilot_models.py` and check `reasoning=0` in its output.
+- The Mem0 smoke test passed (`python -m scripts.smoke_baselines mem0`), but Supermemory has not run because there is no key yet. Its status polling in `baselines/supermemory/adapter.py` is untested against the live API.
+- The model pilot is done and `qwen/qwen3.8-flash` is frozen in `config.toml`. DeepSeek ignored `reasoning: {"enabled": false}` on 3 of 8 episodes and returned empty text, so it was dropped. In the full-transcript control Qwen missed all four single-task B probes (`st-01b` to `st-04b`) even though each probe says it is a new task. Treat that as a finding about the agent, not a suite bug.
 - Gold labels are drafts. Two annotators still need to label blind (`python -m episodes.annotate export`, then `agree --draft`) and adjudicate before tagging accuracy means anything.
 - Agents drafted 19 of the 20 pairs. Codex and Antigravity reviewed them, and the pairs were revised and reviewed once more by Codex. A human should still read all 20 for naturalness. `tests/test_suite.py` enforces the structural variety (memory position, session length, phrasing, chronology, domains).
 - Known gaps in the suite: thresholds are tested far from their boundaries (no equality cases), the supersession and three-scope pairs are all developer scenarios, and memories are still fairly conspicuous directives. The no-memory shortcut rate per pair is unmeasured until Step 6.

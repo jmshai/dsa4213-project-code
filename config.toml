@@ -1,7 +1,7 @@
 # Fixed settings for every condition (README Step 1.4). Change them only before a scored run.
 
 [llm]
-model = "deepseek/deepseek-v4.1-flash"  # proposed default, confirmed by the pilot in scripts/pilot_models.py
+model = "qwen/qwen3.8-flash"  # pilot 2026-10-20: reasoning=0 on 40/40 calls. deepseek/deepseek-v4.1-flash dropped, it ignored reasoning-off and returned empty text
 temperature = 0
 seed = 4213
 max_tokens = 1024

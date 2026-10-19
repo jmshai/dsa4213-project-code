@@ -79,13 +79,13 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 2. Run `uv sync` to create the environment and install dependencies.
 3. Run `cp .env.example .env` and fill in `OPENROUTER_API_KEY` and `SUPERMEMORY_API_KEY`. Do not commit keys.
 4. The agent model, temperature, seed and reasoning setting are fixed in `config.toml` and are identical across all conditions, so differences are attributable to the memory condition. The prompt template is `agent/prompt.md`.
-5. All LLM calls go through OpenRouter via `common/llm.py`, which appends every call's tokens and cost to `runs/ledger.jsonl`. Run `uv run python scripts/spend.py` to see spend by component and condition next to OpenRouter's own figure for the key.
+5. All LLM calls go through OpenRouter via `common/llm.py`, which appends every call's tokens and cost to `runs/ledger.jsonl`. Run `uv run python -m scripts.spend` to see spend by component and condition next to OpenRouter's own figure for the key.
 6. The team shares a $15 budget. `BUDGET_USD` (default 12) is a code-level cap, checked against the local ledger before each call and against the key's total usage at the start of a run. The ledger is per machine, so also set a credit limit of about $12 on the key in the OpenRouter dashboard.
 
 ## Step 2: Install the baseline memory systems
 
 1. Mem0 (`mem0ai`) and Supermemory (`supermemory`, hosted API) are installed by `uv sync`.
-2. Run `uv run python scripts/smoke_baselines.py` to confirm each system can store and retrieve a test memory. It prints the hits and the cost the run added to the ledger.
+2. Run `uv run python -m scripts.smoke_baselines [mem0|supermemory]` to confirm each system can store and retrieve a test memory. It prints the hits and the cost the run added to the ledger.
 3. The adapters in `baselines/` expose the same interface (`baselines/base.py`):
    - `write(session_text)`: ingest a session into the memory system
    - `retrieve(query)`: return the memories surfaced for a probe, each with its text, score and the raw metadata the system returned
