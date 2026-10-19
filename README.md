@@ -85,7 +85,14 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 ## Step 2: Install the baseline memory systems
 
 1. Mem0 (`mem0ai`) and Supermemory (`supermemory`, hosted API) are installed by `uv sync`.
-2. Run `uv run python -m scripts.smoke_baselines [mem0|supermemory]` to confirm each system can store and retrieve a test memory. It prints the hits and the cost the run added to the ledger.
+2. Run `uv run python -m scripts.smoke_baselines [mem0|supermemory]` to confirm each system can store and retrieve a test memory. It prints the hits and the cost the run added to the ledger. A passing Mem0 run (2026-10-20) looked like this:
+
+   ```
+   [mem0] 1 hits, ledger +$0.00125
+      score=0.5191357230308997  'User prefers using Polars instead of pandas for handling large tables'
+   ```
+
+   The script writes a two-line session ("For large tables I always use Polars instead of pandas.") and retrieves with a query that shares no words with it ("Which dataframe library should I use to deduplicate a big table?"). The $0.00125 is Mem0's own extraction call, billed through OpenRouter. Mem0 rewrites the session with an LLM, so the stored wording changes from run to run ("prefers", "always uses"). Mem0 also prints warnings that spaCy and fastembed are not installed, so its BM25 keyword search is off.
 3. The adapters in `baselines/` expose the same interface (`baselines/base.py`):
    - `write(session_text)`: ingest a session into the memory system
    - `retrieve(query)`: return the memories surfaced for a probe, each with its text, score and the raw metadata the system returned
