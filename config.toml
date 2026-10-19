@@ -1,0 +1,16 @@
+# Fixed settings for every condition (README Step 1.4). Change them only before a scored run.
+
+[llm]
+model = "qwen/qwen3.8-flash"  # pilot 2026-10-20: reasoning=0 on 40/40 calls. deepseek/deepseek-v4.1-flash dropped, it ignored reasoning-off and returned empty text
+temperature = 0
+seed = 4213
+max_tokens = 1024
+reasoning_enabled = false
+
+[retrieval]
+top_k = 10  # memories retrieved per probe, the same for every baseline
+
+[mem0]
+embedder_model = "sentence-transformers/all-MiniLM-L6-v2"
+embedding_dims = 384
+qdrant_path = ".qdrant"

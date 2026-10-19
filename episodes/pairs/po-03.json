@@ -1,0 +1,93 @@
+{
+  "pair_id": "po-03",
+  "conflict_type": "project_override",
+  "domain": "git integration style",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-po03-1",
+      "active_project": "Project Corvid",
+      "text": "User: I just joined Project Corvid, a mobile checkout app with a busy shared repo.\nAssistant: Welcome aboard. Is there a git workflow I should keep in mind?\nUser: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there.\nAssistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main.\nUser: Separately, how do I set up a pre-commit hook that runs the linter?\nAssistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-po03-2",
+      "active_project": null,
+      "text": "User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it.\nAssistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back.\nUser: Found it, thanks. Separate thing: how do I see which files differ between my branch and main?\nAssistant: git diff --name-only main...HEAD lists them.\nUser: Nice. What does the three-dot form do compared with two dots?\nAssistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly.\nUser: In general, I'd rather sync feature branches with main using merge commits.\nAssistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD\nUser: That last command had no explanation. From now on, put a one-line comment above each git command you show me."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "In general, I'd rather sync feature branches with main using merge commits.",
+      "role": "standing",
+      "decision": "git_integration_style",
+      "action": "merge commit",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "On Project Corvid, bring feature branches up to date by rebasing onto main.",
+      "role": "scoped",
+      "decision": "git_integration_style",
+      "action": "rebase",
+      "gold": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "From now on, put a one-line comment above each git command you show me.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-po03-3",
+      "active_project": "Project Corvid",
+      "text": "My feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "git_integration_style",
+      "expected_action": "rebase",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-po03-4",
+      "active_project": "Project Wren",
+      "text": "My feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "git_integration_style",
+      "expected_action": "merge commit",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "Every git command in the agent's answer has a one-line comment directly above it"
+    }
+  ]
+}

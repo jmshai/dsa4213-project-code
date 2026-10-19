@@ -1,0 +1,93 @@
+{
+  "pair_id": "st-01",
+  "conflict_type": "single_task_override",
+  "domain": "export file format",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-st01-1",
+      "active_project": null,
+      "text": "User: I'm wrapping up the client churn export for the retention team. The cleaned customers dataframe is ready.\nAssistant: Nice. Which format should the file be in?\nUser: This time, export the client churn file as CSV. The retention team opens it in Excel.\nAssistant: CSV for this job, then. I'll keep the standard columns.\nUser: Thanks, send it over when it's ready."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-st01-2",
+      "active_project": null,
+      "text": "User: I usually export tables as parquet. Can you help me tidy a script that writes out our weekly tables?\nAssistant: Sure. I'll keep parquet as the default format. What does the script look like?\nUser: It loops over a list of dataframes and writes each one into a folder. The folder names are built by gluing strings together.\nAssistant: I can switch those to proper path joins. Want me to use os.path.join?\nUser: Not os.path. One more thing from me: use pathlib.Path for every file path in code you write.\nAssistant: Understood, pathlib.Path everywhere from here on.\nUser: Great, I'll try the rewrite tomorrow."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "I usually export tables as parquet.",
+      "role": "standing",
+      "decision": "export_file_format",
+      "action": "parquet",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "This time, export the client churn file as CSV",
+      "role": "scoped",
+      "decision": "export_file_format",
+      "action": "csv",
+      "gold": {
+        "scope": "single_task",
+        "key": "t-st01-1",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "use pathlib.Path for every file path in code you write.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-st01-1",
+      "active_project": null,
+      "text": "Continue the client churn export job from earlier: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "export_file_format",
+      "expected_action": "csv",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-st01-3",
+      "active_project": null,
+      "text": "New task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "export_file_format",
+      "expected_action": "parquet",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The function builds or accepts its file path as a pathlib.Path and does not use os.path or string concatenation for paths"
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "pair_id": "po-04",
+  "conflict_type": "project_override",
+  "domain": "citation style",
+  "domain_kind": "general",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-po04-1",
+      "active_project": null,
+      "text": "User: I'm setting ground rules for the essays you'll help me with this term. Standardize on APA 7 for citations in anything I write.\nAssistant: Understood. I'll use APA 7 for citations. What is the first essay?\nUser: A 1,500-word essay on urban heat islands. How should I structure the introduction?\nAssistant: Open with the problem and one concrete number, narrow to the question your essay answers, then end the introduction with your thesis statement.\nUser: Sounds good. One more thing: by default, keep any explanation you give me to exactly two sentences."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-po04-2",
+      "active_project": "Project Lumen",
+      "text": "User: I'm starting my Project Lumen thesis on coastal erosion policy. It's a long document with a lot of sources.\nAssistant: That sounds substantial. Is there a formatting requirement for the sources?\nUser: For the Project Lumen thesis, use Chicago notes-bibliography. My supervisor insists on it.\nAssistant: Understood. For the Project Lumen thesis I'll use Chicago notes-bibliography.\nUser: Different question: roughly how long should the literature review chapter be in a 20,000-word thesis?\nAssistant: Most theses give it 15 to 25 percent of the total, so about 3,000 to 5,000 words."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s1",
+      "text": "Standardize on APA 7 for citations in anything I write.",
+      "role": "standing",
+      "decision": "citation_style",
+      "action": "apa",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s2",
+      "text": "For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "role": "scoped",
+      "decision": "citation_style",
+      "action": "chicago",
+      "gold": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s1",
+      "text": "by default, keep any explanation you give me to exactly two sentences.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-po04-3",
+      "active_project": "Project Lumen",
+      "text": "For Project Lumen, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "citation_style",
+      "expected_action": "chicago",
+      "expected_memory": "m2",
+      "deciding_rule": 2
+    },
+    "B": {
+      "task_id": "t-po04-4",
+      "active_project": "Project Sable",
+      "text": "For Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "citation_style",
+      "expected_action": "apa",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The formatting note in the agent's answer is exactly two sentences"
+    }
+  ]
+}

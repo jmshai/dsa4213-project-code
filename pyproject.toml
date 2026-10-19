@@ -1,0 +1,21 @@
+[project]
+name = "agent-memory-scope"
+version = "0.1.0"
+description = "DSA4213: do agents act on the correct memory when a scoped instruction and a standing preference both apply?"
+requires-python = ">=3.11"
+dependencies = [
+    "openai",
+    "mem0ai",
+    "supermemory",
+    "sentence-transformers",
+    "python-dotenv",
+    "jsonschema",
+    "qdrant-client",
+]
+
+[dependency-groups]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]

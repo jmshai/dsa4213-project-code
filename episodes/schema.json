@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Mirrored episode pair",
+  "description": "One file per pair. Systems see only session text and probe text. Every other field is gold-only metadata for scoring.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pair_id", "conflict_type", "domain", "sessions", "memories", "probes", "retention_checks"],
+  "properties": {
+    "pair_id": {"type": "string", "pattern": "^(po|st|cs|ss|sp)-[0-9]{2}$"},
+    "conflict_type": {"enum": ["project_override", "single_task_override", "conditional_scope", "same_scope_supersession", "same_scope_specificity"]},
+    "domain": {"type": "string", "minLength": 1},
+    "domain_kind": {"enum": ["developer", "general"], "description": "Whether the scenario is software/data work or an everyday task"},
+    "sessions": {
+      "type": "array", "minItems": 2, "maxItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["session_id", "order", "task_id", "active_project", "text"],
+        "properties": {
+          "session_id": {"type": "string"},
+          "order": {"type": "integer", "minimum": 1},
+          "task_id": {"type": "string"},
+          "active_project": {"type": ["string", "null"]},
+          "text": {"type": "string", "pattern": "^User: "}
+        }
+      }
+    },
+    "memories": {
+      "type": "array", "minItems": 3,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["memory_id", "session_id", "text", "role", "decision", "action", "gold"],
+        "properties": {
+          "memory_id": {"type": "string"},
+          "session_id": {"type": "string"},
+          "text": {"type": "string", "description": "Verbatim substring of the session text"},
+          "role": {"enum": ["standing", "scoped", "unrelated"]},
+          "decision": {"type": ["string", "null"], "description": "Which choice this memory bears on. Memories with the same decision compete. Null for unrelated memories."},
+          "action": {"type": ["string", "null"], "description": "The action this memory calls for. Null for unrelated memories."},
+          "gold": {
+            "type": "object", "additionalProperties": false,
+            "required": ["scope", "key", "condition"],
+            "properties": {
+              "scope": {"enum": ["standing", "project", "single_task"]},
+              "key": {"type": ["string", "null"]},
+              "condition": {"type": ["string", "null"], "pattern": "^[A-Za-z_][A-Za-z0-9_]* (>=|<=|==|!=|>|<) .+$"}
+            }
+          }
+        }
+      }
+    },
+    "probes": {
+      "type": "object", "additionalProperties": false, "required": ["A", "B"],
+      "properties": {"A": {"$ref": "#/$defs/probe"}, "B": {"$ref": "#/$defs/probe"}}
+    },
+    "retention_checks": {
+      "type": "array", "minItems": 1,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["memory_id", "check"],
+        "properties": {"memory_id": {"type": "string"}, "check": {"type": "string", "description": "What in the agent's answer shows the unrelated memory survived, in both probes"}}
+      }
+    }
+  },
+  "$defs": {
+    "probe": {
+      "type": "object", "additionalProperties": false,
+      "required": ["task_id", "active_project", "text", "facts", "in_scope", "decision", "expected_action", "expected_memory", "deciding_rule"],
+      "properties": {
+        "task_id": {"type": "string"},
+        "active_project": {"type": ["string", "null"]},
+        "text": {"type": "string", "minLength": 1},
+        "facts": {
+          "type": "object",
+          "description": "Variables that conditions test. `value` is what conditions compare, `text` must appear verbatim in the probe text.",
+          "additionalProperties": {
+            "type": "object", "additionalProperties": false, "required": ["value", "text"],
+            "properties": {"value": {"type": ["number", "string"]}, "text": {"type": "string"}}
+          }
+        },
+        "in_scope": {"type": "boolean"},
+        "decision": {"type": "string"},
+        "expected_action": {"type": "string"},
+        "expected_memory": {"type": "string"},
+        "deciding_rule": {"type": "integer", "minimum": 1, "maximum": 4}
+      }
+    }
+  }
+}

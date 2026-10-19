@@ -1,0 +1,113 @@
+{
+  "pair_id": "ss-03",
+  "conflict_type": "same_scope_supersession",
+  "domain": "linter",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss03-1",
+      "active_project": "Project Sable",
+      "text": "User: Taking over the Project Sable repo from Dana this week. It's a Python package that parses vendor invoices.\nAssistant: Welcome aboard. Is there anything in the repo's tooling you want me to know about?\nUser: The tests are in pytest and CI runs on GitHub Actions, nothing unusual.\nAssistant: Good, that's a straightforward setup. What about linting and formatting?\nUser: On Project Sable, use Ruff for linting. Formatting I'll sort out later.\nAssistant: Ruff for linting on Project Sable, noted. I'll leave formatting alone until you decide."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss03-2",
+      "active_project": "Project Sable",
+      "text": "User: Back on Project Sable. The invoice parser is choking on scanned PDFs again.\nAssistant: Is it failing at text extraction or at the field-matching step?\nUser: Extraction. Some scans have no text layer at all.\nAssistant: Then OCR is the likely fix. We could run Tesseract only when the text layer comes back empty.\nUser: Yes, let's try that next sprint. The vendor says they will send native PDFs eventually.\nAssistant: Good. Anything else before I draft the OCR fallback?\nUser: Actually, for Project Sable, switch to Pylint for linting. The security team's scanner reads its report format.\nAssistant: Understood. Project Sable moves from Ruff to Pylint for linting."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss03-3",
+      "active_project": null,
+      "text": "User: Separate from the repo work: do you think pre-commit hooks slow people down?\nAssistant: They can if they run heavy checks. Keeping hooks to fast linters and formatters usually avoids the problem.\nUser: Then here is my rule for linting everywhere. In general, never use Pylint, stick to flake8.\nAssistant: Noted. In general you avoid Pylint and use flake8 for linting.\nUser: Correction to your usual style: write every commit subject in lowercase with no trailing period."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s3",
+      "text": "In general, never use Pylint, stick to flake8.",
+      "role": "standing",
+      "decision": "python_linter",
+      "action": "flake8",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "On Project Sable, use Ruff for linting.",
+      "role": "scoped",
+      "decision": "python_linter",
+      "action": "ruff",
+      "gold": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "Actually, for Project Sable, switch to Pylint for linting.",
+      "role": "scoped",
+      "decision": "python_linter",
+      "action": "pylint",
+      "gold": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s3",
+      "text": "write every commit subject in lowercase with no trailing period.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss03-4",
+      "active_project": "Project Sable",
+      "text": "Set up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "python_linter",
+      "expected_action": "pylint",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss03-5",
+      "active_project": "Project Nimbus",
+      "text": "Set up linting for Project Nimbus: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "python_linter",
+      "expected_action": "flake8",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The commit message subject line is entirely lowercase and does not end with a period"
+    }
+  ]
+}

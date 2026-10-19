@@ -1,0 +1,113 @@
+{
+  "pair_id": "ss-01",
+  "conflict_type": "same_scope_supersession",
+  "domain": "web framework",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-ss01-1",
+      "active_project": "Project Lantern",
+      "text": "User: Kicking off Project Lantern today. It's an internal service that exposes inventory counts to the warehouse dashboards.\nAssistant: Got it, a read-heavy internal service for inventory counts. Do you have a framework in mind?\nUser: For Project Lantern, use FastAPI. I'll send you the endpoint list tomorrow.\nAssistant: FastAPI it is for Project Lantern. I'll wait for the endpoint list.\nUser: Meanwhile, quick question: is Postgres or SQLite better for a dashboard cache that gets rewritten every minute?"
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-ss01-2",
+      "active_project": "Project Lantern",
+      "text": "User: Back on Project Lantern. The warehouse team wants the stock endpoint to return counts per bin.\nAssistant: Okay, counts per bin. Should the response paginate bins or return everything for a shelf?\nUser: The largest shelf has about 40 bins, and one response covers a whole shelf.\nAssistant: Got it, one response per shelf. Anything else on the framework side before I start?\nUser: Actually, for Project Lantern, switch to Django. The ops team is bringing in its admin tooling and wants the ORM there.\nAssistant: Understood. Project Lantern moves from FastAPI to Django, and I'll build the shelf endpoint around that."
+    },
+    {
+      "session_id": "s3",
+      "order": 3,
+      "task_id": "t-ss01-3",
+      "active_project": null,
+      "text": "User: Side note about my own habits: I usually reach for Falcon for web services.\nAssistant: Noted, Falcon is your usual pick for web services.\nUser: One more thing: start every Python file you give me with the first line # owner: platform-team.\nAssistant: Got it. Every Python file will open with # owner: platform-team.\nUser: Thanks. Do you know if Falcon 4 dropped Python 3.8 support?"
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s3",
+      "text": "I usually reach for Falcon for web services.",
+      "role": "standing",
+      "decision": "web_framework",
+      "action": "falcon",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "For Project Lantern, use FastAPI.",
+      "role": "scoped",
+      "decision": "web_framework",
+      "action": "fastapi",
+      "gold": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "Actually, for Project Lantern, switch to Django.",
+      "role": "scoped",
+      "decision": "web_framework",
+      "action": "django",
+      "gold": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m4",
+      "session_id": "s3",
+      "text": "start every Python file you give me with the first line # owner: platform-team.",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-ss01-4",
+      "active_project": "Project Lantern",
+      "text": "Scaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+      "facts": {},
+      "in_scope": true,
+      "decision": "web_framework",
+      "expected_action": "django",
+      "expected_memory": "m3",
+      "deciding_rule": 4
+    },
+    "B": {
+      "task_id": "t-ss01-5",
+      "active_project": "Project Marlin",
+      "text": "Scaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+      "facts": {},
+      "in_scope": false,
+      "decision": "web_framework",
+      "expected_action": "falcon",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m4",
+      "check": "The first line of the app file is the comment '# owner: platform-team'"
+    }
+  ]
+}

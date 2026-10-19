@@ -1,0 +1,103 @@
+{
+  "pair_id": "sp-01",
+  "conflict_type": "same_scope_specificity",
+  "domain": "log level by environment",
+  "domain_kind": "developer",
+  "sessions": [
+    {
+      "session_id": "s1",
+      "order": 1,
+      "task_id": "t-sp01-1",
+      "active_project": null,
+      "text": "User: I'm cleaning up logging across our services. In general, when a service runs in dev, I go with ERROR-level logging.\nAssistant: Understood: ERROR-level logging for services in dev. Which service should we start with?\nUser: The invoice-sync worker. It's also slow on startup, any idea why?\nAssistant: Slow startup is usually eager imports or connection pool warm-up. Want me to look at the logging first?\nUser: Yes, logging first. I'll send the config tomorrow.\nAssistant: Sounds good, I'll wait for the config."
+    },
+    {
+      "session_id": "s2",
+      "order": 2,
+      "task_id": "t-sp01-2",
+      "active_project": null,
+      "text": "User: New service today: shipping-notify.\nAssistant: Okay. Anything about how you want it configured?\nUser: Standardize on DEBUG-level logging for every service.\nAssistant: Got it: DEBUG-level logging for every service.\nUser: Last thing: make every log format string pipe-separated with the timestamp first."
+    }
+  ],
+  "memories": [
+    {
+      "memory_id": "m1",
+      "session_id": "s2",
+      "text": "Standardize on DEBUG-level logging for every service.",
+      "role": "standing",
+      "decision": "log_level",
+      "action": "debug",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "memory_id": "m2",
+      "session_id": "s1",
+      "text": "In general, when a service runs in dev, I go with ERROR-level logging.",
+      "role": "standing",
+      "decision": "log_level",
+      "action": "error",
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == dev"
+      }
+    },
+    {
+      "memory_id": "m3",
+      "session_id": "s2",
+      "text": "make every log format string pipe-separated with the timestamp first",
+      "role": "unrelated",
+      "decision": null,
+      "action": null,
+      "gold": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "probes": {
+    "A": {
+      "task_id": "t-sp01-3",
+      "active_project": null,
+      "text": "Write a Python function setup_logging() for the dev deploy of our billing-sync service. It should configure the logging module and return the level name it set.",
+      "facts": {
+        "env": {
+          "value": "dev",
+          "text": "dev"
+        }
+      },
+      "in_scope": true,
+      "decision": "log_level",
+      "expected_action": "error",
+      "expected_memory": "m2",
+      "deciding_rule": 3
+    },
+    "B": {
+      "task_id": "t-sp01-4",
+      "active_project": null,
+      "text": "Write a Python function setup_logging() for the prod deploy of our billing-sync service. It should configure the logging module and return the level name it set.",
+      "facts": {
+        "env": {
+          "value": "prod",
+          "text": "prod"
+        }
+      },
+      "in_scope": false,
+      "decision": "log_level",
+      "expected_action": "debug",
+      "expected_memory": "m1",
+      "deciding_rule": 1
+    }
+  },
+  "retention_checks": [
+    {
+      "memory_id": "m3",
+      "check": "The log format string in the agent's setup_logging() is pipe-separated and starts with %(asctime)s, e.g. '%(asctime)s | %(levelname)s | %(message)s'"
+    }
+  ]
+}
