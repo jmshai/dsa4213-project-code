@@ -5,13 +5,6 @@ import pytest
 from common import ledger, llm
 
 
-@pytest.fixture(autouse=True)
-def tmp_ledger(tmp_path, monkeypatch):
-    monkeypatch.setenv("LEDGER_PATH", str(tmp_path / "ledger.jsonl"))
-    monkeypatch.setenv("BUDGET_USD", "1.00")
-    monkeypatch.setattr(llm, "_prices", {"m/x": (1e-6, 2e-6)})
-
-
 def resp(cost=0.25, model="m/x"):
     usage = SimpleNamespace(prompt_tokens=100, completion_tokens=50,
                             completion_tokens_details=SimpleNamespace(reasoning_tokens=7))
@@ -36,6 +29,13 @@ def test_record_usage_uses_reported_cost_and_context():
     assert (row["episode"], row["condition"], row["reasoning_tokens"], row["cost_usd"]) == ("e1", "mem0", 7, 0.25)
 
 
+def test_append_outside_llm_inherits_context():
+    with llm.context(episode="e1", condition="supermemory"):
+        ledger.append(component="supermemory", cost_usd=0.0)
+    row = ledger.rows()[0]
+    assert (row["episode"], row["condition"]) == ("e1", "supermemory")
+
+
 def test_missing_cost_falls_back_to_listed_price():
     assert llm.record_usage(resp(None), component="agent") == pytest.approx(100e-6 + 50 * 2e-6)
     assert "computed" in ledger.rows()[0]["note"]
@@ -54,7 +54,7 @@ def test_budget_guard_trips_at_cap():
         llm.check_budget()
 
 
-def test_chat_logs_cost_from_real_response_type(monkeypatch):
+def test_chat_logs_cost_from_real_response_type(monkeypatch, fake_client):
     from openai.types.chat import ChatCompletion
 
     raw = {"id": "1", "object": "chat.completion", "created": 0, "model": "m/x",
@@ -67,7 +67,7 @@ def test_chat_logs_cost_from_real_response_type(monkeypatch):
         sent.update(kw)
         return ChatCompletion.model_validate(raw)
 
-    stub = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
+    stub = fake_client(create)
     monkeypatch.setattr(llm, "client", lambda: stub)
     llm.chat([{"role": "user", "content": "x"}], component="agent", episode="e1")
     assert ledger.rows()[0]["cost_usd"] == 0.0042

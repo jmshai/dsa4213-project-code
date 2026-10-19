@@ -1,13 +1,12 @@
 import copy
-import json
-from pathlib import Path
 
 import pytest
 
 from episodes import annotate
+from episodes.loader import PAIRS_DIR, load_pair
 from episodes.validate import check_pair, holds
 
-PAIR = json.loads((Path(__file__).parent.parent / "episodes/pairs/po-01.json").read_text())
+PAIR = load_pair(PAIRS_DIR / "po-01.json")
 
 
 def broken(mutate):

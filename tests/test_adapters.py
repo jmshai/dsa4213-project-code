@@ -16,8 +16,7 @@ def test_to_messages_falls_back_to_single_user_message():
     assert to_messages("just text") == [{"role": "user", "content": "just text"}]
 
 
-def test_instrument_client_injects_usage_and_logs(tmp_path, monkeypatch):
-    monkeypatch.setenv("LEDGER_PATH", str(tmp_path / "l.jsonl"))
+def test_instrument_client_injects_usage_and_logs(fake_client):
     seen = {}
 
     def create(**kw):
@@ -26,7 +25,7 @@ def test_instrument_client_injects_usage_and_logs(tmp_path, monkeypatch):
                                 completion_tokens_details=SimpleNamespace(reasoning_tokens=0))
         return SimpleNamespace(usage=usage, model="m/x")
 
-    client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=create)))
+    client = fake_client(create)
     llm.instrument_client(client, component="mem0")
     client.chat.completions.create(model="m/x", messages=[])
     assert seen["extra_body"]["usage"] == {"include": True}
@@ -34,11 +33,10 @@ def test_instrument_client_injects_usage_and_logs(tmp_path, monkeypatch):
     assert ledger.rows()[0]["component"] == "mem0"
 
 
-def test_instrument_client_blocks_over_budget(tmp_path, monkeypatch):
-    monkeypatch.setenv("LEDGER_PATH", str(tmp_path / "l.jsonl"))
+def test_instrument_client_blocks_over_budget(monkeypatch, fake_client):
     monkeypatch.setenv("BUDGET_USD", "0.5")
     ledger.append(component="agent", cost_usd=0.5)
-    client = SimpleNamespace(chat=SimpleNamespace(completions=SimpleNamespace(create=lambda **kw: pytest.fail("called"))))
+    client = fake_client(lambda **kw: pytest.fail("called"))
     llm.instrument_client(client, component="mem0")
     with pytest.raises(llm.BudgetExceeded):
         client.chat.completions.create(model="m/x", messages=[])

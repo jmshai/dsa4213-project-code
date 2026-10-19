@@ -5,8 +5,12 @@ from pathlib import Path
 PAIRS_DIR = Path(__file__).parent / "pairs"
 
 
+def load_pair(path):
+    return json.loads(Path(path).read_text())
+
+
 def load_pairs(pairs_dir=PAIRS_DIR):
-    return [json.loads(p.read_text()) for p in sorted(Path(pairs_dir).glob("*.json"))]
+    return [load_pair(p) for p in sorted(Path(pairs_dir).glob("*.json"))]
 
 
 def episodes(pairs_dir=PAIRS_DIR):

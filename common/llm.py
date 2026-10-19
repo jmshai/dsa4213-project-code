@@ -3,37 +3,25 @@
 Each call is appended to the cost ledger. A call whose cost cannot be determined raises instead of
 being logged as free, so the budget guard cannot be bypassed by a silent zero.
 """
-import contextlib
-import contextvars
+import functools
 import os
-import tomllib
-from pathlib import Path
 
 import httpx
 from dotenv import load_dotenv
 from openai import OpenAI
 
 from common import ledger
+from common.config import CONFIG as _ALL
 
 load_dotenv()
 BASE_URL = "https://openrouter.ai/api/v1"
-CONFIG = tomllib.loads((Path(__file__).parent.parent / "config.toml").read_text())["llm"]
-_context = contextvars.ContextVar("llm_context", default={})
+CONFIG = _ALL["llm"]
+context = ledger.context  # context(episode=..., condition=...) labels every ledger row in the block
 _prices = {}
 
 
 class BudgetExceeded(RuntimeError):
     pass
-
-
-@contextlib.contextmanager
-def context(**fields):
-    """Attribute every call in the block to an episode and condition, e.g. context(episode="tool-01a", condition="mem0")."""
-    token = _context.set({**_context.get(), **fields})
-    try:
-        yield
-    finally:
-        _context.reset(token)
 
 
 def budget():
@@ -65,6 +53,7 @@ def _headers():
     return {"Authorization": f"Bearer {os.environ['OPENROUTER_API_KEY']}"}
 
 
+@functools.cache  # one connection pool for the whole run
 def client():
     return OpenAI(base_url=BASE_URL, api_key=os.environ["OPENROUTER_API_KEY"])
 
@@ -84,13 +73,15 @@ def _price(model):
     return _prices.get(model)
 
 
+def reasoning_tokens(usage):
+    """Hidden reasoning tokens in a response's usage; they are billed as output, so the pilot checks this is 0."""
+    return getattr(getattr(usage, "completion_tokens_details", None), "reasoning_tokens", 0) or 0
+
+
 def record_usage(resp, *, component, episode=None, condition=None, note=None):
     """Log one completed OpenRouter response to the ledger and return the cost in USD."""
-    ctx = _context.get()
     usage = resp.usage
     prompt, completion = usage.prompt_tokens, usage.completion_tokens
-    details = getattr(usage, "completion_tokens_details", None)
-    reasoning = (getattr(details, "reasoning_tokens", 0) or 0) if details else 0
     cost = getattr(usage, "cost", None)
     if cost is None:
         price = _price(resp.model)
@@ -98,12 +89,13 @@ def record_usage(resp, *, component, episode=None, condition=None, note=None):
             raise RuntimeError(f"no usage.cost in the response and no listed price for {resp.model}")
         cost = prompt * price[0] + completion * price[1]
         note = f"{note + '; ' if note else ''}cost computed from listed prices"
+    cost = float(cost)
     ledger.append(
-        component=component, episode=episode or ctx.get("episode"), condition=condition or ctx.get("condition"),
-        model=resp.model, prompt_tokens=prompt, completion_tokens=completion, reasoning_tokens=reasoning,
-        cost_usd=float(cost), note=note,
+        component=component, episode=episode, condition=condition,
+        model=resp.model, prompt_tokens=prompt, completion_tokens=completion, reasoning_tokens=reasoning_tokens(usage),
+        cost_usd=cost, note=note,
     )
-    return float(cost)
+    return cost
 
 
 def chat(messages, *, component, episode=None, condition=None, model=None, **overrides):

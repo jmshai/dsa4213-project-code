@@ -13,7 +13,7 @@ from pathlib import Path
 
 import jsonschema
 
-from episodes.loader import PAIRS_DIR
+from episodes.loader import PAIRS_DIR, load_pair
 
 SCHEMA = json.loads((Path(__file__).parent / "schema.json").read_text())
 SCOPE_RANK = {"single_task": 0, "project": 1, "standing": 2}
@@ -158,7 +158,7 @@ def main(paths):
     paths = [Path(p) for p in paths] or sorted(PAIRS_DIR.glob("*.json"))
     bad = 0
     for p in paths:
-        errs = check_pair(json.loads(p.read_text()))
+        errs = check_pair(load_pair(p))
         bad += bool(errs)
         print(f"{'FAIL' if errs else 'ok  '} {p.name}")
         for e in errs:

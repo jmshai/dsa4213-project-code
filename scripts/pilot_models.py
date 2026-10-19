@@ -26,8 +26,7 @@ def main(pair_ids):
         for model in CANDIDATES:
             r = llm.chat([{"role": "user", "content": prompt}], component="pilot", episode=ep["episode_id"], condition="full_transcript", model=model)
             u = r.usage
-            reasoning = (getattr(u, "completion_tokens_details", None) and u.completion_tokens_details.reasoning_tokens) or 0
-            print(f"--- {model}  out={u.completion_tokens} reasoning={reasoning}\n{(r.choices[0].message.content or '')[:300]}")
+            print(f"--- {model}  out={u.completion_tokens} reasoning={llm.reasoning_tokens(u)}\n{(r.choices[0].message.content or '')[:300]}")
 
 
 if __name__ == "__main__":

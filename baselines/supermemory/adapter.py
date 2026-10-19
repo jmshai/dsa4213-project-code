@@ -7,8 +7,9 @@ from supermemory import Supermemory
 
 from baselines.base import RetrievedMemory
 from common import ledger
+from common.config import CONFIG
 
-TOP_K = 10
+TOP_K = CONFIG["retrieval"]["top_k"]
 POLL_TIMEOUT_S = 180
 
 

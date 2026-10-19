@@ -7,6 +7,9 @@ seed = 4213
 max_tokens = 1024
 reasoning_enabled = false
 
+[retrieval]
+top_k = 10  # memories retrieved per probe, the same for every baseline
+
 [mem0]
 embedder_model = "sentence-transformers/all-MiniLM-L6-v2"
 embedding_dims = 384
