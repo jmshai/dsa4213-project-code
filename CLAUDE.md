@@ -7,7 +7,7 @@
 ```
 uv sync
 cp .env.example .env     # fill in OPENROUTER_API_KEY and SUPERMEMORY_API_KEY
-uv run pytest            # 36 tests, no network
+uv run pytest            # 66 tests, no network
 uv run python -m episodes.validate   # expect: 20/20 pairs valid
 ```
 
@@ -23,6 +23,8 @@ The team shares a $15 OpenRouter budget. Set a credit limit of about $12 on your
 | `baselines/base.py` | The adapter interface: `write(session_text)`, `retrieve(query) -> list[RetrievedMemory]`, `reset()`. `RetrievedMemory.raw` holds whatever metadata the system returned, which read-time tagging can use. |
 | `baselines/mem0/`, `baselines/supermemory/` | Both systems as shipped. Construct with a `namespace` (episode id plus condition) so episodes never share memories. |
 | `agent/prompt.md` | Draft agent prompt with `{memories}` and `{probe}` slots. Fix it before any scored run. |
+| `scope_layer/` | Step 4. `tagger.py` labels memories as `{scope, key, condition}` with the Step 3 labelling guide as its prompt. `write_time.py` tags a full session, `read_time.py` tags retrieved memories, `layer.py` stores write-time tags as metadata and reads them back, and `tags.py` renders the labelled memories plus the resolution rules into the agent prompt's `{memories}` slot. The agent makes the final choice. There is no code resolver. |
+| `agent/` | Step 6. `agent.py` builds the prompt and calls the model. `conditions.py` holds minimal versions of the Step 5 conditions (Step 5 may replace them). `runner.py` runs episodes and writes `runs/logs/<condition>/<episode_id>.json`. |
 | `episodes/` | The suite: `schema.json`, `labelling_guide.md`, `validate.py`, `annotate.py`, `loader.py`, and 20 pair files in `pairs/`. |
 | `scripts/` | `spend.py` (ledger vs OpenRouter's usage), `smoke_baselines.py`, `pilot_models.py`. |
 
@@ -42,9 +44,10 @@ Systems and the agent may use only the session `text` and the probe `text`. Ever
 ## By role
 
 - **@ed3ard (Steps 4 and 6).**
-  - The resolver rules are in the README section "Scope model and labelling rules". `episodes/validate.py: resolve()` is a reference walk of those rules over gold tags. Test `scope_layer/resolver.py` against it: for each probe it should give `expected_memory` and `deciding_rule`.
-  - Taggers output `{scope, key, condition}` per memory. The write-time tagger sees full session text. The read-time tagger sees only retrieved text.
-  - Log the tags, the decision and the rule that fired, next to the ledger.
+  - Run episodes with `uv run python -m agent.runner --conditions no_memory mem0 scope_write_mem0 --episodes po-01a po-01b` (omit `--episodes` for all 40, `--list` shows the condition names). A log with no error is skipped on rerun, `--force` reruns it. Provider 429s are retried with backoff. Logs are in `runs/logs/` (gitignored). The `gold_ref` block in each log is for scoring only.
+  - Design choice: the scope layer does not decide for the agent. It labels memories and puts the README resolution rules in the prompt, and the agent picks the memory. So there is no `resolver.py`, and the "resolution decision and rule" is read from the agent's chosen action via each memory's `action`, not logged by code.
+  - Taggers output `{scope, key, condition}` per memory. The write-time tagger sees full session text. The read-time tagger sees only retrieved text. Task ids are gold-only, so taggers leave the key null for `single_task`. Score `key` for `single_task` as not applicable.
+  - The write-time condition stores each extracted instruction as its own memory with the tag as metadata (`write(text, metadata=...)` on both adapters). The tagger's extracted spans are not always word-for-word the gold `text`, so matching them to gold needs fuzzy matching.
 - **@nicngck (Steps 5 and 7).**
   - Each memory has an `action`, so you can map the agent's chosen action back to a `memory_id`. That separates under-applying, over-applying and picking a superseded memory.
   - Retention checks are in each pair's `retention_checks`. They are descriptions to judge by reading the answer, not code.
@@ -60,7 +63,7 @@ Systems and the agent may use only the session `text` and the probe `text`. Ever
 
 ## Not done yet
 
-- The Mem0 smoke test passed (`python -m scripts.smoke_baselines mem0`), but Supermemory has not run because there is no key yet. Its status polling in `baselines/supermemory/adapter.py` is untested against the live API.
+- Both smoke tests pass (`python -m scripts.smoke_baselines`), including Supermemory's status polling against the live API. Qwen is sometimes rate-limited upstream (HTTP 429), which makes runs slow. The runner retries.
 - The model pilot is done and `qwen/qwen3.8-flash` is frozen in `config.toml`. DeepSeek ignored `reasoning: {"enabled": false}` on 3 of 8 episodes and returned empty text, so it was dropped. In the full-transcript control Qwen missed all four single-task B probes (`st-01b` to `st-04b`) even though each probe says it is a new task. Treat that as a finding about the agent, not a suite bug.
 - Gold labels are drafts. Two annotators still need to label blind (`python -m episodes.annotate export`, then `agree --draft`) and adjudicate before tagging accuracy means anything.
 - Agents drafted 19 of the 20 pairs. Codex and Antigravity reviewed them, and the pairs were revised and reviewed once more by Codex. A human should still read all 20 for naturalness. `tests/test_suite.py` enforces the structural variety (memory position, session length, phrasing, chronology, domains).

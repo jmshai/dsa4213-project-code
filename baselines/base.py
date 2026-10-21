@@ -13,8 +13,9 @@ class RetrievedMemory:
 class MemoryAdapter(Protocol):
     """Thin wrapper around one memory system. `namespace` isolates one episode under one condition."""
 
-    def write(self, session_text: str) -> None: ...
+    def write(self, session_text: str, metadata: dict[str, str] | None = None) -> None: ...  # metadata is stored with the memory and returned in RetrievedMemory.raw
     def retrieve(self, query: str) -> list[RetrievedMemory]: ...
+    def stored(self) -> list[dict[str, Any]]: ...  # what the system holds for this namespace, for the run logs
     def reset(self) -> None: ...
 
 

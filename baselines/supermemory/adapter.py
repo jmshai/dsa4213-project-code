@@ -21,8 +21,9 @@ class SupermemoryAdapter:
     def _log(self, op, size):
         ledger.append(component="supermemory", cost_usd=0.0, note=f"{op} chars={size}; not OpenRouter spend")
 
-    def write(self, session_text):
-        ref = self.client.add(self.namespace, content=session_text)
+    def write(self, session_text, metadata=None):
+        extra = {"metadata": metadata} if metadata else {}
+        ref = self.client.add(self.namespace, content=session_text, **extra)
         self._log("add", len(session_text))
         deadline = time.time() + POLL_TIMEOUT_S
         while time.time() < deadline:  # ingestion is asynchronous; retrieve() before it finishes would see nothing
@@ -38,6 +39,10 @@ class SupermemoryAdapter:
         res = self.client.search(self.namespace, query=query, limit=TOP_K)
         self._log("search", len(query))
         return [RetrievedMemory(text=r.memory or r.chunk or "", score=r.similarity, raw=r.model_dump()) for r in res.results]
+
+    def stored(self):
+        res = self.client.list(self.namespace, "documents", limit=100)
+        return [d.model_dump(mode="json") for d in res.documents]
 
     def reset(self):
         self.client.namespaces.delete(self.namespace)

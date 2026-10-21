@@ -55,10 +55,14 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 │   ├── supermemory/       # Supermemory adapter
 │   └── mem0/              # Mem0 adapter
 ├── scope_layer/
+│   ├── tagger.py          # LLM tagger shared by both versions
 │   ├── write_time.py      # tags memories during extraction
 │   ├── read_time.py       # tags memories after retrieval
-│   └── resolver.py        # scope-precedence conflict resolution
+│   ├── layer.py           # stores and reads back write-time tags
+│   └── tags.py            # tag type, resolution rules and the prompt block
 ├── agent/                 # agent that converts memory into an action
+│   ├── conditions.py      # the conditions of Step 5
+│   └── runner.py          # runs episodes and writes the logs
 ├── runs/                  # raw logs per episode per condition
 ├── scoring/               # metrics and 2x2 analysis
 ├── longmemeval_check/     # MemoryBench subset run
@@ -145,13 +149,13 @@ If a baseline rewrites a memory and drops its scope cue, read-time tagging canno
 
 ### Conflict resolution
 
-When retrieved memories conflict, the resolver applies these rules in order and stops at the first one that leaves a single memory:
+When retrieved memories conflict, these rules apply in order, stopping at the first one that leaves a single memory. The scope-layer conditions put the rules in the agent prompt and the agent applies them. `episodes/validate.py` walks them over the gold tags:
 
 1. **Applicability.** Keep a memory only if its key matches the probe and its condition holds. Memories with different keys never conflict.
 2. **Narrowest scope.** `single_task` beats `project`, and `project` beats `standing`.
 3. **More specific condition.** Within one scope, a memory with a condition that holds beats an unconditional one. "Polars for > 1M rows" beats an unconditional "pandas" when the table has 5M rows.
 4. **Later memory.** Within one scope and one level of specificity, the later memory supersedes the earlier one. A same-scope restatement is treated as a correction.
-5. **Unresolved.** If memories still conflict, the resolver abstains and logs the case. The scoring step counts an abstention as a failed action.
+5. **Unresolved.** If memories still conflict, no memory wins. The scoring step counts this as a failed action.
 
 The suite contains no genuine ties, so rule 5 fires only when a tagger error or noisy retrieval produces one.
 
@@ -176,10 +180,10 @@ The suite contains 40 episodes arranged as 20 mirrored pairs, one JSON file per 
 
 Each memory is tagged with `{scope, key, condition}` as defined in [Scope model and labelling rules](#scope-model-and-labelling-rules).
 
-1. **Resolver.** When retrieved memories conflict, apply the conflict resolution pipeline from that section. Scope precedence comes first. Recency never outranks a narrower scope and only breaks ties inside one scope at one level of specificity. Similarity plays no part.
-2. **Write-time version.** Tag memories during extraction, while the original conversation is still available.
+1. **Tagger.** `scope_layer/tagger.py` calls the agent model with `episodes/labelling_guide.md` as its instructions. It sees session text or retrieved text only, never gold fields. Task ids are gold-only, so it leaves the key null for `single_task`.
+2. **Write-time version.** Tag memories during extraction, while the original conversation is still available. Each extracted instruction is stored as its own memory with the tag as metadata (`write(text, metadata=...)` on both adapters), so the tag survives the system's rewriting.
 3. **Read-time version.** Tag memories after they have been retrieved by Supermemory or Mem0.
-4. Expose the output of each version in a common format so that the agent receives the same input structure in every condition.
+4. **Prompt block.** `scope_layer/tags.py` renders the labelled memories and the conflict resolution rules into the prompt's `{memories}` slot, oldest first when the system returns times. The agent chooses the memory itself, so no code decides for it, and `agent/prompt.md` is the same in every condition.
 
 Interpretation of the two versions: if write-time tagging succeeds where read-time tagging fails, scope information was not sufficiently preserved or retrieved for downstream action selection.
 
@@ -209,6 +213,11 @@ For each episode and each condition, log:
 5. Token counts and cost.
 
 Logging both retrieval and action allows each failure to be traced to extraction, retrieval, or the agent's reasoning.
+
+1. Run `uv run python -m agent.runner --conditions no_memory mem0 scope_write_mem0 --episodes po-01a po-01b`. Leave out `--episodes` for all 40. `--list` prints the condition names.
+2. Each episode and condition writes `runs/logs/<condition>/<episode_id>.json` with the stored memories, the retrieved memories, the tags, the prompt, the agent's response and the tokens and cost by component. The `gold_ref` block is for scoring only.
+3. The agent's chosen memory is read from its action, since the agent applies the rules itself.
+4. A log without an error is skipped on rerun, and `--force` reruns it. A provider rate limit (HTTP 429) is retried with a wait.
 
 ## Step 7: Score the results
 

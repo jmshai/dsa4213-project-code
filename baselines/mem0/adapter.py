@@ -28,8 +28,12 @@ class Mem0Adapter:
         })
         llm.instrument_client(self.memory.llm.client, component="mem0")
 
-    def write(self, session_text):
-        self.memory.add(to_messages(session_text), user_id=self.namespace)
+    def write(self, session_text, metadata=None):
+        self.memory.add(to_messages(session_text), user_id=self.namespace, metadata=metadata)
+
+    def stored(self):
+        res = self.memory.get_all(filters={"user_id": self.namespace}, top_k=1000)
+        return res["results"] if isinstance(res, dict) else res
 
     def retrieve(self, query):
         res = self.memory.search(query, top_k=TOP_K, filters={"user_id": self.namespace})
