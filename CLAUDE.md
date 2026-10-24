@@ -7,7 +7,7 @@
 ```
 uv sync
 cp .env.example .env     # fill in OPENROUTER_API_KEY and SUPERMEMORY_API_KEY
-uv run pytest            # 66 tests, no network
+uv run pytest            # 101 tests, no network
 uv run python -m episodes.validate   # expect: 20/20 pairs valid
 ```
 
@@ -24,7 +24,9 @@ The team shares a $15 OpenRouter budget. Set a credit limit of about $12 on your
 | `baselines/mem0/`, `baselines/supermemory/` | Both systems as shipped. Construct with a `namespace` (episode id plus condition) so episodes never share memories. |
 | `agent/prompt.md` | Draft agent prompt with `{memories}` and `{probe}` slots. Fix it before any scored run. |
 | `scope_layer/` | Step 4. `tagger.py` labels memories as `{scope, key, condition}` with the Step 3 labelling guide as its prompt. `write_time.py` tags a full session, `read_time.py` tags retrieved memories, `layer.py` stores write-time tags as metadata and reads them back, and `tags.py` renders the labelled memories plus the resolution rules into the agent prompt's `{memories}` slot. The agent makes the final choice. There is no code resolver. |
-| `agent/` | Step 6. `agent.py` builds the prompt and calls the model. `conditions.py` holds minimal versions of the Step 5 conditions (Step 5 may replace them). `runner.py` runs episodes and writes `runs/logs/<condition>/<episode_id>.json`. |
+| `agent/` | Steps 5 and 6. `conditions.py` holds the eight Step 5 conditions and `CONDITION_INFO` (role, system, layer); each run uses a fresh namespace. `agent.py` builds the prompt and calls the model. `runner.py` runs episodes (`--conditions all` for every condition) and writes `runs/logs/<condition>/<episode_id>.json`. |
+| `scoring/` | Step 7. `uv run python -m scoring.score` turns the logs into `reports/`. `judge.py` is the LLM judge (which action an answer takes, retention checks, which gold memory a stored or retrieved note records), cached in `runs/judge_cache.jsonl`. `records.py` scores one log (category, failure stage, tag checks), `tables.py` aggregates, `report.py` writes, `review.py` exports a sample for a person to check the judge. |
+| `reports/` | Step 7 output, committed: `summary.md`, `examples.md`, `episode_scores.csv`, `tables/`, `figures/`, `review/`. |
 | `episodes/` | The suite: `schema.json`, `labelling_guide.md`, `validate.py`, `annotate.py`, `loader.py`, and 20 pair files in `pairs/`. |
 | `scripts/` | `spend.py` (ledger vs OpenRouter's usage), `smoke_baselines.py`, `pilot_models.py`. |
 
@@ -49,9 +51,10 @@ Systems and the agent may use only the session `text` and the probe `text`. Ever
   - Taggers output `{scope, key, condition}` per memory. The write-time tagger sees full session text. The read-time tagger sees only retrieved text. Task ids are gold-only, so taggers leave the key null for `single_task`. Score `key` for `single_task` as not applicable.
   - The write-time condition stores each extracted instruction as its own memory with the tag as metadata (`write(text, metadata=...)` on both adapters). The tagger's extracted spans are not always word-for-word the gold `text`, so matching them to gold needs fuzzy matching.
 - **@nicngck (Steps 5 and 7).**
-  - Each memory has an `action`, so you can map the agent's chosen action back to a `memory_id`. That separates under-applying, over-applying and picking a superseded memory.
-  - Retention checks are in each pair's `retention_checks`. They are descriptions to judge by reading the answer, not code.
-  - Tagging accuracy is scored per field against `gold`, once the gold labels are adjudicated.
+  - Conditions: `uv run python -m agent.runner --conditions all` runs all eight on all 40 episodes (320 logs). `tests/test_conditions.py` checks that no gold field reaches a system, a tagger or the agent in any condition.
+  - Scoring: `uv run python -m scoring.score --dry-run`, then `uv run python -m scoring.score`. The judge never sees the expected action; the action it picks maps back to a `memory_id`, which separates under-applying, over-applying and picking a superseded memory. Retention checks are judged the same way.
+  - Check the judge with `uv run python -m scoring.review`: label the exported CSV, rerun `scoring.score`, and the human labels override the judge and show up as agreement in `summary.md`.
+  - Tagging accuracy is scored per field against `gold`. Until the labels are adjudicated it uses the drafts; rerun `scoring.score --gold-status adjudicated` afterwards (no agent calls).
 - **@iveryshai (Steps 8 and 10).** Nothing in Steps 1-3 touches MemoryBench. The Step 8 check is the most expensive run (large haystacks through Mem0). Budget for it before starting.
 
 ## Rules that matter
@@ -65,6 +68,7 @@ Systems and the agent may use only the session `text` and the probe `text`. Ever
 
 - Both smoke tests pass (`python -m scripts.smoke_baselines`), including Supermemory's status polling against the live API. Qwen is sometimes rate-limited upstream (HTTP 429), which makes runs slow. The runner retries.
 - The model pilot is done and `qwen/qwen3.8-flash` is frozen in `config.toml`. DeepSeek ignored `reasoning: {"enabled": false}` on 3 of 8 episodes and returned empty text, so it was dropped. In the full-transcript control Qwen missed all four single-task B probes (`st-01b` to `st-04b`) even though each probe says it is a new task. Treat that as a finding about the agent, not a suite bug.
+- Steps 5 and 7 code is in place and tested offline with synthetic logs. The scored run of all eight conditions, the judge's human check (`scoring.review`) and the committed `reports/` are still to come.
 - Gold labels are drafts. Two annotators still need to label blind (`python -m episodes.annotate export`, then `agree --draft`) and adjudicate before tagging accuracy means anything.
 - Agents drafted 19 of the 20 pairs. Codex and Antigravity reviewed them, and the pairs were revised and reviewed once more by Codex. A human should still read all 20 for naturalness. `tests/test_suite.py` enforces the structural variety (memory position, session length, phrasing, chronology, domains).
 - Known gaps in the suite: thresholds are tested far from their boundaries (no equality cases), the supersession and three-scope pairs are all developer scenarios, and memories are still fairly conspicuous directives. The no-memory shortcut rate per pair is unmeasured until Step 6.

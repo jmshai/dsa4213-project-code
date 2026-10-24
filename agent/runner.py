@@ -2,6 +2,7 @@
 
     uv run python -m agent.runner --conditions no_memory mem0 --episodes po-01a po-01b
     uv run python -m agent.runner --conditions scope_write_mem0 scope_read_mem0     # all 40 episodes
+    uv run python -m agent.runner --conditions all                                  # every condition, all 40 episodes
     uv run python -m agent.runner --list
 
 Logs go to runs/logs/<condition>/<episode_id>.json. An episode whose log exists without an error is skipped, so a
@@ -107,7 +108,7 @@ def _done(path):
 
 def main(argv=None):
     p = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    p.add_argument("--conditions", nargs="+", choices=list(CONDITIONS), help="conditions to run")
+    p.add_argument("--conditions", nargs="+", choices=[*CONDITIONS, "all"], help="conditions to run, or all")
     p.add_argument("--episodes", nargs="+", help="episode ids such as po-01a; default is all 40")
     p.add_argument("--force", action="store_true", help="rerun episodes that already have a log")
     p.add_argument("--list", action="store_true", help="print the condition names and exit")
@@ -115,6 +116,7 @@ def main(argv=None):
     if args.list or not args.conditions:
         print("\n".join(CONDITIONS))
         return 0
+    conditions = list(CONDITIONS) if "all" in args.conditions else list(dict.fromkeys(args.conditions))
 
     eps = [e for e in episodes() if not args.episodes or e["episode_id"] in args.episodes]
     unknown = set(args.episodes or []) - {e["episode_id"] for e in eps}
@@ -123,7 +125,7 @@ def main(argv=None):
 
     llm.start_run()
     failed = 0
-    for condition in args.conditions:
+    for condition in conditions:
         for ep in eps:
             path = log_path(condition, ep["episode_id"])
             if _done(path) and not args.force:

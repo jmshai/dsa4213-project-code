@@ -63,10 +63,16 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 ├── agent/                 # agent that converts memory into an action
 │   ├── conditions.py      # the conditions of Step 5
 │   └── runner.py          # runs episodes and writes the logs
-├── runs/                  # raw logs per episode per condition
-├── scoring/               # metrics and 2x2 analysis
+├── runs/                  # raw logs per episode per condition, judge cache (gitignored)
+├── scoring/
+│   ├── judge.py           # LLM judge: which action an answer takes, retention checks, note-to-memory matching
+│   ├── records.py         # one scored record per log: category, failure stage, tag checks
+│   ├── tables.py          # the Step 7 metrics, intervals and paired tests
+│   ├── report.py          # writes reports/
+│   ├── review.py          # human check of the judge
+│   └── score.py           # entry point: uv run python -m scoring.score
 ├── longmemeval_check/     # MemoryBench subset run
-└── reports/
+└── reports/               # Step 7 output: summary.md, examples.md, tables/, figures/
 ```
 
 ## Step 0: Prerequisites
@@ -190,17 +196,28 @@ Interpretation of the two versions: if write-time tagging succeeds where read-ti
 ## Step 5: Configure the experimental conditions (build the evals) 
 
 
-| Condition                  | Purpose                                                                                                                                                  |
-| -------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| No memory                  | Floor                                                                                                                                                    |
-| Full transcript in context | Control. If the agent fails here, the failure is in reasoning. If it succeeds here and a memory system fails, extraction or retrieval is dropping scope. |
-| Supermemory (as shipped)   | Baseline                                                                                                                                                 |
-| Mem0 (as shipped)          | Baseline                                                                                                                                                 |
-| Scope layer, write-time    | Treatment                                                                                                                                                |
-| Scope layer, read-time     | Treatment                                                                                                                                                |
+| Condition                  | Name in `agent/conditions.py`                  | The agent's `{memories}` slot holds                                              | Purpose                                                                                                                                                  |
+| -------------------------- | ---------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| No memory                  | `no_memory`                                    | `(none)`                                                                         | Floor                                                                                                                                                    |
+| Full transcript in context | `full_transcript`                              | every session, in order                                                          | Control. If the agent fails here, the failure is in reasoning. If it succeeds here and a memory system fails, extraction or retrieval is dropping scope. |
+| Supermemory (as shipped)   | `supermemory`                                  | what Supermemory retrieves for the probe                                         | Baseline                                                                                                                                                 |
+| Mem0 (as shipped)          | `mem0`                                         | what Mem0 retrieves for the probe                                                | Baseline                                                                                                                                                 |
+| Scope layer, write-time    | `scope_write_mem0`, `scope_write_supermemory` | retrieved memories with the tags stored at write time, plus the resolution rules | Treatment                                                                                                                                                |
+| Scope layer, read-time     | `scope_read_mem0`, `scope_read_supermemory`   | retrieved memories tagged after retrieval, plus the resolution rules             | Treatment                                                                                                                                                |
 
 
-Every condition runs all 40 episodes.
+Every condition runs all 40 episodes. The scope layer runs on both memory systems, so each treatment is compared with the baseline it is built on: eight conditions, 320 runs. `CONDITION_INFO` in `agent/conditions.py` records each condition's role, system and layer for scoring.
+
+What keeps the comparison fair:
+
+1. The model, its settings (`config.toml`) and `agent/prompt.md` are the same in every condition. Only the `{memories}` text differs. The prompt is frozen: changing it means rerunning every condition.
+2. Only session text and probe text reach a memory system, a tagger or the agent. `tests/test_conditions.py` replaces every gold field of an episode with a sentinel string and fails if the sentinel crosses any of those boundaries, for every condition.
+3. Each run writes to a fresh namespace (episode id, condition and a random suffix). A run killed before cleanup cannot leave memories behind for a rerun to retrieve, and a cleanup that fails is recorded in the log as `cleanup_error` instead of hiding the error that stopped the run.
+
+Run them:
+
+1. One pair first, a few cents: `uv run python -m agent.runner --conditions all --episodes po-01a po-01b`
+2. Then every condition on every episode: `uv run python -m agent.runner --conditions all`. A stopped run resumes where it left off. On a Mac, start it as `caffeinate -i uv run python -m agent.runner --conditions all` so the laptop does not sleep.
 
 ## Step 6: Run the episodes and log outputs (build logs) 
 
@@ -232,6 +249,23 @@ Logging both retrieval and action allows each failure to be traced to extraction
 
 
 Report correction adherence against unrelated-memory retention, broken down by conflict type. Include representative successes and failures alongside aggregate numbers.
+
+Run it after Step 6:
+
+1. `uv run python -m scoring.score --dry-run` counts the judge calls needed and estimates their cost. It makes no calls.
+2. `uv run python -m scoring.score` judges what is not cached yet and writes `reports/`: `summary.md` (every table below, with definitions and caveats), `examples.md` (representative successes and failures, chosen by rule), `episode_scores.csv` (one row per condition and episode), `tables/*.csv` and `figures/*.png`.
+3. `uv run python -m scoring.review` picks 40 answers for a person to label (`reports/review/judge_review.md` and `.csv`). Fill in the CSV and rerun step 2: the human labels replace the judge's for those episodes, and `summary.md` reports how often the judge agreed.
+4. Once the gold labels are adjudicated (Step 3), rerun step 2 with `--gold-status adjudicated`. Only scoring reruns. No agent calls are made.
+
+How each number is computed:
+
+- **Which action the agent took.** An LLM judge (`scoring/judge.py`, model set in `config.toml [judge]`) reads the request and the answer and says which of the competing memories' actions the answer actually uses, or `none`, or `mixed`. It sees the options in alphabetical order and never the expected action. Verdicts are cached in `runs/judge_cache.jsonl`, so rescoring is free. The chosen action maps back to a memory, which classifies a wrong answer as over-applied (a memory outside its scope), under-applied (a broader or less specific memory), superseded (an earlier memory of the same scope) or hedged (rule 5, no memory wins).
+- **Correction adherence.** An episode is right when the judged action is the expected one. Reported per episode with a 95% Wilson interval, for probe A (in scope, where misses are under-application) and probe B (out of scope, where misses are over-application), and per pair (both halves right, so a fixed default scores nothing).
+- **Unrelated-memory retention.** The judge's verdict on the pair's retention check.
+- **Retrieval vs. action.** Retrieved right means the memory that should win is among the retrieved notes, matched word for word or, for rewritten notes, by the judge. No memory counts as retrieved wrong, the full transcript as retrieved right. Each wrong answer is also placed at the first stage that failed: extraction (Mem0 did not keep the winning memory), retrieval, scope lost (a competing memory reached the agent without its project, task or condition), tagging (a wrong or missing tag on a competing memory) or reasoning.
+- **Tagging accuracy.** Per field against the gold labels: scope exactly; key for project memories (every word of the gold project name must appear) and standing ones (no key), not for single-task ones, since task ids are gold-only; condition strictly (variable, operator, value) and leniently (operator and value). Write-time tags are scored as the tagger produced them and again after storage. Read-time tags are scored as given to the retrieved memories.
+- **Cost.** Each log's usage block. Supermemory bills its own processing, so it shows as $0.
+- **Comparisons.** Exact McNemar tests on paired episodes for each treatment against its baseline, write-time against read-time, and the controls.
 
 ## Step 8: Run the vendor claim check
 

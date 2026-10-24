@@ -7,6 +7,14 @@ seed = 4213
 max_tokens = 1024
 reasoning_enabled = false
 
+[judge]
+# Step 7 scoring only (scoring/judge.py): reads the agent's answers and the memory systems' notes after a run, never
+# inside a condition. Same model as the agent unless changed here. Check it against a human with scoring.review.
+model = "qwen/qwen3.8-flash"
+temperature = 0
+seed = 4213
+max_tokens = 700
+
 [retrieval]
 top_k = 10  # memories retrieved per probe, the same for every baseline
 

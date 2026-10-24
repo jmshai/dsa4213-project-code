@@ -162,6 +162,13 @@ def test_main_writes_logs_and_resumes(logs, fake_agent, monkeypatch, capsys):
     assert len(fake_agent) == 3
 
 
+def test_conditions_all_runs_every_registered_condition(logs, fake_agent, monkeypatch):
+    monkeypatch.setattr(llm, "start_run", lambda: None)
+    monkeypatch.setattr(runner, "CONDITIONS", {"x": conditions.no_memory, "y": conditions.full_transcript})
+    assert runner.main(["--conditions", "all", "--episodes", "po-01a"]) == 0
+    assert runner.log_path("x", "po-01a").exists() and runner.log_path("y", "po-01a").exists() and len(fake_agent) == 2
+
+
 def test_every_condition_is_registered():
     assert set(conditions.CONDITIONS) == {"no_memory", "full_transcript", "mem0", "supermemory",
                                           "scope_write_mem0", "scope_read_mem0", "scope_write_supermemory", "scope_read_supermemory"}
@@ -195,4 +202,5 @@ def test_read_time_condition_with_fake_adapter(monkeypatch):
     out = conditions.memory_system("fake", "read", "scope_read_fake")(EPS["po-01a"])
     assert "project: Project Marlin" in out["memories"] and out["tagged"][0]["tag"]["scope"] == "project"
     a = made[0]
-    assert a.ns == "po-01a-scope_read_fake" and len(a.writes) == 2 and all(m is None for _, m in a.writes) and a.reset_called
+    assert a.ns.startswith("po-01a-scope_read_fake-") and out["namespace"] == a.ns
+    assert len(a.writes) == 2 and all(m is None for _, m in a.writes) and a.reset_called
