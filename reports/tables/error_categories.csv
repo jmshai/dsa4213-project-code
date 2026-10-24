@@ -1,0 +1,9 @@
+condition,episodes,correct,over_apply,under_apply,superseded,other_action,hedged,default,over_apply_rate_out_of_scope,under_apply_rate_in_scope
+no_memory,40,8,0,0,0,14,0,18,0.0,0.0
+full_transcript,40,32,4,3,0,0,1,0,0.2,0.1
+mem0,40,31,5,4,0,0,0,0,0.25,0.15
+scope_write_mem0,40,24,4,9,1,2,0,0,0.2,0.45
+scope_read_mem0,40,32,4,4,0,0,0,0,0.2,0.2
+supermemory,40,34,4,1,0,0,1,0,0.2,0.05
+scope_write_supermemory,40,31,0,8,0,0,1,0,0.0,0.4
+scope_read_supermemory,40,37,3,0,0,0,0,0,0.15,0.0

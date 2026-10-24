@@ -1,0 +1,9 @@
+condition,episodes,correct,no_memory,extraction,retrieval,scope_lost,tagging,reasoning,unknown
+no_memory,40,8,32,0,0,0,0,0,0
+full_transcript,40,32,0,0,0,0,0,8,0
+mem0,40,31,0,0,0,5,0,4,0
+scope_write_mem0,40,24,0,7,0,0,4,5,0
+scope_read_mem0,40,32,0,0,0,4,0,4,0
+supermemory,40,34,0,0,0,0,0,6,0
+scope_write_supermemory,40,31,0,0,1,0,0,8,0
+scope_read_supermemory,40,37,0,0,0,0,1,2,0

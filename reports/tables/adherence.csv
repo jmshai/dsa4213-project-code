@@ -1,0 +1,9 @@
+condition,role,episodes,correct,adherence,ci_low,ci_high,in_scope_correct,in_scope_n,in_scope,out_of_scope_correct,out_of_scope_n,out_of_scope,pairs_both_correct,pairs,pair_adherence,pair_ci_low,pair_ci_high,errors,unscored
+no_memory,floor,40,8,0.2,0.105,0.3476,4,20,0.2,4,20,0.2,0,20,0.0,0.0,0.1611,0,0
+full_transcript,control,40,32,0.8,0.6524,0.895,17,20,0.85,15,20,0.75,13,20,0.65,0.4329,0.8188,0,0
+mem0,baseline,40,31,0.775,0.625,0.8768,17,20,0.85,14,20,0.7,11,20,0.55,0.3421,0.7418,0,0
+scope_write_mem0,treatment,40,24,0.6,0.446,0.7365,10,20,0.5,14,20,0.7,8,20,0.4,0.2188,0.6134,0,0
+scope_read_mem0,treatment,40,32,0.8,0.6524,0.895,16,20,0.8,16,20,0.8,13,20,0.65,0.4329,0.8188,0,0
+supermemory,baseline,40,34,0.85,0.7093,0.9294,18,20,0.9,16,20,0.8,15,20,0.75,0.5313,0.8881,0,0
+scope_write_supermemory,treatment,40,31,0.775,0.625,0.8768,11,20,0.55,20,20,1.0,11,20,0.55,0.3421,0.7418,0,0
+scope_read_supermemory,treatment,40,37,0.925,0.8014,0.9742,20,20,1.0,17,20,0.85,17,20,0.85,0.6396,0.9476,0,0

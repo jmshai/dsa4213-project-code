@@ -1,0 +1,7 @@
+condition,source,tags,untagged,scope,key,key_n,condition_strict,condition_lenient,all_fields,write_recall,tag_survival
+scope_write_mem0,write_tagger,124,0,1.0,1.0,116,0.9355,0.9919,0.9919,0.9394,1.0
+scope_write_mem0,read_back,97,0,1.0,1.0,94,0.9175,0.9897,0.9897,,
+scope_read_mem0,read_tagger,111,6,0.8739,0.9238,105,0.8919,0.9459,0.8739,,
+scope_write_supermemory,write_tagger,124,0,1.0,1.0,117,0.9355,1.0,1.0,0.9394,1.0
+scope_write_supermemory,read_back,124,0,1.0,1.0,117,0.9355,1.0,1.0,,
+scope_read_supermemory,read_tagger,52,4,0.7692,0.7273,44,0.75,0.7885,0.6731,,

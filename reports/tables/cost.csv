@@ -1,0 +1,9 @@
+condition,logs,total_usd,mean_usd_per_episode,mean_prompt_tokens,mean_completion_tokens,mean_usd_agent,mean_usd_mem0,mean_usd_supermemory,mean_usd_tagger
+no_memory,40,0.0048,0.0001,160.85,205.85,0.0001,0.0,0.0,0.0
+full_transcript,40,0.0052,0.0001,465.0,162.525,0.0001,0.0,0.0,0.0
+mem0,40,0.0298,0.0007,19862.05,546.9,0.0001,0.0006,0.0,0.0
+scope_write_mem0,40,0.0409,0.001,33799.3,559.175,0.0001,0.0007,0.0,0.0002
+scope_read_mem0,40,0.0373,0.0009,21954.475,794.95,0.0001,0.0006,0.0,0.0002
+supermemory,40,0.005,0.0001,444.2,152.775,0.0001,0.0,0.0,0.0
+scope_write_supermemory,40,0.0138,0.0003,4570.725,377.65,0.0001,0.0,0.0,0.0002
+scope_read_supermemory,40,0.0096,0.0002,2597.425,253.35,0.0001,0.0,0.0,0.0001

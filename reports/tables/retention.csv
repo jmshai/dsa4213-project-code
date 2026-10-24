@@ -1,0 +1,9 @@
+condition,role,kept,judged,retention,ci_low,ci_high,project_override,single_task_override,conditional_scope,same_scope_supersession,same_scope_specificity
+no_memory,floor,8,40,0.2,0.105,0.3476,0.5,0.25,0.25,0.0,0.0
+full_transcript,control,38,40,0.95,0.835,0.9862,1.0,0.75,1.0,1.0,1.0
+mem0,baseline,27,40,0.675,0.5202,0.7992,0.5,0.75,0.75,0.625,0.75
+scope_write_mem0,treatment,25,40,0.625,0.4703,0.7578,0.5,1.0,0.75,0.375,0.5
+scope_read_mem0,treatment,28,39,0.7179,0.5622,0.8346,0.5,0.875,0.8571,0.625,0.75
+supermemory,baseline,39,40,0.975,0.8712,0.9956,1.0,0.875,1.0,1.0,1.0
+scope_write_supermemory,treatment,34,39,0.8718,0.7329,0.944,0.875,1.0,1.0,0.7143,0.75
+scope_read_supermemory,treatment,39,40,0.975,0.8712,0.9956,1.0,1.0,1.0,1.0,0.875

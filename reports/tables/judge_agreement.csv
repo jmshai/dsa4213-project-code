@@ -1,0 +1,4 @@
+check,items,agree,agreement,kappa
+action: judge vs first-line keyword,263,257,0.9772,0.9765
+action: judge vs human review,40,40,1.0,1.0
+retention: judge vs human review,38,38,1.0,1.0

@@ -3,9 +3,10 @@
     uv run python -m scoring.review              # after scoring.score; 40 answers by default
     uv run python -m scoring.review --n 60 --force
 
-Writes reports/review/judge_review.md (each answer in full, with what the judge decided) and judge_review.csv. Read
-the .md file, then in the .csv fill `human_action` with one of the options listed for that item (or none / mixed) and
-`human_retention` with yes or no. Leave a cell empty to skip it. Rerun `uv run python -m scoring.score`: your labels
+Writes reports/review/judge_review.md (each answer in full, with what the judge decided folded away at the end of each
+item) and judge_review.csv. Read the .md file, then in the .csv fill `human_action` with one of the options listed for
+that item (or none / mixed) and `human_retention` with yes or no. Leave a cell empty to skip it. The .csv carries no
+judge verdicts, so the labels are made blind; agreement is computed from the scored records. Rerun `uv run python -m scoring.score`: your labels
 replace the judge's for those episodes, and summary.md section 10 reports how often the judge agreed with you.
 
 The sample takes every answer where the judge and the first-line keyword disagree (up to half the sample), then a
@@ -22,7 +23,7 @@ from scoring.judge import pick_option
 from scoring.records import candidates
 
 REVIEW_PATH = ROOT / "reports/review/judge_review.csv"
-COLUMNS = ("item", "options", "judge_action", "human_action", "judge_retention", "human_retention", "notes")
+COLUMNS = ("item", "options", "human_action", "human_retention", "notes")  # no judge columns: the labels are blind
 YES, NO = {"yes", "y", "true", "pass", "passed", "1"}, {"no", "n", "false", "fail", "failed", "0"}
 
 
@@ -61,10 +62,9 @@ def write_review(picked, logs, eps, folder):
         md += [f"\n---\n\n## {item}\n", f"**Request:** {ep['probe']['text']}\n",
                f"**Options** ({ep['probe']['decision'].replace('_', ' ')}): {', '.join(options)}, none, mixed\n",
                f"**Retention check:** {checks}\n", "**Answer:**\n", "````text", log["agent"]["response"], "````\n",
-               f"<details><summary>Judge's verdict</summary>\n\naction: {r['judge_action']} (evidence: \"{r['action_evidence']}\"); "
+               f"<details><summary>Judge's verdict (open it only after you have decided)</summary>\n\naction: {r['judge_action']} (evidence: \"{r['action_evidence']}\"); "
                f"retention: {r['judge_retention']} (evidence: \"{r['retention_evidence']}\")\n</details>\n"]
-        rows.append({"item": item, "options": " | ".join([*options, "none", "mixed"]), "judge_action": r["judge_action"],
-                     "human_action": "", "judge_retention": r["judge_retention"], "human_retention": "", "notes": ""})
+        rows.append({"item": item, "options": " | ".join([*options, "none", "mixed"]), "human_action": "", "human_retention": "", "notes": ""})
     (folder / "judge_review.md").write_text("\n".join(md) + "\n")
     with (folder / "judge_review.csv").open("w", newline="") as f:
         w = csv.DictWriter(f, COLUMNS)

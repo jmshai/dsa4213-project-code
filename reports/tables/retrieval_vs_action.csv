@@ -1,0 +1,9 @@
+condition,episodes,retrieved_right_acted_right,retrieved_right_acted_wrong,retrieved_wrong_acted_right,retrieved_wrong_acted_wrong,wrong_given_retrieved_right,failures_with_retrieval_right
+no_memory,40,0,0,8,32,,0.0
+full_transcript,40,32,8,0,0,0.2,1.0
+mem0,40,31,9,0,0,0.225,1.0
+scope_write_mem0,40,23,9,1,7,0.2812,0.5625
+scope_read_mem0,40,32,8,0,0,0.2,1.0
+supermemory,40,34,6,0,0,0.15,1.0
+scope_write_supermemory,40,31,8,0,1,0.2051,0.8889
+scope_read_supermemory,40,37,3,0,0,0.075,1.0

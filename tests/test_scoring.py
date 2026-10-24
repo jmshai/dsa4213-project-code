@@ -322,7 +322,8 @@ def test_review_labels_override_the_judge(run):
     with path.open() as f:
         rows = list(csv.DictReader(f))
     rows[0]["human_action"], rows[0]["human_retention"] = "none", "no"
-    rows[1]["human_action"] = rows[1]["judge_action"]
+    assert "judge_action" not in rows[0] and "judge_retention" not in rows[0]  # blind: no verdicts in the file people fill in
+    rows[1]["human_action"] = picked[1]["judge_action"]
     with path.open("w", newline="") as f:
         w = csv.DictWriter(f, review.COLUMNS)
         w.writeheader()
