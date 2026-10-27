@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.16)  27 OCT 2026 14:45
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.10.16)  27 OCT 2026 15:46
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -489,59 +489,83 @@ File: pgfmodulematrix.code.tex 2023-01-15 v3.1.10 (3.1.10)
 \tikz@expandcount=\count324
  (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarytopaths.code.tex
 File: tikzlibrarytopaths.code.tex 2023-01-15 v3.1.10 (3.1.10)
-))) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
+))) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count325
+\lst@gtempboxa=\box69
+\lst@token=\toks40
+\lst@length=\count326
+\lst@currlwidth=\dimen291
+\lst@column=\count327
+\lst@pos=\count328
+\lst@lostspace=\dimen292
+\lst@width=\dimen293
+\lst@newlines=\count329
+\lst@lineno=\count330
+\lst@maxwidth=\dimen294
+ (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstpatch.sty
+File: lstpatch.sty 2024/09/23 1.10c (Carsten Heinz)
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
+\c@lstnumber=\count331
+\lst@skipnumbers=\count332
+\lst@framebox=\box70
+) (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2024/09/23 1.10c listings configuration
+))
+Package: listings 2024/09/23 1.10c (Carsten Heinz)
+ (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/frontendlayer/tikz/libraries/tikzlibrarypositioning.code.tex
 File: tikzlibrarypositioning.code.tex 2023-01-15 v3.1.10 (3.1.10)
 ) (/usr/local/texlive/2025/texmf-dist/tex/generic/pgf/libraries/pgflibraryarrows.meta.code.tex
 File: pgflibraryarrows.meta.code.tex 2023-01-15 v3.1.10 (3.1.10)
-\pgfarrowinset=\dimen291
-\pgfarrowlength=\dimen292
-\pgfarrowwidth=\dimen293
-\pgfarrowlinewidth=\dimen294
+\pgfarrowinset=\dimen295
+\pgfarrowlength=\dimen296
+\pgfarrowwidth=\dimen297
+\pgfarrowlinewidth=\dimen298
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count325
-\l__pdf_internal_box=\box69
+\l__color_backend_stack_int=\count333
+\l__pdf_internal_box=\box71
 ) (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 35.
-LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 68.
+LaTeX Font Info:    ... okay on input line 68.
  (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count326
-\scratchdimen=\dimen295
-\scratchbox=\box70
-\nofMPsegments=\count327
-\nofMParguments=\count328
-\everyMPshowfont=\toks40
-\MPscratchCnt=\count329
-\MPscratchDim=\dimen296
-\MPnumerator=\count330
-\makeMPintoPDFobject=\count331
-\everyMPtoPDFconversion=\toks41
+\scratchcounter=\count334
+\scratchdimen=\dimen299
+\scratchbox=\box72
+\nofMPsegments=\count335
+\nofMParguments=\count336
+\everyMPshowfont=\toks41
+\MPscratchCnt=\count337
+\MPscratchDim=\dimen300
+\MPnumerator=\count338
+\makeMPintoPDFobject=\count339
+\everyMPtoPDFconversion=\toks42
 ) (/usr/local/texlive/2025/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 35.
+Package hyperref Info: Link coloring OFF on input line 68.
  (./main.out) (./main.out)
 \@outlinefile=\write4
 \openout4 = `main.out'.
@@ -581,11 +605,12 @@ Package hyperref Info: Link coloring OFF on input line 35.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 37.
+\c@lstlisting=\count340
+LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 37.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
  (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
@@ -595,17 +620,17 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 {/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 
 [2]
-<../reports/figures/mirrored_pair_design.pdf, id=170, 2902.845pt x 2902.845pt>
+<../reports/figures/mirrored_pair_design.pdf, id=182, 2902.845pt x 2902.845pt>
 File: ../reports/figures/mirrored_pair_design.pdf Graphic file (type pdf)
 <use ../reports/figures/mirrored_pair_design.pdf>
-Package pdftex.def Info: ../reports/figures/mirrored_pair_design.pdf  used on input line 285.
+Package pdftex.def Info: ../reports/figures/mirrored_pair_design.pdf  used on input line 318.
 (pdftex.def)             Requested size: 385.02547pt x 385.00163pt.
 
 
 [3]
 
 [4 <../reports/figures/mirrored_pair_design.pdf>]
-Overfull \hbox (20.82156pt too wide) in paragraph at lines 390--397
+Overfull \hbox (20.82156pt too wide) in paragraph at lines 423--430
 \OT1/cmr/m/n/10.95 The im-ple-men-ta-tion uses Python 3.11+, \OT1/cmtt/m/n/10.95 uv\OT1/cmr/m/n/10.95 , and a shared lock-file. The agent is \OT1/cmtt/m/n/10.95 qwen/qwen3.8-flash
  []
 
@@ -614,74 +639,84 @@ Overfull \hbox (20.82156pt too wide) in paragraph at lines 390--397
 [5]
 
 [6]
-<../reports/figures/01_overall_adherence.pdf, id=274, 716.20338pt x 382.93837pt>
+<../reports/figures/01_overall_adherence.pdf, id=286, 716.20338pt x 382.93837pt>
 File: ../reports/figures/01_overall_adherence.pdf Graphic file (type pdf)
 <use ../reports/figures/01_overall_adherence.pdf>
-Package pdftex.def Info: ../reports/figures/01_overall_adherence.pdf  used on input line 520.
+Package pdftex.def Info: ../reports/figures/01_overall_adherence.pdf  used on input line 553.
 (pdftex.def)             Requested size: 389.55266pt x 208.28532pt.
-<../reports/figures/02_retrieved_but_wrong.pdf, id=276, 680.06837pt x 368.48438pt>
+<../reports/figures/02_retrieved_but_wrong.pdf, id=288, 680.06837pt x 368.48438pt>
 File: ../reports/figures/02_retrieved_but_wrong.pdf Graphic file (type pdf)
 <use ../reports/figures/02_retrieved_but_wrong.pdf>
-Package pdftex.def Info: ../reports/figures/02_retrieved_but_wrong.pdf  used on input line 544.
+Package pdftex.def Info: ../reports/figures/02_retrieved_but_wrong.pdf  used on input line 577.
 (pdftex.def)             Requested size: 371.43698pt x 201.25575pt.
-<../reports/figures/03_in_scope_vs_out_scope.pdf, id=278, 751.57834pt x 376.07655pt>
+<../reports/figures/03_in_scope_vs_out_scope.pdf, id=290, 751.57834pt x 376.07655pt>
 File: ../reports/figures/03_in_scope_vs_out_scope.pdf Graphic file (type pdf)
 <use ../reports/figures/03_in_scope_vs_out_scope.pdf>
-Package pdftex.def Info: ../reports/figures/03_in_scope_vs_out_scope.pdf  used on input line 566.
+Package pdftex.def Info: ../reports/figures/03_in_scope_vs_out_scope.pdf  used on input line 599.
 (pdftex.def)             Requested size: 389.55266pt x 194.92397pt.
 
 
 [7 <../reports/figures/01_overall_adherence.pdf>]
-<../reports/figures/04_conflict_heatmap.pdf, id=351, 751.32758pt x 390.18196pt>
+<../reports/figures/04_conflict_heatmap.pdf, id=363, 751.32758pt x 390.18196pt>
 File: ../reports/figures/04_conflict_heatmap.pdf Graphic file (type pdf)
 <use ../reports/figures/04_conflict_heatmap.pdf>
-Package pdftex.def Info: ../reports/figures/04_conflict_heatmap.pdf  used on input line 584.
+Package pdftex.def Info: ../reports/figures/04_conflict_heatmap.pdf  used on input line 617.
 (pdftex.def)             Requested size: 398.61395pt x 207.00978pt.
 
 
 [8 <../reports/figures/02_retrieved_but_wrong.pdf> <../reports/figures/03_in_scope_vs_out_scope.pdf>]
-<../reports/figures/05_failure_stages.pdf, id=493, 716.20338pt x 385.97296pt>
+<../reports/figures/05_failure_stages.pdf, id=505, 716.20338pt x 385.97296pt>
 File: ../reports/figures/05_failure_stages.pdf Graphic file (type pdf)
 <use ../reports/figures/05_failure_stages.pdf>
-Package pdftex.def Info: ../reports/figures/05_failure_stages.pdf  used on input line 604.
+Package pdftex.def Info: ../reports/figures/05_failure_stages.pdf  used on input line 637.
 (pdftex.def)             Requested size: 380.49136pt x 205.05351pt.
 
 
 [9 <../reports/figures/04_conflict_heatmap.pdf> <../reports/figures/05_failure_stages.pdf>]
 
 [10] (./main.bbl)
-LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 733.
-
 
 [11]
-Overfull \hbox (67.56168pt too wide) in paragraph at lines 768--773
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 847.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 873.
+ (../episodes/pairs/po-01.json
+
+[12]
+
+[13])
+LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 883.
+
+Overfull \hbox (67.56168pt too wide) in paragraph at lines 946--951
 \OT1/cmr/m/n/10.95 per-condition cost ac-count-ing are avail-able in \OT1/cmtt/m/n/10.95 reports/summary.md \OT1/cmr/m/n/10.95 and \OT1/cmtt/m/n/10.95 reports/episode[]scores.csv\OT1/cmr/m/n/10.95 . 
  []
 
 
 
-[12{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./main.aux)
+[14]
+
+[15{/usr/local/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 1E2ACC7D08950AF06114893E8BE41BE3;7241.
+(rerunfilecheck)             Checksum: 408C1A4289869FFD76184309565295F6;8049.
  ) 
 Here is how much of TeX's memory you used:
- 21932 strings out of 473190
- 406305 string characters out of 5715799
- 788254 words of memory out of 5000000
- 44759 multiletter control sequences out of 15000+600000
- 569887 words of font info for 79 fonts, out of 8000000 for 9000
+ 23706 strings out of 473190
+ 430312 string characters out of 5715799
+ 1504054 words of memory out of 5000000
+ 46404 multiletter control sequences out of 15000+600000
+ 570223 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,13n,91p,518b,856s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (12 pages, 747300 bytes).
+ 84i,13n,91p,788b,2200s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/texlive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
+Output written on main.pdf (15 pages, 786524 bytes).
 PDF statistics:
- 743 PDF objects out of 1000 (max. 8388607)
- 336 compressed objects within 4 object streams
- 69 named destinations out of 1000 (max. 500000)
- 315 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 908 PDF objects out of 1000 (max. 8388607)
+ 493 compressed objects within 5 object streams
+ 180 named destinations out of 1000 (max. 500000)
+ 339 words of extra memory for PDF output out of 10000 (max. 10000000)
 

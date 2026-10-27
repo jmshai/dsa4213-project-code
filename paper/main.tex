@@ -14,9 +14,42 @@
 \usepackage{booktabs}
 \usepackage{tabularx}
 \usepackage{tikz}
+
+\usepackage{listings}
+\usepackage{xcolor}
+
+
 \usetikzlibrary{positioning,arrows.meta}
 \graphicspath{{../reports/figures/}}
 
+\lstdefinelanguage{json}{
+    morestring=[b]",
+    stringstyle=\color{blue!55!black},
+    morekeywords={true,false,null},
+    keywordstyle=\color{purple!65!black},
+    sensitive=false,
+    showstringspaces=false
+}
+
+\lstdefinestyle{jsonstyle}{
+    language=json,
+    basicstyle=\ttfamily\scriptsize,
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    keepspaces=true,
+    frame=single,
+    rulecolor=\color{black!20},
+    backgroundcolor=\color{gray!3},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=7pt,
+    xleftmargin=12pt,
+    framexleftmargin=8pt,
+    tabsize=2,
+    showstringspaces=false,
+    captionpos=b
+}
 
 \title{\textbf{Beyond Retrieval: Scope-Aware Memory Application in AI Agents}}
 
@@ -727,40 +760,185 @@ Jagan Mohan Shailesh & Validation, analysis, report & -- \\
 
 \appendix
 
-\section{Qualitative Failure Cases}
+
+\section{Episode Examples and Qualitative Failure Analysis}
 \label{app:failure-cases}
 
-\subsection{Project Override: \texttt{po-01}}
+\subsection{Episode JSON Structure}
+\label{app:episode-schema}
 
-The user generally prefers Polars for datasets over
-one million rows but requires pandas for Project
-Marlin. Probe A concerns Marlin and expects pandas;
-Probe B concerns Project Tern and expects Polars.
-The unrelated type-hint preference applies to both.
+Each benchmark pair is stored as a JSON file under
+\path{episodes/pairs/}. The file contains the shared
+conversation history, reference memories, two evaluation
+probes, and an unrelated-memory retention check.
+Table~\ref{tab:episode-schema} summarises the top-level
+fields.
 
-In the logged project-override failure, the agent
-selects Polars despite the applicable Marlin
-instruction. This illustrates a failure to
-prioritize project scope over a standing preference.
+\begin{table}[htbp]
+\centering
+\small
+\caption{Top-level fields of an episode-pair JSON file.}
+\label{tab:episode-schema}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Field & Description \\
+\midrule
+\texttt{pair\_id} &
+Unique identifier of the paired scenario. \\
 
-\subsection{Single-Task Override: \texttt{st-04}}
+\texttt{conflict\_type} &
+Type of memory conflict being evaluated. \\
+
+\texttt{domain} &
+Specific decision domain, such as dataframe library. \\
+
+\texttt{domain\_kind} &
+Broader category of the task domain. \\
+
+\texttt{sessions} &
+Ordered earlier conversations containing user
+instructions and contextual information. \\
+
+\texttt{memories} &
+Reference instructions extracted from the sessions,
+including their source, role, intended action,
+and gold scope annotations. \\
+
+\texttt{probes} &
+Two evaluation tasks (A and B) sharing the same
+history but differing in contextual applicability.
+Each specifies its expected action and winning memory. \\
+
+\texttt{retention\_checks} &
+Requirements testing whether unrelated standing
+preferences are preserved. \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Each session contains a \texttt{session\_id},
+chronological \texttt{order}, \texttt{task\_id},
+\texttt{active\_project}, and conversation
+\texttt{text}.
+
+Each reference memory contains a \texttt{memory\_id},
+source \texttt{session\_id}, instruction \texttt{text},
+\texttt{role}, \texttt{decision}, \texttt{action},
+and a \texttt{gold} object. The latter specifies
+\texttt{scope}, \texttt{key}, and \texttt{condition}.
+
+Each probe contains a task identifier, project context,
+natural-language request, structured \texttt{facts},
+an \texttt{in\_scope} indicator, the decision being
+tested, \texttt{expected\_action},
+\texttt{expected\_memory}, and \texttt{deciding\_rule}.
+
+The \texttt{retention\_checks} array identifies
+an unrelated memory and the requirement used
+to evaluate whether it is followed.
+
+Only the conversation sessions and the selected
+probe text are supplied as episode inputs to
+the experimental systems. Reference memories,
+structured context, gold labels, and expected
+outcomes are reserved for validation and scoring.
+
+\subsection{Complete Example: Project Override
+(\texttt{po-01})}
+\label{app:po01-example}
+
+Pair \texttt{po-01} illustrates the mirrored-pair
+design. Two earlier sessions establish three
+reference memories: a standing preference for
+Polars on datasets exceeding one million rows,
+a project-specific instruction to use pandas
+for Project Marlin, and an unrelated requirement
+for Python type hints.
+
+Probe A concerns Project Marlin, where the
+project-specific instruction takes precedence.
+Probe B changes only the project to Project Tern,
+where the standing Polars preference applies.
+Both probes independently test retention of
+the type-hint instruction.
+
+Listing~\ref{lst:po01} reproduces the complete
+JSON specification used by the benchmark.
+
+\lstinputlisting[
+    style=jsonstyle,
+    caption={Complete JSON specification of
+    project-override pair \texttt{po-01}.},
+    label={lst:po01}
+]{../episodes/pairs/po-01.json}
+
+\subsection{Qualitative Failure Cases}
+\label{app:qualitative-failures}
+
+The following cases illustrate distinct
+memory-application failures observed in the
+experimental evaluation.
+
+\subsubsection{Project Override:
+\texttt{po-01}}
+
+The user generally prefers Polars for datasets
+exceeding one million rows but requires pandas
+for Project Marlin.
+
+Probe A concerns Marlin and expects pandas,
+whereas Probe B concerns Project Tern and
+expects Polars. The unrelated type-hint
+preference applies to both.
+
+In the logged project-override failure,
+the agent selects Polars despite the applicable
+Marlin instruction. This demonstrates that
+retrieving relevant information does not
+necessarily result in correct scope precedence.
+
+\subsubsection{Single-Task Override:
+\texttt{st-04}}
 
 The user generally prefers inline SQL subqueries,
-requires CTEs for Project Marlin, and requests
-views for one particular task. Probe A expects
-views; Probe B expects CTEs. Some conditions
-carry the temporary exception into Probe B,
-while others fail to apply it in Probe A.
+requires common table expressions (CTEs) for
+Project Marlin, and requests views for one
+particular task.
 
-\subsection{Same-Scope Specificity: \texttt{sp-02}}
+Probe A concerns the task for which views were
+requested and therefore expects views. Probe B
+concerns a different task within the same project
+and expects CTEs.
 
-The user normally opens emails with
+Some conditions incorrectly carry the single-task
+exception into Probe B, while others fail to
+apply it in Probe A. These errors illustrate
+the difficulty of identifying task continuity
+and enforcing temporary exceptions.
+
+\subsubsection{Same-Scope Specificity:
+\texttt{sp-02}}
+
+The user normally begins emails with
 ``To whom it may concern,'' but prefers
 ``Hey there,'' when writing to a neighbour.
-Probe A concerns a neighbour; Probe B concerns
-a landlord. Some responses combine both
-greetings or apply the conditional greeting
-outside its intended scope.
+
+Probe A concerns a neighbour and expects
+the conditional greeting. Probe B concerns
+a landlord and expects the default greeting.
+
+Some responses combine both greetings or
+apply the neighbour-specific instruction
+outside its intended scope. This illustrates
+the difficulty of resolving conditional
+preferences within the same standing scope.
+
+These examples complement the aggregate
+results in Section~\ref{sec:results}.
+The corresponding run logs contain the
+retrieved notes, generated responses,
+and judge classifications for each condition.
+
 
 \section{Supplementary Experimental Results}
 \label{app:supplementary-results}
