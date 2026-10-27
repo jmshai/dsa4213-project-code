@@ -747,7 +747,7 @@ instructions, and memory ordering.
 \toprule
 Member & Contributions & Share \\
 \midrule
-Isaac Chin Wei En & Benchmark and environment & -- \\
+Isaac Chin Wei En & Environment and baseline integration; episode schema, scope-labelling guide and 20-pair benchmark; automated validation and leakage checks; agent-model selection pilot & -- \\
 Edward Chew Kian Boon & Scope layer and logging & -- \\
 Ng Cheng Kiat Nicholas & Evaluation and scoring & -- \\
 Jagan Mohan Shailesh & Validation, analysis, report & -- \\
@@ -891,11 +891,25 @@ whereas Probe B concerns Project Tern and
 expects Polars. The unrelated type-hint
 preference applies to both.
 
-In the logged project-override failure,
-the agent selects Polars despite the applicable
-Marlin instruction. This demonstrates that
-retrieving relevant information does not
-necessarily result in correct scope precedence.
+On Probe A, four conditions chose Polars where
+pandas was expected: Mem0, both scope-tagged Mem0
+variants, and write-time scope-tagged Supermemory.
+In all four, the Marlin pandas instruction was among
+the retrieved memories, and the failure was in the
+agent's reasoning. Plain Mem0 opened its answer with
+``Use Polars for this 5M-row dataset to ensure high
+performance and memory efficiency.'' In both tagged
+Mem0 variants, the tagger had labelled the Marlin
+memory as project scope with key Project Marlin and
+the Polars memory as standing scope, yet the agent
+still applied the standing rule.
+
+The full-transcript, Supermemory and read-time
+scope-tagged Supermemory conditions chose pandas on
+Probe A. All seven conditions with memory chose Polars
+on Probe B, as expected. Retrieving the applicable
+instruction therefore did not ensure that the agent
+applied it over a conflicting standing preference.
 
 \subsubsection{Single-Task Override:
 \texttt{st-04}}
