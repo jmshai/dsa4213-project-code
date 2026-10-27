@@ -1,0 +1,794 @@
+\documentclass[11pt,a4paper]{article}
+
+% Packages and formatting
+
+
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[parfill]{parskip}
+\usepackage{graphicx}
+\usepackage[numbers]{natbib}
+\usepackage[hidelinks]{hyperref}
+\usepackage[margin=1in]{geometry}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tikz}
+\usetikzlibrary{positioning,arrows.meta}
+\graphicspath{{../reports/figures/}}
+
+
+\title{\textbf{Beyond Retrieval: Scope-Aware Memory Application in AI Agents}}
+
+\author{
+\begin{tabular}{cc}
+    Isaac Chin Wei En & Edward Chew Kian Boon \\
+    \small A0248885H & \small A0271710N \\[1em]
+    Ng Cheng Kiat Nicholas & Jagan Mohan Shailesh \\
+    \small A0271938R & \small A0272542H
+\end{tabular}
+}
+
+\date{}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Long-term memory enables language-model agents to retain user
+preferences across interactions, but retrieving a relevant memory
+does not guarantee that the agent applies it in the correct context.
+We investigate scope-aware memory application by augmenting Mem0
+and Supermemory with write-time and read-time scope tagging.
+We construct a benchmark of 40 episodes in 20 paired scenarios,
+covering five types of conflicting instructions, and evaluate eight
+conditions across 320 runs. The expected memory was retrieved in
+43 of 51 incorrect responses across the six memory-system conditions,
+demonstrating a substantial retrieval--application gap. Read-time
+tagging with Supermemory achieves the highest observed adherence
+(92.5\%), compared with 85\% for its baseline, while write-time
+tagging reduces adherence for both systems. These findings suggest
+that explicit scope information can support memory application,
+but its effectiveness depends on how it is integrated and used.
+\end{abstract}
+
+\section{Introduction}
+
+\subsection{Motivation and Research Problem}
+
+Memory-augmented language-model agents retain user instructions
+across conversations, allowing responses to reflect previously
+expressed preferences. However, preferences are not always
+universally applicable. A user may generally prefer Polars for
+large datasets while requiring pandas for a particular group
+project. Both memories remain valid, but the appropriate action
+depends on the current context.
+
+Existing memory systems primarily address the storage and
+retrieval of relevant information. Yet even when conflicting
+instructions are successfully retrieved, an agent must determine
+which instruction applies, whether an exception overrides a
+standing preference, and whether a temporary instruction should
+continue to influence subsequent tasks.
+
+We investigate this distinction between \emph{memory retrieval}
+and \emph{memory application}: does an agent correctly use a
+retrieved instruction within its intended scope, and can explicit
+scope information improve its decisions?
+
+\subsection{Research Objectives and Contributions}
+
+We investigate two questions: (1) whether agents make incorrect
+decisions despite retrieving the expected memory, and (2) whether
+scope-aware interventions improve contextual adherence while
+preserving unrelated preferences.
+
+Our contributions are:
+\begin{enumerate}
+    \item A lightweight scope-tagging layer supporting standing,
+    project-specific, and single-task instructions, integrated
+    with Mem0 and Supermemory at write time or read time.
+    \item A synthetic benchmark of 20 paired scenarios (40
+    episodes) covering five memory-conflict categories.
+    \item An evaluation of eight conditions across 320 runs,
+    separating retrieval success, memory application, scope
+    errors, tagging accuracy, and unrelated-memory retention.
+\end{enumerate}
+
+\section{Related Work}
+
+\subsection{Long-Term Memory in LLM Agents}
+
+Mem0~\cite{chhikara2025mem0} provides persistent agent memory
+through extraction, storage, updating, and retrieval of
+information from interactions. Supermemory
+\cite{supermemoryresearch} offers a hosted memory service with
+ingestion and semantic search. Both aim to make relevant prior
+information available to agents without repeatedly supplying
+complete conversation histories.
+
+Our work uses these systems as memory backends rather than
+proposing another storage or retrieval mechanism. We evaluate
+whether their retrieved information supports contextually
+appropriate decisions.
+
+\subsection{Memory Retrieval and Contextual Applicability}
+
+Retrieval relevance and contextual applicability are distinct.
+A memory may be relevant to the current topic but inapplicable
+to the current project, task, or condition. Conversely, a
+retrieved exception may need to override a broader preference
+without permanently replacing it.
+
+We focus on this downstream decision problem by representing
+scope explicitly and evaluating both correct application and
+incorrect application beyond a memory's intended context.
+
+\section{Methodology}
+\label{sec:methodology}
+
+\subsection{Scope Representation and Conflict Resolution}
+\label{sec:scope-representation}
+
+Each instruction is represented by three fields:
+\emph{scope}, \emph{key}, and \emph{condition}.
+The scope determines applicability, the optional key identifies
+a project or task, and the optional condition specifies an
+additional constraint.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Scope representation.}
+\label{tab:scopes}
+\begin{tabularx}{\linewidth}{lXl}
+\toprule
+Scope & Applicability & Example \\
+\midrule
+Standing & General preference across tasks &
+Use Polars \\
+Project & Restricted to a named project &
+Marlin: pandas \\
+Single-task & Restricted to one task &
+This export: CSV \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The reference decision policy first excludes memories whose
+project, task, or condition does not match the current request.
+Among applicable memories concerning the same decision, scope
+precedence is
+\[
+\text{single-task} \succ \text{project}
+\succ \text{standing}.
+\]
+Within one scope, an applicable conditional instruction takes
+precedence over an unconditional instruction; recency resolves
+remaining conflicts at equal specificity. Unrelated instructions
+do not compete, and the benchmark excludes unresolved ties.
+
+These rules define the reference actions and are communicated
+to the agent. The scope layer does not deterministically
+select the winning memory.
+
+\subsection{Scope-Tagging Architecture}
+\label{sec:architecture}
+
+We augment Mem0~\cite{chhikara2025mem0} and
+Supermemory~\cite{supermemoryresearch} with an LLM-based
+scope tagger. Figure~\ref{fig:architecture} compares the
+two integration strategies.
+
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    node distance=0.55cm,
+    box/.style={
+        draw=gray!60,
+        rounded corners=2pt,
+        minimum width=4.7cm,
+        minimum height=0.7cm,
+        align=center,
+        font=\small
+    },
+    tag/.style={
+        box,
+        draw=blue!70,
+        fill=blue!8,
+        font=\small\bfseries
+    },
+    arrow/.style={->,thick,gray!70}
+]
+
+% Column headings
+\node[font=\bfseries] at (0,0) {Write-time};
+\node[font=\bfseries] at (5.5,0) {Read-time};
+
+% Write-time pipeline
+\node[box] (w1) at (0,-1) {Conversation};
+\node[tag] (w2) at (0,-2) {Extract and tag};
+\node[box] (w3) at (0,-3) {Memory store};
+\node[box] (w4) at (0,-4) {Retrieve};
+\node[box] (w5) at (0,-5) {Agent + resolution rules};
+
+% Read-time pipeline
+\node[box] (r1) at (5.5,-1) {Conversation};
+\node[box] (r2) at (5.5,-2) {Memory store};
+\node[box] (r3) at (5.5,-3) {Retrieve};
+\node[tag] (r4) at (5.5,-4) {Tag retrieved text};
+\node[box] (r5) at (5.5,-5) {Agent + resolution rules};
+
+
+% Write-time arrows
+\draw[arrow] (w1.south) -- (w2.north);
+\draw[arrow] (w2.south) -- (w3.north);
+\draw[arrow] (w3.south) -- (w4.north);
+\draw[arrow] (w4.south) -- (w5.north);
+
+% Read-time arrows
+\draw[arrow] (r1.south) -- (r2.north);
+\draw[arrow] (r2.south) -- (r3.north);
+\draw[arrow] (r3.south) -- (r4.north);
+\draw[arrow] (r4.south) -- (r5.north);
+
+
+\end{tikzpicture}
+\caption{Scope-tagging integration strategies.
+Write-time tagging occurs before storage, whereas
+read-time tagging occurs after retrieval.}
+\label{fig:architecture}
+\end{figure}
+
+
+Write-time tagging extracts individual instructions from the
+full conversation and stores them with scope metadata. It
+can preserve scope cues early but may discard surrounding
+conversational context. Read-time tagging operates on the
+memory system's retrieved text, preserving native storage
+behaviour but relying on that text to retain sufficient
+contextual information.
+
+Both strategies supply tagged memories and conflict-resolution
+rules to the agent. Structured task identifiers are withheld
+from the taggers, so task continuity must be inferred from
+natural-language context.
+
+\subsection{Benchmark Construction}
+\label{sec:benchmark}
+
+\subsubsection{Episode Structure and Mirrored-Pair Design}
+
+We construct 20 paired scenarios containing 40 episodes.
+Each pair includes two or three earlier conversation sessions,
+reference memories, and two probes sharing the same history.
+Probe A tests an applicable scoped instruction; Probe B
+changes the project, task, or condition so that the instruction
+no longer applies. Each episode consists of one probe and
+its shared history, with an expected action for evaluation.
+
+Each pair also includes an unrelated standing preference and
+a retention check. Pair accuracy requires both probes to be
+correct, discouraging fixed choices that ignore context.
+
+For example, pair \texttt{po-01} combines a standing preference
+for Polars on datasets exceeding one million rows with a
+project-specific instruction to use pandas for Project Marlin.
+
+
+
+\begin{figure}[htbp]
+    \centering
+    \includegraphics[width=0.85\linewidth]{mirrored_pair_design.pdf}
+    \caption{Mirrored-pair benchmark design illustrated
+    using pair \texttt{po-01}. Both probes share the
+    same conversation history and reference memories
+    but differ in whether the project-specific instruction
+    applies. An unrelated standing preference is
+    evaluated independently in both probes.}
+    \label{fig:mirrored-pair}
+\end{figure}
+
+
+
+
+
+\subsubsection{Conflict Categories and Dataset Generation}
+
+The benchmark covers five conflict categories, with four
+pairs per category:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Benchmark composition.}
+\label{tab:benchmark}
+\begin{tabular}{lrr}
+\toprule
+Conflict category & Pairs & Episodes \\
+\midrule
+Project override & 4 & 8 \\
+Single-task override & 4 & 8 \\
+Conditional scope & 4 & 8 \\
+Same-scope supersession & 4 & 8 \\
+Same-scope specificity & 4 & 8 \\
+\midrule
+Total & 20 & 40 \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The categories test project exceptions, temporary task
+exceptions, conditional applicability, replacement of older
+instructions within one scope, and precedence of more
+specific instructions within one scope.
+
+The 20 pairs contain 66 distinct reference memories,
+including competing and unrelated instructions.
+Nineteen pairs were initially drafted with AI assistance
+and subsequently reviewed and revised. The suite varies
+domains, wording, chronology, and instruction positions;
+some standing preferences deliberately appear after
+narrower instructions.
+
+\subsubsection{Dataset Validation and Gold Labels}
+
+Automated checks validate the JSON schema, verbatim
+memory quotations, paired-probe similarity, expected
+decisions, and diversity. Only session and probe text
+reach the systems; structured gold labels and expected
+actions are withheld. A leakage test checks this
+separation.
+
+The 66 memories were reviewed through two human annotation passes.
+After reconciliation, scope and key labels matched
+the original drafts. Four condition-expression differences
+were reviewed, and the original reference expressions
+were retained. 
+
+\subsection{Experimental Conditions and Baselines}
+\label{sec:conditions}
+
+We evaluate eight conditions: no memory, full transcript,
+Mem0, Supermemory, and write-time/read-time scope-tagged
+variants of each memory system.
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Experimental conditions.}
+\label{tab:conditions}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Condition & Memory supplied to agent \\
+\midrule
+No memory & Current probe only \\
+Full transcript & All earlier sessions \\
+Mem0 & Native retrieved memories \\
+Supermemory & Native retrieved search results \\
+Mem0 + write & Pre-extracted, tagged memories \\
+Mem0 + read & Retrieved memories tagged afterward \\
+Supermemory + write & Pre-extracted, tagged memories \\
+Supermemory + read & Retrieved results tagged afterward \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Each condition evaluates all 40 episodes, yielding
+320 runs. The scope-layer conditions introduce tags,
+resolution rules, and memory ordering information
+together; their individual effects cannot be isolated.
+
+\section{Experimental Setup and Evaluation}
+\label{sec:experimental-setup}
+
+\subsection{Implementation and Model Configuration}
+
+The implementation uses Python 3.11+, \texttt{uv}, and
+a shared lockfile. The agent is
+\texttt{qwen/qwen3.8-flash} through OpenRouter, with
+temperature 0, seed 4213, a 1,024-token output limit,
+and reasoning disabled. The agent prompt template and
+sampling settings are fixed across conditions, with
+retrieval limited to ten results.
+
+Qwen was selected after an operational pilot: it
+reported zero reasoning usage on 40 pilot calls,
+whereas DeepSeek returned empty text on three of
+eight calls when reasoning was disabled.
+
+Both memory systems use a common interface and fresh
+namespaces for each episode and condition. Mem0 uses
+its default extraction and search, an
+\texttt{all-MiniLM-L6-v2} embedder (384 dimensions),
+Qdrant storage, and internal LLM calls through
+OpenRouter. The base \texttt{mem0ai} installation
+excludes optional spaCy and fastembed dependencies;
+the initial smoke test used vector retrieval without
+BM25. Supermemory uses its hosted API and waits for
+ingestion to complete before retrieval.
+
+OpenRouter token usage and costs are recorded in an
+append-only ledger. Supermemory's separately billed
+processing is excluded from those costs.
+
+\subsection{Evaluation Metrics}
+\label{sec:metrics}
+
+An LLM judge identifies the action taken in each
+free-text answer. We evaluate the following metrics:
+
+\begin{table}[htbp]
+\centering
+\small
+\caption{Evaluation metrics.}
+\label{tab:metrics}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Metric & Definition \\
+\midrule
+Adherence & Expected action selected \\
+Pair accuracy & Both A and B probes correct \\
+Retrieval--application gap &
+Expected memory retrieved, wrong action selected \\
+Retention & Unrelated standing preference followed \\
+Tag accuracy & Predicted scope metadata matches reference \\
+Failure stage & Earliest detected pipeline failure \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Adherence is also separated into in-scope (A) and
+out-of-scope (B) probes. Incorrect decisions are
+classified as over-application, under-application,
+supersession, or other actions.
+
+Retrieval is checked by verbatim matching or
+judge-assisted matching of rewritten notes. The
+full-transcript control counts as successful retrieval
+by construction; no memory counts as unsuccessful.
+Retention excludes unassessable answers.
+
+Tagging accuracy is measured on notes associated with
+one reference memory. Scope is matched exactly;
+project keys must contain the reference project name,
+while single-task keys are excluded from scoring.
+Conditions use strict (variable, operator, value)
+and lenient (operator, value) matching.
+
+Failure-stage categories are extraction, retrieval,
+scope loss, tagging, and reasoning. Each incorrect
+answer is assigned to the earliest detected failure.
+These are diagnostic classifications, not established
+causal mechanisms. Supermemory's internal extraction
+cannot be inspected separately from retrieval.
+
+\subsection{LLM-as-a-Judge and Statistical Analysis}
+\label{sec:judge}
+
+The judge uses the same Qwen model at temperature 0.
+It receives the probe, response, and alphabetically
+ordered candidate actions, but not the expected action.
+It returns an action, \texttt{none}, or \texttt{mixed},
+with supporting evidence, and separately evaluates
+the retention check.
+
+The recorded human review covers 40 action labels
+and 38 assessable retention labels, with complete
+agreement against the judge (Cohen's
+$\kappa=1.00$)~\cite{cohen1960coefficient}.
+The judge and agent share a model, so correlated
+errors remain possible; LLM-judge biases are
+discussed by Zheng et al.~\cite{zheng2023judging}.
+
+We report 95\% Wilson confidence intervals
+\cite{wilson1927probable} and exploratory exact
+McNemar tests~\cite{mcnemar1947sampling} on the
+same episodes. Because the A/B probes within a
+pair share history, episode-level tests do not
+fully account for dependence; p-values are
+interpreted cautiously.
+
+\section{Results and Analysis}
+\label{sec:results}
+
+All 320 runs completed without execution errors.
+
+\subsection{Overall Correction Adherence}
+
+Figure~\ref{fig:overall-adherence} shows adherence
+across the eight conditions. No memory achieves
+20\% (8/40), versus 80\% (32/40) with the full
+transcript. Mem0 and Supermemory achieve 77.5\%
+(31/40) and 85\% (34/40).
+
+Read-time tagging achieves 80\% with Mem0 and
+92.5\% (37/40) with Supermemory, the highest
+observed score. Write-time tagging reduces
+adherence to 60\% and 77.5\%, respectively.
+Supermemory + read-time resolves 17/20 complete
+pairs, compared with 15/20 for its baseline.
+Its improvement is not statistically significant
+under the reported McNemar test ($p=0.25$).
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.86\linewidth]
+    {01_overall_adherence.pdf}
+\caption{Correction adherence across eight conditions
+(40 episodes per condition).}
+\label{fig:overall-adherence}
+\end{figure}
+
+\subsection{Retrieval Versus Application}
+
+Across the six memory-system conditions, 43 of 51
+incorrect responses occurred despite retrieval of
+the expected memory (Figure~\ref{fig:retrieval-gap}).
+Unmodified Mem0 and Supermemory retrieved the
+expected memory in all 40 episodes but made nine
+and six incorrect decisions, respectively.
+Read-time tagging reduced these counts to eight
+and three.
+
+Thus, successful retrieval is insufficient for
+correct application, although a retrieved note
+may still have lost important scope information.
+
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=0.82\linewidth]
+    {02_retrieved_but_wrong.pdf}
+\caption{Incorrect actions despite retrieval
+of the expected memory.}
+\label{fig:retrieval-gap}
+\end{figure}
+
+\subsection{Scope-Boundary and Conflict-Type Performance}
+
+Figure~\ref{fig:scope-boundaries} reveals asymmetric
+write-time errors. Mem0 + write correctly handles
+10/20 in-scope probes, versus 17/20 for Mem0.
+Supermemory + write handles 11/20, versus 18/20
+for its baseline, but correctly handles all 20
+out-of-scope probes. This indicates substantial
+under-application of scoped instructions.
+
+Supermemory + read-time handles 20/20 in-scope
+and 17/20 out-of-scope probes.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.86\linewidth]
+    {03_in_scope_vs_out_scope.pdf}
+\caption{Adherence on in-scope (A) and out-of-scope
+(B) probes, 20 of each per condition.}
+\label{fig:scope-boundaries}
+\end{figure}
+
+Across conflict types (Figure~\ref{fig:conflict-types}),
+conditional scope and same-scope supersession are
+handled reliably by most memory-system conditions.
+Single-task overrides are hardest: Mem0 and
+Supermemory each achieve 4/8, while read-time
+Supermemory reaches 6/8. Same-scope specificity
+also remains challenging, with 4--7/8 correct
+among the full-transcript and memory conditions.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.88\linewidth]
+    {04_conflict_heatmap.pdf}
+\caption{Adherence across five conflict categories;
+eight episodes per category.}
+\label{fig:conflict-types}
+\end{figure}
+
+\subsection{Failure Diagnosis, Tagging, and Retention}
+
+The diagnostic breakdown in
+Figure~\ref{fig:failure-stages} attributes most
+Supermemory baseline errors to reasoning despite
+available information. Mem0 exhibits five baseline
+scope-loss errors; write-time Mem0 has seven
+extraction and four tagging failures among its
+16 incorrect responses. Supermemory + write-time
+has eight reasoning-classified failures among nine.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.84\linewidth]
+    {05_failure_stages.pdf}
+\caption{Incorrect decisions by earliest detected
+failure stage; classifications are heuristic.}
+\label{fig:failure-stages}
+\end{figure}
+
+Write-time tagging achieves 100\% scope accuracy
+on evaluated tags for both systems, versus 87\%
+for read-time Mem0 and 77\% for read-time
+Supermemory. Nevertheless, the highest downstream
+adherence occurs with read-time Supermemory,
+illustrating that tag accuracy alone is insufficient.
+These figures use different eligible-note sets
+and are not directly controlled comparisons.
+
+Unrelated-memory retention is 95\% with the full
+transcript, 67.5\% with Mem0, and 97.5\% with
+Supermemory. Scope-aware Mem0 variants retain
+62--72\%, compared with 87--98\% for
+Supermemory variants.
+
+\section{Discussion and Limitations}
+
+\subsection{Write-Time versus Read-Time Tagging}
+
+Read-time tagging matches or improves adherence
+relative to both memory-system baselines, whereas
+write-time tagging reduces it. One possible
+explanation is that write-time extraction isolates
+instructions from conversational context, making
+task continuity difficult to infer. Conversely,
+read-time tagging retains the underlying memory
+system's representation, although its tags may
+be less accurate.
+
+Write-time Supermemory illustrates the trade-off:
+it avoids over-applying scoped memories on all
+20 out-of-scope probes but fails to apply many
+scoped instructions when appropriate.
+
+\subsection{Why Retrieval and Tagging Are Insufficient}
+
+The retrieval--application gap shows that access
+to a relevant instruction does not ensure correct
+conflict resolution. In pair \texttt{po-01}, for
+example, an agent may select the standing Polars
+preference despite the applicable project-specific
+pandas instruction. Other failures involve
+carrying a single-task exception into a new task
+or combining conflicting instructions.
+
+These cases suggest that effective memory requires
+both relevant information and reliable contextual
+decision-making. Representative examples are
+included in Appendix~\ref{app:failure-cases}.
+
+\subsection{Threats to Validity}
+
+The benchmark contains only 20 synthetic pairs
+with short histories and explicit scope cues.
+Nineteen pairs were initially AI-assisted, and
+numeric conditions avoid threshold boundaries.
+The findings may not generalize to longer,
+ambiguous, or naturally occurring interactions.
+
+The study uses one agent model and one run per
+condition. Fixed sampling settings do not
+guarantee reproducibility, while Supermemory's
+hosted processing is not fully observable.
+
+The scope treatments jointly change metadata,
+resolution instructions, and memory ordering,
+preventing attribution of observed effects to
+scope tags alone. Retrieval matching and
+failure-stage diagnoses were not independently
+validated in full. The gold labels underwent
+human--AI review rather than independent
+double-human adjudication.
+
+Finally, the two probes within each pair are
+dependent, limiting the interpretation of
+episode-level significance tests.
+
+\section{Conclusion}
+
+We evaluated whether scope-aware memory handling
+helps agents apply retrieved instructions in
+the correct context. Across 320 runs, incorrect
+memory application frequently occurred even when
+the expected memory was retrieved.
+
+Read-time tagging with Supermemory achieved the
+highest observed adherence, while write-time
+tagging reduced performance for both memory
+systems. The results suggest that scope-aware
+interventions can be useful, but explicit
+metadata alone does not resolve contextual
+memory conflicts. Larger benchmarks and
+controlled ablations are needed to isolate
+the effects of tagging, conflict-resolution
+instructions, and memory ordering.
+
+\section*{Individual Contributions}
+
+% Replace with verified contributions and shares
+% summing to 100 percent.
+\begin{table}[htbp]
+\centering
+\small
+\begin{tabularx}{\linewidth}{lXr}
+\toprule
+Member & Contributions & Share \\
+\midrule
+Isaac Chin Wei En & Benchmark and environment & -- \\
+Edward Chew Kian Boon & Scope layer and logging & -- \\
+Ng Cheng Kiat Nicholas & Evaluation and scoring & -- \\
+Jagan Mohan Shailesh & Validation, analysis, report & -- \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+\bibliographystyle{plainnat}
+\bibliography{references}
+
+\appendix
+
+\section{Qualitative Failure Cases}
+\label{app:failure-cases}
+
+\subsection{Project Override: \texttt{po-01}}
+
+The user generally prefers Polars for datasets over
+one million rows but requires pandas for Project
+Marlin. Probe A concerns Marlin and expects pandas;
+Probe B concerns Project Tern and expects Polars.
+The unrelated type-hint preference applies to both.
+
+In the logged project-override failure, the agent
+selects Polars despite the applicable Marlin
+instruction. This illustrates a failure to
+prioritize project scope over a standing preference.
+
+\subsection{Single-Task Override: \texttt{st-04}}
+
+The user generally prefers inline SQL subqueries,
+requires CTEs for Project Marlin, and requests
+views for one particular task. Probe A expects
+views; Probe B expects CTEs. Some conditions
+carry the temporary exception into Probe B,
+while others fail to apply it in Probe A.
+
+\subsection{Same-Scope Specificity: \texttt{sp-02}}
+
+The user normally opens emails with
+``To whom it may concern,'' but prefers
+``Hey there,'' when writing to a neighbour.
+Probe A concerns a neighbour; Probe B concerns
+a landlord. Some responses combine both
+greetings or apply the conditional greeting
+outside its intended scope.
+
+\section{Supplementary Experimental Results}
+\label{app:supplementary-results}
+
+The full pair-by-pair adherence matrix,
+tagging-accuracy breakdown, failure-stage
+counts, and per-condition cost accounting
+are available in \texttt{reports/summary.md}
+and \texttt{reports/episode\_scores.csv}.
+
+OpenRouter spending for the full experiment
+was approximately \$0.15, with approximately
+\$0.06 for judging. Supermemory's separately
+billed processing is excluded.
+
+\section{Reproducibility and Implementation Details}
+\label{app:reproducibility}
+
+The implementation is available in the project
+repository. Experimental conditions are defined
+in \texttt{agent/conditions.py}; runs are executed
+through \texttt{agent/runner.py}; and scoring is
+implemented in \texttt{scoring/}.
+
+The 320 existing run logs, cached judge verdicts,
+and cost ledger allow rescoring without repeating
+agent calls. Figures are generated from the
+scoring outputs in \texttt{reports/}.
+
+\end{document}
+

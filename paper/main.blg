@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2025)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: plainnat.bst
+Database file #1: references.bib
+Warning--empty year in supermemoryresearch
+You've used 6 entries,
+            2773 wiz_defined-function locations,
+            636 strings with 6092 characters,
+and the built_in function-call counts, 3026 in all, are:
+= -- 259
+> -- 208
+< -- 5
++ -- 72
+- -- 66
+* -- 254
+:= -- 485
+add.period$ -- 24
+call.type$ -- 6
+change.case$ -- 40
+chr.to.int$ -- 6
+cite$ -- 13
+duplicate$ -- 115
+empty$ -- 225
+format.name$ -- 72
+if$ -- 613
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 4
+newline$ -- 44
+num.names$ -- 24
+pop$ -- 86
+preamble$ -- 1
+purify$ -- 34
+quote$ -- 0
+skip$ -- 93
+stack$ -- 0
+substring$ -- 81
+swap$ -- 8
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 66
+warning$ -- 1
+while$ -- 24
+width$ -- 0
+write$ -- 94
+(There was 1 warning)

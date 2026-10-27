@@ -1,9 +1,7 @@
 # Step 7 results
 
-Scored 2026-10-24 21:35 UTC from 320 run logs in `/Users/nicngck/Desktop/DSA4213/Group Project/dsa4213-project-code/runs/logs`. Agent model `qwen/qwen3.8-flash`. Judge model `qwen/qwen3.8-flash` (prompt `judge-v1`). Gold labels: **draft**.
+Scored 2026-10-25 12:18 UTC from 320 run logs in `/Users/Shailesh/NUS/Year 4/Semester 1/DSA4213/Project/dsa4213-project-code/runs/logs`. Agent model `qwen/qwen3.8-flash`. Judge model `qwen/qwen3.8-flash` (prompt `judge-v1`). Gold labels: **adjudicated**.
 Run errors (not scored): 0. Answers with no judged action: 0. Judge spend so far on this machine: $0.0601.
-
-Tagging accuracy uses the drafted gold labels. Rerun this after the annotators adjudicate them (README Step 3).
 
 ## 1. Correction adherence
 
