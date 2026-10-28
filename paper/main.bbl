@@ -23,8 +23,9 @@ Jacob Cohen.
   Fang]{maharana2024locomo}
 Adyasha Maharana, Dong-Ho Lee, Sergey Tulyakov, Mohit Bansal, Francesco
   Barbieri, and Yuwei Fang.
-\newblock Evaluating very long-term conversational memory of {LLM} agents,
-  2024.
+\newblock Evaluating very long-term conversational memory of {LLM} agents.
+\newblock arXiv preprint arXiv:2402.17753, 2024.
+\newblock URL \url{https://arxiv.org/abs/2402.17753}.
 
 \bibitem[McNemar(1947)]{mcnemar1947sampling}
 Quinn McNemar.
@@ -37,7 +38,9 @@ Quinn McNemar.
   Xiong]{pakhomov2025convomem}
 Egor Pakhomov, Erik Nijkamp, and Caiming Xiong.
 \newblock {ConvoMem} benchmark: Why your first 150 conversations don't need
-  {RAG}, 2025.
+  {RAG}.
+\newblock arXiv preprint arXiv:2511.10523, 2025.
+\newblock URL \url{https://arxiv.org/abs/2511.10523}.
 
 \bibitem[{Supermemory}()]{supermemoryresearch}
 {Supermemory}.
@@ -58,6 +61,7 @@ Di~Wu, Hongwei Wang, Wenhao Yu, Yuwei Zhang, Kai-Wei Chang, and Dong Yu.
 \newblock {LongMemEval}: Benchmarking chat assistants on long-term interactive
   memory.
 \newblock In \emph{International Conference on Learning Representations}, 2025.
+\newblock URL \url{https://arxiv.org/abs/2410.10813}.
 
 \bibitem[Zheng et~al.(2023)Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li,
   Li, Xing, Zhang, Gonzalez, and Stoica]{zheng2023judging}

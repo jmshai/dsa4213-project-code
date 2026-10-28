@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.24)  28 OCT 2026 23:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.1.24)  28 OCT 2026 23:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -784,7 +784,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: ../reports/figures/mirrored_pair_design.pdf Graphic file (type pdf)
 <use ../reports/figures/mirrored_pair_design.pdf>
 Package pdftex.def Info: ../reports/figures/mirrored_pair_design.pdf  used on i
-nput line 348.
+nput line 349.
 (pdftex.def)             Requested size: 385.02547pt x 385.00163pt.
  [4 <../reports/figures/mirrored_pair_design.pdf>] [5] [6]
 <../reports/figures/01_overall_adherence.pdf, id=293, 716.19902pt x 382.87424pt
@@ -792,7 +792,7 @@ nput line 348.
 File: ../reports/figures/01_overall_adherence.pdf Graphic file (type pdf)
 <use ../reports/figures/01_overall_adherence.pdf>
 Package pdftex.def Info: ../reports/figures/01_overall_adherence.pdf  used on i
-nput line 625.
+nput line 626.
 (pdftex.def)             Requested size: 389.55266pt x 208.25044pt.
  [7]
 <../reports/figures/02_retrieved_but_wrong.pdf, id=307, 680.06403pt x 368.42024
@@ -800,7 +800,7 @@ pt>
 File: ../reports/figures/02_retrieved_but_wrong.pdf Graphic file (type pdf)
 <use ../reports/figures/02_retrieved_but_wrong.pdf>
 Package pdftex.def Info: ../reports/figures/02_retrieved_but_wrong.pdf  used on
- input line 687.
+ input line 691.
 (pdftex.def)             Requested size: 371.43698pt x 201.23196pt.
  [8 <../reports/figures/01_overall_adherence.pdf>]
 <../reports/figures/03_in_scope_vs_out_scope.pdf, id=387, 752.25543pt x 376.031
@@ -808,7 +808,7 @@ Package pdftex.def Info: ../reports/figures/02_retrieved_but_wrong.pdf  used on
 File: ../reports/figures/03_in_scope_vs_out_scope.pdf Graphic file (type pdf)
 <use ../reports/figures/03_in_scope_vs_out_scope.pdf>
 Package pdftex.def Info: ../reports/figures/03_in_scope_vs_out_scope.pdf  used 
-on input line 739.
+on input line 743.
 (pdftex.def)             Requested size: 389.55266pt x 194.7226pt.
  [9 <../reports/figures/02_retrieved_but_wrong.pdf>]
 <../reports/figures/04_conflict_heatmap.pdf, id=465, 752.02287pt x 391.03583pt>
@@ -816,37 +816,37 @@ on input line 739.
 File: ../reports/figures/04_conflict_heatmap.pdf Graphic file (type pdf)
 <use ../reports/figures/04_conflict_heatmap.pdf>
 Package pdftex.def Info: ../reports/figures/04_conflict_heatmap.pdf  used on in
-put line 757.
+put line 761.
 (pdftex.def)             Requested size: 398.61395pt x 207.27187pt.
 <../reports/figures/05_failure_stages.pdf, id=467, 716.19902pt x 385.72331pt>
 File: ../reports/figures/05_failure_stages.pdf Graphic file (type pdf)
 <use ../reports/figures/05_failure_stages.pdf>
 Package pdftex.def Info: ../reports/figures/05_failure_stages.pdf  used on inpu
-t line 777.
+t line 781.
 (pdftex.def)             Requested size: 380.49136pt x 204.92088pt.
 
 [10 <../reports/figures/03_in_scope_vs_out_scope.pdf> <../reports/figures/04_co
 nflict_heatmap.pdf>] [11 <../reports/figures/05_failure_stages.pdf>] [12]
 (./main.bbl [13])
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <12> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1062.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1070.
 
  [14]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 1088.
+nput line 1096.
  (../episodes/pairs/po-01.json [15])
 LaTeX Font Info:    Font shape `OT1/cmtt/bx/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1098.
+(Font)              Font shape `OT1/cmtt/m/n' tried instead on input line 1106.
 
  [16]
 LaTeX Font Info:    Trying to load font information for OMS+cmtt on input line 
-1180.
-LaTeX Font Info:    No file OMScmtt.fd. on input line 1180.
+1189.
+LaTeX Font Info:    No file OMScmtt.fd. on input line 1189.
 
 
 LaTeX Font Warning: Font shape `OMS/cmtt/m/n' undefined
 (Font)              using `OMS/cmsy/m/n' instead
-(Font)              for symbol `textbraceleft' on input line 1180.
+(Font)              for symbol `textbraceleft' on input line 1189.
 
 [17] [18{/usr/local/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
 s1.enc}] (./main.aux)
@@ -864,7 +864,7 @@ Package rerunfilecheck Info: File `main.out' has not changed.
 Here is how much of TeX's memory you used:
  23683 strings out of 474116
  429612 string characters out of 5743682
- 2686187 words of memory out of 5000000
+ 2613187 words of memory out of 5000000
  45462 multiletter control sequences out of 15000+600000
  569455 words of font info for 81 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -881,10 +881,10 @@ l/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local
 /texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/
 texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb></usr/local/te
 xlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on main.pdf (18 pages, 806453 bytes).
+Output written on main.pdf (18 pages, 806853 bytes).
 PDF statistics:
- 973 PDF objects out of 1000 (max. 8388607)
- 543 compressed objects within 6 object streams
+ 977 PDF objects out of 1000 (max. 8388607)
+ 547 compressed objects within 6 object streams
  206 named destinations out of 1000 (max. 500000)
  347 words of extra memory for PDF output out of 10000 (max. 10000000)
 

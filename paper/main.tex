@@ -82,9 +82,10 @@ demonstrating a substantial retrieval--application gap. Read-time
 tagging with Supermemory achieves the highest observed adherence
 (92.5\%), compared with 85\% for its baseline, although this
 difference is not statistically significant ($p=0.25$). Write-time
-tagging scored lower than the baseline for both systems; for Mem0 it
+tagging scored lower than the baseline for both systems (not
+significantly: $p=0.118$ and $p=0.549$); for Mem0 it
 also scored lower than read-time tagging (60\% vs 80\%, $p=0.039$),
-which we trace to Mem0 re-extracting the pre-tagged instructions. These
+which is consistent with Mem0 re-extracting the pre-tagged instructions. These
 findings suggest that explicit scope information may support memory
 application, but its effectiveness depends on how it is integrated
 and used.
@@ -409,7 +410,7 @@ separation.
 The 66 memories were reviewed against the drafted labels. The
 reviewed labels matched the drafts on scope and
 key for all 66 memories and differed on four condition
-expressions (94\% condition agreement); the original reference
+expressions (94\% condition agreement with the drafts); the original reference
 expressions were retained. The two committed annotation files are
 identical, so we report no inter-annotator agreement.
 % TODO(team): confirm who labelled and whether two people labelled independently.
@@ -648,8 +649,11 @@ The cleanest evidence comes from the full-transcript
 control, where retrieval is perfect by construction yet
 8 of 40 answers are wrong. All four single-task B probes
 (\texttt{st-01b} to \texttt{st-04b}) fail even though each
-probe states it is a new task, so the agent carried a
-one-off exception into the next task. Retrieval is also an
+probe signals a different task (``New task'', ``Another task'',
+``Different job''). In three of them the agent carried the
+one-off exception into the new task (CSV, cups, views); in the
+fourth, \texttt{st-03b}, it chose \texttt{matplotlib} instead of the
+project's \texttt{plotly}. Retrieval is also an
 easy step here: each pair has only 3.3 reference memories on
 average (66 over 20 pairs) and ten results are returned, so
 near-complete retrieval is expected.
@@ -707,8 +711,8 @@ and 17/20 out-of-scope probes.
 Table~\ref{tab:error-types} shows the direction of the
 errors. The baselines lean toward over-application (Mem0 5
 over-applied vs 4 under-applied; Supermemory 4 vs 1). Write-time tagging shifts
-errors toward under-application (Mem0 9 vs 4; Supermemory
-8 vs 0), and Supermemory + read-time makes no
+errors toward under-application (Mem0: 9 under-applied vs 4
+over-applied; Supermemory: 8 vs 0), and Supermemory + read-time makes no
 under-application errors.
 
 \begin{table}[htbp]
@@ -781,11 +785,12 @@ failure stage; classifications are heuristic.}
 \end{figure}
 
 Write-time tagging achieves 100\% scope accuracy
-on evaluated tags for both systems (124 tags each),
-versus 87\% for read-time Mem0 (111 tags) and 77\% for
-read-time Supermemory (52 tags). For Mem0, only 97 of the 124
-write-time tags came back after storage, consistent with
-its re-extraction of the stored instructions. Read-time
+on the tags as the tagger produced them for both systems (124
+tags each), versus 87\% for read-time Mem0 (111 tags) and 77\%
+for read-time Supermemory (52 tags). For Mem0, only 97 of the
+124 write-time tags came back after storage (also 100\%
+accurate), consistent with its re-extraction of the stored
+instructions. Read-time
 Supermemory mislabels project memories as standing six
 times, the commonest confusion there. Nevertheless, the highest downstream
 adherence occurs with read-time Supermemory,
@@ -802,11 +807,11 @@ significantly below the full transcript's
 (1 episode vs 12, $p=0.003$), the largest paired
 difference between a memory system and the control.
 Scope tagging does not change retention significantly for
-either system (all $p>0.2$). Read-time tagging held
-retention level (Mem0 67\%$\to$72\%; Supermemory
-98\%$\to$98\%), while write-time tagging
-lowered it in both (Mem0 68\%$\to$62\%; Supermemory
-97\%$\to$87\% on assessable episodes).
+either system (all $p>0.2$). Read-time tagging left
+retention about level (Mem0 66.7\%$\to$71.8\% on the 39 assessable
+episodes; Supermemory 97.5\%$\to$97.5\%), while write-time
+tagging scored lower in both (Mem0 67.5\%$\to$62.5\%;
+Supermemory 97.4\%$\to$87.2\% on the 39 assessable episodes).
 
 \begin{table}[htbp]
 \centering
@@ -854,8 +859,10 @@ This is a property of our integration rather than
 of write-time tagging itself; storing the tagged
 instruction without re-extraction would test it.
 
-For Supermemory no extraction loss is visible, and 8 of
-its 9 wrong answers are classified as reasoning. One
+For Supermemory all 124 tags survive storage, and 8 of
+its 9 wrong answers are classified as reasoning; the
+ninth (\texttt{st-01a}) is a retrieval miss, where the CSV
+instruction was not among the returned notes. One
 possible explanation, which we did not test, is that
 write-time extraction separates instructions from the
 conversation that made their scope clear, making task
@@ -883,9 +890,9 @@ example, an agent may select the standing Polars
 preference despite the applicable project-specific
 pandas instruction. Other failures involve
 carrying a single-task exception into a new task
-(the full-transcript control does this on all four
-single-task B probes) or combining conflicting
-instructions.
+(the full-transcript control does this on three of the four
+single-task B probes and misses the fourth) or combining
+conflicting instructions.
 
 These cases suggest that effective memory requires
 both relevant information and reliable contextual
@@ -941,9 +948,10 @@ the expected memory was retrieved.
 Read-time tagging with Supermemory achieved the
 highest observed adherence (not significantly above
 its baseline), while write-time tagging scored lower
-for both memory systems. Read-time tagging did not
+for both memory systems (neither drop against its baseline is
+significant). Read-time tagging did not
 lower unrelated-memory retention; write-time tagging
-did lower it, though not significantly. The results
+scored lower on it, though not significantly. The results
 suggest that scope-aware interventions may be useful,
 but explicit metadata alone does not resolve
 contextual memory conflicts. Larger benchmarks and
@@ -1141,9 +1149,10 @@ On Probe B the full-transcript control, read-time Mem0
 and read-time Supermemory all answered with CSV; in
 read-time Mem0 the note recording the CSV request reached the
 agent untagged, and the agent opened with ``Format: CSV.''
-The same pattern appears on all four single-task pairs in the
-full-transcript control, so the failure is in the agent's
-handling of task continuity, not in what was retrieved.
+The full-transcript control also fails all four single-task B
+probes, three of them by applying the exception (CSV, cups, views),
+so the failure is in the agent's handling of task continuity,
+not in what was retrieved.
 
 \subsubsection{Same-Scope Specificity:
 \texttt{sp-02}}
@@ -1201,7 +1210,7 @@ held six retrieved notes, for example ``User is starting
 Project Marlin \ldots\ and has mandated the use of pandas''
 tagged \emph{project, key: Project Marlin}, and ``User prefers
 using the Polars library \ldots\ larger than 1 million rows''
-tagged \emph{standing, condition: rows $>$ 1000000}, followed by
+tagged \emph{standing} with condition \texttt{rows > 1000000}, followed by
 the resolution rules of Section~\ref{sec:scope-representation}.
 The agent still answered ``I chose Polars \ldots\ triggering the
 standing preference \ldots''

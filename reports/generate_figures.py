@@ -100,8 +100,8 @@ def retrieved(output_dir):
     fig, ax = plt.subplots(figsize=(9.5, 5.2))
     indices = list(range(1, 8))  # full transcript counts as retrieved right; no memory has no retrieval to judge
     names = [CONDITIONS[i] for i in indices]
-    wrong, retrieved = RETRIEVED_RIGHT_WRONG[indices], RETRIEVED_RIGHT[indices]
-    rates = wrong / retrieved * 100
+    wrong, n_retrieved = RETRIEVED_RIGHT_WRONG[indices], RETRIEVED_RIGHT[indices]
+    rates = wrong / n_retrieved * 100
     y = np.arange(len(names))
     bars = ax.barh(y, rates, color=[condition_colors()[i] for i in indices])
     ax.set_yticks(y, names)
@@ -109,7 +109,7 @@ def retrieved(output_dir):
     ax.set_xlim(0, 36)
     ax.set_xlabel("Wrong action when the expected memory was retrieved (%)")
     ax.set_title(TITLES["02"], loc="left", weight="bold", pad=14)
-    for bar, rate, n, d in zip(bars, rates, wrong, retrieved):
+    for bar, rate, n, d in zip(bars, rates, wrong, n_retrieved):
         ax.text(rate+.5, bar.get_y()+bar.get_height()/2, f"{n}/{d} ({rate:.0f}%)", va="center")
     ax.grid(axis="x", alpha=.18)
     ax.set_axisbelow(True)
