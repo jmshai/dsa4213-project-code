@@ -1,0 +1,119 @@
+\documentclass[11pt]{article}
+
+% --------------------
+% Template settings (do not change: 11pt, 1in margins, 1.10 stretch)
+% --------------------
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{setspace}
+
+% --------------------
+% Extra packages used by our report
+% --------------------
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{caption}    % \captionof for the side-by-side figure + table
+\usepackage{tabularx}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage[numbers]{natbib}
+\usepackage{hyperref}   % keep last
+
+\setstretch{1.10}
+\setlength{\emergencystretch}{2em}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!50!black,
+    urlcolor=blue!50!black,
+    citecolor=black
+}
+
+% Float placement: let figures share pages with text instead of
+% leaving half-empty float pages (does not touch font, margins or spacing)
+\renewcommand{\topfraction}{0.9}
+\renewcommand{\bottomfraction}{0.8}
+\renewcommand{\textfraction}{0.1}
+\renewcommand{\floatpagefraction}{0.8}
+\setcounter{topnumber}{3}
+\setcounter{totalnumber}{5}
+
+\usetikzlibrary{positioning,arrows.meta}
+\graphicspath{{figures/}}
+
+% JSON listing style (appendix)
+\lstdefinelanguage{json}{
+    morestring=[b]",
+    stringstyle=\color{blue!55!black},
+    morekeywords={true,false,null},
+    keywordstyle=\color{purple!65!black},
+    sensitive=false,
+    showstringspaces=false
+}
+\lstdefinestyle{jsonstyle}{
+    language=json,
+    basicstyle=\ttfamily\scriptsize,
+    breaklines=true,
+    breakatwhitespace=false,
+    columns=fullflexible,
+    keepspaces=true,
+    frame=single,
+    rulecolor=\color{black!20},
+    backgroundcolor=\color{gray!3},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=7pt,
+    xleftmargin=12pt,
+    framexleftmargin=8pt,
+    tabsize=2,
+    showstringspaces=false,
+    captionpos=b
+}
+
+% --------------------
+% Course information
+% --------------------
+\newcommand{\course}{DSA4213: Natural Language Processing for Data Science}
+\newcommand{\semester}{Semester 1, AY2026/2027}
+
+\begin{document}
+
+\begin{center}
+{\LARGE\bfseries Group Project Final Report}\\[0.4em]
+{\large Beyond Retrieval: Scope-Aware Memory Application in AI Agents}\\[0.9em]
+Group ID: 3\\[0.9em]
+\course\\
+\semester
+\end{center}
+
+\input{sections/00_admin}
+\input{sections/00_summary}
+\input{sections/01_problem}
+\input{sections/02_related_work}
+\input{sections/03_agent_setup}
+\input{sections/04_design}
+\input{sections/05_evaluation}
+\input{sections/06_analysis}
+\input{sections/07_reproducibility}
+\input{sections/08_conclusion}
+
+% ====================
+% End of main text (8-page limit)
+% ====================
+\clearpage
+
+\input{sections/contribution}
+
+% References (not counted toward the page limit)
+\bibliographystyle{plainnat}
+\bibliography{refs}
+
+% Appendix (not counted toward the page limit)
+\appendix
+\input{sections/appendix}
+
+\end{document}

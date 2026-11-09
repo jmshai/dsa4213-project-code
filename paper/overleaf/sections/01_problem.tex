@@ -1,0 +1,46 @@
+% ====================
+% 1. Problem, research question, and motivation
+% ====================
+\section{Problem, Research Question, and Motivation}
+\label{sec:introduction}
+
+\subsection{Motivation and Research Problem}
+
+Memory-augmented language-model agents retain user instructions
+across conversations, allowing responses to reflect previously
+expressed preferences. However, preferences are not always
+universally applicable: a user may generally prefer Polars for
+large datasets while requiring pandas for a particular group
+project. Both memories remain valid, but the appropriate action
+depends on the current context.
+
+Existing memory systems primarily address the storage and
+retrieval of relevant information. Yet even when conflicting
+instructions are successfully retrieved, an agent must determine
+which instruction applies, whether an exception overrides a
+standing preference, and whether a temporary instruction should
+continue to influence subsequent tasks.
+
+We investigate this distinction between \emph{memory retrieval}
+and \emph{memory application}: does an agent correctly use a
+retrieved instruction within its intended scope, and can providing
+explicit information on the memories' scopes improve its decisions?
+
+\subsection{Research Objectives and Contributions}
+
+We investigate two questions: (1) whether agents make incorrect
+decisions despite retrieving the expected memory, and (2) whether
+scope-aware interventions improve contextual adherence while
+preserving unrelated preferences.
+
+Our contributions are:
+\begin{enumerate}
+    \item A lightweight scope-tagging layer supporting standing,
+    project-specific, and single-task instructions, integrated
+    with Mem0 and Supermemory at write time or read time.
+    \item A synthetic benchmark of 20 paired scenarios (40
+    episodes) covering five memory-conflict categories.
+    \item An evaluation of eight conditions across 320 runs,
+    separating retrieval success, memory application, scope
+    errors, tagging accuracy, and unrelated-memory retention.
+\end{enumerate}

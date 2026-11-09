@@ -1,0 +1,41 @@
+% ====================
+% 3. Agent and task setup
+% ====================
+\section{Agent and Task Setup}
+\label{sec:experimental-setup}
+
+\subsection{Implementation and Model Configuration}
+
+The agent is
+\texttt{qwen/qwen3.8-flash} through OpenRouter, with
+temperature 0, seed 4213, a 1,024-token output limit,
+and reasoning disabled. The agent prompt template and
+sampling settings are fixed across conditions, with
+retrieval limited to ten results.
+
+Qwen was selected after an operational pilot: it
+reported zero reasoning usage on 40 pilot calls,
+whereas DeepSeek returned empty text on three of
+eight calls when reasoning was disabled.
+
+Both memory systems use a common interface and fresh
+namespaces for each episode and condition. Mem0 uses
+its default extraction and search with a local embedder
+and vector retrieval without BM25; Supermemory uses its
+hosted API and waits for ingestion before retrieval
+(details in Appendix~\ref{app:reproducibility}).
+
+
+\subsection{Experimental Conditions and Baselines}
+\label{sec:conditions}
+
+We evaluate eight conditions: no memory (current probe only),
+full transcript (all earlier sessions), Mem0 and Supermemory
+with native retrieval, and write-time (pre-extracted, tagged
+memories) and read-time (retrieved memories tagged afterward)
+scope-tagged variants of each memory system.
+
+Each condition runs all 40 episodes (320 runs). The scope-layer
+conditions change tags, resolution rules, and memory ordering
+together, so their effects cannot be isolated.
+

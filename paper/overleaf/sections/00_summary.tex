@@ -1,0 +1,21 @@
+% ====================
+% Project summary (original abstract)
+% ====================
+\section*{Project Summary}
+
+Long-term memory enables language-model agents to retain user
+preferences across interactions, but retrieving a relevant memory
+does not guarantee that the agent applies it in the correct context.
+We investigate scope-aware memory application by augmenting Mem0
+and Supermemory with write-time and read-time scope tagging.
+We construct a benchmark of 40 episodes in 20 paired scenarios,
+covering five types of conflicting instructions, and evaluate eight
+conditions across 320 runs. The expected memory was retrieved in
+43 of 51 incorrect responses across the six memory-system conditions,
+demonstrating a substantial retrieval--application gap. Read-time
+tagging with Supermemory achieves the highest observed adherence
+(92.5\%), compared with 85\% for its baseline (not statistically
+significant, $p=0.25$), while write-time tagging reduces adherence
+for both systems. These findings suggest
+that explicit scope information can support memory application,
+but its effectiveness depends on how it is integrated and used.

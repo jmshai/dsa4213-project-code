@@ -1,0 +1,32 @@
+% ====================
+% 7. Reproducibility and responsible practice
+% ====================
+\section{Reproducibility and Responsible Practice}
+\label{sec:reproducibility}
+
+Code, the 320 run logs, and cached judge verdicts are in the public
+repository, so results can be rescored without new agent calls
+(Appendix~\ref{app:reproducibility}).
+
+\subsection{Ethical Considerations and Risks}
+
+This study poses limited direct risk: all sessions and probes
+are synthetic (mainly coding, data, and email tasks), and no
+real user data were collected or sent to OpenRouter or
+Supermemory. Two risks would matter in deployment.
+
+\textbf{Misapplied memory.} An agent that carries an
+instruction beyond its intended scope, or fails to apply
+it within scope, may act against the user's wishes, which
+matters most for privacy, safety, or permissions (``do not
+email this person''). Deployments should require human
+confirmation before consequential memory-driven actions.
+
+\textbf{Memory poisoning.} Session text and retrieved
+memories are passed to the tagger and agent without
+filtering. Malicious notes, such as ``ignore previous
+rules,'' could steer either component. Our benchmark contains no adversarial memories, so we cannot
+assess robustness to poisoning; deployed systems should treat
+stored memories as untrusted content that cannot override
+higher-priority rules.
+
