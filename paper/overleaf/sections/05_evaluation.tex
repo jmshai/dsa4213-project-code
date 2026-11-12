@@ -30,30 +30,10 @@ Failure stage & Earliest detected pipeline failure \\
 \end{tabularx}
 \end{table}
 
-Adherence is also separated into in-scope (A) and
-out-of-scope (B) probes. Incorrect decisions are
-classified as over-application, under-application,
-supersession, or other actions.
-
-Retrieval is checked by verbatim matching or
-judge-assisted matching of rewritten notes. The
-full-transcript control counts as successful retrieval
-by construction; no memory counts as unsuccessful.
-Retention excludes unassessable answers.
-
-Tagging accuracy is measured on notes associated with
-one reference memory. Scope is matched exactly;
-project keys must contain the reference project name,
-while single-task keys are excluded from scoring.
-Conditions use strict (variable, operator, value)
-and lenient (operator, value) matching.
-
-Failure-stage categories are extraction, retrieval,
-scope loss, tagging, and reasoning. Each incorrect
-answer is assigned to the earliest detected failure.
-These are diagnostic classifications, not established
-causal mechanisms. Supermemory's internal extraction
-cannot be inspected separately from retrieval.
+Adherence is also reported separately for in-scope (A)
+and out-of-scope (B) probes. Retrieval matching,
+tag-accuracy rules, and failure-stage definitions are
+detailed in Appendix~\ref{app:supplementary-results}.
 
 \subsection{LLM-as-a-Judge and Statistical Analysis}
 \label{sec:judge}
@@ -81,7 +61,6 @@ pair share history, episode-level tests do not
 fully account for dependence; p-values are
 interpreted cautiously.
 
-All 320 runs completed without execution errors.
 
 \subsection{Overall Correction Adherence}
 
@@ -147,9 +126,6 @@ and six incorrect decisions, respectively.
 Read-time tagging reduced these counts to eight
 and three.
 
-Thus, successful retrieval is insufficient for
-correct application, although a retrieved note
-may still have lost important scope information.
 
 
 \subsection{Scope-Boundary and Conflict-Type Performance}

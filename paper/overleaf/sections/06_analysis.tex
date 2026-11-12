@@ -25,17 +25,10 @@ scoped instructions when appropriate.
 
 The retrieval--application gap shows that access
 to a relevant instruction does not ensure correct
-conflict resolution. In pair \texttt{po-01}, for
-example, an agent may select the standing Polars
-preference despite the applicable project-specific
-pandas instruction. Other failures involve
-carrying a single-task exception into a new task
-or combining conflicting instructions.
-
-These cases suggest that effective memory requires
-both relevant information and reliable contextual
-decision-making. Representative examples are
-included in Appendix~\ref{app:failure-cases}.
+conflict resolution: agents chose a standing
+preference over an applicable exception, carried a
+single-task exception into a new task, or combined
+conflicting instructions (Appendix~\ref{app:failure-cases}).
 
 \subsection{Threats to Validity}
 
@@ -51,17 +44,14 @@ condition. Fixed sampling settings do not
 guarantee reproducibility, while Supermemory's
 hosted processing is not fully observable.
 
-The scope treatments change three components simultaneously:
-scope tags, conflict-resolution rules, and memory ordering.
-The treatments list memories oldest first, whereas the
-baselines list memories by relevance without timestamps.
-Consequently, the observed differences cannot be attributed
-to scope tags alone. In particular, the non-significant
-gain for read-time Supermemory (37/40 versus 34/40;
-McNemar $p=0.25$) may arise from the rules or ordering
-rather than the tags. Controlled ablations with rules-only,
-tags-only, and ordering-only conditions would help isolate
-their contributions.
+The scope treatments also change three components at
+once: scope tags, conflict-resolution rules, and memory
+ordering (oldest first, versus relevance order for the
+baselines). The non-significant gain for read-time
+Supermemory (37/40 versus 34/40; McNemar $p=0.25$)
+therefore cannot be attributed to tags alone;
+rules-only, tags-only, and ordering-only ablations
+would isolate each effect.
 
 Retrieval matching and failure-stage diagnoses were not
 independently validated in full.

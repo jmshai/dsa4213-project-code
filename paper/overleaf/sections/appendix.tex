@@ -335,6 +335,29 @@ was approximately \$0.15, with approximately
 \$0.06 for judging. Supermemory's separately
 billed processing is excluded.
 
+\paragraph{Metric details.} Incorrect decisions are
+classified as over-application, under-application,
+supersession, or other actions.
+Retrieval is checked by verbatim matching or
+judge-assisted matching of rewritten notes. The
+full-transcript control counts as successful retrieval
+by construction; no memory counts as unsuccessful.
+Retention excludes unassessable answers.
+
+Tagging accuracy is measured on notes associated with
+one reference memory. Scope is matched exactly;
+project keys must contain the reference project name,
+while single-task keys are excluded from scoring.
+Conditions use strict (variable, operator, value)
+and lenient (operator, value) matching.
+
+Failure-stage categories are extraction, retrieval,
+scope loss, tagging, and reasoning. Each incorrect
+answer is assigned to the earliest detected failure.
+These are diagnostic classifications, not established
+causal mechanisms. Supermemory's internal extraction
+cannot be inspected separately from retrieval.
+
 \section{Reproducibility and Implementation Details}
 \label{app:reproducibility}
 
@@ -344,6 +367,7 @@ in \texttt{agent/conditions.py}; runs are executed
 through \texttt{agent/runner.py}; and scoring is
 implemented in \texttt{scoring/}.
 
+All 320 runs completed without execution errors.
 The 320 existing run logs, cached judge verdicts,
 and cost ledger allow rescoring without repeating
 agent calls. Figures are generated from the
