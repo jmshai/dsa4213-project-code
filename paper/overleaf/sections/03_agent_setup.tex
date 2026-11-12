@@ -1,0 +1,56 @@
+% ====================
+% 3. Agent and task setup
+% ====================
+\section{Agent and Task Setup}
+\label{sec:experimental-setup}
+
+\subsection{Implementation and Model Configuration}
+
+The implementation uses Python 3.11+, \texttt{uv}, and
+a shared lockfile. The agent is
+\texttt{qwen/qwen3.8-flash} through OpenRouter, with
+temperature 0, seed 4213, a 1,024-token output limit,
+and reasoning disabled. The agent prompt template and
+sampling settings are fixed across conditions, with
+retrieval limited to ten results.
+
+Both memory systems use a common interface and fresh
+namespaces for each episode and condition. The
+model-selection pilot, memory-system configuration,
+and cost logging are detailed in
+Appendix~\ref{app:reproducibility}.
+
+
+\subsection{Experimental Conditions and Baselines}
+\label{sec:conditions}
+
+We evaluate eight conditions: no memory, full transcript,
+Mem0, Supermemory, and write-time/read-time scope-tagged
+variants of each memory system.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Experimental conditions.}
+\label{tab:conditions}
+\begin{tabularx}{\linewidth}{lX}
+\toprule
+Condition & Memory supplied to agent \\
+\midrule
+No memory & Current probe only \\
+Full transcript & All earlier sessions \\
+Mem0 & Native retrieved memories \\
+Supermemory & Native retrieved search results \\
+Mem0 + write & Pre-extracted, tagged memories \\
+Mem0 + read & Retrieved memories tagged afterward \\
+Supermemory + write & Pre-extracted, tagged memories \\
+Supermemory + read & Retrieved results tagged afterward \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+Each condition evaluates all 40 episodes, yielding
+320 runs. The scope-layer conditions introduce tags,
+resolution rules, and memory ordering information
+together; their individual effects cannot be isolated.
+

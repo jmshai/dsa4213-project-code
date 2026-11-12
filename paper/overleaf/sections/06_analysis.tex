@@ -1,0 +1,72 @@
+% ====================
+% 6. Analysis of results, failures, limitations, costs, and risks
+% ====================
+\section{Analysis of Results, Failures, Limitations, Costs, and Risks}
+\label{sec:discussion}
+
+\subsection{Write-Time versus Read-Time Tagging}
+
+Read-time tagging matches or improves adherence
+relative to both memory-system baselines, whereas
+write-time tagging reduces it. One possible
+explanation is that write-time extraction isolates
+instructions from conversational context, making
+task continuity difficult to infer. Conversely,
+read-time tagging retains the underlying memory
+system's representation, although its tags may
+be less accurate.
+
+Write-time Supermemory illustrates the trade-off:
+it avoids over-applying scoped memories on all
+20 out-of-scope probes but fails to apply many
+scoped instructions when appropriate.
+
+\subsection{Why Retrieval and Tagging Are Insufficient}
+
+The retrieval--application gap shows that access
+to a relevant instruction does not ensure correct
+conflict resolution. In pair \texttt{po-01}, for
+example, an agent may select the standing Polars
+preference despite the applicable project-specific
+pandas instruction. Other failures involve
+carrying a single-task exception into a new task
+or combining conflicting instructions.
+
+These cases suggest that effective memory requires
+both relevant information and reliable contextual
+decision-making. Representative examples are
+included in Appendix~\ref{app:failure-cases}.
+
+\subsection{Threats to Validity}
+
+The benchmark contains only 20 synthetic pairs
+with short histories and explicit scope cues.
+Nineteen pairs were initially AI-assisted, and
+numeric conditions avoid threshold boundaries.
+The findings may not generalize to longer,
+ambiguous, or naturally occurring interactions.
+
+The study uses one agent model and one run per
+condition. Fixed sampling settings do not
+guarantee reproducibility, while Supermemory's
+hosted processing is not fully observable.
+
+The scope treatments change three components simultaneously:
+scope tags, conflict-resolution rules, and memory ordering.
+The treatments list memories oldest first, whereas the
+baselines list memories by relevance without timestamps.
+Consequently, the observed differences cannot be attributed
+to scope tags alone. In particular, the non-significant
+gain for read-time Supermemory (37/40 versus 34/40;
+McNemar $p=0.25$) may arise from the rules or ordering
+rather than the tags. Controlled ablations with rules-only,
+tags-only, and ordering-only conditions would help isolate
+their contributions.
+
+Retrieval matching and failure-stage diagnoses were not
+independently validated in full.
+
+Finally, the two probes within each pair are
+dependent, limiting the interpretation of
+episode-level significance tests.
+

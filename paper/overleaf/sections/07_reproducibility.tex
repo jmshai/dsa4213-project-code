@@ -1,0 +1,31 @@
+% ====================
+% 7. Reproducibility and responsible practice
+% ====================
+\section{Reproducibility and Responsible Practice}
+\label{sec:reproducibility}
+
+\subsection{Ethical Considerations and Risks}
+
+This study poses limited direct risk. All sessions and
+probes are synthetic scenarios, primarily coding, data,
+and email tasks. No real user data were collected; only
+synthetic text was sent to OpenRouter and Supermemory.
+Two risks would become important in deployment.
+
+\textbf{Misapplied memory.} An agent that carries an
+instruction beyond its intended scope, or fails to apply
+it within scope, may act against the user's wishes. This
+is especially consequential for instructions concerning
+privacy, safety, or permissions, such as ``do not email
+this person.'' A real deployment should require human
+confirmation before consequential actions driven by memory.
+
+\textbf{Memory poisoning.} Session text and retrieved
+memories are passed to the tagger and agent without
+filtering. Malicious notes, such as ``ignore previous
+rules,'' could steer either component. Since our benchmark
+contains no adversarial memories, we cannot assess
+robustness to poisoning. Deployed systems should treat
+stored memories as untrusted content that cannot override
+higher-priority agent or conflict-resolution rules.
+
