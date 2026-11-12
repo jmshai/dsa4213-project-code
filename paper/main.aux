@@ -7,6 +7,9 @@
 \@writefile{toc}{\contentsline {subsection}{\numberline {1.2}Research Objectives and Contributions}{1}{subsection.1.2}\protected@file@percent }
 \citation{chhikara2025mem0}
 \citation{supermemoryresearch}
+\citation{wu2025longmemeval}
+\citation{maharana2024locomo}
+\citation{pakhomov2025convomem}
 \@writefile{toc}{\contentsline {section}{\numberline {2}Related Work}{2}{section.2}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Long-Term Memory in LLM Agents}{2}{subsection.2.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Memory Retrieval and Contextual Applicability}{2}{subsection.2.2}\protected@file@percent }
@@ -14,86 +17,99 @@
 \newlabel{sec:methodology}{{3}{2}{Methodology}{section.3}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Scope Representation and Conflict Resolution}{2}{subsection.3.1}\protected@file@percent }
 \newlabel{sec:scope-representation}{{3.1}{2}{Scope Representation and Conflict Resolution}{subsection.3.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Scope representation.}}{2}{table.1}\protected@file@percent }
-\newlabel{tab:scopes}{{1}{2}{Scope representation}{table.1}{}}
 \citation{chhikara2025mem0}
 \citation{supermemoryresearch}
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Scope representation.}}{3}{table.1}\protected@file@percent }
+\newlabel{tab:scopes}{{1}{3}{Scope representation}{table.1}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Scope-Tagging Architecture}{3}{subsection.3.2}\protected@file@percent }
 \newlabel{sec:architecture}{{3.2}{3}{Scope-Tagging Architecture}{subsection.3.2}{}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Scope-tagging integration strategies. Write-time tagging occurs before storage, whereas read-time tagging occurs after retrieval.}}{3}{figure.1}\protected@file@percent }
 \newlabel{fig:architecture}{{1}{3}{Scope-tagging integration strategies. Write-time tagging occurs before storage, whereas read-time tagging occurs after retrieval}{figure.1}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Benchmark Construction}{3}{subsection.3.3}\protected@file@percent }
-\newlabel{sec:benchmark}{{3.3}{3}{Benchmark Construction}{subsection.3.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Episode Structure and Mirrored-Pair Design}{3}{subsubsection.3.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Conflict Categories and Dataset Generation}{3}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Benchmark Construction}{4}{subsection.3.3}\protected@file@percent }
+\newlabel{sec:benchmark}{{3.3}{4}{Benchmark Construction}{subsection.3.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.1}Episode Structure and Mirrored-Pair Design}{4}{subsubsection.3.3.1}\protected@file@percent }
 \@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Mirrored-pair benchmark design illustrated using pair \texttt  {po-01}. Both probes share the same conversation history and reference memories but differ in whether the project-specific instruction applies. An unrelated standing preference is evaluated independently in both probes.}}{4}{figure.2}\protected@file@percent }
 \newlabel{fig:mirrored-pair}{{2}{4}{Mirrored-pair benchmark design illustrated using pair \texttt {po-01}. Both probes share the same conversation history and reference memories but differ in whether the project-specific instruction applies. An unrelated standing preference is evaluated independently in both probes}{figure.2}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Benchmark composition.}}{4}{table.2}\protected@file@percent }
-\newlabel{tab:benchmark}{{2}{4}{Benchmark composition}{table.2}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.2}Conflict Categories and Dataset Generation}{4}{subsubsection.3.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Benchmark composition.}}{5}{table.2}\protected@file@percent }
+\newlabel{tab:benchmark}{{2}{5}{Benchmark composition}{table.2}{}}
 \@writefile{toc}{\contentsline {subsubsection}{\numberline {3.3.3}Dataset Validation and Gold Labels}{5}{subsubsection.3.3.3}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Experimental Conditions and Baselines}{5}{subsection.3.4}\protected@file@percent }
 \newlabel{sec:conditions}{{3.4}{5}{Experimental Conditions and Baselines}{subsection.3.4}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Experimental conditions.}}{5}{table.3}\protected@file@percent }
 \newlabel{tab:conditions}{{3}{5}{Experimental conditions}{table.3}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup and Evaluation}{5}{section.4}\protected@file@percent }
-\newlabel{sec:experimental-setup}{{4}{5}{Experimental Setup and Evaluation}{section.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Implementation and Model Configuration}{5}{subsection.4.1}\protected@file@percent }
-\citation{cohen1960coefficient}
-\citation{zheng2023judging}
-\citation{wilson1927probable}
-\citation{mcnemar1947sampling}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Experimental Setup and Evaluation}{6}{section.4}\protected@file@percent }
+\newlabel{sec:experimental-setup}{{4}{6}{Experimental Setup and Evaluation}{section.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}Implementation and Model Configuration}{6}{subsection.4.1}\protected@file@percent }
 \@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Evaluation Metrics}{6}{subsection.4.2}\protected@file@percent }
 \newlabel{sec:metrics}{{4.2}{6}{Evaluation Metrics}{subsection.4.2}{}}
 \@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Evaluation metrics.}}{6}{table.4}\protected@file@percent }
 \newlabel{tab:metrics}{{4}{6}{Evaluation metrics}{table.4}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}LLM-as-a-Judge and Statistical Analysis}{6}{subsection.4.3}\protected@file@percent }
-\newlabel{sec:judge}{{4.3}{6}{LLM-as-a-Judge and Statistical Analysis}{subsection.4.3}{}}
+\citation{cohen1960coefficient}
+\citation{zheng2023judging}
+\citation{wilson1927probable}
+\citation{mcnemar1947sampling}
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}LLM-as-a-Judge and Statistical Analysis}{7}{subsection.4.3}\protected@file@percent }
+\newlabel{sec:judge}{{4.3}{7}{LLM-as-a-Judge and Statistical Analysis}{subsection.4.3}{}}
 \@writefile{toc}{\contentsline {section}{\numberline {5}Results and Analysis}{7}{section.5}\protected@file@percent }
 \newlabel{sec:results}{{5}{7}{Results and Analysis}{section.5}{}}
 \@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Overall Correction Adherence}{7}{subsection.5.1}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Correction adherence across eight conditions (40 episodes per condition).}}{7}{figure.3}\protected@file@percent }
-\newlabel{fig:overall-adherence}{{3}{7}{Correction adherence across eight conditions (40 episodes per condition)}{figure.3}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Retrieval Versus Application}{7}{subsection.5.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Scope-Boundary and Conflict-Type Performance}{7}{subsection.5.3}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Incorrect actions despite retrieval of the expected memory.}}{8}{figure.4}\protected@file@percent }
-\newlabel{fig:retrieval-gap}{{4}{8}{Incorrect actions despite retrieval of the expected memory}{figure.4}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Adherence on in-scope (A) and out-of-scope (B) probes, 20 of each per condition.}}{8}{figure.5}\protected@file@percent }
-\newlabel{fig:scope-boundaries}{{5}{8}{Adherence on in-scope (A) and out-of-scope (B) probes, 20 of each per condition}{figure.5}{}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Adherence across five conflict categories; eight episodes per category.}}{9}{figure.6}\protected@file@percent }
-\newlabel{fig:conflict-types}{{6}{9}{Adherence across five conflict categories; eight episodes per category}{figure.6}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Failure Diagnosis, Tagging, and Retention}{9}{subsection.5.4}\protected@file@percent }
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Incorrect decisions by earliest detected failure stage; classifications are heuristic.}}{9}{figure.7}\protected@file@percent }
-\newlabel{fig:failure-stages}{{7}{9}{Incorrect decisions by earliest detected failure stage; classifications are heuristic}{figure.7}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and Limitations}{10}{section.6}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Write-Time versus Read-Time Tagging}{10}{subsection.6.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Why Retrieval and Tagging Are Insufficient}{10}{subsection.6.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Threats to Validity}{10}{subsection.6.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{10}{section.7}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Exact McNemar tests on the same 40 episodes (``Only'' = episodes where only that condition was right). Retention uses the episodes the judge could assess.}}{7}{table.5}\protected@file@percent }
+\newlabel{tab:paired}{{5}{7}{Exact McNemar tests on the same 40 episodes (``Only'' = episodes where only that condition was right). Retention uses the episodes the judge could assess}{table.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Correction adherence across eight conditions (40 episodes per condition); error bars are 95\% Wilson intervals.}}{8}{figure.3}\protected@file@percent }
+\newlabel{fig:overall-adherence}{{3}{8}{Correction adherence across eight conditions (40 episodes per condition); error bars are 95\% Wilson intervals}{figure.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Retrieval Versus Application}{8}{subsection.5.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Retrieved the expected memory vs acted correctly (episodes out of 40). No memory counts as not retrieved; the full transcript as retrieved.}}{8}{table.6}\protected@file@percent }
+\newlabel{tab:retrieval-action}{{6}{8}{Retrieved the expected memory vs acted correctly (episodes out of 40). No memory counts as not retrieved; the full transcript as retrieved}{table.6}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Share of episodes with a wrong action when the expected memory was retrieved (counts over the episodes where it was retrieved). The full transcript counts as retrieved.}}{9}{figure.4}\protected@file@percent }
+\newlabel{fig:retrieval-gap}{{4}{9}{Share of episodes with a wrong action when the expected memory was retrieved (counts over the episodes where it was retrieved). The full transcript counts as retrieved}{figure.4}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Scope-Boundary and Conflict-Type Performance}{9}{subsection.5.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Direction of wrong answers (episodes out of 40). Over-applied: a memory outside its scope was used. Under-applied: a broader or less specific memory was used.}}{9}{table.7}\protected@file@percent }
+\newlabel{tab:error-types}{{7}{9}{Direction of wrong answers (episodes out of 40). Over-applied: a memory outside its scope was used. Under-applied: a broader or less specific memory was used}{table.7}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Adherence on in-scope (A) and out-of-scope (B) probes, 20 of each per condition.}}{10}{figure.5}\protected@file@percent }
+\newlabel{fig:scope-boundaries}{{5}{10}{Adherence on in-scope (A) and out-of-scope (B) probes, 20 of each per condition}{figure.5}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Adherence across five conflict categories; eight episodes per category.}}{10}{figure.6}\protected@file@percent }
+\newlabel{fig:conflict-types}{{6}{10}{Adherence across five conflict categories; eight episodes per category}{figure.6}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Failure Diagnosis, Tagging, and Retention}{10}{subsection.5.4}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Incorrect decisions by earliest detected failure stage; classifications are heuristic.}}{11}{figure.7}\protected@file@percent }
+\newlabel{fig:failure-stages}{{7}{11}{Incorrect decisions by earliest detected failure stage; classifications are heuristic}{figure.7}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Mean OpenRouter cost per episode. Supermemory's own processing is billed separately and is not included.}}{11}{table.8}\protected@file@percent }
+\newlabel{tab:cost}{{8}{11}{Mean OpenRouter cost per episode. Supermemory's own processing is billed separately and is not included}{table.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {6}Discussion and Limitations}{12}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Write-Time versus Read-Time Tagging}{12}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Why Retrieval and Tagging Are Insufficient}{12}{subsection.6.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Threats to Validity}{12}{subsection.6.3}\protected@file@percent }
 \bibstyle{plainnat}
 \bibdata{references}
 \bibcite{chhikara2025mem0}{{1}{2025}{{Chhikara et~al.}}{{Chhikara, Khant, Aryan, Singh, and Yadav}}}
 \bibcite{cohen1960coefficient}{{2}{1960}{{Cohen}}{{}}}
-\bibcite{mcnemar1947sampling}{{3}{1947}{{McNemar}}{{}}}
-\bibcite{supermemoryresearch}{{4}{}{{Supermemory}}{{}}}
-\bibcite{wilson1927probable}{{5}{1927}{{Wilson}}{{}}}
-\bibcite{zheng2023judging}{{6}{2023}{{Zheng et~al.}}{{Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li, Li, Xing, Zhang, Gonzalez, and Stoica}}}
-\@writefile{toc}{\contentsline {section}{\numberline {A}Episode Examples and Qualitative Failure Analysis}{11}{appendix.A}\protected@file@percent }
-\newlabel{app:failure-cases}{{A}{11}{Episode Examples and Qualitative Failure Analysis}{appendix.A}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Episode JSON Structure}{11}{subsection.A.1}\protected@file@percent }
-\newlabel{app:episode-schema}{{A.1}{11}{Episode JSON Structure}{subsection.A.1}{}}
-\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Top-level fields of an episode-pair JSON file.}}{12}{table.5}\protected@file@percent }
-\newlabel{tab:episode-schema}{{5}{12}{Top-level fields of an episode-pair JSON file}{table.5}{}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Complete Example: Project Override (\texttt  {po-01})}{12}{subsection.A.2}\protected@file@percent }
-\newlabel{app:po01-example}{{A.2}{12}{Complete Example: Project Override (\texttt {po-01})}{subsection.A.2}{}}
-\newlabel{lst:po01}{{1}{12}{Complete JSON specification of project-override pair \texttt {po-01}}{lstlisting.1}{}}
-\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Complete JSON specification of project-override pair \texttt  {po-01}.}{12}{lstlisting.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Qualitative Failure Cases}{14}{subsection.A.3}\protected@file@percent }
-\newlabel{app:qualitative-failures}{{A.3}{14}{Qualitative Failure Cases}{subsection.A.3}{}}
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.1}Project Override: \texttt  {po-01}}{14}{subsubsection.A.3.1}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.2}Single-Task Override: \texttt  {st-04}}{14}{subsubsection.A.3.2}\protected@file@percent }
-\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.3}Same-Scope Specificity: \texttt  {sp-02}}{14}{subsubsection.A.3.3}\protected@file@percent }
-\@writefile{toc}{\contentsline {section}{\numberline {B}Supplementary Experimental Results}{15}{appendix.B}\protected@file@percent }
-\newlabel{app:supplementary-results}{{B}{15}{Supplementary Experimental Results}{appendix.B}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {C}Reproducibility and Implementation Details}{15}{appendix.C}\protected@file@percent }
-\newlabel{app:reproducibility}{{C}{15}{Reproducibility and Implementation Details}{appendix.C}{}}
-\gdef \@abspage@last{15}
+\bibcite{maharana2024locomo}{{3}{2024}{{Maharana et~al.}}{{Maharana, Lee, Tulyakov, Bansal, Barbieri, and Fang}}}
+\bibcite{mcnemar1947sampling}{{4}{1947}{{McNemar}}{{}}}
+\bibcite{pakhomov2025convomem}{{5}{2025}{{Pakhomov et~al.}}{{Pakhomov, Nijkamp, and Xiong}}}
+\bibcite{supermemoryresearch}{{6}{}{{Supermemory}}{{}}}
+\bibcite{wilson1927probable}{{7}{1927}{{Wilson}}{{}}}
+\@writefile{toc}{\contentsline {section}{\numberline {7}Conclusion}{13}{section.7}\protected@file@percent }
+\bibcite{wu2025longmemeval}{{8}{2025}{{Wu et~al.}}{{Wu, Wang, Yu, Zhang, Chang, and Yu}}}
+\bibcite{zheng2023judging}{{9}{2023}{{Zheng et~al.}}{{Zheng, Chiang, Sheng, Zhuang, Wu, Zhuang, Lin, Li, Li, Xing, Zhang, Gonzalez, and Stoica}}}
+\@writefile{toc}{\contentsline {section}{\numberline {A}Episode Examples and Qualitative Failure Analysis}{14}{appendix.A}\protected@file@percent }
+\newlabel{app:failure-cases}{{A}{14}{Episode Examples and Qualitative Failure Analysis}{appendix.A}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.1}Episode JSON Structure}{14}{subsection.A.1}\protected@file@percent }
+\newlabel{app:episode-schema}{{A.1}{14}{Episode JSON Structure}{subsection.A.1}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Top-level fields of an episode-pair JSON file.}}{14}{table.9}\protected@file@percent }
+\newlabel{tab:episode-schema}{{9}{14}{Top-level fields of an episode-pair JSON file}{table.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.2}Complete Example: Project Override (\texttt  {po-01})}{15}{subsection.A.2}\protected@file@percent }
+\newlabel{app:po01-example}{{A.2}{15}{Complete Example: Project Override (\texttt {po-01})}{subsection.A.2}{}}
+\newlabel{lst:po01}{{1}{15}{Complete JSON specification of project-override pair \texttt {po-01}}{lstlisting.1}{}}
+\@writefile{lol}{\contentsline {lstlisting}{\numberline {1}Complete JSON specification of project-override pair \texttt  {po-01}.}{15}{lstlisting.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.3}Qualitative Failure Cases}{16}{subsection.A.3}\protected@file@percent }
+\newlabel{app:qualitative-failures}{{A.3}{16}{Qualitative Failure Cases}{subsection.A.3}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.1}Project Override: \texttt  {po-01}}{17}{subsubsection.A.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.2}Single-Task Override: \texttt  {st-01}}{17}{subsubsection.A.3.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {A.3.3}Same-Scope Specificity: \texttt  {sp-02}}{17}{subsubsection.A.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {A.4}Agent Prompt and a Rendered Example}{17}{subsection.A.4}\protected@file@percent }
+\newlabel{app:prompt}{{A.4}{17}{Agent Prompt and a Rendered Example}{subsection.A.4}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {B}Supplementary Experimental Results}{18}{appendix.B}\protected@file@percent }
+\newlabel{app:supplementary-results}{{B}{18}{Supplementary Experimental Results}{appendix.B}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {C}Reproducibility and Implementation Details}{18}{appendix.C}\protected@file@percent }
+\newlabel{app:reproducibility}{{C}{18}{Reproducibility and Implementation Details}{appendix.C}{}}
+\gdef \@abspage@last{18}

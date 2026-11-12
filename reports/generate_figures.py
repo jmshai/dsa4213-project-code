@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Recreate five DSA4213 summary figures from the 2026-10-25 scoring report.
+"""Draw the five DSA4213 summary figures from the scoring tables in reports/tables/ (320 runs, 8 conditions).
 
-Data below are transcribed from reports/summary.md (320 runs, 8 conditions).
+Rerun `uv run python -m scoring.score` first if the logs change; this script only reads the CSVs it writes.
 Edit TITLES, LABELS, COLORS, and figsize settings to customize.
 
 Usage:
@@ -10,38 +10,45 @@ or:
     python generate_figures.py --output-dir reports/figures
 """
 import argparse
+import csv
 from pathlib import Path
 import numpy as np
 import matplotlib.pyplot as plt
 
+TABLES = Path(__file__).parent / "tables"
+ORDER = ["no_memory", "full_transcript", "mem0", "scope_write_mem0", "scope_read_mem0", "supermemory",
+         "scope_write_supermemory", "scope_read_supermemory"]
 CONDITIONS = ["No memory", "Full transcript", "Mem0", "Mem0 + write", "Mem0 + read", "Supermemory", "Supermemory + write", "Supermemory + read"]
-ADHERENCE = np.array([8, 32, 31, 24, 32, 34, 31, 37])
-RETRIEVED_RIGHT_WRONG = np.array([0, 8, 9, 9, 8, 6, 8, 3])
-IN_SCOPE = np.array([4, 17, 17, 10, 16, 18, 11, 20])
-OUT_SCOPE = np.array([4, 15, 14, 14, 16, 16, 20, 17])
+CONFLICT_SLUGS = ["project_override", "single_task_override", "conditional_scope", "same_scope_supersession", "same_scope_specificity"]
 CONFLICT_TYPES = ["Project override", "Single-task override", "Conditional scope", "Same-scope supersession", "Same-scope specificity"]
-CONFLICT_COUNTS = np.array([
-    [4, 2, 2, 0, 0],
-    [8, 4, 8, 8, 4],
-    [6, 4, 8, 8, 5],
-    [5, 2, 8, 4, 5],
-    [7, 3, 8, 8, 6],
-    [8, 4, 8, 8, 6],
-    [5, 4, 7, 8, 7],
-    [8, 6, 8, 8, 7],
-])
-# Failure categories from summary.md section 5, in the displayed order.
+FAILURE_SLUGS = ["no_memory", "extraction", "retrieval", "scope_lost", "tagging", "reasoning"]
 FAILURE_NAMES = ["No memory", "Extraction", "Retrieval", "Scope lost", "Tagging", "Reasoning"]
-FAILURES = np.array([
-    [32, 0, 0, 0, 0, 0],
-    [0, 0, 0, 0, 0, 8],
-    [0, 0, 0, 5, 0, 4],
-    [0, 7, 0, 0, 4, 5],
-    [0, 0, 0, 4, 0, 4],
-    [0, 0, 0, 0, 0, 6],
-    [0, 0, 1, 0, 0, 8],
-    [0, 0, 0, 0, 1, 2],
-])
+
+
+def load(name):
+    with open(TABLES / f"{name}.csv", newline="") as f:
+        return list(csv.DictReader(f))
+
+
+def by_condition(name):
+    return {r["condition"]: r for r in load(name)}
+
+
+def column(rows, field, cast=int):
+    return np.array([cast(rows[c][field]) for c in ORDER])
+
+
+_adherence, _rva, _stages = by_condition("adherence"), by_condition("retrieval_vs_action"), by_condition("failure_stages")
+ADHERENCE = column(_adherence, "correct")
+CI_LOW = column(_adherence, "ci_low", float) * 100
+CI_HIGH = column(_adherence, "ci_high", float) * 100
+IN_SCOPE = column(_adherence, "in_scope_correct")
+OUT_SCOPE = column(_adherence, "out_of_scope_correct")
+RETRIEVED_RIGHT_WRONG = column(_rva, "retrieved_right_acted_wrong")
+RETRIEVED_RIGHT = RETRIEVED_RIGHT_WRONG + column(_rva, "retrieved_right_acted_right")
+_by_type = {(r["condition"], r["conflict_type"]): int(r["correct"]) for r in load("adherence_by_type")}
+CONFLICT_COUNTS = np.array([[_by_type[(c, t)] for t in CONFLICT_SLUGS] for c in ORDER])
+FAILURES = np.array([[int(_stages[c][f]) for f in FAILURE_SLUGS] for c in ORDER])
 
 TITLES = {
     "01": "Correction adherence across experimental conditions",
@@ -73,14 +80,16 @@ def save(fig, output_dir, stem):
 def overall(output_dir):
     fig, ax = plt.subplots(figsize=(10, 5.4))
     y = np.arange(len(CONDITIONS))
-    bars = ax.barh(y, ADHERENCE / 40 * 100, color=condition_colors())
+    pct = ADHERENCE / 40 * 100
+    bars = ax.barh(y, pct, color=condition_colors(), xerr=[pct - CI_LOW, CI_HIGH - pct],
+                   error_kw={"ecolor": "#17212b", "capsize": 3, "lw": 1})
     ax.set_yticks(y, CONDITIONS)
     ax.invert_yaxis()
-    ax.set_xlim(0, 105)
-    ax.set_xlabel("Correct decisions (%)")
+    ax.set_xlim(0, 112)
+    ax.set_xlabel("Correct decisions (%), with 95% Wilson interval")
     ax.set_title(TITLES["01"], loc="left", weight="bold", pad=14)
-    for bar, n in zip(bars, ADHERENCE):
-        ax.text(bar.get_width() + 1.2, bar.get_y() + bar.get_height()/2, f"{n}/40", va="center", fontsize=9)
+    for bar, n, hi in zip(bars, ADHERENCE, CI_HIGH):
+        ax.text(hi + 1.2, bar.get_y() + bar.get_height()/2, f"{n}/40", va="center", fontsize=9)
     ax.grid(axis="x", alpha=.18)
     ax.set_axisbelow(True)
     fig.tight_layout()
@@ -89,18 +98,19 @@ def overall(output_dir):
 
 def retrieved(output_dir):
     fig, ax = plt.subplots(figsize=(9.5, 5.2))
-    indices = list(range(2, 8))
+    indices = list(range(1, 8))  # full transcript counts as retrieved right; no memory has no retrieval to judge
     names = [CONDITIONS[i] for i in indices]
-    values = RETRIEVED_RIGHT_WRONG[indices]
+    wrong, n_retrieved = RETRIEVED_RIGHT_WRONG[indices], RETRIEVED_RIGHT[indices]
+    rates = wrong / n_retrieved * 100
     y = np.arange(len(names))
-    bars = ax.barh(y, values, color=[condition_colors()[i] for i in indices])
+    bars = ax.barh(y, rates, color=[condition_colors()[i] for i in indices])
     ax.set_yticks(y, names)
     ax.invert_yaxis()
-    ax.set_xlim(0, 11)
-    ax.set_xlabel("Runs with expected memory retrieved but wrong action (of 40)")
+    ax.set_xlim(0, 36)
+    ax.set_xlabel("Wrong action when the expected memory was retrieved (%)")
     ax.set_title(TITLES["02"], loc="left", weight="bold", pad=14)
-    for bar, n in zip(bars, values):
-        ax.text(n+.15, bar.get_y()+bar.get_height()/2, str(n), va="center")
+    for bar, rate, n, d in zip(bars, rates, wrong, n_retrieved):
+        ax.text(rate+.5, bar.get_y()+bar.get_height()/2, f"{n}/{d} ({rate:.0f}%)", va="center")
     ax.grid(axis="x", alpha=.18)
     ax.set_axisbelow(True)
     fig.tight_layout()
@@ -153,7 +163,7 @@ def failure_stages(output_dir):
         vals = FAILURES[:,j]
         ax.barh(y, vals, left=left, label=name, color=palette[j])
         for i, n in enumerate(vals):
-            if n >= 2:
+            if n >= 1:
                 ax.text(left[i]+n/2, i, str(n), va="center", ha="center", fontsize=9, color="white" if j!=0 else "#17212b")
         left += vals
     ax.set_yticks(y, CONDITIONS)
