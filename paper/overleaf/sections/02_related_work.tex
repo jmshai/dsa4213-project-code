@@ -1,0 +1,31 @@
+% ====================
+% 2. Related work and contribution
+% ====================
+\section{Related Work and Contribution}
+\label{sec:related}
+
+\subsection{Long-Term Memory in LLM Agents}
+
+Mem0~\cite{chhikara2025mem0} provides persistent agent memory
+through extraction, storage, updating, and retrieval of
+information from interactions. Supermemory
+\cite{supermemoryresearch} offers a hosted memory service with
+ingestion and semantic search. Both make prior information available to agents without
+resupplying full conversation histories.
+
+We use these systems as memory backends rather than proposing
+another storage or retrieval mechanism, and evaluate whether
+their retrieved information supports contextually appropriate
+decisions.
+
+\subsection{Memory Retrieval and Contextual Applicability}
+
+Retrieval relevance and contextual applicability are distinct.
+A memory may be relevant to the current topic but inapplicable
+to the current project, task, or condition. Conversely, a
+retrieved exception may need to override a broader preference
+without permanently replacing it.
+
+We focus on this downstream decision problem, representing
+scope explicitly and evaluating both correct application and
+application beyond a memory's intended context.

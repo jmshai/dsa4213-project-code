@@ -1,0 +1,170 @@
+% ====================
+% 4. System or study design
+% ====================
+\section{System or Study Design}
+\label{sec:methodology}
+
+\subsection{Scope Representation and Conflict Resolution}
+\label{sec:scope-representation}
+
+Each instruction is represented by three fields:
+\emph{scope}, \emph{key}, and \emph{condition}.
+The scope determines applicability, the optional key identifies
+a project or task, and the optional condition specifies an
+additional constraint.
+
+\begin{table}[t]
+\centering
+\small
+\caption{Scope representation.}
+\label{tab:scopes}
+\begin{tabularx}{\linewidth}{lXl}
+\toprule
+Scope & Applicability & Example \\
+\midrule
+Standing & General preference across tasks &
+Use Polars \\
+Project & Restricted to a named project &
+Marlin: pandas \\
+Single-task & Restricted to one task &
+This export: CSV \\
+\bottomrule
+\end{tabularx}
+\end{table}
+
+The reference decision policy first excludes memories whose
+project, task, or condition does not match the current request.
+Among applicable memories concerning the same decision, scope
+precedence is
+\[
+\text{single-task} \succ \text{project}
+\succ \text{standing}.
+\]
+Within one scope, an applicable conditional instruction takes
+precedence over an unconditional instruction; recency resolves
+remaining conflicts at equal specificity. Unrelated instructions
+do not compete, and the benchmark excludes unresolved ties.
+
+These rules define the reference actions and are communicated
+to the agent. The scope layer does not deterministically
+select the winning memory.
+
+\subsection{Scope-Tagging Architecture}
+\label{sec:architecture}
+
+We augment Mem0~\cite{chhikara2025mem0} and
+Supermemory~\cite{supermemoryresearch} with an LLM-based
+scope tagger. Figure~\ref{fig:architecture} compares the
+two integration strategies.
+
+
+\begin{figure}[t]
+\centering
+\begin{tikzpicture}[
+    >=Latex,
+    box/.style={
+        draw=gray!60,
+        rounded corners=2pt,
+        minimum width=2.35cm,
+        minimum height=0.8cm,
+        text width=2.15cm,
+        align=center,
+        font=\footnotesize
+    },
+    tag/.style={
+        box,
+        draw=blue!70,
+        fill=blue!8,
+        font=\footnotesize\bfseries
+    },
+    lab/.style={font=\footnotesize\bfseries, anchor=east},
+    arrow/.style={->,thick,gray!70}
+]
+% Write-time pipeline
+\node[lab] at (0,0) {Write-time};
+\node[box] (w1) at (0.3,0) [anchor=west] {Conversation};
+\node[tag, right=0.4cm of w1] (w2) {Extract and tag};
+\node[box, right=0.4cm of w2] (w3) {Memory store};
+\node[box, right=0.4cm of w3] (w4) {Retrieve};
+\node[box, right=0.4cm of w4] (w5) {Agent +\\resolution rules};
+% Read-time pipeline
+\node[lab] at (0,-1.3) {Read-time};
+\node[box] (r1) at (0.3,-1.3) [anchor=west] {Conversation};
+\node[box, right=0.4cm of r1] (r2) {Memory store};
+\node[box, right=0.4cm of r2] (r3) {Retrieve};
+\node[tag, right=0.4cm of r3] (r4) {Tag retrieved\\text};
+\node[box, right=0.4cm of r4] (r5) {Agent +\\resolution rules};
+\foreach \a/\b in {w1/w2,w2/w3,w3/w4,w4/w5,r1/r2,r2/r3,r3/r4,r4/r5}
+    \draw[arrow] (\a) -- (\b);
+\end{tikzpicture}
+\caption{Scope-tagging integration strategies.
+Write-time tagging occurs before storage, whereas
+read-time tagging occurs after retrieval.}
+\label{fig:architecture}
+\end{figure}
+
+
+Write-time tagging extracts individual instructions from the
+full conversation and stores them with scope metadata. It
+can preserve scope cues early but may discard surrounding
+conversational context. Read-time tagging operates on the
+memory system's retrieved text, preserving native storage
+behaviour but relying on that text to retain sufficient
+contextual information.
+
+Both strategies supply tagged memories and conflict-resolution
+rules to the agent. Structured task identifiers are withheld
+from the taggers, so task continuity must be inferred from
+natural-language context.
+
+\subsection{Benchmark Construction}
+\label{sec:benchmark}
+
+\subsubsection{Episode Structure and Mirrored-Pair Design}
+
+We construct 20 paired scenarios containing 40 episodes.
+Each pair includes two or three earlier conversation sessions,
+reference memories, and two probes sharing the same history.
+Probe A tests an applicable scoped instruction; Probe B
+changes the project, task, or condition so that the instruction
+no longer applies. Each episode consists of one probe and
+its shared history, with an expected action for evaluation.
+
+Each pair also includes an unrelated standing preference and
+a retention check. Pair accuracy requires both probes to be
+correct, discouraging fixed choices that ignore context.
+
+For example, pair \texttt{po-01} combines a standing preference
+for Polars on datasets exceeding one million rows with a
+project-specific instruction to use pandas for Project Marlin
+(Figure~\ref{fig:mirrored-pair}, Appendix~\ref{app:design}).
+
+\subsubsection{Conflict Categories and Dataset Generation}
+
+The benchmark covers five conflict categories with four pairs
+each (Table~\ref{tab:benchmark}, Appendix~\ref{app:design}). The categories test project exceptions, temporary task
+exceptions, conditional applicability, replacement of older
+instructions within one scope, and precedence of more
+specific instructions within one scope.
+
+The 20 pairs contain 66 distinct reference memories,
+including competing and unrelated instructions.
+Nineteen pairs were initially drafted with AI assistance
+and subsequently reviewed and revised. The suite varies
+domains, wording, chronology, and instruction positions.
+
+\subsubsection{Dataset Validation and Gold Labels}
+
+Automated checks validate the JSON schema, verbatim
+memory quotations, paired-probe similarity, expected
+decisions, and diversity. Only session and probe text
+reach the systems; structured gold labels and expected
+actions are withheld. A leakage test checks this
+separation.
+
+Two human annotators independently labelled the 66 reference
+memories for scope, key, and condition; the labels were
+reconciled into the final gold set. Scope and key labels
+matched the original drafts, and four condition-expression
+differences were resolved. 
+

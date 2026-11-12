@@ -1,0 +1,65 @@
+% ====================
+% 6. Analysis of results, failures, limitations, costs, and risks
+% ====================
+\section{Analysis of Results, Failures, Limitations, Costs, and Risks}
+\label{sec:discussion}
+
+\subsection{Write-Time versus Read-Time Tagging}
+
+Read-time tagging matches or improves adherence
+relative to both memory-system baselines, whereas
+write-time tagging reduces it. One possible
+explanation is that write-time extraction isolates
+instructions from conversational context, making
+task continuity difficult to infer. Conversely,
+read-time tagging retains the underlying memory
+system's representation, although its tags may
+be less accurate. Write-time Supermemory illustrates the
+trade-off: it never over-applies a scoped memory (20/20
+out-of-scope probes) but often fails to apply one when it
+should.
+
+
+\subsection{Why Retrieval and Tagging Are Insufficient}
+
+The retrieval--application gap shows that access
+to a relevant instruction does not ensure correct
+conflict resolution. In pair \texttt{po-01}, for
+example, an agent may select the standing Polars
+preference despite the applicable project-specific
+pandas instruction. Other failures involve
+carrying a single-task exception into a new task
+or combining conflicting instructions.
+
+Effective memory thus requires both relevant information and
+reliable contextual decision-making; representative examples
+are in Appendix~\ref{app:failure-cases}.
+
+\subsection{Threats to Validity}
+
+The benchmark contains only 20 synthetic pairs with short
+histories and explicit scope cues; 19 were initially
+AI-assisted, and numeric conditions avoid threshold
+boundaries. Findings may not generalize to longer, ambiguous,
+or naturally occurring interactions. The study uses one agent
+model and one run per condition; fixed sampling settings do
+not guarantee reproducibility, and Supermemory's hosted
+processing is not fully observable.
+
+The scope treatments change three components at once: scope
+tags, conflict-resolution rules, and memory ordering (oldest
+first, versus relevance order without timestamps for the
+baselines). Differences therefore cannot be attributed to
+tags alone; the non-significant gain for read-time Supermemory
+(37/40 versus 34/40; McNemar $p=0.25$) may arise from the
+rules or ordering. Rules-only, tags-only, and ordering-only
+ablations would isolate these contributions.
+
+Retrieval matching and failure-stage diagnoses were not
+independently validated in full, and the two probes within
+each pair are dependent, limiting episode-level significance
+tests.
+
+\textbf{Cost.} OpenRouter spending for the full experiment was
+about \$0.15 (about \$0.06 for judging); Supermemory's separately
+billed processing is excluded.
