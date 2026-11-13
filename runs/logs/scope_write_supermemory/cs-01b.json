@@ -1,0 +1,235 @@
+{
+  "episode_id": "cs-01b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:11:11+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Marlin, make anything over 100MB a Feather file.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n2. User: Use pathlib.Path for file paths in any code you write.  [scope: standing, condition: none]\n3. User: Standardize on JSON Lines for exports in general.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "hWDPFBxphQkmRu5wwn8VKW",
+      "title": "User: Standardize on JSON Lines for exports in gen...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:11:35.657000Z",
+        "updatedAt": "2026-10-24T16:11:41.395000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "o4rK5bugExsCW9s6aDsJY4",
+      "title": "User: Use pathlib.Path for file paths in any code...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:11:26.939000Z",
+        "updatedAt": "2026-10-24T16:11:32.662000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Uvi9UQ3AhxUiUwLCxNCidN",
+      "title": "User: On Project Marlin, make anything over 100MB...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:11:13.905000Z",
+        "updatedAt": "2026-10-24T16:11:22.126000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Marlin, make anything over 100MB a Feather file.",
+      "score": 0.6224759799999999,
+      "raw": {
+        "id": "4d5d64a9caf72232899238",
+        "memory": null,
+        "chunk": "User: On Project Marlin, make anything over 100MB a Feather file.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Marlin",
+          "condition": "size_mb > 100"
+        },
+        "similarity": 0.6224759799999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:11:22.126Z",
+          "created_at": "2026-10-24T16:11:13.905Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Standardize on JSON Lines for exports in general.",
+      "score": 0.59426826,
+      "raw": {
+        "id": "a89053f7b201f300deaf30",
+        "memory": null,
+        "chunk": "User: Standardize on JSON Lines for exports in general.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.59426826,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:11:41.395Z",
+          "created_at": "2026-10-24T16:11:35.657Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Use pathlib.Path for file paths in any code you write.",
+      "score": 0.5810170800000001,
+      "raw": {
+        "id": "2b859bcaa3d673b2053d4a",
+        "memory": null,
+        "chunk": "User: Use pathlib.Path for file paths in any code you write.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.5810170800000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:11:32.662Z",
+          "created_at": "2026-10-24T16:11:26.939Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Marlin, make anything over 100MB a Feather file.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "User: Standardize on JSON Lines for exports in general.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Use pathlib.Path for file paths in any code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Marlin, make anything over 100MB a Feather file.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "Use pathlib.Path for file paths in any code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "Standardize on JSON Lines for exports in general.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "cs-01b-scope_write_supermemory-254152",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Marlin, make anything over 100MB a Feather file.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n2. User: Use pathlib.Path for file paths in any code you write.  [scope: standing, condition: none]\n3. User: Standardize on JSON Lines for exports in general.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: JSON Lines (`.jsonl`)\n\n```python\nimport json\nfrom pathlib import Path\n\n\ndef save_telemetry_export(telemetry_data: list[dict], output_dir: str | Path) -> Path:\n    \"\"\"\n    Saves a list of telemetry dictionaries as a JSON Lines file.\n    \n    Args:\n        telemetry_data: A list of dicts containing telemetry records.\n        output_dir: The directory where the file should be saved.\n        \n    Returns:\n        The Path object pointing to the created file.\n    \"\"\"\n    # Use pathlib.Path for file paths (Memory 2)\n    out_path = Path(output_dir) / \"telemetry_export.jsonl\"\n    \n    # Ensure the directory exists\n    out_path.parent.mkdir(parents=True, exist_ok=True)\n    \n    # Standardize on JSON Lines for exports (Memory 3)\n    # Note: Memory 1 (Feather files) does not apply because the size is 30MB, \n    # which is not > 100MB.\n    with open(out_path, \"w\", encoding=\"utf-8\") as f:\n        for record in telemetry_data:\n            f.write(json.dumps(record) + \"\\n\")\n            \n    return out_path\n```\n\n.jsonl",
+    "first_line": "Format: JSON Lines (`.jsonl`)"
+  },
+  "usage": {
+    "total_cost_usd": 0.000329794,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3572,
+        "completion_tokens": 175,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00017209799999999998
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 434,
+        "completion_tokens": 270,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000157696
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "jsonl",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "jsonl",
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

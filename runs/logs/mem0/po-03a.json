@@ -1,0 +1,206 @@
+{
+  "episode_id": "po-03a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:35:50+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history.\n- User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid.\n- To set up a pre-commit hook that runs the linter, add a .pre-commit-config.yaml file with the linter hook and run 'pre-commit install' once in the repo.\n- Assistant explained that 'git diff --name-only main...HEAD' lists files differing between the current branch and main, where three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.\n- User joined Project Corvid, a mobile checkout app with a busy shared repository, on October 24, 2026.\n- User requested that every git command shown by the assistant include a one-line comment above it explaining its function.",
+  "stored": [
+    {
+      "id": "0367e215-41a6-46fd-8110-55c5083aba2b",
+      "memory": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history.",
+      "hash": "13f420031060f3b5c34969c3fa2cd90b",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:16.022240+00:00",
+      "updated_at": "2026-10-24T10:36:16.022240+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a4ea1079-479b-4a8c-8c6e-480d31103369",
+      "memory": "User requested that every git command shown by the assistant include a one-line comment above it explaining its function.",
+      "hash": "77b1d3aca85acf98ab3c93c23fa5708c",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:19.473430+00:00",
+      "updated_at": "2026-10-24T10:36:19.473430+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c0cb0742-cb5e-4873-ae14-fcb05c6986a0",
+      "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, on October 24, 2026.",
+      "hash": "863c9f436fe21c0946620ae03edc615a",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:16.022191+00:00",
+      "updated_at": "2026-10-24T10:36:16.022191+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e6df0071-83bd-4ab4-a3ac-6fb8e8a20fd8",
+      "memory": "To set up a pre-commit hook that runs the linter, add a .pre-commit-config.yaml file with the linter hook and run 'pre-commit install' once in the repo.",
+      "hash": "700c925f6aa68dc6ecb2d0948a488c26",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:16.022249+00:00",
+      "updated_at": "2026-10-24T10:36:16.022249+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "ecc76092-e6ec-4fe1-ba25-f2925c8d58b9",
+      "memory": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid.",
+      "hash": "e4e8f81dfa9bb1425cc1a9c713b80e47",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:19.473408+00:00",
+      "updated_at": "2026-10-24T10:36:19.473408+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "user"
+    },
+    {
+      "id": "f8a42ad4-ed46-4ff3-b511-5a21e795fc57",
+      "memory": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between the current branch and main, where three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+      "hash": "7068660f7d0439df58d48350d8d84336",
+      "metadata": null,
+      "created_at": "2026-10-24T10:36:19.473438+00:00",
+      "updated_at": "2026-10-24T10:36:19.473438+00:00",
+      "user_id": "po-03a-mem0-bcee09",
+      "attributed_to": "assistant"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history.",
+      "score": 0.748623884456538,
+      "raw": {
+        "id": "0367e215-41a6-46fd-8110-55c5083aba2b",
+        "memory": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history.",
+        "hash": "13f420031060f3b5c34969c3fa2cd90b",
+        "metadata": null,
+        "score": 0.748623884456538,
+        "created_at": "2026-10-24T10:36:16.022240+00:00",
+        "updated_at": "2026-10-24T10:36:16.022240+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid.",
+      "score": 0.6225244741429306,
+      "raw": {
+        "id": "ecc76092-e6ec-4fe1-ba25-f2925c8d58b9",
+        "memory": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid.",
+        "hash": "e4e8f81dfa9bb1425cc1a9c713b80e47",
+        "metadata": null,
+        "score": 0.6225244741429306,
+        "created_at": "2026-10-24T10:36:19.473408+00:00",
+        "updated_at": "2026-10-24T10:36:19.473408+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "To set up a pre-commit hook that runs the linter, add a .pre-commit-config.yaml file with the linter hook and run 'pre-commit install' once in the repo.",
+      "score": 0.35650741428910493,
+      "raw": {
+        "id": "e6df0071-83bd-4ab4-a3ac-6fb8e8a20fd8",
+        "memory": "To set up a pre-commit hook that runs the linter, add a .pre-commit-config.yaml file with the linter hook and run 'pre-commit install' once in the repo.",
+        "hash": "700c925f6aa68dc6ecb2d0948a488c26",
+        "metadata": null,
+        "score": 0.35650741428910493,
+        "created_at": "2026-10-24T10:36:16.022249+00:00",
+        "updated_at": "2026-10-24T10:36:16.022249+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between the current branch and main, where three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+      "score": 0.34042728684566004,
+      "raw": {
+        "id": "f8a42ad4-ed46-4ff3-b511-5a21e795fc57",
+        "memory": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between the current branch and main, where three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+        "hash": "7068660f7d0439df58d48350d8d84336",
+        "metadata": null,
+        "score": 0.34042728684566004,
+        "created_at": "2026-10-24T10:36:19.473438+00:00",
+        "updated_at": "2026-10-24T10:36:19.473438+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User joined Project Corvid, a mobile checkout app with a busy shared repository, on October 24, 2026.",
+      "score": 0.2714972506963115,
+      "raw": {
+        "id": "c0cb0742-cb5e-4873-ae14-fcb05c6986a0",
+        "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, on October 24, 2026.",
+        "hash": "863c9f436fe21c0946620ae03edc615a",
+        "metadata": null,
+        "score": 0.2714972506963115,
+        "created_at": "2026-10-24T10:36:16.022191+00:00",
+        "updated_at": "2026-10-24T10:36:16.022191+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested that every git command shown by the assistant include a one-line comment above it explaining its function.",
+      "score": 0.23545098354128494,
+      "raw": {
+        "id": "a4ea1079-479b-4a8c-8c6e-480d31103369",
+        "memory": "User requested that every git command shown by the assistant include a one-line comment above it explaining its function.",
+        "hash": "77b1d3aca85acf98ab3c93c23fa5708c",
+        "metadata": null,
+        "score": 0.23545098354128494,
+        "created_at": "2026-10-24T10:36:19.473430+00:00",
+        "updated_at": "2026-10-24T10:36:19.473430+00:00",
+        "user_id": "po-03a-mem0-bcee09",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "po-03a-mem0-bcee09",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history.\n- User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid.\n- To set up a pre-commit hook that runs the linter, add a .pre-commit-config.yaml file with the linter hook and run 'pre-commit install' once in the repo.\n- Assistant explained that 'git diff --name-only main...HEAD' lists files differing between the current branch and main, where three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.\n- User joined Project Corvid, a mobile checkout app with a busy shared repository, on October 24, 2026.\n- User requested that every git command shown by the assistant include a one-line comment above it explaining its function.\n\nCurrent request:\nMy feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow.\n\n# Fetch the latest changes from the remote repository\ngit fetch origin\n\n# Rebase the current feature branch onto the updated main branch\ngit rebase origin/main",
+    "first_line": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow."
+  },
+  "usage": {
+    "total_cost_usd": 0.0006755719999999999,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17039,
+        "completion_tokens": 353,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000594912
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 356,
+        "completion_tokens": 58,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.066e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "rebase",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "rebase",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

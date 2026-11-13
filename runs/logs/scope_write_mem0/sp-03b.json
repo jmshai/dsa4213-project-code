@@ -1,0 +1,112 @@
+{
+  "episode_id": "sp-03b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:59:04+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to send handwritten postcards whenever an event has more than 50 guests.  [scope: standing, condition: guests > 50]",
+  "stored": [
+    {
+      "id": "44395437-e161-450f-be18-5acec146d8b1",
+      "memory": "User prefers to send handwritten postcards whenever an event has more than 50 guests.",
+      "hash": "a51c882eee5c733537fbc1217f43a232",
+      "metadata": {
+        "scope": "standing",
+        "condition": "guests > 50"
+      },
+      "created_at": "2026-10-24T10:59:23.927119+00:00",
+      "updated_at": "2026-10-24T10:59:23.927119+00:00",
+      "user_id": "sp-03b-scope_write_mem0-5562f2",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers to send handwritten postcards whenever an event has more than 50 guests.",
+      "score": 0.3614666398366801,
+      "raw": {
+        "id": "44395437-e161-450f-be18-5acec146d8b1",
+        "memory": "User prefers to send handwritten postcards whenever an event has more than 50 guests.",
+        "hash": "a51c882eee5c733537fbc1217f43a232",
+        "metadata": {
+          "scope": "standing",
+          "condition": "guests > 50"
+        },
+        "score": 0.3614666398366801,
+        "created_at": "2026-10-24T10:59:23.927119+00:00",
+        "updated_at": "2026-10-24T10:59:23.927119+00:00",
+        "user_id": "sp-03b-scope_write_mem0-5562f2",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers to send handwritten postcards whenever an event has more than 50 guests.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "guests > 50"
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Whenever an event has more than 50 guests, I'd rather send handwritten postcards.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "guests > 50"
+      }
+    }
+  ],
+  "namespace": "sp-03b-scope_write_mem0-5562f2",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to send handwritten postcards whenever an event has more than 50 guests.  [scope: standing, condition: guests > 50]\n\nCurrent request:\nMy aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Use a standard thank-you note or email, not handwritten postcards.\n\nReminder: Thank the 30 guests from my aunt's retirement party on 12 June 2026 via standard notes/email (no postcards needed).",
+    "first_line": "Use a standard thank-you note or email, not handwritten postcards."
+  },
+  "usage": {
+    "total_cost_usd": 0.000381186,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3595,
+        "completion_tokens": 182,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000178838
+      },
+      "mem0": {
+        "calls": 1,
+        "prompt_tokens": 8234,
+        "completion_tokens": 40,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000156172
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 383,
+        "completion_tokens": 49,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.6176e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "whatsapp group post",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "handwritten postcards",
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

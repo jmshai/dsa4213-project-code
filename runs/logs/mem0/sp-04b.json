@@ -1,0 +1,141 @@
+{
+  "episode_id": "sp-04b",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:40:20+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- For Project Kestrel, if the freshness window is under 5 minutes, no cache should be used and the system must query the database directly.\n- User's dispatch API on Project Kestrel is slow, with bottlenecks identified in database queries and repeated calls to the maps service.\n- For Project Kestrel, the reporting endpoints should use a default cache with a 90-second TTL.",
+  "stored": [
+    {
+      "id": "1d09cfa9-75ed-4341-9918-fd46809c1e1b",
+      "memory": "User's dispatch API on Project Kestrel is slow, with bottlenecks identified in database queries and repeated calls to the maps service.",
+      "hash": "beb11d83b0fd6ccf57a7160c4e372e73",
+      "metadata": null,
+      "created_at": "2026-10-24T10:40:47.838124+00:00",
+      "updated_at": "2026-10-24T10:40:47.838124+00:00",
+      "user_id": "sp-04b-mem0-8d1996",
+      "attributed_to": "user"
+    },
+    {
+      "id": "3a75cce2-771b-4d7d-b1df-59b4e9d3fbf8",
+      "memory": "For Project Kestrel, the reporting endpoints should use a default cache with a 90-second TTL.",
+      "hash": "b4f4a2f402312d43dfae21ebb9f3a876",
+      "metadata": null,
+      "created_at": "2026-10-24T10:40:37.595093+00:00",
+      "updated_at": "2026-10-24T10:40:37.595093+00:00",
+      "user_id": "sp-04b-mem0-8d1996",
+      "attributed_to": "user"
+    },
+    {
+      "id": "7a1812e4-cb83-4287-a9cb-b9a1f4ad66d8",
+      "memory": "For Project Kestrel, if the freshness window is under 5 minutes, no cache should be used and the system must query the database directly.",
+      "hash": "868b86f7d5a3c8fde37e95d468274426",
+      "metadata": null,
+      "created_at": "2026-10-24T10:40:47.838144+00:00",
+      "updated_at": "2026-10-24T10:40:47.838144+00:00",
+      "user_id": "sp-04b-mem0-8d1996",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c8c1e1c2-7083-4894-817f-365045eabf29",
+      "memory": "User requires all code comments to be written in Spanish for every project, effective from October 24, 2026.",
+      "hash": "78068602d86f8978d099976f65903538",
+      "metadata": null,
+      "created_at": "2026-10-24T10:40:37.595068+00:00",
+      "updated_at": "2026-10-24T10:40:37.595068+00:00",
+      "user_id": "sp-04b-mem0-8d1996",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "For Project Kestrel, if the freshness window is under 5 minutes, no cache should be used and the system must query the database directly.",
+      "score": 0.5993150124865992,
+      "raw": {
+        "id": "7a1812e4-cb83-4287-a9cb-b9a1f4ad66d8",
+        "memory": "For Project Kestrel, if the freshness window is under 5 minutes, no cache should be used and the system must query the database directly.",
+        "hash": "868b86f7d5a3c8fde37e95d468274426",
+        "metadata": null,
+        "score": 0.5993150124865992,
+        "created_at": "2026-10-24T10:40:47.838144+00:00",
+        "updated_at": "2026-10-24T10:40:47.838144+00:00",
+        "user_id": "sp-04b-mem0-8d1996",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's dispatch API on Project Kestrel is slow, with bottlenecks identified in database queries and repeated calls to the maps service.",
+      "score": 0.5428151310753995,
+      "raw": {
+        "id": "1d09cfa9-75ed-4341-9918-fd46809c1e1b",
+        "memory": "User's dispatch API on Project Kestrel is slow, with bottlenecks identified in database queries and repeated calls to the maps service.",
+        "hash": "beb11d83b0fd6ccf57a7160c4e372e73",
+        "metadata": null,
+        "score": 0.5428151310753995,
+        "created_at": "2026-10-24T10:40:47.838124+00:00",
+        "updated_at": "2026-10-24T10:40:47.838124+00:00",
+        "user_id": "sp-04b-mem0-8d1996",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "For Project Kestrel, the reporting endpoints should use a default cache with a 90-second TTL.",
+      "score": 0.5188025806706229,
+      "raw": {
+        "id": "3a75cce2-771b-4d7d-b1df-59b4e9d3fbf8",
+        "memory": "For Project Kestrel, the reporting endpoints should use a default cache with a 90-second TTL.",
+        "hash": "b4f4a2f402312d43dfae21ebb9f3a876",
+        "metadata": null,
+        "score": 0.5188025806706229,
+        "created_at": "2026-10-24T10:40:37.595093+00:00",
+        "updated_at": "2026-10-24T10:40:37.595093+00:00",
+        "user_id": "sp-04b-mem0-8d1996",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "sp-04b-mem0-8d1996",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- For Project Kestrel, if the freshness window is under 5 minutes, no cache should be used and the system must query the database directly.\n- User's dispatch API on Project Kestrel is slow, with bottlenecks identified in database queries and repeated calls to the maps service.\n- For Project Kestrel, the reporting endpoints should use a default cache with a 90-second TTL.\n\nCurrent request:\nOn Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Use a 90-second TTL cache for the reporting-style pickup estimates.\n\n```python\n# Cache policy: Use default reporting cache with 90-second TTL (freshness window is 30 minutes, so no direct DB bypass needed).\ndef get_pickup_estimates():\n    # Implementation would query the database or maps service here\n    pass\n```",
+    "first_line": "Use a 90-second TTL cache for the reporting-style pickup estimates."
+  },
+  "usage": {
+    "total_cost_usd": 0.000527764,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16866,
+        "completion_tokens": 261,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000457114
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 236,
+        "completion_tokens": 75,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.065e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-04",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "90-second ttl cache",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "90-second ttl cache",
+    "memory_actions": {
+      "m1": "90-second ttl cache",
+      "m2": "no cache"
+    }
+  }
+}

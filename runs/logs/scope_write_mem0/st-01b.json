@@ -1,0 +1,163 @@
+{
+  "episode_id": "st-01b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:07:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "New task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.  [scope: standing, condition: none]\n2. User requires the use of pathlib.Path for every file path in any code written for them.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "219c9445-2814-427e-89e9-5c5445bb005a",
+      "memory": "User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.",
+      "hash": "469a80cf80f9c421c3340e0fe9838daf",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:07:35.225726+00:00",
+      "updated_at": "2026-10-24T11:07:35.225726+00:00",
+      "user_id": "st-01b-scope_write_mem0-9146c3",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bb9b2da0-54a6-4cf4-87cb-3908e6f634f9",
+      "memory": "User requires the use of pathlib.Path for every file path in any code written for them.",
+      "hash": "d26ed0756c0b9e6b85d39633617d73f4",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:07:37.616930+00:00",
+      "updated_at": "2026-10-24T11:07:37.616930+00:00",
+      "user_id": "st-01b-scope_write_mem0-9146c3",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.",
+      "score": 0.4379432525937074,
+      "raw": {
+        "id": "219c9445-2814-427e-89e9-5c5445bb005a",
+        "memory": "User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.",
+        "hash": "469a80cf80f9c421c3340e0fe9838daf",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.4379432525937074,
+        "created_at": "2026-10-24T11:07:35.225726+00:00",
+        "updated_at": "2026-10-24T11:07:35.225726+00:00",
+        "user_id": "st-01b-scope_write_mem0-9146c3",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires the use of pathlib.Path for every file path in any code written for them.",
+      "score": 0.23018558919439053,
+      "raw": {
+        "id": "bb9b2da0-54a6-4cf4-87cb-3908e6f634f9",
+        "memory": "User requires the use of pathlib.Path for every file path in any code written for them.",
+        "hash": "d26ed0756c0b9e6b85d39633617d73f4",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.23018558919439053,
+        "created_at": "2026-10-24T11:07:37.616930+00:00",
+        "updated_at": "2026-10-24T11:07:37.616930+00:00",
+        "user_id": "st-01b-scope_write_mem0-9146c3",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires the use of pathlib.Path for every file path in any code written for them.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "This time, export the client churn file as CSV.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually export tables as parquet.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "use pathlib.Path for every file path in code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-01b-scope_write_mem0-9146c3",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User usually exports tables as parquet files, though they requested a CSV export for the client churn file in this instance.  [scope: standing, condition: none]\n2. User requires the use of pathlib.Path for every file path in any code written for them.  [scope: standing, condition: none]\n\nCurrent request:\nNew task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: CSV (per the single-task exception for this specific job).\n\n```python\nimport pandas as pd\nfrom pathlib import Path\n\ndef save_client_churn_export(df: pd.DataFrame, file_path: Path) -> None:\n    \"\"\"\n    Saves the cleaned customers dataframe to a CSV file.\n    \n    Args:\n        df: The cleaned customers DataFrame.\n        file_path: A pathlib.Path object specifying where to save the CSV.\n    \"\"\"\n    # Ensure the parent directory exists\n    file_path.parent.mkdir(parents=True, exist_ok=True)\n    \n    # Save as CSV per the specific request for this task\n    df.to_csv(file_path, index=False)\n```",
+    "first_line": "Format: CSV (per the single-task exception for this specific job)."
+  },
+  "usage": {
+    "total_cost_usd": 0.00070364,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3553,
+        "completion_tokens": 135,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000150448
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24747,
+        "completion_tokens": 90,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000461166
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 391,
+        "completion_tokens": 144,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.2026e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-01",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "parquet",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "csv",
+    "memory_actions": {
+      "m1": "parquet",
+      "m2": "csv"
+    }
+  }
+}

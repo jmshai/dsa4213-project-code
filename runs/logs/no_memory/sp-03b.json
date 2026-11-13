@@ -1,0 +1,47 @@
+{
+  "episode_id": "sp-03b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:41+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nMy aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose email as the channel and formatted a concise one-line note.\n\nEmail\nReminder: Thank 30 guests via email for Aunt's retirement party on 12 June 2026.",
+    "first_line": "I chose email as the channel and formatted a concise one-line note."
+  },
+  "usage": {
+    "total_cost_usd": 4.419e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 163,
+        "completion_tokens": 42,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.419e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "whatsapp group post",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

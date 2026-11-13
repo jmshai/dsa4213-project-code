@@ -1,0 +1,47 @@
+{
+  "episode_id": "sp-04a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:45+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 2 minutes. Pick the caching policy and state it in a one-line comment.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nOn Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 2 minutes. Pick the caching policy and state it in a one-line comment.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Concrete choice: Time-based TTL cache with a 120-second expiration.\n\n```python\nimport time\nfrom functools import wraps\n\n# Caching policy: In-memory TTL cache with 120s freshness window to balance API load and data accuracy for pickup estimates.\n\ndef get_pickup_estimates():\n    \"\"\"\n    Fetches pickup estimates from the dispatch API.\n    \n    Returns:\n        dict: A dictionary containing pickup estimate data.\n        \n    Note:\n        This function implements a simple in-memory cache with a 2-minute (120 second) \n        Time-To-Live (TTL). If cached data is older than 120 seconds, it will be refreshed.\n    \"\"\"\n    # Simple implementation using a module-level cache variable for demonstration.\n    # In production, consider using a robust caching library like `cachetools` or Redis.\n    \n    global _pickup_cache\n    \n    if '_pickup_cache' not in globals():\n        _pickup_cache = {'data': None, 'timestamp': 0}\n\n    current_time = time.time()\n    \n    # Check if cache is valid (within 2 minutes / 120 seconds)\n    if current_time - _pickup_cache['timestamp'] < 120:\n        return _pickup_cache['data']\n    \n    # Cache miss or expired: fetch fresh data\n    # Replace this with actual API call logic\n    fresh_data = _fetch_from_dispatch_api()\n    \n    # Update cache\n    _pickup_cache['data'] = fresh_data\n    _pickup_cache['timestamp'] = current_time\n    \n    return fresh_data\n\ndef _fetch_from_dispatch_api():\n    \"\"\"\n    Placeholder for the actual API call to the dispatch service.\n    \"\"\"\n    # Simulate API response\n    return {\n        \"status\": \"success\",\n        \"estimates\": [\n            {\"driver_id\": \"D123\", \"eta_minutes\": 5},\n            {\"driver_id\": \"D456\", \"eta_minutes\": 8}\n        ]\n    }\n```",
+    "first_line": "Concrete choice: Time-based TTL cache with a 120-second expiration."
+  },
+  "usage": {
+    "total_cost_usd": 0.00023022,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 153,
+        "completion_tokens": 441,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00023022
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-04",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "no cache",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "90-second ttl cache",
+      "m2": "no cache"
+    }
+  }
+}

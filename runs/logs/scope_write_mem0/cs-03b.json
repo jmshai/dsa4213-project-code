@@ -1,0 +1,114 @@
+{
+  "episode_id": "cs-03b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:51:18+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, a 3-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. On Project Kestrel, flights over 6 hours are booked in premium economy class.  [scope: project, project: Project Kestrel, condition: flight_hours > 6]",
+  "stored": [
+    {
+      "id": "ebecdee1-2c5b-45c8-bf9d-6a1d5cff3715",
+      "memory": "On Project Kestrel, flights over 6 hours are booked in premium economy class.",
+      "hash": "eb6a3132bc3921dd9f2cc1dfd1ee6688",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "flight_hours > 6"
+      },
+      "created_at": "2026-10-24T10:51:37.200162+00:00",
+      "updated_at": "2026-10-24T10:51:37.200162+00:00",
+      "user_id": "cs-03b-scope_write_mem0-19ccc6",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "On Project Kestrel, flights over 6 hours are booked in premium economy class.",
+      "score": 0.7025146638669275,
+      "raw": {
+        "id": "ebecdee1-2c5b-45c8-bf9d-6a1d5cff3715",
+        "memory": "On Project Kestrel, flights over 6 hours are booked in premium economy class.",
+        "hash": "eb6a3132bc3921dd9f2cc1dfd1ee6688",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Kestrel",
+          "condition": "flight_hours > 6"
+        },
+        "score": 0.7025146638669275,
+        "created_at": "2026-10-24T10:51:37.200162+00:00",
+        "updated_at": "2026-10-24T10:51:37.200162+00:00",
+        "user_id": "cs-03b-scope_write_mem0-19ccc6",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "On Project Kestrel, flights over 6 hours are booked in premium economy class.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "flight_hours > 6"
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Kestrel, flights over 6 hours get booked in premium economy.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "flight_hours > 6"
+      }
+    }
+  ],
+  "namespace": "cs-03b-scope_write_mem0-19ccc6",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. On Project Kestrel, flights over 6 hours are booked in premium economy class.  [scope: project, project: Project Kestrel, condition: flight_hours > 6]\n\nCurrent request:\nDraft a booking request for Project Kestrel, a 3-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Approach:** Draft a standard economy class booking request, as the memory condition for premium economy (flight > 6 hours) is not met.\n\n***\n\n**Booking Request: Project Kestrel**\n\n**Traveller Details:**\n*   **Name:** [Insert Traveller Name]\n*   **Cabin Class:** Economy\n\n**Flight Details:**\n*   **Project:** Project Kestrel\n*   **Duration:** 3 hours\n*   **Departure Time:** 9:45 PM\n*   **Check-in Closing Time:** 8:45 PM\n\n**Notes:**\nPlease confirm seat availability and provide ticketing details at your earliest convenience.",
+    "first_line": "**Approach:** Draft a standard economy class booking request, as the memory condition for premium economy (flight > 6 hours) is not met."
+  },
+  "usage": {
+    "total_cost_usd": 0.0004896239999999999,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3566,
+        "completion_tokens": 183,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000209262
+      },
+      "mem0": {
+        "calls": 1,
+        "prompt_tokens": 8232,
+        "completion_tokens": 40,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000190176
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 385,
+        "completion_tokens": 142,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.0186e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "economy",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "economy",
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

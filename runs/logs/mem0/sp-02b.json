@@ -1,0 +1,156 @@
+{
+  "episode_id": "sp-02b",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:38:59+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User was advised that waiting one week is polite for non-urgent reminder emails, and a few days if there is a deadline.\n- User has a standing instruction that when writing emails to neighbours, the first line must be 'Hey there,'.\n- User's name is Priya and she has a standing instruction to end every email with 'Regards, Priya' on its own last line.\n- User has a standing instruction to open every email with 'To whom it may concern,' by default, unless otherwise specified.",
+  "stored": [
+    {
+      "id": "2f007f15-ebab-48be-be3f-46d17b63a3ac",
+      "memory": "User was advised that waiting one week is polite for non-urgent reminder emails, and a few days if there is a deadline.",
+      "hash": "d34ab8f655904e51e7d53901ef7e4550",
+      "metadata": null,
+      "created_at": "2026-10-24T10:39:17.847125+00:00",
+      "updated_at": "2026-10-24T10:39:17.847125+00:00",
+      "user_id": "sp-02b-mem0-42263d",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "43a4f0d2-eac5-4ffe-a100-a7a3e423b276",
+      "memory": "User has a standing instruction that when writing emails to neighbours, the first line must be 'Hey there,'.",
+      "hash": "b889e56f07f55d6d3ccf23b8a8acfcef",
+      "metadata": null,
+      "created_at": "2026-10-24T10:39:15.195600+00:00",
+      "updated_at": "2026-10-24T10:39:15.195600+00:00",
+      "user_id": "sp-02b-mem0-42263d",
+      "attributed_to": "user"
+    },
+    {
+      "id": "7580febf-42e6-44c6-b568-1ab7fb655d20",
+      "memory": "User has a standing instruction to open every email with 'To whom it may concern,' by default, unless otherwise specified.",
+      "hash": "6768410e4819c9b8deeee286eea8e7ac",
+      "metadata": null,
+      "created_at": "2026-10-24T10:39:17.847103+00:00",
+      "updated_at": "2026-10-24T10:39:17.847103+00:00",
+      "user_id": "sp-02b-mem0-42263d",
+      "attributed_to": "user"
+    },
+    {
+      "id": "b7d8afa8-0909-4709-82d0-6d39c911a252",
+      "memory": "User's name is Priya and she has a standing instruction to end every email with 'Regards, Priya' on its own last line.",
+      "hash": "f6606a1e3e6052a13f8d9c69b98fa981",
+      "metadata": null,
+      "created_at": "2026-10-24T10:39:15.195565+00:00",
+      "updated_at": "2026-10-24T10:39:15.195565+00:00",
+      "user_id": "sp-02b-mem0-42263d",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User was advised that waiting one week is polite for non-urgent reminder emails, and a few days if there is a deadline.",
+      "score": 0.2598787365325431,
+      "raw": {
+        "id": "2f007f15-ebab-48be-be3f-46d17b63a3ac",
+        "memory": "User was advised that waiting one week is polite for non-urgent reminder emails, and a few days if there is a deadline.",
+        "hash": "d34ab8f655904e51e7d53901ef7e4550",
+        "metadata": null,
+        "score": 0.2598787365325431,
+        "created_at": "2026-10-24T10:39:17.847125+00:00",
+        "updated_at": "2026-10-24T10:39:17.847125+00:00",
+        "user_id": "sp-02b-mem0-42263d",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User has a standing instruction that when writing emails to neighbours, the first line must be 'Hey there,'.",
+      "score": 0.24861423589133708,
+      "raw": {
+        "id": "43a4f0d2-eac5-4ffe-a100-a7a3e423b276",
+        "memory": "User has a standing instruction that when writing emails to neighbours, the first line must be 'Hey there,'.",
+        "hash": "b889e56f07f55d6d3ccf23b8a8acfcef",
+        "metadata": null,
+        "score": 0.24861423589133708,
+        "created_at": "2026-10-24T10:39:15.195600+00:00",
+        "updated_at": "2026-10-24T10:39:15.195600+00:00",
+        "user_id": "sp-02b-mem0-42263d",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's name is Priya and she has a standing instruction to end every email with 'Regards, Priya' on its own last line.",
+      "score": 0.16200261711085856,
+      "raw": {
+        "id": "b7d8afa8-0909-4709-82d0-6d39c911a252",
+        "memory": "User's name is Priya and she has a standing instruction to end every email with 'Regards, Priya' on its own last line.",
+        "hash": "f6606a1e3e6052a13f8d9c69b98fa981",
+        "metadata": null,
+        "score": 0.16200261711085856,
+        "created_at": "2026-10-24T10:39:15.195565+00:00",
+        "updated_at": "2026-10-24T10:39:15.195565+00:00",
+        "user_id": "sp-02b-mem0-42263d",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User has a standing instruction to open every email with 'To whom it may concern,' by default, unless otherwise specified.",
+      "score": 0.15240034241709943,
+      "raw": {
+        "id": "7580febf-42e6-44c6-b568-1ab7fb655d20",
+        "memory": "User has a standing instruction to open every email with 'To whom it may concern,' by default, unless otherwise specified.",
+        "hash": "6768410e4819c9b8deeee286eea8e7ac",
+        "metadata": null,
+        "score": 0.15240034241709943,
+        "created_at": "2026-10-24T10:39:17.847103+00:00",
+        "updated_at": "2026-10-24T10:39:17.847103+00:00",
+        "user_id": "sp-02b-mem0-42263d",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "sp-02b-mem0-42263d",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User was advised that waiting one week is polite for non-urgent reminder emails, and a few days if there is a deadline.\n- User has a standing instruction that when writing emails to neighbours, the first line must be 'Hey there,'.\n- User's name is Priya and she has a standing instruction to end every email with 'Regards, Priya' on its own last line.\n- User has a standing instruction to open every email with 'To whom it may concern,' by default, unless otherwise specified.\n\nCurrent request:\nWrite the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the standing instruction for neighbour emails as the specific override to the default opening.\n\nHey there,\n\nI hope you are doing well. I am writing to ask if it would be possible to swap our parking spots, 14 and 15, starting from 1 April. Please let me know if this works for you or if there are any issues with making this change.\n\nRegards, Priya",
+    "first_line": "I applied the standing instruction for neighbour emails as the specific override to the default opening."
+  },
+  "usage": {
+    "total_cost_usd": 0.000513634,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16888,
+        "completion_tokens": 213,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000437854
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 242,
+        "completion_tokens": 84,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.578e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "to whom it may concern",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

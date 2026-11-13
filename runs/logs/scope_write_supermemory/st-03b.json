@@ -1,0 +1,289 @@
+{
+  "episode_id": "st-03b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T17:02:23+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Another task, route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I go with matplotlib for all my charts.  [scope: standing, condition: none]\n2. User: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].  [scope: standing, condition: none]\n3. User: On Project Lantern, use plotly for every chart.  [scope: project, project: Project Lantern, condition: none]\n4. User: Just for this one, use altair for the chart.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "XMkykZet2PEjMerVp7Sar1",
+      "title": "User: Just for this one, use altair for the chart.",
+      "type": "text",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:03:46.379000Z",
+        "updatedAt": "2026-10-24T17:03:52.452000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "QXA4mcE3CwrCgwFxbd8s6e",
+      "title": "User: On Project Lantern, use plotly for every cha...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:03:15.672000Z",
+        "updatedAt": "2026-10-24T17:03:22.421000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "9YGLEdebvYrQu4o2jxYGGJ",
+      "title": "User: for every chart you make for me, put units i...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:02:45.334000Z",
+        "updatedAt": "2026-10-24T17:02:51.189000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "vtTvR4XxzosMxiT4f3qMGX",
+      "title": "User: I go with matplotlib for all my charts.",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:02:36.577000Z",
+        "updatedAt": "2026-10-24T17:02:42.529000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Lantern, use plotly for every chart.",
+      "score": 0.65822202,
+      "raw": {
+        "id": "effbb870ae5450674c3fac",
+        "memory": null,
+        "chunk": "User: On Project Lantern, use plotly for every chart.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "similarity": 0.65822202,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:03:22.421Z",
+          "created_at": "2026-10-24T17:03:15.672Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Just for this one, use altair for the chart.",
+      "score": 0.62018263,
+      "raw": {
+        "id": "da8e9dab170e4d3272eebe",
+        "memory": null,
+        "chunk": "User: Just for this one, use altair for the chart.",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "similarity": 0.62018263,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:03:52.452Z",
+          "created_at": "2026-10-24T17:03:46.379Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I go with matplotlib for all my charts.",
+      "score": 0.607372,
+      "raw": {
+        "id": "f54f00f87e50a5cd74b66a",
+        "memory": null,
+        "chunk": "User: I go with matplotlib for all my charts.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.607372,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:02:42.529Z",
+          "created_at": "2026-10-24T17:02:36.577Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "score": 0.57059783,
+      "raw": {
+        "id": "88ff33209cec2a22d543ee",
+        "memory": null,
+        "chunk": "User: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.57059783,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:02:51.189Z",
+          "created_at": "2026-10-24T17:02:45.334Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Lantern, use plotly for every chart.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Just for this one, use altair for the chart.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I go with matplotlib for all my charts.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "I go with matplotlib for all my charts.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Lantern, use plotly for every chart.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "Just for this one, use altair for the chart.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-03b-scope_write_supermemory-5fbfe8",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I go with matplotlib for all my charts.  [scope: standing, condition: none]\n2. User: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].  [scope: standing, condition: none]\n3. User: On Project Lantern, use plotly for every chart.  [scope: project, project: Project Lantern, condition: none]\n4. User: Just for this one, use altair for the chart.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nAnother task, route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool: plotly\n\n```python\nimport plotly.express as px\nimport pandas as pd\n\ndef draw_fuel_cost_chart(df: pd.DataFrame) -> \"plotly.graph_objs.Figure\":\n    \"\"\"\n    Draws a line chart of monthly fuel cost in USD for each route.\n    \n    Parameters:\n    df (pd.DataFrame): A dataframe with columns 'month', 'route', and 'fuel_cost_usd'.\n    \n    Returns:\n    plotly.graph_objs.Figure: The generated Plotly figure object.\n    \"\"\"\n    # Ensure the month column is treated as categorical or datetime if needed, \n    # but for simple plotting, we can use it directly if sorted properly.\n    # Sorting by month to ensure lines connect correctly\n    df_sorted = df.sort_values('month')\n    \n    fig = px.line(\n        df_sorted,\n        x='month',\n        y='fuel_cost_usd',\n        color='route',\n        title='Monthly Fuel Cost per Route',\n        labels={\n            'month': 'Month',\n            'fuel_cost_usd': 'Fuel Cost [USD]',\n            'route': 'Route'\n        }\n    )\n    \n    return fig\n```",
+    "first_line": "Tool: plotly"
+  },
+  "usage": {
+    "total_cost_usd": 0.00041298,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5330,
+        "completion_tokens": 229,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000255354
+      },
+      "supermemory": {
+        "calls": 5,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 468,
+        "completion_tokens": 259,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000157626
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-03",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "plotly",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "plotly",
+    "memory_actions": {
+      "m1": "matplotlib",
+      "m2": "plotly",
+      "m3": "altair"
+    }
+  }
+}

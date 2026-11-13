@@ -1,0 +1,251 @@
+{
+  "episode_id": "st-04a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:47:33+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Same job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+  "error": null,
+  "attempts": 1,
+  "memories": "- The current Project Marlin query computes average sale revenue per region and identifies which regions sit above the overall average.\n- The first SQL queries for Project Marlin are expected to be sent around the week following October 24, 2026.\n- User is currently working on a Project Marlin query and explicitly requested to use views instead of CTEs or subqueries for this specific task, overriding the general project convention.\n- User is starting a new analytics project called Project Marlin, which is the subscription billing warehouse.\n- On Project Marlin, User requires CTEs instead of subqueries because the team's lint check fails on subqueries. This overrides their general preference for inline subqueries in other contexts.\n- User standardizes on inline subqueries for multi-step SQL as their default structure\n- User is tidying reporting queries against the warehouse, specifically starting with the weekly signups report and the churn rollup\n- User prefers comma-first formatting for SQL select lists, with the comma at the start of each line, for all queries written by the assistant",
+  "stored": [
+    {
+      "id": "05603e87-1ab3-4f80-95bb-9f59de7910b9",
+      "memory": "User is currently working on a Project Marlin query and explicitly requested to use views instead of CTEs or subqueries for this specific task, overriding the general project convention.",
+      "hash": "48785cc58b5c2ff66f6dea48041be555",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:57.509988+00:00",
+      "updated_at": "2026-10-24T10:47:57.509988+00:00",
+      "user_id": "st-04a-mem0-2f7063",
+      "attributed_to": "user"
+    },
+    {
+      "id": "478c031d-f4ea-4902-9aea-1d1dcfa5b961",
+      "memory": "User prefers comma-first formatting for SQL select lists, with the comma at the start of each line, for all queries written by the assistant",
+      "hash": "315c1b06b34ec2f0c919b7755c050de6",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:48.488156+00:00",
+      "updated_at": "2026-10-24T10:47:48.488156+00:00",
+      "user_id": "st-04a-mem0-2f7063"
+    },
+    {
+      "id": "693137bf-1091-495c-b05e-f35b1c71f905",
+      "memory": "The current Project Marlin query computes average sale revenue per region and identifies which regions sit above the overall average.",
+      "hash": "c7190a0566704ab0dfe9c4ba5e0c9b85",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:57.510016+00:00",
+      "updated_at": "2026-10-24T10:47:57.510016+00:00",
+      "user_id": "st-04a-mem0-2f7063",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a35ce30b-4c03-44eb-a59d-03d0b775a49f",
+      "memory": "User is tidying reporting queries against the warehouse, specifically starting with the weekly signups report and the churn rollup",
+      "hash": "7b0f35744d139cdf360fd7f867ddfe1b",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:48.488196+00:00",
+      "updated_at": "2026-10-24T10:47:48.488196+00:00",
+      "user_id": "st-04a-mem0-2f7063"
+    },
+    {
+      "id": "ab1810ed-e157-41a2-a664-bbb69a4c5107",
+      "memory": "User standardizes on inline subqueries for multi-step SQL as their default structure",
+      "hash": "418facc203976974e1fa084d4d08835f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:48.488184+00:00",
+      "updated_at": "2026-10-24T10:47:48.488184+00:00",
+      "user_id": "st-04a-mem0-2f7063"
+    },
+    {
+      "id": "bbc1d8fc-28d8-485a-8168-543142a70809",
+      "memory": "On Project Marlin, User requires CTEs instead of subqueries because the team's lint check fails on subqueries. This overrides their general preference for inline subqueries in other contexts.",
+      "hash": "cb979fc24a6f604ff46ec374c35ac871",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:53.516105+00:00",
+      "updated_at": "2026-10-24T10:47:53.516105+00:00",
+      "user_id": "st-04a-mem0-2f7063",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bca329ec-fe01-4371-b7ab-30b664faf3c1",
+      "memory": "User is starting a new analytics project called Project Marlin, which is the subscription billing warehouse.",
+      "hash": "ab52716f120d32e90afc122dc866dbee",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:53.516080+00:00",
+      "updated_at": "2026-10-24T10:47:53.516080+00:00",
+      "user_id": "st-04a-mem0-2f7063",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c9c64b9a-8c26-4a55-b142-c86f4754794e",
+      "memory": "The first SQL queries for Project Marlin are expected to be sent around the week following October 24, 2026.",
+      "hash": "66a63e2c77575b652cd0507b30b37ffa",
+      "metadata": null,
+      "created_at": "2026-10-24T10:47:53.516113+00:00",
+      "updated_at": "2026-10-24T10:47:53.516113+00:00",
+      "user_id": "st-04a-mem0-2f7063",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "The current Project Marlin query computes average sale revenue per region and identifies which regions sit above the overall average.",
+      "score": 0.8289775613939496,
+      "raw": {
+        "id": "693137bf-1091-495c-b05e-f35b1c71f905",
+        "memory": "The current Project Marlin query computes average sale revenue per region and identifies which regions sit above the overall average.",
+        "hash": "c7190a0566704ab0dfe9c4ba5e0c9b85",
+        "metadata": null,
+        "score": 0.8289775613939496,
+        "created_at": "2026-10-24T10:47:57.510016+00:00",
+        "updated_at": "2026-10-24T10:47:57.510016+00:00",
+        "user_id": "st-04a-mem0-2f7063",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The first SQL queries for Project Marlin are expected to be sent around the week following October 24, 2026.",
+      "score": 0.4396563215820052,
+      "raw": {
+        "id": "c9c64b9a-8c26-4a55-b142-c86f4754794e",
+        "memory": "The first SQL queries for Project Marlin are expected to be sent around the week following October 24, 2026.",
+        "hash": "66a63e2c77575b652cd0507b30b37ffa",
+        "metadata": null,
+        "score": 0.4396563215820052,
+        "created_at": "2026-10-24T10:47:53.516113+00:00",
+        "updated_at": "2026-10-24T10:47:53.516113+00:00",
+        "user_id": "st-04a-mem0-2f7063",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is currently working on a Project Marlin query and explicitly requested to use views instead of CTEs or subqueries for this specific task, overriding the general project convention.",
+      "score": 0.38500600572582555,
+      "raw": {
+        "id": "05603e87-1ab3-4f80-95bb-9f59de7910b9",
+        "memory": "User is currently working on a Project Marlin query and explicitly requested to use views instead of CTEs or subqueries for this specific task, overriding the general project convention.",
+        "hash": "48785cc58b5c2ff66f6dea48041be555",
+        "metadata": null,
+        "score": 0.38500600572582555,
+        "created_at": "2026-10-24T10:47:57.509988+00:00",
+        "updated_at": "2026-10-24T10:47:57.509988+00:00",
+        "user_id": "st-04a-mem0-2f7063",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is starting a new analytics project called Project Marlin, which is the subscription billing warehouse.",
+      "score": 0.35070815233510244,
+      "raw": {
+        "id": "bca329ec-fe01-4371-b7ab-30b664faf3c1",
+        "memory": "User is starting a new analytics project called Project Marlin, which is the subscription billing warehouse.",
+        "hash": "ab52716f120d32e90afc122dc866dbee",
+        "metadata": null,
+        "score": 0.35070815233510244,
+        "created_at": "2026-10-24T10:47:53.516080+00:00",
+        "updated_at": "2026-10-24T10:47:53.516080+00:00",
+        "user_id": "st-04a-mem0-2f7063",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "On Project Marlin, User requires CTEs instead of subqueries because the team's lint check fails on subqueries. This overrides their general preference for inline subqueries in other contexts.",
+      "score": 0.33027493238916517,
+      "raw": {
+        "id": "bbc1d8fc-28d8-485a-8168-543142a70809",
+        "memory": "On Project Marlin, User requires CTEs instead of subqueries because the team's lint check fails on subqueries. This overrides their general preference for inline subqueries in other contexts.",
+        "hash": "cb979fc24a6f604ff46ec374c35ac871",
+        "metadata": null,
+        "score": 0.33027493238916517,
+        "created_at": "2026-10-24T10:47:53.516105+00:00",
+        "updated_at": "2026-10-24T10:47:53.516105+00:00",
+        "user_id": "st-04a-mem0-2f7063",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User standardizes on inline subqueries for multi-step SQL as their default structure",
+      "score": 0.28058173082807397,
+      "raw": {
+        "id": "ab1810ed-e157-41a2-a664-bbb69a4c5107",
+        "memory": "User standardizes on inline subqueries for multi-step SQL as their default structure",
+        "hash": "418facc203976974e1fa084d4d08835f",
+        "metadata": null,
+        "score": 0.28058173082807397,
+        "created_at": "2026-10-24T10:47:48.488184+00:00",
+        "updated_at": "2026-10-24T10:47:48.488184+00:00",
+        "user_id": "st-04a-mem0-2f7063"
+      }
+    },
+    {
+      "text": "User is tidying reporting queries against the warehouse, specifically starting with the weekly signups report and the churn rollup",
+      "score": 0.26586772172584416,
+      "raw": {
+        "id": "a35ce30b-4c03-44eb-a59d-03d0b775a49f",
+        "memory": "User is tidying reporting queries against the warehouse, specifically starting with the weekly signups report and the churn rollup",
+        "hash": "7b0f35744d139cdf360fd7f867ddfe1b",
+        "metadata": null,
+        "score": 0.26586772172584416,
+        "created_at": "2026-10-24T10:47:48.488196+00:00",
+        "updated_at": "2026-10-24T10:47:48.488196+00:00",
+        "user_id": "st-04a-mem0-2f7063"
+      }
+    },
+    {
+      "text": "User prefers comma-first formatting for SQL select lists, with the comma at the start of each line, for all queries written by the assistant",
+      "score": 0.22918975942548592,
+      "raw": {
+        "id": "478c031d-f4ea-4902-9aea-1d1dcfa5b961",
+        "memory": "User prefers comma-first formatting for SQL select lists, with the comma at the start of each line, for all queries written by the assistant",
+        "hash": "315c1b06b34ec2f0c919b7755c050de6",
+        "metadata": null,
+        "score": 0.22918975942548592,
+        "created_at": "2026-10-24T10:47:48.488156+00:00",
+        "updated_at": "2026-10-24T10:47:48.488156+00:00",
+        "user_id": "st-04a-mem0-2f7063"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "st-04a-mem0-2f7063",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- The current Project Marlin query computes average sale revenue per region and identifies which regions sit above the overall average.\n- The first SQL queries for Project Marlin are expected to be sent around the week following October 24, 2026.\n- User is currently working on a Project Marlin query and explicitly requested to use views instead of CTEs or subqueries for this specific task, overriding the general project convention.\n- User is starting a new analytics project called Project Marlin, which is the subscription billing warehouse.\n- On Project Marlin, User requires CTEs instead of subqueries because the team's lint check fails on subqueries. This overrides their general preference for inline subqueries in other contexts.\n- User standardizes on inline subqueries for multi-step SQL as their default structure\n- User is tidying reporting queries against the warehouse, specifically starting with the weekly signups report and the churn rollup\n- User prefers comma-first formatting for SQL select lists, with the comma at the start of each line, for all queries written by the assistant\n\nCurrent request:\nSame job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I used views instead of CTEs or subqueries for this specific Project Marlin task, as explicitly requested by the user to override general conventions.\n\n```sql\nCREATE OR REPLACE VIEW v_region_avg_revenue AS\nSELECT \n    region\n  , AVG(revenue) AS avg_sale_revenue\nFROM sales\nGROUP BY region;\n\nCREATE OR REPLACE VIEW v_overall_avg_revenue AS\nSELECT \n    AVG(revenue) AS overall_avg_sale_revenue\nFROM sales;\n\nSELECT \n    r.region\n  , r.avg_sale_revenue\nFROM v_region_avg_revenue r\nCROSS JOIN v_overall_avg_revenue o\nWHERE r.avg_sale_revenue > o.overall_avg_sale_revenue;\n```",
+    "first_line": "I used views instead of CTEs or subqueries for this specific Project Marlin task, as explicitly requested by the user to override general conventions."
+  },
+  "usage": {
+    "total_cost_usd": 0.000959404,
+    "by_component": {
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 25610,
+        "completion_tokens": 459,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000832654
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 375,
+        "completion_tokens": 150,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00012675
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-04",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "views",
+    "expected_memory": "m3",
+    "deciding_rule": 2,
+    "action_first_mentioned": "views",
+    "memory_actions": {
+      "m1": "subqueries",
+      "m2": "ctes",
+      "m3": "views"
+    }
+  }
+}

@@ -1,0 +1,181 @@
+{
+  "episode_id": "cs-02b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:50:17+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers status updates drafted for them to be exactly two sentences long.  [scope: standing, condition: type == status_update]\n2. User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.  [scope: project, project: Project Helios, condition: audience == board]",
+  "stored": [
+    {
+      "id": "2dd39235-80b9-4ad9-b15a-2d96f409145d",
+      "memory": "User prefers status updates drafted for them to be exactly two sentences long.",
+      "hash": "04fbe8250d5b352f9ba4912df2823fc3",
+      "metadata": {
+        "scope": "standing",
+        "condition": "type == status_update"
+      },
+      "created_at": "2026-10-24T10:50:35.357715+00:00",
+      "updated_at": "2026-10-24T10:50:35.357715+00:00",
+      "user_id": "cs-02b-scope_write_mem0-0dcfdf",
+      "attributed_to": "user"
+    },
+    {
+      "id": "65ba229b-2dbb-4528-920d-a4479f5cb8ad",
+      "memory": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.",
+      "hash": "920106ec94e175a602a0d1413e0c066a",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      },
+      "created_at": "2026-10-24T10:50:46.670847+00:00",
+      "updated_at": "2026-10-24T10:50:46.670847+00:00",
+      "user_id": "cs-02b-scope_write_mem0-0dcfdf",
+      "attributed_to": "user"
+    },
+    {
+      "id": "8792dc44-58a2-4956-97a7-39a51a682c6d",
+      "memory": "User prefers dates to be written in YYYY-MM-DD format in any drafted content.",
+      "hash": "d771e27f65b7960061c1dbfed70d3836",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:50:37.775472+00:00",
+      "updated_at": "2026-10-24T10:50:37.775472+00:00",
+      "user_id": "cs-02b-scope_write_mem0-0dcfdf",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.",
+      "score": 0.500177246393758,
+      "raw": {
+        "id": "65ba229b-2dbb-4528-920d-a4479f5cb8ad",
+        "memory": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.",
+        "hash": "920106ec94e175a602a0d1413e0c066a",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Helios",
+          "condition": "audience == board"
+        },
+        "score": 0.500177246393758,
+        "created_at": "2026-10-24T10:50:46.670847+00:00",
+        "updated_at": "2026-10-24T10:50:46.670847+00:00",
+        "user_id": "cs-02b-scope_write_mem0-0dcfdf",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers status updates drafted for them to be exactly two sentences long.",
+      "score": 0.2757213817100107,
+      "raw": {
+        "id": "2dd39235-80b9-4ad9-b15a-2d96f409145d",
+        "memory": "User prefers status updates drafted for them to be exactly two sentences long.",
+        "hash": "04fbe8250d5b352f9ba4912df2823fc3",
+        "metadata": {
+          "scope": "standing",
+          "condition": "type == status_update"
+        },
+        "score": 0.2757213817100107,
+        "created_at": "2026-10-24T10:50:35.357715+00:00",
+        "updated_at": "2026-10-24T10:50:35.357715+00:00",
+        "user_id": "cs-02b-scope_write_mem0-0dcfdf",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    },
+    {
+      "text": "User prefers status updates drafted for them to be exactly two sentences long.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "type == status_update"
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Default to exactly two sentences for any status update you draft for me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "type == status_update"
+      }
+    },
+    {
+      "text": "write dates as YYYY-MM-DD in anything you draft",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Helios, when the update is for the board, make it exactly eight sentences.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    }
+  ],
+  "namespace": "cs-02b-scope_write_mem0-0dcfdf",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers status updates drafted for them to be exactly two sentences long.  [scope: standing, condition: type == status_update]\n2. User prefers status updates for Project Helios intended for the board to be exactly eight sentences long.  [scope: project, project: Project Helios, condition: audience == board]\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "The concrete choice made was to apply the standing memory for status updates, resulting in a draft that is exactly two sentences long.\n\nRobots are live at 3 of 5 sites with pick rates rising from 410 to 520 lines per hour, while the new sorter passed acceptance testing and three operators finished training despite a one-week slip on the remaining sites due to conveyor delays. Spend is 4% under plan, the safety audit passed, and the beta review is scheduled for 14 March 2027.",
+    "first_line": "The concrete choice made was to apply the standing memory for status updates, resulting in a draft that is exactly two sentences long."
+  },
+  "usage": {
+    "total_cost_usd": 0.0007688500000000001,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3568,
+        "completion_tokens": 182,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000174788
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24812,
+        "completion_tokens": 164,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000505696
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 470,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.8366e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "two sentences",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "two sentences",
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

@@ -1,0 +1,242 @@
+{
+  "episode_id": "ss-02b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:02:56+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Orchid should use Markdown format  [scope: project, project: Project Orchid, condition: none]\n2. User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026  [scope: project, project: Project Orchid, condition: none]\n3. Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026  [scope: standing, condition: none]\n4. User's team or organization has adopted Sphinx as their standard documentation tool  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "0633a6df-bab4-4633-8eb9-f933f4ab30c3",
+      "memory": "User's team or organization has adopted Sphinx as their standard documentation tool",
+      "hash": "8b559dfeb4501619581bbd1437afd0bf",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:03:33.714881+00:00",
+      "updated_at": "2026-10-24T11:03:33.714881+00:00",
+      "user_id": "ss-02b-scope_write_mem0-781072",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5b6117cf-3a02-448d-ab59-0cb6802a1539",
+      "memory": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "hash": "6f95fcee002764f4b3bcdcc5923fb9b7",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "created_at": "2026-10-24T11:03:30.303489+00:00",
+      "updated_at": "2026-10-24T11:03:30.303489+00:00",
+      "user_id": "ss-02b-scope_write_mem0-781072",
+      "attributed_to": "user"
+    },
+    {
+      "id": "ddc6d520-4322-41c0-a6e9-db91273e39ef",
+      "memory": "Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026",
+      "hash": "3a948bae415c3fb16bb44efcc23d5621",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:03:33.714862+00:00",
+      "updated_at": "2026-10-24T11:03:33.714862+00:00",
+      "user_id": "ss-02b-scope_write_mem0-781072",
+      "attributed_to": "user"
+    },
+    {
+      "id": "ebf755cd-f162-4fb5-9018-87eaa2e78dd0",
+      "memory": "User specified that Project Orchid should use Markdown format",
+      "hash": "f9536ba62e0b33bfbda24e574ca6090a",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "created_at": "2026-10-24T11:03:25.130896+00:00",
+      "updated_at": "2026-10-24T11:03:25.130896+00:00",
+      "user_id": "ss-02b-scope_write_mem0-781072",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026",
+      "score": 0.1946123136803598,
+      "raw": {
+        "id": "ddc6d520-4322-41c0-a6e9-db91273e39ef",
+        "memory": "Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026",
+        "hash": "3a948bae415c3fb16bb44efcc23d5621",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.1946123136803598,
+        "created_at": "2026-10-24T11:03:33.714862+00:00",
+        "updated_at": "2026-10-24T11:03:33.714862+00:00",
+        "user_id": "ss-02b-scope_write_mem0-781072",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "score": 0.1773317288875471,
+      "raw": {
+        "id": "5b6117cf-3a02-448d-ab59-0cb6802a1539",
+        "memory": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+        "hash": "6f95fcee002764f4b3bcdcc5923fb9b7",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "score": 0.1773317288875471,
+        "created_at": "2026-10-24T11:03:30.303489+00:00",
+        "updated_at": "2026-10-24T11:03:30.303489+00:00",
+        "user_id": "ss-02b-scope_write_mem0-781072",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User specified that Project Orchid should use Markdown format",
+      "score": 0.15804532742783012,
+      "raw": {
+        "id": "ebf755cd-f162-4fb5-9018-87eaa2e78dd0",
+        "memory": "User specified that Project Orchid should use Markdown format",
+        "hash": "f9536ba62e0b33bfbda24e574ca6090a",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "score": 0.15804532742783012,
+        "created_at": "2026-10-24T11:03:25.130896+00:00",
+        "updated_at": "2026-10-24T11:03:25.130896+00:00",
+        "user_id": "ss-02b-scope_write_mem0-781072",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's team or organization has adopted Sphinx as their standard documentation tool",
+      "score": 0.1545251570122245,
+      "raw": {
+        "id": "0633a6df-bab4-4633-8eb9-f933f4ab30c3",
+        "memory": "User's team or organization has adopted Sphinx as their standard documentation tool",
+        "hash": "8b559dfeb4501619581bbd1437afd0bf",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.1545251570122245,
+        "created_at": "2026-10-24T11:03:33.714881+00:00",
+        "updated_at": "2026-10-24T11:03:33.714881+00:00",
+        "user_id": "ss-02b-scope_write_mem0-781072",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User specified that Project Orchid should use Markdown format",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User's team or organization has adopted Sphinx as their standard documentation tool",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "For Project Orchid, use Markdown.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Orchid, write the docs in reStructuredText instead",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "Sphinx is now the standard on their side",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-02b-scope_write_mem0-781072",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Orchid should use Markdown format  [scope: project, project: Project Orchid, condition: none]\n2. User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026  [scope: project, project: Project Orchid, condition: none]\n3. Sphinx is now the standard documentation tool for Project Orchid, as of October 24, 2026  [scope: standing, condition: none]\n4. User's team or organization has adopted Sphinx as their standard documentation tool  [scope: standing, condition: none]\n\nCurrent request:\nWrite the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Documentation format: reStructuredText\n\n```rst\nSettings Reference\n==================\n\nThis document describes the configuration settings for Project Quill.\n\naccent_color\n------------\n\n- **Type**: Hex color string\n- **Default**: ``#1A73E8``\n- **Description**: The primary accent color used throughout the user interface.\n\ncache_ttl\n---------\n\n- **Type**: Integer (seconds)\n- **Default**: ``90``\n- **Description**: The time-to-live value specifying how long a page remains cached before being refreshed.\n\nretry_delay\n-----------\n\n- **Type**: Integer (seconds)\n- **Default**: ``2``\n- **Description**: The wait period before attempting to retry a failed synchronization operation.\n```",
+    "first_line": "Documentation format: reStructuredText"
+  },
+  "usage": {
+    "total_cost_usd": 0.000988238,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5311,
+        "completion_tokens": 221,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00024874399999999996
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24793,
+        "completion_tokens": 207,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000625968
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 503,
+        "completion_tokens": 154,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000113526
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "asciidoc",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "restructuredtext",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

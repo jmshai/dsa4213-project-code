@@ -1,0 +1,163 @@
+{
+  "episode_id": "ss-01b",
+  "condition": "supermemory",
+  "ts": "2026-10-24T16:02:12+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Kicking off Project Lantern today. It's an internal service that exposes inventory counts to the warehouse dashboards. Assistant: Got it, a read-heavy internal service for inventory counts. Do you have a framework in mind? User: For Project Lantern, use FastAPI. I'll send you the endpoint list tomorrow. Assistant: FastAPI it is for Project Lantern. I'll wait for the endpoint list. User: Meanwhile, quick question: is Postgres or SQLite better for a dashboard cache that gets rewritten every minute?\n- User: Back on Project Lantern. The warehouse team wants the stock endpoint to return counts per bin. Assistant: Okay, counts per bin. Should the response paginate bins or return everything for a shelf? User: The largest shelf has about 40 bins, and one response covers a whole shelf. Assistant: Got it, one response per shelf. Anything else on the framework side before I start? User: Actually, for Project Lantern, switch to Django. The ops team is bringing in its admin tooling and wants the ORM there. Assistant: Understood. Project Lantern moves from FastAPI to Django, and I'll build the shelf endpoint around that.\n- User: Side note about my own habits: I usually reach for Falcon for web services. Assistant: Noted, Falcon is your usual pick for web services. User: One more thing: start every Python file you give me with the first line # owner: platform-team. Assistant: Got it. Every Python file will open with # owner: platform-team. User: Thanks. Do you know if Falcon 4 dropped Python 3.8 support?",
+  "stored": [
+    {
+      "id": "BeeCMSZSDUUX5odPYTTVJS",
+      "title": "User: Side note about my own habits: I usually rea...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:02:34.319000Z",
+        "updatedAt": "2026-10-24T16:02:42.237000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "6oqsgAdGEwF7M9WFdF3jg6",
+      "title": "User: Back on Project Lantern. The warehouse team...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:02:24.932000Z",
+        "updatedAt": "2026-10-24T16:02:30.563000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "pEYjfcAywLXXNhKW1hgLDu",
+      "title": "User: Kicking off Project Lantern today. It's an i...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:02:13.270000Z",
+        "updatedAt": "2026-10-24T16:02:21.152000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Kicking off Project Lantern today. It's an internal service that exposes inventory counts to the warehouse dashboards. Assistant: Got it, a read-heavy internal service for inventory counts. Do you have a framework in mind? User: For Project Lantern, use FastAPI. I'll send you the endpoint list tomorrow. Assistant: FastAPI it is for Project Lantern. I'll wait for the endpoint list. User: Meanwhile, quick question: is Postgres or SQLite better for a dashboard cache that gets rewritten every minute?",
+      "score": 0.6576469,
+      "raw": {
+        "id": "768afea44765df1b3e9e1a",
+        "memory": null,
+        "chunk": "User: Kicking off Project Lantern today. It's an internal service that exposes inventory counts to the warehouse dashboards. Assistant: Got it, a read-heavy internal service for inventory counts. Do you have a framework in mind? User: For Project Lantern, use FastAPI. I'll send you the endpoint list tomorrow. Assistant: FastAPI it is for Project Lantern. I'll wait for the endpoint list. User: Meanwhile, quick question: is Postgres or SQLite better for a dashboard cache that gets rewritten every minute?",
+        "metadata": {},
+        "similarity": 0.6576469,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:02:21.152Z",
+          "created_at": "2026-10-24T16:02:13.270Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Back on Project Lantern. The warehouse team wants the stock endpoint to return counts per bin. Assistant: Okay, counts per bin. Should the response paginate bins or return everything for a shelf? User: The largest shelf has about 40 bins, and one response covers a whole shelf. Assistant: Got it, one response per shelf. Anything else on the framework side before I start? User: Actually, for Project Lantern, switch to Django. The ops team is bringing in its admin tooling and wants the ORM there. Assistant: Understood. Project Lantern moves from FastAPI to Django, and I'll build the shelf endpoint around that.",
+      "score": 0.64014387,
+      "raw": {
+        "id": "4bdadbf83a7205a3a3f94d",
+        "memory": null,
+        "chunk": "User: Back on Project Lantern. The warehouse team wants the stock endpoint to return counts per bin. Assistant: Okay, counts per bin. Should the response paginate bins or return everything for a shelf? User: The largest shelf has about 40 bins, and one response covers a whole shelf. Assistant: Got it, one response per shelf. Anything else on the framework side before I start? User: Actually, for Project Lantern, switch to Django. The ops team is bringing in its admin tooling and wants the ORM there. Assistant: Understood. Project Lantern moves from FastAPI to Django, and I'll build the shelf endpoint around that.",
+        "metadata": {},
+        "similarity": 0.64014387,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:02:30.563Z",
+          "created_at": "2026-10-24T16:02:24.932Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Side note about my own habits: I usually reach for Falcon for web services. Assistant: Noted, Falcon is your usual pick for web services. User: One more thing: start every Python file you give me with the first line # owner: platform-team. Assistant: Got it. Every Python file will open with # owner: platform-team. User: Thanks. Do you know if Falcon 4 dropped Python 3.8 support?",
+      "score": 0.6294232,
+      "raw": {
+        "id": "3896754b787749919d7239",
+        "memory": null,
+        "chunk": "User: Side note about my own habits: I usually reach for Falcon for web services. Assistant: Noted, Falcon is your usual pick for web services. User: One more thing: start every Python file you give me with the first line # owner: platform-team. Assistant: Got it. Every Python file will open with # owner: platform-team. User: Thanks. Do you know if Falcon 4 dropped Python 3.8 support?",
+        "metadata": {},
+        "similarity": 0.6294232,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:02:42.237Z",
+          "created_at": "2026-10-24T16:02:34.319Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-01b-supermemory-8f3ba1",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Kicking off Project Lantern today. It's an internal service that exposes inventory counts to the warehouse dashboards. Assistant: Got it, a read-heavy internal service for inventory counts. Do you have a framework in mind? User: For Project Lantern, use FastAPI. I'll send you the endpoint list tomorrow. Assistant: FastAPI it is for Project Lantern. I'll wait for the endpoint list. User: Meanwhile, quick question: is Postgres or SQLite better for a dashboard cache that gets rewritten every minute?\n- User: Back on Project Lantern. The warehouse team wants the stock endpoint to return counts per bin. Assistant: Okay, counts per bin. Should the response paginate bins or return everything for a shelf? User: The largest shelf has about 40 bins, and one response covers a whole shelf. Assistant: Got it, one response per shelf. Anything else on the framework side before I start? User: Actually, for Project Lantern, switch to Django. The ops team is bringing in its admin tooling and wants the ORM there. Assistant: Understood. Project Lantern moves from FastAPI to Django, and I'll build the shelf endpoint around that.\n- User: Side note about my own habits: I usually reach for Falcon for web services. Assistant: Noted, Falcon is your usual pick for web services. User: One more thing: start every Python file you give me with the first line # owner: platform-team. Assistant: Got it. Every Python file will open with # owner: platform-team. User: Thanks. Do you know if Falcon 4 dropped Python 3.8 support?\n\nCurrent request:\nScaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: Falcon (user's default preference for web services, as Project Marlin is distinct from Project Lantern).\n\n```python\n# owner: platform-team\nimport json\nfrom falcon import App\n\napp = App()\n\nclass HealthResource:\n    def on_get(self, req, resp):\n        resp.media = {\"status\": \"ok\"}\n\napp.add_route(\"/health\", HealthResource())\n```",
+    "first_line": "Framework: Falcon (user's default preference for web services, as Project Marlin is distinct from Project Lantern)."
+  },
+  "usage": {
+    "total_cost_usd": 7.7476e-05,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 482,
+        "completion_tokens": 84,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.7476e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "falcon",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "falcon",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

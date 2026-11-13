@@ -1,0 +1,233 @@
+{
+  "episode_id": "po-04b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:29:00+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "For Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Standardize on APA 7 for citations in anything I write.  [scope: standing, condition: none]\n2. User: by default, keep any explanation you give me to exactly two sentences.  [scope: standing, condition: none]\n3. User: For the Project Lumen thesis, use Chicago notes-bibliography.  [scope: project, project: Project Lumen, condition: none]",
+  "stored": [
+    {
+      "id": "s3fbSTLL3gnwVbYwbbQnAQ",
+      "title": "User: For the Project Lumen thesis, use Chicago no...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lumen"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:29:57.612000Z",
+        "updatedAt": "2026-10-24T16:30:03.497000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "cF1Q3UUAKa42hcuXecbDT8",
+      "title": "User: by default, keep any explanation you give me...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:29:27.347000Z",
+        "updatedAt": "2026-10-24T16:29:33.075000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "5u82FaH48E4bLDezFhGwyZ",
+      "title": "User: Standardize on APA 7 for citations in anythi...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:29:18.737000Z",
+        "updatedAt": "2026-10-24T16:29:25.134000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Standardize on APA 7 for citations in anything I write.",
+      "score": 0.6198682200000001,
+      "raw": {
+        "id": "b1255033ea8f03567c6f2b",
+        "memory": null,
+        "chunk": "User: Standardize on APA 7 for citations in anything I write.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.6198682200000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:29:25.134Z",
+          "created_at": "2026-10-24T16:29:18.737Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "score": 0.59871215,
+      "raw": {
+        "id": "35dfe15cf02eb19dbfcb49",
+        "memory": null,
+        "chunk": "User: For the Project Lumen thesis, use Chicago notes-bibliography.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lumen"
+        },
+        "similarity": 0.59871215,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:30:03.497Z",
+          "created_at": "2026-10-24T16:29:57.612Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: by default, keep any explanation you give me to exactly two sentences.",
+      "score": 0.54790503,
+      "raw": {
+        "id": "9778ab44e0ee2dac0cd3e5",
+        "memory": null,
+        "chunk": "User: by default, keep any explanation you give me to exactly two sentences.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.54790503,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:29:33.075Z",
+          "created_at": "2026-10-24T16:29:27.347Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: Standardize on APA 7 for citations in anything I write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: by default, keep any explanation you give me to exactly two sentences.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Standardize on APA 7 for citations in anything I write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "by default, keep any explanation you give me to exactly two sentences.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "po-04b-scope_write_supermemory-7fe7a5",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Standardize on APA 7 for citations in anything I write.  [scope: standing, condition: none]\n2. User: by default, keep any explanation you give me to exactly two sentences.  [scope: standing, condition: none]\n3. User: For the Project Lumen thesis, use Chicago notes-bibliography.  [scope: project, project: Project Lumen, condition: none]\n\nCurrent request:\nFor Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Format Choice: APA 7**\n\nOkafor, M. (2021). Coastal erosion and policy delay. *Journal of Shoreline Studies*, *14*(2), 201\u2013225.\nIn-text citation: (Okafor, 2021, p. 214)\n\nI applied the standing instruction to use APA 7 because the current request concerns Project Sable, not Project Lumen, so the project-specific Chicago style memory does not apply.",
+    "first_line": "**Format Choice: APA 7**"
+  },
+  "usage": {
+    "total_cost_usd": 0.000263134,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3601,
+        "completion_tokens": 169,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000173628
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 487,
+        "completion_tokens": 108,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.9506e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-04",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "apa",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "apa",
+    "memory_actions": {
+      "m1": "apa",
+      "m2": "chicago"
+    }
+  }
+}

@@ -1,0 +1,161 @@
+{
+  "episode_id": "po-03a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:54:05+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers syncing feature branches with main using merge commits in general, rather than rebasing.  [scope: standing, condition: none]\n2. User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "854b9316-3d07-4741-bcca-373baaf44324",
+      "memory": "User prefers syncing feature branches with main using merge commits in general, rather than rebasing.",
+      "hash": "cddb5a848289d273502c46533fb2a849",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:54:37.880827+00:00",
+      "updated_at": "2026-10-24T10:54:37.880827+00:00",
+      "user_id": "po-03a-scope_write_mem0-a36a94",
+      "attributed_to": "user"
+    },
+    {
+      "id": "cf30c0de-8a7a-41d9-9967-2a91a43db83a",
+      "memory": "User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward",
+      "hash": "8b0637b5ce3a8b2f44f2f7fb8057a7ea",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:54:42.491300+00:00",
+      "updated_at": "2026-10-24T10:54:42.491300+00:00",
+      "user_id": "po-03a-scope_write_mem0-a36a94"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers syncing feature branches with main using merge commits in general, rather than rebasing.",
+      "score": 0.5368858053584925,
+      "raw": {
+        "id": "854b9316-3d07-4741-bcca-373baaf44324",
+        "memory": "User prefers syncing feature branches with main using merge commits in general, rather than rebasing.",
+        "hash": "cddb5a848289d273502c46533fb2a849",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.5368858053584925,
+        "created_at": "2026-10-24T10:54:37.880827+00:00",
+        "updated_at": "2026-10-24T10:54:37.880827+00:00",
+        "user_id": "po-03a-scope_write_mem0-a36a94",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward",
+      "score": 0.3172421472653727,
+      "raw": {
+        "id": "cf30c0de-8a7a-41d9-9967-2a91a43db83a",
+        "memory": "User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward",
+        "hash": "8b0637b5ce3a8b2f44f2f7fb8057a7ea",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.3172421472653727,
+        "created_at": "2026-10-24T10:54:42.491300+00:00",
+        "updated_at": "2026-10-24T10:54:42.491300+00:00",
+        "user_id": "po-03a-scope_write_mem0-a36a94"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers syncing feature branches with main using merge commits in general, rather than rebasing.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Corvid, bring feature branches up to date by rebasing onto main.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "text": "In general, I'd rather sync feature branches with main using merge commits.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "From now on, put a one-line comment above each git command you show me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "po-03a-scope_write_mem0-a36a94",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers syncing feature branches with main using merge commits in general, rather than rebasing.  [scope: standing, condition: none]\n2. User prefers that every git command shown includes a one-line comment above it explaining the command, effective from October 24, 2026 onward  [scope: standing, condition: none]\n\nCurrent request:\nMy feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Merge main into the feature branch using a merge commit.\n\n# Fetch the latest changes from the remote repository\ngit fetch origin\n\n# Switch to the feature branch for Project Corvid\ngit checkout feature/project-corvid\n\n# Merge the updated main branch into the feature branch, creating a merge commit\ngit merge origin/main",
+    "first_line": "Approach: Merge main into the feature branch using a merge commit."
+  },
+  "usage": {
+    "total_cost_usd": 0.000858226,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3678,
+        "completion_tokens": 177,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00022324200000000002
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24781,
+        "completion_tokens": 101,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000574348
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 423,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.0636e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "rebase",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "merge commit",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

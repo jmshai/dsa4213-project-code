@@ -1,0 +1,204 @@
+{
+  "episode_id": "cs-01a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:48:26+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n2. User requires the use of pathlib.Path for handling file paths in any code written.  [scope: standing, condition: none]\n3. User established a general rule to standardize on JSON Lines format for all exports.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "5a9f86c5-7844-4b44-89c0-c7843380e316",
+      "memory": "User requires the use of pathlib.Path for handling file paths in any code written.",
+      "hash": "62343b7c225b4089bedc25defa790186",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:48:56.062487+00:00",
+      "updated_at": "2026-10-24T10:48:56.062487+00:00",
+      "user_id": "cs-01a-scope_write_mem0-6e5997",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a04df417-86cd-4e2f-9998-e12313d151f0",
+      "memory": "User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.",
+      "hash": "3b8d54ecddf7c73b65bba7833881c684",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      },
+      "created_at": "2026-10-24T10:48:50.194688+00:00",
+      "updated_at": "2026-10-24T10:48:50.194688+00:00",
+      "user_id": "cs-01a-scope_write_mem0-6e5997",
+      "attributed_to": "user"
+    },
+    {
+      "id": "af6ec6b0-049a-4858-a1e4-1e220276bbd5",
+      "memory": "User established a general rule to standardize on JSON Lines format for all exports.",
+      "hash": "751ef68d20fb4b387a0f559edbd9aad6",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:49:00.267298+00:00",
+      "updated_at": "2026-10-24T10:49:00.267298+00:00",
+      "user_id": "cs-01a-scope_write_mem0-6e5997",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.",
+      "score": 0.4647038772037887,
+      "raw": {
+        "id": "a04df417-86cd-4e2f-9998-e12313d151f0",
+        "memory": "User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.",
+        "hash": "3b8d54ecddf7c73b65bba7833881c684",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Marlin",
+          "condition": "size_mb > 100"
+        },
+        "score": 0.4647038772037887,
+        "created_at": "2026-10-24T10:48:50.194688+00:00",
+        "updated_at": "2026-10-24T10:48:50.194688+00:00",
+        "user_id": "cs-01a-scope_write_mem0-6e5997",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User established a general rule to standardize on JSON Lines format for all exports.",
+      "score": 0.24131293927999745,
+      "raw": {
+        "id": "af6ec6b0-049a-4858-a1e4-1e220276bbd5",
+        "memory": "User established a general rule to standardize on JSON Lines format for all exports.",
+        "hash": "751ef68d20fb4b387a0f559edbd9aad6",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.24131293927999745,
+        "created_at": "2026-10-24T10:49:00.267298+00:00",
+        "updated_at": "2026-10-24T10:49:00.267298+00:00",
+        "user_id": "cs-01a-scope_write_mem0-6e5997",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires the use of pathlib.Path for handling file paths in any code written.",
+      "score": 0.22333022548039616,
+      "raw": {
+        "id": "5a9f86c5-7844-4b44-89c0-c7843380e316",
+        "memory": "User requires the use of pathlib.Path for handling file paths in any code written.",
+        "hash": "62343b7c225b4089bedc25defa790186",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.22333022548039616,
+        "created_at": "2026-10-24T10:48:56.062487+00:00",
+        "updated_at": "2026-10-24T10:48:56.062487+00:00",
+        "user_id": "cs-01a-scope_write_mem0-6e5997",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "User established a general rule to standardize on JSON Lines format for all exports.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires the use of pathlib.Path for handling file paths in any code written.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Marlin, make anything over 100MB a Feather file.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "Use pathlib.Path for file paths in any code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "Standardize on JSON Lines for exports in general.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "cs-01a-scope_write_mem0-6e5997",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User established a rule for Project Marlin to convert any file larger than 100MB into Feather format.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n2. User requires the use of pathlib.Path for handling file paths in any code written.  [scope: standing, condition: none]\n3. User established a general rule to standardize on JSON Lines format for all exports.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: Feather (`.feather`)\n\n```python\nimport feather\nfrom pathlib import Path\n\ndef save_telemetry_export(data: list[dict], output_dir: str | Path) -> Path:\n    \"\"\"\n    Saves a large telemetry export to Feather format.\n    \n    Args:\n        data: A list of dictionaries representing the telemetry records.\n        output_dir: The directory where the file should be saved.\n        \n    Returns:\n        The Path object pointing to the saved .feather file.\n    \"\"\"\n    # Ensure output_dir is a pathlib.Path as per standing rule\n    out_path = Path(output_dir)\n    \n    # Create the directory if it doesn't exist\n    out_path.mkdir(parents=True, exist_ok=True)\n    \n    # Define the filename\n    file_name = \"telemetry_export.feather\"\n    full_file_path = out_path / file_name\n    \n    # Convert list of dicts to DataFrame and write to Feather\n    # Note: feather.write_dataframe expects a pandas DataFrame\n    import pandas as pd\n    df = pd.DataFrame(data)\n    feather.write_dataframe(df, str(full_file_path))\n    \n    return full_file_path\n```\n\n.feather",
+    "first_line": "Format: Feather (`.feather`)"
+  },
+  "usage": {
+    "total_cost_usd": 0.0012168440000000001,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3572,
+        "completion_tokens": 175,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000412226
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24834,
+        "completion_tokens": 181,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000619898
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 445,
+        "completion_tokens": 251,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00018472
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "feather",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "feather",
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

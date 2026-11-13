@@ -1,0 +1,240 @@
+{
+  "episode_id": "ss-02b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:21:29+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)  [scope: standing, condition: none]\n2. User uses AsciiDoc as their default format for writing documentation  [scope: standing, condition: none]\n3. User is starting documentation for Project Orchid, a static site generator for their design team's component library.  [scope: single_task, only the task where it was said, condition: none]\n4. For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.  [scope: project, project: Project Orchid, condition: none]\n5. User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.  [scope: project, project: Project Orchid, condition: none]",
+  "stored": [
+    {
+      "id": "04c65d75-e1ed-4e5d-b9a6-6d4c89229338",
+      "memory": "User is starting documentation for Project Orchid, a static site generator for their design team's component library.",
+      "hash": "5855d3386f428562f2aef55f7b7af8d7",
+      "metadata": null,
+      "created_at": "2026-10-24T11:21:53.056484+00:00",
+      "updated_at": "2026-10-24T11:21:53.056484+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    },
+    {
+      "id": "10dbe717-6979-48f9-b32a-300ebbdd8eef",
+      "memory": "For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.",
+      "hash": "7f10c1270ce2b4c8c965c4c0bd06f6a4",
+      "metadata": null,
+      "created_at": "2026-10-24T11:21:53.056503+00:00",
+      "updated_at": "2026-10-24T11:21:53.056503+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    },
+    {
+      "id": "58194701-8df3-4672-8a0b-c7c9183a05b1",
+      "memory": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.",
+      "hash": "031d5f471b0cd4779b297495c6c3ea7a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:01.703403+00:00",
+      "updated_at": "2026-10-24T11:22:01.703403+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    },
+    {
+      "id": "dd4b9e89-2101-4a6b-8193-c2fccb363249",
+      "memory": "User uses AsciiDoc as their default format for writing documentation",
+      "hash": "3a09387b8f63374bae69c43829d9383a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:21:50.401925+00:00",
+      "updated_at": "2026-10-24T11:21:50.401925+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e1fa96e6-e716-430e-9c71-e3f18d427d52",
+      "memory": "User instructed the assistant to convert the getting-started page of Project Orchid to reStructuredText first, as it is the primary entry point for readers.",
+      "hash": "2bba21ccfd65a7bd6ca09d372850bc34",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:01.703457+00:00",
+      "updated_at": "2026-10-24T11:22:01.703457+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    },
+    {
+      "id": "fa2135f2-8853-4397-a32e-09989ab779c6",
+      "memory": "User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)",
+      "hash": "72c6b92f07a5912897a28fd0af0d50d5",
+      "metadata": null,
+      "created_at": "2026-10-24T11:21:50.401889+00:00",
+      "updated_at": "2026-10-24T11:21:50.401889+00:00",
+      "user_id": "ss-02b-scope_read_mem0-74b7e2",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)",
+      "score": 0.23289762018496535,
+      "raw": {
+        "id": "fa2135f2-8853-4397-a32e-09989ab779c6",
+        "memory": "User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)",
+        "hash": "72c6b92f07a5912897a28fd0af0d50d5",
+        "metadata": null,
+        "score": 0.23289762018496535,
+        "created_at": "2026-10-24T11:21:50.401889+00:00",
+        "updated_at": "2026-10-24T11:21:50.401889+00:00",
+        "user_id": "ss-02b-scope_read_mem0-74b7e2",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.",
+      "score": 0.19950524245915827,
+      "raw": {
+        "id": "58194701-8df3-4672-8a0b-c7c9183a05b1",
+        "memory": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.",
+        "hash": "031d5f471b0cd4779b297495c6c3ea7a",
+        "metadata": null,
+        "score": 0.19950524245915827,
+        "created_at": "2026-10-24T11:22:01.703403+00:00",
+        "updated_at": "2026-10-24T11:22:01.703403+00:00",
+        "user_id": "ss-02b-scope_read_mem0-74b7e2",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User uses AsciiDoc as their default format for writing documentation",
+      "score": 0.1707179374836012,
+      "raw": {
+        "id": "dd4b9e89-2101-4a6b-8193-c2fccb363249",
+        "memory": "User uses AsciiDoc as their default format for writing documentation",
+        "hash": "3a09387b8f63374bae69c43829d9383a",
+        "metadata": null,
+        "score": 0.1707179374836012,
+        "created_at": "2026-10-24T11:21:50.401925+00:00",
+        "updated_at": "2026-10-24T11:21:50.401925+00:00",
+        "user_id": "ss-02b-scope_read_mem0-74b7e2",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.",
+      "score": 0.16695808602356016,
+      "raw": {
+        "id": "10dbe717-6979-48f9-b32a-300ebbdd8eef",
+        "memory": "For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.",
+        "hash": "7f10c1270ce2b4c8c965c4c0bd06f6a4",
+        "metadata": null,
+        "score": 0.16695808602356016,
+        "created_at": "2026-10-24T11:21:53.056503+00:00",
+        "updated_at": "2026-10-24T11:21:53.056503+00:00",
+        "user_id": "ss-02b-scope_read_mem0-74b7e2",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is starting documentation for Project Orchid, a static site generator for their design team's component library.",
+      "score": 0.1351510208761523,
+      "raw": {
+        "id": "04c65d75-e1ed-4e5d-b9a6-6d4c89229338",
+        "memory": "User is starting documentation for Project Orchid, a static site generator for their design team's component library.",
+        "hash": "5855d3386f428562f2aef55f7b7af8d7",
+        "metadata": null,
+        "score": 0.1351510208761523,
+        "created_at": "2026-10-24T11:21:53.056484+00:00",
+        "updated_at": "2026-10-24T11:21:53.056484+00:00",
+        "user_id": "ss-02b-scope_read_mem0-74b7e2",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User uses AsciiDoc as their default format for writing documentation",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User is starting documentation for Project Orchid, a static site generator for their design team's component library.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "ss-02b-scope_read_mem0-74b7e2",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers all durations in documentation to be written in milliseconds (e.g., 30000 ms)  [scope: standing, condition: none]\n2. User uses AsciiDoc as their default format for writing documentation  [scope: standing, condition: none]\n3. User is starting documentation for Project Orchid, a static site generator for their design team's component library.  [scope: single_task, only the task where it was said, condition: none]\n4. For Project Orchid specifically, User chose Markdown over their default AsciiDoc because the contributors are more comfortable with it.  [scope: project, project: Project Orchid, condition: none]\n5. User changed the documentation format for Project Orchid from Markdown to reStructuredText on October 24, 2026, because Sphinx is now the standard for their design team.  [scope: project, project: Project Orchid, condition: none]\n\nCurrent request:\nWrite the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: AsciiDoc\n\n= Project Quill Settings Reference\n\nThis document outlines the configuration settings for Project Quill.\n\n== accent_color\n* **Type:** Hex color string\n* **Default:** `#1A73E8`\n* **Description:** Defines the primary accent color used throughout the interface.\n\n== cache_ttl\n* **Type:** Duration (milliseconds)\n* **Default:** 90000 ms\n* **Description:** Specifies how long a page remains cached before it is refreshed.\n\n== retry_delay\n* **Type:** Duration (milliseconds)\n* **Default:** 2000 ms\n* **Description:** The wait time before a failed synchronization attempt is retried.",
+    "first_line": "Format: AsciiDoc"
+  },
+  "usage": {
+    "total_cost_usd": 0.000991558,
+    "by_component": {
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 25498,
+        "completion_tokens": 399,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0007190460000000001
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1776,
+        "completion_tokens": 194,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000151756
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 570,
+        "completion_tokens": 148,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000120756
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "asciidoc",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "asciidoc",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

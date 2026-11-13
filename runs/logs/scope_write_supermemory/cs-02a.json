@@ -1,0 +1,235 @@
+{
+  "episode_id": "cs-02a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:11:51+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Default to exactly two sentences for any status update you draft for me.  [scope: standing, condition: none]\n2. User: write dates as YYYY-MM-DD in anything you draft  [scope: standing, condition: none]\n3. User: For Project Helios, when the update is for the board, make it exactly eight sentences.  [scope: project, project: Project Helios, condition: audience == board]",
+  "stored": [
+    {
+      "id": "riVvpTHF7BK2DPERn2DLFY",
+      "title": "User: For Project Helios, when the update is for t...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:12:15.151000Z",
+        "updatedAt": "2026-10-24T16:12:21.557000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Jif5rBX8qQQ49XkUgmQ9q4",
+      "title": "User: write dates as YYYY-MM-DD in anything you dr...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:12:01.787000Z",
+        "updatedAt": "2026-10-24T16:12:09.343000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "pzacScxYpkMyz79XdsBDgu",
+      "title": "User: Default to exactly two sentences for any sta...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:11:53.322000Z",
+        "updatedAt": "2026-10-24T16:11:59.935000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: For Project Helios, when the update is for the board, make it exactly eight sentences.",
+      "score": 0.6786060300000001,
+      "raw": {
+        "id": "39caa2f28b98e1611d0d0c",
+        "memory": null,
+        "chunk": "User: For Project Helios, when the update is for the board, make it exactly eight sentences.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Helios",
+          "condition": "audience == board"
+        },
+        "similarity": 0.6786060300000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:12:21.557Z",
+          "created_at": "2026-10-24T16:12:15.151Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: write dates as YYYY-MM-DD in anything you draft",
+      "score": 0.5632530499999999,
+      "raw": {
+        "id": "27f64ceff69c22fc6cdd5f",
+        "memory": null,
+        "chunk": "User: write dates as YYYY-MM-DD in anything you draft",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.5632530499999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:12:09.343Z",
+          "created_at": "2026-10-24T16:12:01.787Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Default to exactly two sentences for any status update you draft for me.",
+      "score": 0.5616857399999999,
+      "raw": {
+        "id": "15fa3e8b5fd9a8c718476c",
+        "memory": null,
+        "chunk": "User: Default to exactly two sentences for any status update you draft for me.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.5616857399999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:11:59.935Z",
+          "created_at": "2026-10-24T16:11:53.322Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: For Project Helios, when the update is for the board, make it exactly eight sentences.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    },
+    {
+      "text": "User: write dates as YYYY-MM-DD in anything you draft",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Default to exactly two sentences for any status update you draft for me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Default to exactly two sentences for any status update you draft for me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "write dates as YYYY-MM-DD in anything you draft",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Helios, when the update is for the board, make it exactly eight sentences.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    }
+  ],
+  "namespace": "cs-02a-scope_write_supermemory-2e5d4c",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Default to exactly two sentences for any status update you draft for me.  [scope: standing, condition: none]\n2. User: write dates as YYYY-MM-DD in anything you draft  [scope: standing, condition: none]\n3. User: For Project Helios, when the update is for the board, make it exactly eight sentences.  [scope: project, project: Project Helios, condition: audience == board]\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the Project Helios board-specific memory to set the length to exactly eight sentences and used the standing date format of YYYY-MM-DD. The status update is as follows: Robots are currently live at three of the five planned sites for Project Helios. The pick rate has improved significantly, rising from 410 to 520 lines per hour. However, the two remaining sites have slipped by one week due to a conveyor delay. On a positive note, the new sorter successfully passed its acceptance testing. Financial performance remains strong, with total spend tracking four percent under plan. Three operators have now finished their required training programs. The recent safety audit was completed and passed without issues. The beta review is scheduled for 2027-03-14.",
+    "first_line": "I applied the Project Helios board-specific memory to set the length to exactly eight sentences and used the standing date format of YYYY-MM-DD. The status update is as follows: Robots are currently live at three of the five planned sites for Project Helios. The pick rate has improved significantly, rising from 410 to 520 lines per hour. However, the two remaining sites have slipped by one week due to a conveyor delay. On a positive note, the new sorter successfully passed its acceptance testing. Financial performance remains strong, with total spend tracking four percent under plan. Three operators have now finished their required training programs. The recent safety audit was completed and passed without issues. The beta review is scheduled for 2027-03-14."
+  },
+  "usage": {
+    "total_cost_usd": 0.000320628,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3568,
+        "completion_tokens": 177,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000206742
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 496,
+        "completion_tokens": 157,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000113886
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "eight sentences",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "eight sentences",
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

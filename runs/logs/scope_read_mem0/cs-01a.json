@@ -1,0 +1,221 @@
+{
+  "episode_id": "cs-01a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:11:45+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting Project Marlin, an archive of telemetry from their ops fleet.  [scope: unknown]\n2. The ingestion cron job for Project Marlin keeps timing out on the Monday run.  [scope: unknown]\n3. For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n4. User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.  [scope: standing, condition: none]\n5. User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.  [scope: project, project: Project Marlin, condition: none]",
+  "stored": [
+    {
+      "id": "4d19b4e8-67cb-4ec2-a524-dbde8a46088f",
+      "memory": "User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.",
+      "hash": "682bd3888c303e22043b72ba0887b6ce",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:09.997710+00:00",
+      "updated_at": "2026-10-24T11:12:09.997710+00:00",
+      "user_id": "cs-01a-scope_read_mem0-8d828e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "958616f4-f23b-417f-8148-50bc0dbee34a",
+      "memory": "The ingestion cron job for Project Marlin keeps timing out on the Monday run.",
+      "hash": "60877a67e940251ab05a21f86721cb20",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:06.234586+00:00",
+      "updated_at": "2026-10-24T11:12:06.234586+00:00",
+      "user_id": "cs-01a-scope_read_mem0-8d828e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bede9c73-227e-4aad-b2b7-22f00e73b06a",
+      "memory": "User is starting Project Marlin, an archive of telemetry from their ops fleet.",
+      "hash": "1d4b21eec3dd7010b6bbbf9b77d934af",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:06.234561+00:00",
+      "updated_at": "2026-10-24T11:12:06.234561+00:00",
+      "user_id": "cs-01a-scope_read_mem0-8d828e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "cd2ed925-0587-468b-859b-c5b4db90ebf4",
+      "memory": "User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.",
+      "hash": "bcfb260728852d7159715b856cd10f94",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:09.997684+00:00",
+      "updated_at": "2026-10-24T11:12:09.997684+00:00",
+      "user_id": "cs-01a-scope_read_mem0-8d828e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e9577cd6-f48e-495d-b0a9-d0bec63130be",
+      "memory": "For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.",
+      "hash": "447ad34246ec87fc7357b64d4ff6e842",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:06.234600+00:00",
+      "updated_at": "2026-10-24T11:12:06.234600+00:00",
+      "user_id": "cs-01a-scope_read_mem0-8d828e",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.",
+      "score": 0.5580849440853813,
+      "raw": {
+        "id": "e9577cd6-f48e-495d-b0a9-d0bec63130be",
+        "memory": "For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.",
+        "hash": "447ad34246ec87fc7357b64d4ff6e842",
+        "metadata": null,
+        "score": 0.5580849440853813,
+        "created_at": "2026-10-24T11:12:06.234600+00:00",
+        "updated_at": "2026-10-24T11:12:06.234600+00:00",
+        "user_id": "cs-01a-scope_read_mem0-8d828e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is starting Project Marlin, an archive of telemetry from their ops fleet.",
+      "score": 0.4683591696021922,
+      "raw": {
+        "id": "bede9c73-227e-4aad-b2b7-22f00e73b06a",
+        "memory": "User is starting Project Marlin, an archive of telemetry from their ops fleet.",
+        "hash": "1d4b21eec3dd7010b6bbbf9b77d934af",
+        "metadata": null,
+        "score": 0.4683591696021922,
+        "created_at": "2026-10-24T11:12:06.234561+00:00",
+        "updated_at": "2026-10-24T11:12:06.234561+00:00",
+        "user_id": "cs-01a-scope_read_mem0-8d828e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.",
+      "score": 0.34223265517533474,
+      "raw": {
+        "id": "4d19b4e8-67cb-4ec2-a524-dbde8a46088f",
+        "memory": "User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.",
+        "hash": "682bd3888c303e22043b72ba0887b6ce",
+        "metadata": null,
+        "score": 0.34223265517533474,
+        "created_at": "2026-10-24T11:12:09.997710+00:00",
+        "updated_at": "2026-10-24T11:12:09.997710+00:00",
+        "user_id": "cs-01a-scope_read_mem0-8d828e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The ingestion cron job for Project Marlin keeps timing out on the Monday run.",
+      "score": 0.3357513926994772,
+      "raw": {
+        "id": "958616f4-f23b-417f-8148-50bc0dbee34a",
+        "memory": "The ingestion cron job for Project Marlin keeps timing out on the Monday run.",
+        "hash": "60877a67e940251ab05a21f86721cb20",
+        "metadata": null,
+        "score": 0.3357513926994772,
+        "created_at": "2026-10-24T11:12:06.234586+00:00",
+        "updated_at": "2026-10-24T11:12:06.234586+00:00",
+        "user_id": "cs-01a-scope_read_mem0-8d828e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.",
+      "score": 0.27932096448852234,
+      "raw": {
+        "id": "cd2ed925-0587-468b-859b-c5b4db90ebf4",
+        "memory": "User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.",
+        "hash": "bcfb260728852d7159715b856cd10f94",
+        "metadata": null,
+        "score": 0.27932096448852234,
+        "created_at": "2026-10-24T11:12:09.997684+00:00",
+        "updated_at": "2026-10-24T11:12:09.997684+00:00",
+        "user_id": "cs-01a-scope_read_mem0-8d828e",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "User is starting Project Marlin, an archive of telemetry from their ops fleet.",
+      "tag": null
+    },
+    {
+      "text": "User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "The ingestion cron job for Project Marlin keeps timing out on the Monday run.",
+      "tag": null
+    },
+    {
+      "text": "User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "cs-01a-scope_read_mem0-8d828e",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting Project Marlin, an archive of telemetry from their ops fleet.  [scope: unknown]\n2. The ingestion cron job for Project Marlin keeps timing out on the Monday run.  [scope: unknown]\n3. For Project Marlin, any exported file over 100MB must be saved as a Feather file because the archive is read by an Arrow-based tool.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n4. User corrected the assistant's use of os.path.join and requires that all future code use pathlib.Path for file paths.  [scope: standing, condition: none]\n5. User wants to standardize on JSON Lines format for general exports in Project Marlin scripts, overriding previous Feather-only rules for non-large files or general cases.  [scope: project, project: Project Marlin, condition: none]\n\nCurrent request:\nWrite a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: Feather (`.feather`)\n\n```python\nfrom pathlib import Path\nimport pyarrow.feather as feather\n\ndef save_telemetry_export(data: list[dict], output_dir: str | Path) -> Path:\n    \"\"\"\n    Saves a large telemetry export (250MB+) as a Feather file.\n    \n    Args:\n        data: List of dictionaries containing telemetry records.\n        output_dir: Directory where the file will be saved.\n        \n    Returns:\n        The path to the saved Feather file.\n    \"\"\"\n    # Ensure output_dir is a Path object per standing memory\n    out_path = Path(output_dir)\n    out_path.mkdir(parents=True, exist_ok=True)\n    \n    # Project Marlin rule: Files > 100MB must be Feather for Arrow-based tools.\n    # This overrides the general JSON Lines preference for this specific size constraint.\n    file_name = \"telemetry_export_250mb.feather\"\n    full_file_path = out_path / file_name\n    \n    # Convert list of dicts to PyArrow Table and write as Feather\n    table = pa.Table.from_pylist(data)\n    feather.write_feather(table, full_file_path)\n    \n    return full_file_path\n```\n\n.feather",
+    "first_line": "Format: Feather (`.feather`)"
+  },
+  "usage": {
+    "total_cost_usd": 0.000862034,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16922,
+        "completion_tokens": 266,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000536472
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1776,
+        "completion_tokens": 199,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000154106
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 532,
+        "completion_tokens": 268,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000171456
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "feather",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "feather",
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

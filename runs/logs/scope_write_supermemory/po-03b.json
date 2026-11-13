@@ -1,0 +1,233 @@
+{
+  "episode_id": "po-03b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:26:21+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Corvid, bring feature branches up to date by rebasing onto main.  [scope: project, project: Project Corvid, condition: none]\n2. User: In general, I'd rather sync feature branches with main using merge commits.  [scope: standing, condition: none]\n3. User: From now on, put a one-line comment above each git command you show me.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "GZSRtWMUrFP7PLsHxLMaMP",
+      "title": "User: From now on, put a one-line comment above ea...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:27:15.654000Z",
+        "updatedAt": "2026-10-24T16:27:22.266000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "WHtawXoReeUzHbfxRWWeDB",
+      "title": "User: In general, I'd rather sync feature branches...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:27:04.378000Z",
+        "updatedAt": "2026-10-24T16:27:13.651000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "kcUqYE5xZdYmccqtfXmSwz",
+      "title": "User: On Project Corvid, bring feature branches up...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Corvid"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:26:33.358000Z",
+        "updatedAt": "2026-10-24T16:26:39.257000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: In general, I'd rather sync feature branches with main using merge commits.",
+      "score": 0.7097233000000001,
+      "raw": {
+        "id": "47cf19b3a62d780eb7e629",
+        "memory": null,
+        "chunk": "User: In general, I'd rather sync feature branches with main using merge commits.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.7097233000000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:27:13.651Z",
+          "created_at": "2026-10-24T16:27:04.378Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: On Project Corvid, bring feature branches up to date by rebasing onto main.",
+      "score": 0.68752223,
+      "raw": {
+        "id": "89be306b90a193d8f602be",
+        "memory": null,
+        "chunk": "User: On Project Corvid, bring feature branches up to date by rebasing onto main.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Corvid"
+        },
+        "similarity": 0.68752223,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:26:39.257Z",
+          "created_at": "2026-10-24T16:26:33.358Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: From now on, put a one-line comment above each git command you show me.",
+      "score": 0.6146037,
+      "raw": {
+        "id": "fe6cda8500fc5088f3d125",
+        "memory": null,
+        "chunk": "User: From now on, put a one-line comment above each git command you show me.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.6146037,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:27:22.266Z",
+          "created_at": "2026-10-24T16:27:15.654Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: In general, I'd rather sync feature branches with main using merge commits.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: On Project Corvid, bring feature branches up to date by rebasing onto main.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: From now on, put a one-line comment above each git command you show me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Corvid, bring feature branches up to date by rebasing onto main.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "text": "In general, I'd rather sync feature branches with main using merge commits.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "From now on, put a one-line comment above each git command you show me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "po-03b-scope_write_supermemory-a24ca4",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Corvid, bring feature branches up to date by rebasing onto main.  [scope: project, project: Project Corvid, condition: none]\n2. User: In general, I'd rather sync feature branches with main using merge commits.  [scope: standing, condition: none]\n3. User: From now on, put a one-line comment above each git command you show me.  [scope: standing, condition: none]\n\nCurrent request:\nMy feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Merge main into the feature branch using a merge commit.\n\n# Fetch the latest changes from the remote repository\ngit fetch origin\n\n# Switch to your feature branch for Project Wren\ngit checkout <your-feature-branch-name>\n\n# Merge the updated main branch into your feature branch\ngit merge origin/main",
+    "first_line": "Approach: Merge main into the feature branch using a merge commit."
+  },
+  "usage": {
+    "total_cost_usd": 0.00021808,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3678,
+        "completion_tokens": 177,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000154634
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 448,
+        "completion_tokens": 65,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.3446e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "merge commit",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "merge commit",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "episode_id": "st-02a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:24:26+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is creating a recipe card for their lemon loaf to distribute at a school bake sale.  [scope: project, project: lemon loaf recipe card, condition: none]\n2. User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.  [scope: standing, condition: none]\n3. User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.  [scope: project, project: lemon loaf recipe card, condition: none]\n4. User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.  [scope: standing, condition: none]\n5. User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.  [scope: single_task, only the task where it was said, condition: none]\n6. User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "4900c3e1-5f0c-4c7b-8735-0058048fa5c5",
+      "memory": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+      "hash": "f1c0cd529854f4b74d29686f7f7e6e6e",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:36.559574+00:00",
+      "updated_at": "2026-10-24T11:24:36.559574+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    },
+    {
+      "id": "49c480a4-38e5-4da6-828a-313fba0c8d14",
+      "memory": "User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.",
+      "hash": "ca2849074514b0112ebb6d1eccf3bee3",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:40.084591+00:00",
+      "updated_at": "2026-10-24T11:24:40.084591+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6e961854-9b62-4ac3-951b-d876978da3ec",
+      "memory": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+      "hash": "0051acf4343fbb4a331e831cc8979a8b",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:36.559553+00:00",
+      "updated_at": "2026-10-24T11:24:36.559553+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    },
+    {
+      "id": "78f3eb9c-1000-46c6-bbc2-1b467b8d0934",
+      "memory": "User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+      "hash": "e4d2336684bc130f02ae82b9a4e4247c",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:36.559581+00:00",
+      "updated_at": "2026-10-24T11:24:36.559581+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    },
+    {
+      "id": "9a3050ea-25a9-49cb-9716-7550afb4f2a9",
+      "memory": "User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.",
+      "hash": "855fada6553740034add4b70024a328d",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:40.084617+00:00",
+      "updated_at": "2026-10-24T11:24:40.084617+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a512bc60-eff8-4e3f-b9f5-56786a557e0d",
+      "memory": "User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.",
+      "hash": "c00c8af831a3d96ab6f8ee34d12c9601",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:40.084627+00:00",
+      "updated_at": "2026-10-24T11:24:40.084627+00:00",
+      "user_id": "st-02a-scope_read_mem0-a1de40",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+      "score": 0.7125590421389327,
+      "raw": {
+        "id": "4900c3e1-5f0c-4c7b-8735-0058048fa5c5",
+        "memory": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+        "hash": "f1c0cd529854f4b74d29686f7f7e6e6e",
+        "metadata": null,
+        "score": 0.7125590421389327,
+        "created_at": "2026-10-24T11:24:36.559574+00:00",
+        "updated_at": "2026-10-24T11:24:36.559574+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+      "score": 0.6583473186127639,
+      "raw": {
+        "id": "78f3eb9c-1000-46c6-bbc2-1b467b8d0934",
+        "memory": "User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+        "hash": "e4d2336684bc130f02ae82b9a4e4247c",
+        "metadata": null,
+        "score": 0.6583473186127639,
+        "created_at": "2026-10-24T11:24:36.559581+00:00",
+        "updated_at": "2026-10-24T11:24:36.559581+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.",
+      "score": 0.5417588755915388,
+      "raw": {
+        "id": "9a3050ea-25a9-49cb-9716-7550afb4f2a9",
+        "memory": "User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.",
+        "hash": "855fada6553740034add4b70024a328d",
+        "metadata": null,
+        "score": 0.5417588755915388,
+        "created_at": "2026-10-24T11:24:40.084617+00:00",
+        "updated_at": "2026-10-24T11:24:40.084617+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+      "score": 0.5337209917650606,
+      "raw": {
+        "id": "6e961854-9b62-4ac3-951b-d876978da3ec",
+        "memory": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+        "hash": "0051acf4343fbb4a331e831cc8979a8b",
+        "metadata": null,
+        "score": 0.5337209917650606,
+        "created_at": "2026-10-24T11:24:36.559553+00:00",
+        "updated_at": "2026-10-24T11:24:36.559553+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.",
+      "score": 0.1662426535589733,
+      "raw": {
+        "id": "49c480a4-38e5-4da6-828a-313fba0c8d14",
+        "memory": "User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.",
+        "hash": "ca2849074514b0112ebb6d1eccf3bee3",
+        "metadata": null,
+        "score": 0.1662426535589733,
+        "created_at": "2026-10-24T11:24:40.084591+00:00",
+        "updated_at": "2026-10-24T11:24:40.084591+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.",
+      "score": 0.14624060364063757,
+      "raw": {
+        "id": "a512bc60-eff8-4e3f-b9f5-56786a557e0d",
+        "memory": "User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.",
+        "hash": "c00c8af831a3d96ab6f8ee34d12c9601",
+        "metadata": null,
+        "score": 0.14624060364063757,
+        "created_at": "2026-10-24T11:24:40.084627+00:00",
+        "updated_at": "2026-10-24T11:24:40.084627+00:00",
+        "user_id": "st-02a-scope_read_mem0-a1de40",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+      "tag": {
+        "scope": "project",
+        "key": "lemon loaf recipe card",
+        "condition": null
+      }
+    },
+    {
+      "text": "User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+      "tag": {
+        "scope": "project",
+        "key": "lemon loaf recipe card",
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "st-02a-scope_read_mem0-a1de40",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is creating a recipe card for their lemon loaf to distribute at a school bake sale.  [scope: project, project: lemon loaf recipe card, condition: none]\n2. User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.  [scope: standing, condition: none]\n3. User prefers ingredient amounts on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.  [scope: project, project: lemon loaf recipe card, condition: none]\n4. User requires an 'Allergens:' line under every ingredient list in recipes because they cook for many children with allergies.  [scope: standing, condition: none]\n5. User is preparing a pancake recipe for Sunday brunch and prefers to use metric units (grams and millilitres) for this specific recipe, contrasting with their previous preference for cups for the lemon loaf bake sale card.  [scope: single_task, only the task where it was said, condition: none]\n6. User plans to send their pancake recipe notes on October 25, 2026, as they still need to purchase maple syrup.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I will list the ingredients using only cups, as specified by the project-specific preference for the lemon loaf recipe card.\n\n**Ingredients:**\n*   2 cups flour\n*   1 cup sugar\n*   1/2 cup butter\n*   1/2 cup milk\n*   2 eggs\n\nAllergens: Contains wheat (gluten), dairy, and eggs.",
+    "first_line": "I will list the ingredients using only cups, as specified by the project-specific preference for the lemon loaf recipe card."
+  },
+  "usage": {
+    "total_cost_usd": 0.000873264,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16920,
+        "completion_tokens": 387,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000593042
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1834,
+        "completion_tokens": 234,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000179256
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 648,
+        "completion_tokens": 81,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000100966
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "cups",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

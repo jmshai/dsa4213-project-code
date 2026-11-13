@@ -1,0 +1,177 @@
+{
+  "episode_id": "po-02b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:53:27+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers using pytest for testing and explicitly requested to never use unittest.  [scope: standing, condition: none]\n2. User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.  [scope: project, project: Project Tessera, condition: none]",
+  "stored": [
+    {
+      "id": "3917aad1-2d77-490a-a69d-ee2d3b994173",
+      "memory": "User prefers using pytest for testing and explicitly requested to never use unittest.",
+      "hash": "e33ec3834cd934eb3b1a177bb92120e9",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:53:53.008743+00:00",
+      "updated_at": "2026-10-24T10:53:53.008743+00:00",
+      "user_id": "po-02b-scope_write_mem0-f3df2a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "3af62bca-62e9-4103-bc0e-a00f653b4a10",
+      "memory": "User requested that every answer end with a final line starting with 'Next step:'",
+      "hash": "80ed35a5a0047d66d9d2db55195bf394",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:53:51.603777+00:00",
+      "updated_at": "2026-10-24T10:53:51.603777+00:00",
+      "user_id": "po-02b-scope_write_mem0-f3df2a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "80520d65-0e93-4602-b19b-32151ffac81c",
+      "memory": "User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.",
+      "hash": "1e4ca544f633155da30e716a52fa387c",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Tessera"
+      },
+      "created_at": "2026-10-24T10:53:57.422920+00:00",
+      "updated_at": "2026-10-24T10:53:57.422920+00:00",
+      "user_id": "po-02b-scope_write_mem0-f3df2a",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.",
+      "score": 0.16909113467706555,
+      "raw": {
+        "id": "80520d65-0e93-4602-b19b-32151ffac81c",
+        "memory": "User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.",
+        "hash": "1e4ca544f633155da30e716a52fa387c",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Tessera"
+        },
+        "score": 0.16909113467706555,
+        "created_at": "2026-10-24T10:53:57.422920+00:00",
+        "updated_at": "2026-10-24T10:53:57.422920+00:00",
+        "user_id": "po-02b-scope_write_mem0-f3df2a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers using pytest for testing and explicitly requested to never use unittest.",
+      "score": 0.13196778003722215,
+      "raw": {
+        "id": "3917aad1-2d77-490a-a69d-ee2d3b994173",
+        "memory": "User prefers using pytest for testing and explicitly requested to never use unittest.",
+        "hash": "e33ec3834cd934eb3b1a177bb92120e9",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.13196778003722215,
+        "created_at": "2026-10-24T10:53:53.008743+00:00",
+        "updated_at": "2026-10-24T10:53:53.008743+00:00",
+        "user_id": "po-02b-scope_write_mem0-f3df2a",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Tessera",
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers using pytest for testing and explicitly requested to never use unittest.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, end every answer with a final line that starts with 'Next step:'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "never use unittest, stick to pytest",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Tessera, write tests with unittest.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Tessera",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "po-02b-scope_write_mem0-f3df2a",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers using pytest for testing and explicitly requested to never use unittest.  [scope: standing, condition: none]\n2. User requested to write tests with unittest for Project Tessera, contradicting their previous standing instruction to never use unittest and stick to pytest.  [scope: project, project: Project Tessera, condition: none]\n\nCurrent request:\nWrite the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool: pytest\n\n```python\nimport pytest\nfrom your_module import apply_discount  # Replace 'your_module' with the actual module name where apply_discount is defined\n\ndef test_apply_discount_save10():\n    \"\"\"Test that SAVE10 applies a 10% discount.\"\"\"\n    price = 100.0\n    code = \"SAVE10\"\n    expected = 90.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_save20():\n    \"\"\"Test that SAVE20 applies a 20% discount.\"\"\"\n    price = 100.0\n    code = \"SAVE20\"\n    expected = 80.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_invalid_code():\n    \"\"\"Test that an invalid code leaves the price unchanged.\"\"\"\n    price = 100.0\n    code = \"INVALID\"\n    expected = 100.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_empty_code():\n    \"\"\"Test that an empty code leaves the price unchanged.\"\"\"\n    price = 50.0\n    code = \"\"\n    expected = 50.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_case_sensitivity():\n    \"\"\"Test that codes are case-sensitive (assuming standard behavior).\"\"\"\n    price = 100.0\n    code = \"save10\"\n    expected = 100.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_zero_price():\n    \"\"\"Test applying discount to zero price.\"\"\"\n    price = 0.0\n    code = \"SAVE10\"\n    expected = 0.0\n    assert apply_discount(price, code) == expected\n\ndef test_apply_discount_negative_price():\n    \"\"\"Test applying discount to negative price (edge case).\"\"\"\n    price = -100.0\n    code = \"SAVE10\"\n    expected = -90.0\n    assert apply_discount(price, code) == expected\n```",
+    "first_line": "Tool: pytest"
+  },
+  "usage": {
+    "total_cost_usd": 0.0009479099999999999,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3687,
+        "completion_tokens": 165,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00018464799999999998
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24813,
+        "completion_tokens": 194,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000519946
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 422,
+        "completion_tokens": 456,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000243316
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-02",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "pytest",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "pytest",
+    "memory_actions": {
+      "m1": "pytest",
+      "m2": "unittest"
+    }
+  }
+}

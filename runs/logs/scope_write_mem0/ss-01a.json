@@ -1,0 +1,356 @@
+{
+  "episode_id": "ss-01a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:00:31+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Lantern should use FastAPI as its framework or technology stack  [scope: project, project: Project Lantern, condition: none]\n2. The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin  [scope: project, project: Project Lantern, condition: none]\n3. For Project Lantern's stock endpoint, one response covers a whole shelf of bins  [scope: project, project: Project Lantern, condition: none]\n4. User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf  [scope: project, project: Project Lantern, condition: none]\n5. User switched Project Lantern's framework from FastAPI to Django on October 24, 2026  [scope: project, project: Project Lantern, condition: none]\n6. User usually reaches for Falcon as their preferred framework for building web services  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "3459c881-4ffe-4715-bfeb-ef320dc0fa7e",
+      "memory": "User requires every Python file provided to them to start with the first line '# owner: platform-team'",
+      "hash": "f312f141e5fba15ad81d967d67f20a2e",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:01:28.959585+00:00",
+      "updated_at": "2026-10-24T11:01:28.959585+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    },
+    {
+      "id": "365ae114-90b2-4f2a-a423-60d3bf46c7e0",
+      "memory": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "hash": "8cb9982c2c1cd8e1abd2cbff95905d21",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:00:50.946385+00:00",
+      "updated_at": "2026-10-24T11:00:50.946385+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    },
+    {
+      "id": "4584034f-7f20-480c-92ec-86b9f79ed39a",
+      "memory": "For Project Lantern's stock endpoint, one response covers a whole shelf of bins",
+      "hash": "aa7c677524e72d14936660944f98c3fa",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:10.489052+00:00",
+      "updated_at": "2026-10-24T11:01:10.489052+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447"
+    },
+    {
+      "id": "aa50c1fe-1cde-4d26-b052-5a0b5ccfe9cd",
+      "memory": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "hash": "9c1c0d7be5f90b434f3b1aaf49db6e20",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:16.734534+00:00",
+      "updated_at": "2026-10-24T11:01:16.734534+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c350f745-6441-43b9-8ae8-a5d8e6f14660",
+      "memory": "User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf",
+      "hash": "267b6ac2e4a732d0ae621cf13da738ff",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:10.489082+00:00",
+      "updated_at": "2026-10-24T11:01:10.489082+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d10b05fd-6878-4e07-b265-105726e5c9d5",
+      "memory": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin",
+      "hash": "38380170e74e7957379a252d491b4c7b",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:01.244242+00:00",
+      "updated_at": "2026-10-24T11:01:01.244242+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e39947c4-e999-4c84-b637-9bbc708cb844",
+      "memory": "User usually reaches for Falcon as their preferred framework for building web services",
+      "hash": "b6b6b08ecca211c99785b06f8bdb4351",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:01:27.454808+00:00",
+      "updated_at": "2026-10-24T11:01:27.454808+00:00",
+      "user_id": "ss-01a-scope_write_mem0-4eb447",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "score": 0.40044721331429595,
+      "raw": {
+        "id": "365ae114-90b2-4f2a-a423-60d3bf46c7e0",
+        "memory": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+        "hash": "8cb9982c2c1cd8e1abd2cbff95905d21",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.40044721331429595,
+        "created_at": "2026-10-24T11:00:50.946385+00:00",
+        "updated_at": "2026-10-24T11:00:50.946385+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf",
+      "score": 0.30525646239883203,
+      "raw": {
+        "id": "c350f745-6441-43b9-8ae8-a5d8e6f14660",
+        "memory": "User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf",
+        "hash": "267b6ac2e4a732d0ae621cf13da738ff",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.30525646239883203,
+        "created_at": "2026-10-24T11:01:10.489082+00:00",
+        "updated_at": "2026-10-24T11:01:10.489082+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "score": 0.3023014406515364,
+      "raw": {
+        "id": "aa50c1fe-1cde-4d26-b052-5a0b5ccfe9cd",
+        "memory": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+        "hash": "9c1c0d7be5f90b434f3b1aaf49db6e20",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.3023014406515364,
+        "created_at": "2026-10-24T11:01:16.734534+00:00",
+        "updated_at": "2026-10-24T11:01:16.734534+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin",
+      "score": 0.2835881501308917,
+      "raw": {
+        "id": "d10b05fd-6878-4e07-b265-105726e5c9d5",
+        "memory": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin",
+        "hash": "38380170e74e7957379a252d491b4c7b",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.2835881501308917,
+        "created_at": "2026-10-24T11:01:01.244242+00:00",
+        "updated_at": "2026-10-24T11:01:01.244242+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User usually reaches for Falcon as their preferred framework for building web services",
+      "score": 0.24534486392777388,
+      "raw": {
+        "id": "e39947c4-e999-4c84-b637-9bbc708cb844",
+        "memory": "User usually reaches for Falcon as their preferred framework for building web services",
+        "hash": "b6b6b08ecca211c99785b06f8bdb4351",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.24534486392777388,
+        "created_at": "2026-10-24T11:01:27.454808+00:00",
+        "updated_at": "2026-10-24T11:01:27.454808+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "For Project Lantern's stock endpoint, one response covers a whole shelf of bins",
+      "score": 0.23694261754290363,
+      "raw": {
+        "id": "4584034f-7f20-480c-92ec-86b9f79ed39a",
+        "memory": "For Project Lantern's stock endpoint, one response covers a whole shelf of bins",
+        "hash": "aa7c677524e72d14936660944f98c3fa",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.23694261754290363,
+        "created_at": "2026-10-24T11:01:10.489052+00:00",
+        "updated_at": "2026-10-24T11:01:10.489052+00:00",
+        "user_id": "ss-01a-scope_write_mem0-4eb447"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User usually reaches for Falcon as their preferred framework for building web services",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Lantern's stock endpoint, one response covers a whole shelf of bins",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "For Project Lantern, use FastAPI.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "The warehouse team wants the stock endpoint to return counts per bin.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "one response covers a whole shelf",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Lantern, switch to Django",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually reach for Falcon for web services.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "start every Python file you give me with the first line # owner: platform-team.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-01a-scope_write_mem0-4eb447",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Lantern should use FastAPI as its framework or technology stack  [scope: project, project: Project Lantern, condition: none]\n2. The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin  [scope: project, project: Project Lantern, condition: none]\n3. For Project Lantern's stock endpoint, one response covers a whole shelf of bins  [scope: project, project: Project Lantern, condition: none]\n4. User specified that for Project Lantern's stock endpoint, one response should cover a whole shelf  [scope: project, project: Project Lantern, condition: none]\n5. User switched Project Lantern's framework from FastAPI to Django on October 24, 2026  [scope: project, project: Project Lantern, condition: none]\n6. User usually reaches for Falcon as their preferred framework for building web services  [scope: standing, condition: none]\n\nCurrent request:\nScaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: Django\n\n```python\n# project_lantern/settings.py (minimal configuration for the app)\nINSTALLED_APPS = [\n    'django.contrib.contenttypes',\n    'django.contrib.auth',\n]\n\nROOT_URLCONF = 'project_lantern.urls'\n\n# project_lantern/urls.py\nfrom django.http import JsonResponse\nfrom django.urls import path\n\ndef health_check(request):\n    return JsonResponse({\"status\": \"ok\"})\n\nurlpatterns = [\n    path('health/', health_check, name='health-check'),\n]\n```",
+    "first_line": "Framework: Django"
+  },
+  "usage": {
+    "total_cost_usd": 0.0016863359999999999,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5325,
+        "completion_tokens": 298,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000321338
+      },
+      "mem0": {
+        "calls": 6,
+        "prompt_tokens": 50023,
+        "completion_tokens": 375,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.001264852
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 536,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000100146
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "django",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "django",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

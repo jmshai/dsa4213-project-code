@@ -1,0 +1,151 @@
+{
+  "episode_id": "sp-02b",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:22:56+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line. Assistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile? User: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'. Assistant: Understood: for neighbours the first line is 'Hey there,'. User: Thanks. I'll send the first one soon.  [scope: standing, condition: none]\n2. User: Separate thing: I'm sorting out my inbox and some old drafts. Assistant: Okay. Anything about how you want the replies to open? User: Quick question first: how long is it polite to wait before sending a reminder? Assistant: A week is usually fine for non-urgent matters, a few days if there's a deadline. User: By default, open every email with 'To whom it may concern,'. Assistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise. User: Thanks, that's all for now.  [scope: standing, condition: recipient == neighbour]",
+  "stored": [
+    {
+      "id": "SXrnha7fksqYsWhXrG3pQN",
+      "title": "User: Separate thing: I'm sorting out my inbox and...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:23:16.852000Z",
+        "updatedAt": "2026-10-24T17:23:23.504000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "X8fJtZTgvVpCzVxFPZK5mK",
+      "title": "User: I have a pile of emails to write this week a...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:23:07.998000Z",
+        "updatedAt": "2026-10-24T17:23:14.578000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line. Assistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile? User: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'. Assistant: Understood: for neighbours the first line is 'Hey there,'. User: Thanks. I'll send the first one soon.",
+      "score": 0.62390596,
+      "raw": {
+        "id": "f1016a19dc92256934add2",
+        "memory": null,
+        "chunk": "User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line. Assistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile? User: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'. Assistant: Understood: for neighbours the first line is 'Hey there,'. User: Thanks. I'll send the first one soon.",
+        "metadata": {},
+        "similarity": 0.62390596,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:23:14.578Z",
+          "created_at": "2026-10-24T17:23:07.998Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Separate thing: I'm sorting out my inbox and some old drafts. Assistant: Okay. Anything about how you want the replies to open? User: Quick question first: how long is it polite to wait before sending a reminder? Assistant: A week is usually fine for non-urgent matters, a few days if there's a deadline. User: By default, open every email with 'To whom it may concern,'. Assistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise. User: Thanks, that's all for now.",
+      "score": 0.60862702,
+      "raw": {
+        "id": "2659d741fca177d7261693",
+        "memory": null,
+        "chunk": "User: Separate thing: I'm sorting out my inbox and some old drafts. Assistant: Okay. Anything about how you want the replies to open? User: Quick question first: how long is it polite to wait before sending a reminder? Assistant: A week is usually fine for non-urgent matters, a few days if there's a deadline. User: By default, open every email with 'To whom it may concern,'. Assistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise. User: Thanks, that's all for now.",
+        "metadata": {},
+        "similarity": 0.60862702,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:23:23.504Z",
+          "created_at": "2026-10-24T17:23:16.852Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line. Assistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile? User: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'. Assistant: Understood: for neighbours the first line is 'Hey there,'. User: Thanks. I'll send the first one soon.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Separate thing: I'm sorting out my inbox and some old drafts. Assistant: Okay. Anything about how you want the replies to open? User: Quick question first: how long is it polite to wait before sending a reminder? Assistant: A week is usually fine for non-urgent matters, a few days if there's a deadline. User: By default, open every email with 'To whom it may concern,'. Assistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise. User: Thanks, that's all for now.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "sp-02b-scope_read_supermemory-3d2519",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I have a pile of emails to write this week and I'm behind. Before we start, from now on, end every email with 'Regards, Priya' on its own last line. Assistant: Got it, every email ends with 'Regards, Priya' on its own line. What kinds of emails are in the pile? User: A few to people in my building. From now on, when I write to a neighbour, make the first line 'Hey there,'. Assistant: Understood: for neighbours the first line is 'Hey there,'. User: Thanks. I'll send the first one soon.  [scope: standing, condition: none]\n2. User: Separate thing: I'm sorting out my inbox and some old drafts. Assistant: Okay. Anything about how you want the replies to open? User: Quick question first: how long is it polite to wait before sending a reminder? Assistant: A week is usually fine for non-urgent matters, a few days if there's a deadline. User: By default, open every email with 'To whom it may concern,'. Assistant: Noted: every email opens with 'To whom it may concern,' unless you say otherwise. User: Thanks, that's all for now.  [scope: standing, condition: recipient == neighbour]\n\nCurrent request:\nWrite the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I used the standing memory for the closing signature and applied the neighbour-specific opening rule from the first conversation, as the landlord is a person in the user's building.\n\nHey there,\n\nCould we swap parking spots 14 and 15 starting from 1 April? Please let me know if this is possible.\n\nRegards, Priya",
+    "first_line": "I used the standing memory for the closing signature and applied the neighbour-specific opening rule from the first conversation, as the landlord is a person in the user's building."
+  },
+  "usage": {
+    "total_cost_usd": 0.00015468399999999998,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1895,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000100992
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 596,
+        "completion_tokens": 70,
+        "reasoning_tokens": 0,
+        "cost_usd": 5.3692e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "to whom it may concern",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

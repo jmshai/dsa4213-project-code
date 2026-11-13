@@ -1,0 +1,169 @@
+{
+  "episode_id": "st-02a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:07:40+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create  [scope: standing, condition: none]\n2. User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "2eaddb69-2901-47c5-a96e-8237319f78e9",
+      "memory": "User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.",
+      "hash": "6cfc64a2ab98f65f21dcacf847e4048b",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:08:09.374950+00:00",
+      "updated_at": "2026-10-24T11:08:09.374950+00:00",
+      "user_id": "st-02a-scope_write_mem0-92762b",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d0ba94a5-3d84-4eb0-bd98-df787e9c6523",
+      "memory": "User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create",
+      "hash": "9d619c85a6d54476fb874020ed68e8c4",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:08:07.471330+00:00",
+      "updated_at": "2026-10-24T11:08:07.471330+00:00",
+      "user_id": "st-02a-scope_write_mem0-92762b"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.",
+      "score": 0.34938930771412746,
+      "raw": {
+        "id": "2eaddb69-2901-47c5-a96e-8237319f78e9",
+        "memory": "User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.",
+        "hash": "6cfc64a2ab98f65f21dcacf847e4048b",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.34938930771412746,
+        "created_at": "2026-10-24T11:08:09.374950+00:00",
+        "updated_at": "2026-10-24T11:08:09.374950+00:00",
+        "user_id": "st-02a-scope_write_mem0-92762b",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create",
+      "score": 0.24331541697476206,
+      "raw": {
+        "id": "d0ba94a5-3d84-4eb0-bd98-df787e9c6523",
+        "memory": "User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create",
+        "hash": "9d619c85a6d54476fb874020ed68e8c4",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.24331541697476206,
+        "created_at": "2026-10-24T11:08:07.471330+00:00",
+        "updated_at": "2026-10-24T11:08:07.471330+00:00",
+        "user_id": "st-02a-scope_write_mem0-92762b"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "The card has a title, the ingredients and three or four method steps.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "This time, give amounts in cups for this recipe card.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "put an Allergens: line under every ingredient list you write",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I stick to metric units for recipe amounts",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-02a-scope_write_mem0-92762b",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User wants an 'Allergens:' line placed under every ingredient list in recipe cards they create  [scope: standing, condition: none]\n2. User prefers to use metric units for recipe amounts, contradicting the previous request to give amounts in cups.  [scope: standing, condition: none]\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: Metric units only, with an Allergens line.\n\n**Ingredients:**\n*   250 g flour\n*   200 g sugar\n*   115 g butter\n*   120 ml milk\n*   2 eggs\n\nAllergens: Wheat (flour), Milk, Eggs",
+    "first_line": "Format: Metric units only, with an Allergens line."
+  },
+  "usage": {
+    "total_cost_usd": 0.001043092,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3571,
+        "completion_tokens": 210,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000222702
+      },
+      "mem0": {
+        "calls": 4,
+        "prompt_tokens": 33039,
+        "completion_tokens": 115,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000756204
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 431,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.4186e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "metric",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

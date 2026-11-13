@@ -1,0 +1,47 @@
+{
+  "episode_id": "st-02a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:28:35+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I selected the metric unit (grams/ml) as the single unit per amount to ensure precision for baking.\n\n**Ingredients:**\n*   250 g flour\n*   200 g sugar\n*   115 g butter\n*   120 ml milk\n*   2 eggs",
+    "first_line": "I selected the metric unit (grams/ml) as the single unit per amount to ensure precision for baking."
+  },
+  "usage": {
+    "total_cost_usd": 5.849e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 180,
+        "completion_tokens": 67,
+        "reasoning_tokens": 0,
+        "cost_usd": 5.849e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "metric",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "episode_id": "st-02a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:30:42+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale.\nAssistant: Lovely. What do you want on the card, and how should the quantities read?\nUser: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card.\nAssistant: Got it. Is there anything special about how the amounts should be written?\nUser: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures.\nAssistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.\n\nConversation 2:\nUser: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies.\nAssistant: Will do. Which recipe are we working on?\nUser: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes?\nAssistant: Metric it is, grams and millilitres. Send the notes over when you have them.\nUser: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale.\nAssistant: Lovely. What do you want on the card, and how should the quantities read?\nUser: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card.\nAssistant: Got it. Is there anything special about how the amounts should be written?\nUser: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures.\nAssistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.\n\nConversation 2:\nUser: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies.\nAssistant: Will do. Which recipe are we working on?\nUser: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes?\nAssistant: Metric it is, grams and millilitres. Send the notes over when you have them.\nUser: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose to use cups for all ingredient amounts, as specified in the earlier conversation for this specific recipe card.\n\n**Lemon Loaf**\n\n**Ingredients:**\n*   2 cups flour\n*   1 cup sugar\n*   1/2 cup butter\n*   1/2 cup milk\n*   2 eggs",
+    "first_line": "I chose to use cups for all ingredient amounts, as specified in the earlier conversation for this specific recipe card."
+  },
+  "usage": {
+    "total_cost_usd": 9.892e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 437,
+        "completion_tokens": 71,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.892e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "cups",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

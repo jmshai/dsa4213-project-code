@@ -1,0 +1,47 @@
+{
+  "episode_id": "cs-02b",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:29:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules.\nAssistant: Understood, two sentences per status update. Who do you usually write them for?\nUser: Mostly the rollout team and our department leads.\nAssistant: Good to know. Do you want me to keep a template handy?\nUser: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.\n\nConversation 2:\nUser: I've just taken over Project Helios, a warehouse robot rollout.\nAssistant: Congratulations. Where do things stand?\nUser: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month.\nAssistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal?\nUser: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates.\nAssistant: Sure. Who reads the updates?\nUser: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture.\nAssistant: Understood. Helios updates for the board run exactly eight sentences.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules.\nAssistant: Understood, two sentences per status update. Who do you usually write them for?\nUser: Mostly the rollout team and our department leads.\nAssistant: Good to know. Do you want me to keep a template handy?\nUser: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.\n\nConversation 2:\nUser: I've just taken over Project Helios, a warehouse robot rollout.\nAssistant: Congratulations. Where do things stand?\nUser: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month.\nAssistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal?\nUser: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates.\nAssistant: Sure. Who reads the updates?\nUser: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture.\nAssistant: Understood. Helios updates for the board run exactly eight sentences.\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the engineers. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the default two-sentence rule for status updates since this request is aimed at engineers rather than the board.\n\nRobots are live at 3 of 5 sites with pick rates rising from 410 to 520 lines per hour, while the remaining two sites slipped one week due to a conveyor delay. The new sorter passed acceptance testing, spend is 4% under plan, three operators finished training, and the safety audit passed ahead of the beta review on 2027-03-14.",
+    "first_line": "I applied the default two-sentence rule for status updates since this request is aimed at engineers rather than the board."
+  },
+  "usage": {
+    "total_cost_usd": 8.7746e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 469,
+        "completion_tokens": 110,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.7746e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "two sentences",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

@@ -1,0 +1,295 @@
+{
+  "episode_id": "po-03a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:15:39+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026  [scope: standing, condition: none]\n2. The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history  [scope: project, project: Project Corvid, condition: none]\n3. User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo  [scope: standing, condition: none]\n4. User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.  [scope: standing, condition: none]\n5. User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.  [scope: standing, condition: none]\n6. User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.  [scope: standing, condition: none]\n7. User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "211032ce-ad3a-4d18-8325-afddabc4298e",
+      "memory": "User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.",
+      "hash": "be79cbfb1f6f5e4a092b5d3ac787d3d0",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:54.887694+00:00",
+      "updated_at": "2026-10-24T11:15:54.887694+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5423bbf0-0e65-4924-b579-0110d2fb52eb",
+      "memory": "User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+      "hash": "74c92eb981005ab6697db48b29919652",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:54.887714+00:00",
+      "updated_at": "2026-10-24T11:15:54.887714+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "869bb351-fed5-4328-8a5d-8a3af9d640d8",
+      "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "hash": "794b2479cac4eede19251aae5f71f3bf",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:48.796051+00:00",
+      "updated_at": "2026-10-24T11:15:48.796051+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "user"
+    },
+    {
+      "id": "8c618256-5888-4b55-adc7-271d1457ba77",
+      "memory": "User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.",
+      "hash": "d6cb9bd17672d9de3d2c5af9556e05d8",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:54.887664+00:00",
+      "updated_at": "2026-10-24T11:15:54.887664+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bf6f282b-e6bc-4a13-8d49-b1c47ebd86a9",
+      "memory": "User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo",
+      "hash": "dfe7a8831268ad4caeb93b8797b7f46a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:48.796094+00:00",
+      "updated_at": "2026-10-24T11:15:48.796094+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "d27da383-8761-4e2c-82ab-2c0528bd9e8a",
+      "memory": "User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.",
+      "hash": "119a7456af8f9e485aec2e0f30e2fc38",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:54.887707+00:00",
+      "updated_at": "2026-10-24T11:15:54.887707+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "d2f6af55-56a7-436a-85d5-63251506aca2",
+      "memory": "The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history",
+      "hash": "150e86a16ba0d5a491b126e3300e2c0c",
+      "metadata": null,
+      "created_at": "2026-10-24T11:15:48.796084+00:00",
+      "updated_at": "2026-10-24T11:15:48.796084+00:00",
+      "user_id": "po-03a-scope_read_mem0-c217d8",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history",
+      "score": 0.6719353016061036,
+      "raw": {
+        "id": "d2f6af55-56a7-436a-85d5-63251506aca2",
+        "memory": "The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history",
+        "hash": "150e86a16ba0d5a491b126e3300e2c0c",
+        "metadata": null,
+        "score": 0.6719353016061036,
+        "created_at": "2026-10-24T11:15:48.796084+00:00",
+        "updated_at": "2026-10-24T11:15:48.796084+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.",
+      "score": 0.6690726859874381,
+      "raw": {
+        "id": "8c618256-5888-4b55-adc7-271d1457ba77",
+        "memory": "User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.",
+        "hash": "d6cb9bd17672d9de3d2c5af9556e05d8",
+        "metadata": null,
+        "score": 0.6690726859874381,
+        "created_at": "2026-10-24T11:15:54.887664+00:00",
+        "updated_at": "2026-10-24T11:15:54.887664+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+      "score": 0.3989445949603222,
+      "raw": {
+        "id": "5423bbf0-0e65-4924-b579-0110d2fb52eb",
+        "memory": "User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+        "hash": "74c92eb981005ab6697db48b29919652",
+        "metadata": null,
+        "score": 0.3989445949603222,
+        "created_at": "2026-10-24T11:15:54.887714+00:00",
+        "updated_at": "2026-10-24T11:15:54.887714+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.",
+      "score": 0.35340271662047773,
+      "raw": {
+        "id": "d27da383-8761-4e2c-82ab-2c0528bd9e8a",
+        "memory": "User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.",
+        "hash": "119a7456af8f9e485aec2e0f30e2fc38",
+        "metadata": null,
+        "score": 0.35340271662047773,
+        "created_at": "2026-10-24T11:15:54.887707+00:00",
+        "updated_at": "2026-10-24T11:15:54.887707+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo",
+      "score": 0.28294882497927043,
+      "raw": {
+        "id": "bf6f282b-e6bc-4a13-8d49-b1c47ebd86a9",
+        "memory": "User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo",
+        "hash": "dfe7a8831268ad4caeb93b8797b7f46a",
+        "metadata": null,
+        "score": 0.28294882497927043,
+        "created_at": "2026-10-24T11:15:48.796094+00:00",
+        "updated_at": "2026-10-24T11:15:48.796094+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "score": 0.2652268795125594,
+      "raw": {
+        "id": "869bb351-fed5-4328-8a5d-8a3af9d640d8",
+        "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+        "hash": "794b2479cac4eede19251aae5f71f3bf",
+        "metadata": null,
+        "score": 0.2652268795125594,
+        "created_at": "2026-10-24T11:15:48.796051+00:00",
+        "updated_at": "2026-10-24T11:15:48.796051+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.",
+      "score": 0.2386536745475647,
+      "raw": {
+        "id": "211032ce-ad3a-4d18-8325-afddabc4298e",
+        "memory": "User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.",
+        "hash": "be79cbfb1f6f5e4a092b5d3ac787d3d0",
+        "metadata": null,
+        "score": 0.2386536745475647,
+        "created_at": "2026-10-24T11:15:54.887694+00:00",
+        "updated_at": "2026-10-24T11:15:54.887694+00:00",
+        "user_id": "po-03a-scope_read_mem0-c217d8",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "po-03a-scope_read_mem0-c217d8",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026  [scope: standing, condition: none]\n2. The git workflow for Project Corvid requires rebasing feature branches onto main to maintain a linear history  [scope: project, project: Project Corvid, condition: none]\n3. User was instructed to set up a pre-commit hook by adding a .pre-commit-config.yaml file with the linter hook and running 'pre-commit install' once in the repo  [scope: standing, condition: none]\n4. User prefers syncing feature branches with main using merge commits, which contradicts the previously established Project Corvid workflow of rebasing onto main for linear history.  [scope: standing, condition: none]\n5. User requested that all git commands provided by the assistant include a one-line comment above them explaining their function.  [scope: standing, condition: none]\n6. User was instructed to use 'git stash list' to view saved stashes and 'git stash apply stash@{0}' to restore a specific stash when work was lost on a feature branch.  [scope: standing, condition: none]\n7. User was recommended 'git diff --name-only main...HEAD' to list files differing between their branch and main, and learned that three-dot syntax compares against the split point (showing only local changes) while two-dot syntax compares branch tips directly.  [scope: standing, condition: none]\n\nCurrent request:\nMy feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow.\n\n```bash\n# Fetch the latest changes from the remote repository\ngit fetch origin\n\n# Switch to your feature branch\ngit checkout <your-feature-branch-name>\n\n# Rebase your feature branch onto the updated main branch\ngit rebase origin/main\n```",
+    "first_line": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow."
+  },
+  "usage": {
+    "total_cost_usd": 0.000949464,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17030,
+        "completion_tokens": 468,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000647612
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1885,
+        "completion_tokens": 260,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000199126
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 666,
+        "completion_tokens": 79,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000102726
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "rebase",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "rebase",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

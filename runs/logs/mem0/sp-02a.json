@@ -1,0 +1,181 @@
+{
+  "episode_id": "sp-02a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:38:45+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- When writing emails to neighbours, User requires the first line to be 'Hey there,'.\n- Assistant advised that waiting a week is polite for non-urgent reminders, while a few days is appropriate if there is a deadline.\n- User's name is Priya and requires all emails to end with 'Regards, Priya' on its own last line.\n- User is currently sorting out their inbox and reviewing old drafts.\n- By default, User requires every email to open with 'To whom it may concern,' unless specified otherwise.",
+  "stored": [
+    {
+      "id": "140c7ada-14d7-4dcb-bc0b-4a1c3fb26c83",
+      "memory": "User's name is Priya and requires all emails to end with 'Regards, Priya' on its own last line.",
+      "hash": "966c89d2e95710fc770e26f7625191e1",
+      "metadata": null,
+      "created_at": "2026-10-24T10:38:54.960122+00:00",
+      "updated_at": "2026-10-24T10:38:54.960122+00:00",
+      "user_id": "sp-02a-mem0-77e334",
+      "attributed_to": "user"
+    },
+    {
+      "id": "2dfabb90-b6df-41c9-bae2-782c7471ae18",
+      "memory": "User is currently sorting out their inbox and reviewing old drafts.",
+      "hash": "1f9b420ccf4b019b4ce143927a28c54b",
+      "metadata": null,
+      "created_at": "2026-10-24T10:38:57.871739+00:00",
+      "updated_at": "2026-10-24T10:38:57.871739+00:00",
+      "user_id": "sp-02a-mem0-77e334",
+      "attributed_to": "user"
+    },
+    {
+      "id": "37ba32be-df33-43d8-b0c6-7cbd68078fe3",
+      "memory": "Assistant advised that waiting a week is polite for non-urgent reminders, while a few days is appropriate if there is a deadline.",
+      "hash": "5da4ba3e20c4b341587fa11ea852cac4",
+      "metadata": null,
+      "created_at": "2026-10-24T10:38:57.871774+00:00",
+      "updated_at": "2026-10-24T10:38:57.871774+00:00",
+      "user_id": "sp-02a-mem0-77e334",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "4dfff6b6-2f2c-49f7-879a-a1ac1976117b",
+      "memory": "By default, User requires every email to open with 'To whom it may concern,' unless specified otherwise.",
+      "hash": "4df657252df52e86dc08c90a263a3fba",
+      "metadata": null,
+      "created_at": "2026-10-24T10:38:57.871765+00:00",
+      "updated_at": "2026-10-24T10:38:57.871765+00:00",
+      "user_id": "sp-02a-mem0-77e334",
+      "attributed_to": "user"
+    },
+    {
+      "id": "914e1919-0473-4f7e-902b-c90413674c28",
+      "memory": "When writing emails to neighbours, User requires the first line to be 'Hey there,'.",
+      "hash": "45c440d6ba568148da21c828d2430547",
+      "metadata": null,
+      "created_at": "2026-10-24T10:38:54.960169+00:00",
+      "updated_at": "2026-10-24T10:38:54.960169+00:00",
+      "user_id": "sp-02a-mem0-77e334",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "When writing emails to neighbours, User requires the first line to be 'Hey there,'.",
+      "score": 0.25019013287723835,
+      "raw": {
+        "id": "914e1919-0473-4f7e-902b-c90413674c28",
+        "memory": "When writing emails to neighbours, User requires the first line to be 'Hey there,'.",
+        "hash": "45c440d6ba568148da21c828d2430547",
+        "metadata": null,
+        "score": 0.25019013287723835,
+        "created_at": "2026-10-24T10:38:54.960169+00:00",
+        "updated_at": "2026-10-24T10:38:54.960169+00:00",
+        "user_id": "sp-02a-mem0-77e334",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "Assistant advised that waiting a week is polite for non-urgent reminders, while a few days is appropriate if there is a deadline.",
+      "score": 0.2061050138893229,
+      "raw": {
+        "id": "37ba32be-df33-43d8-b0c6-7cbd68078fe3",
+        "memory": "Assistant advised that waiting a week is polite for non-urgent reminders, while a few days is appropriate if there is a deadline.",
+        "hash": "5da4ba3e20c4b341587fa11ea852cac4",
+        "metadata": null,
+        "score": 0.2061050138893229,
+        "created_at": "2026-10-24T10:38:57.871774+00:00",
+        "updated_at": "2026-10-24T10:38:57.871774+00:00",
+        "user_id": "sp-02a-mem0-77e334",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User's name is Priya and requires all emails to end with 'Regards, Priya' on its own last line.",
+      "score": 0.18918922420535728,
+      "raw": {
+        "id": "140c7ada-14d7-4dcb-bc0b-4a1c3fb26c83",
+        "memory": "User's name is Priya and requires all emails to end with 'Regards, Priya' on its own last line.",
+        "hash": "966c89d2e95710fc770e26f7625191e1",
+        "metadata": null,
+        "score": 0.18918922420535728,
+        "created_at": "2026-10-24T10:38:54.960122+00:00",
+        "updated_at": "2026-10-24T10:38:54.960122+00:00",
+        "user_id": "sp-02a-mem0-77e334",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is currently sorting out their inbox and reviewing old drafts.",
+      "score": 0.14311369481692493,
+      "raw": {
+        "id": "2dfabb90-b6df-41c9-bae2-782c7471ae18",
+        "memory": "User is currently sorting out their inbox and reviewing old drafts.",
+        "hash": "1f9b420ccf4b019b4ce143927a28c54b",
+        "metadata": null,
+        "score": 0.14311369481692493,
+        "created_at": "2026-10-24T10:38:57.871739+00:00",
+        "updated_at": "2026-10-24T10:38:57.871739+00:00",
+        "user_id": "sp-02a-mem0-77e334",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "By default, User requires every email to open with 'To whom it may concern,' unless specified otherwise.",
+      "score": 0.12936274418742133,
+      "raw": {
+        "id": "4dfff6b6-2f2c-49f7-879a-a1ac1976117b",
+        "memory": "By default, User requires every email to open with 'To whom it may concern,' unless specified otherwise.",
+        "hash": "4df657252df52e86dc08c90a263a3fba",
+        "metadata": null,
+        "score": 0.12936274418742133,
+        "created_at": "2026-10-24T10:38:57.871765+00:00",
+        "updated_at": "2026-10-24T10:38:57.871765+00:00",
+        "user_id": "sp-02a-mem0-77e334",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "sp-02a-mem0-77e334",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- When writing emails to neighbours, User requires the first line to be 'Hey there,'.\n- Assistant advised that waiting a week is polite for non-urgent reminders, while a few days is appropriate if there is a deadline.\n- User's name is Priya and requires all emails to end with 'Regards, Priya' on its own last line.\n- User is currently sorting out their inbox and reviewing old drafts.\n- By default, User requires every email to open with 'To whom it may concern,' unless specified otherwise.\n\nCurrent request:\nWrite the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose the neighbour-specific greeting format over the default professional opening.\n\nHey there,\n\nWould it be possible for us to swap parking spots 14 and 15 starting from 1 April? Please let me know if this works for you.\n\nRegards, Priya",
+    "first_line": "I chose the neighbour-specific greeting format over the default professional opening."
+  },
+  "usage": {
+    "total_cost_usd": 0.000577262,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16880,
+        "completion_tokens": 232,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000514192
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 245,
+        "completion_tokens": 56,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.307e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "hey there",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

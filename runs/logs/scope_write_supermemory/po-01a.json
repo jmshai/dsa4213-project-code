@@ -1,0 +1,235 @@
+{
+  "episode_id": "po-01a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:20:19+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that deduplicates the 5M-row orders table for Project Marlin by order_id, keeping the row with the latest updated_at, and returns the cleaned dataframe.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: For Project Marlin, use pandas.  [scope: project, project: Project Marlin, condition: none]\n2. User: Whenever you write a function for me, give every parameter and the return value a type hint.  [scope: standing, condition: none]\n3. User: I usually go with Polars when a dataset is over 1M rows.  [scope: standing, condition: rows > 1000000]",
+  "stored": [
+    {
+      "id": "y58mG8ncxLw1SGTjYDzYgg",
+      "title": "User: I usually go with Polars when a dataset is o...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing",
+        "condition": "rows > 1000000"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:21:13.990000Z",
+        "updatedAt": "2026-10-24T16:21:21.780000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Ub7Q567ZwGKG8KcxvZqGsf",
+      "title": "User: Whenever you write a function for me, give e...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:21:01.905000Z",
+        "updatedAt": "2026-10-24T16:21:11.572000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "cCPpPNxM7tnfM4hrqkmddz",
+      "title": "User: For Project Marlin, use pandas.",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Marlin"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:20:31.209000Z",
+        "updatedAt": "2026-10-24T16:20:36.725000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: For Project Marlin, use pandas.",
+      "score": 0.60575265,
+      "raw": {
+        "id": "ceb3bbffdff0958ab9319d",
+        "memory": null,
+        "chunk": "User: For Project Marlin, use pandas.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Marlin"
+        },
+        "similarity": 0.60575265,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:20:36.725Z",
+          "created_at": "2026-10-24T16:20:31.209Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I usually go with Polars when a dataset is over 1M rows.",
+      "score": 0.5895907300000001,
+      "raw": {
+        "id": "d0f331dbcbec20c363955f",
+        "memory": null,
+        "chunk": "User: I usually go with Polars when a dataset is over 1M rows.",
+        "metadata": {
+          "scope": "standing",
+          "condition": "rows > 1000000"
+        },
+        "similarity": 0.5895907300000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:21:21.780Z",
+          "created_at": "2026-10-24T16:21:13.990Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Whenever you write a function for me, give every parameter and the return value a type hint.",
+      "score": 0.48072194999999995,
+      "raw": {
+        "id": "b7e03c400c05c124c0b6ef",
+        "memory": null,
+        "chunk": "User: Whenever you write a function for me, give every parameter and the return value a type hint.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.48072194999999995,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:21:11.572Z",
+          "created_at": "2026-10-24T16:21:01.905Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: For Project Marlin, use pandas.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I usually go with Polars when a dataset is over 1M rows.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "rows > 1000000"
+      }
+    },
+    {
+      "text": "User: Whenever you write a function for me, give every parameter and the return value a type hint.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "For Project Marlin, use pandas.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "Whenever you write a function for me, give every parameter and the return value a type hint.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually go with Polars when a dataset is over 1M rows.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "rows > 1000000"
+      }
+    }
+  ],
+  "namespace": "po-01a-scope_write_supermemory-dacb2d",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: For Project Marlin, use pandas.  [scope: project, project: Project Marlin, condition: none]\n2. User: Whenever you write a function for me, give every parameter and the return value a type hint.  [scope: standing, condition: none]\n3. User: I usually go with Polars when a dataset is over 1M rows.  [scope: standing, condition: rows > 1000000]\n\nCurrent request:\nWrite a Python function that deduplicates the 5M-row orders table for Project Marlin by order_id, keeping the row with the latest updated_at, and returns the cleaned dataframe.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool choice: Polars (because the dataset exceeds 1M rows, triggering the standing preference for Polars over the project-specific pandas instruction).\n\n```python\nimport polars as pl\n\ndef deduplicate_orders(orders_df: pl.DataFrame) -> pl.DataFrame:\n    \"\"\"\n    Deduplicates the orders table by order_id, keeping the row with the latest updated_at.\n    \n    Args:\n        orders_df: A Polars DataFrame containing at least 'order_id' and 'updated_at' columns.\n        \n    Returns:\n        A cleaned Polars DataFrame with unique order_ids, retaining the most recent record per ID.\n    \"\"\"\n    # Sort by updated_at descending so that the latest record comes first for each order_id\n    sorted_df = orders_df.sort(\"updated_at\", descending=True)\n    \n    # Keep the first occurrence of each order_id (which is the latest due to sorting)\n    cleaned_df = sorted_df.unique(subset=[\"order_id\"], keep=\"first\")\n    \n    return cleaned_df\n```",
+    "first_line": "Tool choice: Polars (because the dataset exceeds 1M rows, triggering the standing preference for Polars over the project-specific pandas instruction)."
+  },
+  "usage": {
+    "total_cost_usd": 0.000347068,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3610,
+        "completion_tokens": 182,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00021539200000000001
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 436,
+        "completion_tokens": 214,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000131676
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-01",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "pandas",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "polars",
+    "memory_actions": {
+      "m1": "polars",
+      "m2": "pandas"
+    }
+  }
+}

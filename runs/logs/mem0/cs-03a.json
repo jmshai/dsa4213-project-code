@@ -1,0 +1,181 @@
+{
+  "episode_id": "cs-03a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:32:45+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- For Project Kestrel specifically, flights over 6 hours are booked in premium economy due to User's back issues, overriding the general economy default for long-haul work trips.\n- User is working on Project Kestrel, a client rollout involving frequent business travel.\n- The client associated with Project Kestrel is moving offices in spring, which will require updating hotel search locations later.\n- User prefers economy class as the default for business travel flight bookings unless explicitly stated otherwise.\n- User requested that all times be written in 24-hour format (e.g., 21:45) starting from October 24, 2026.",
+  "stored": [
+    {
+      "id": "27ef5f6c-3a24-402c-8a27-d20955fde8d7",
+      "memory": "User is working on Project Kestrel, a client rollout involving frequent business travel.",
+      "hash": "0bc8289e385235a625cd8fdd68324998",
+      "metadata": null,
+      "created_at": "2026-10-24T10:33:20.599381+00:00",
+      "updated_at": "2026-10-24T10:33:20.599381+00:00",
+      "user_id": "cs-03a-mem0-583b3f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "64e8c238-7d46-49cd-803e-77aa7a227dac",
+      "memory": "User requested that all times be written in 24-hour format (e.g., 21:45) starting from October 24, 2026.",
+      "hash": "dd9d45b35bc06339b4cd1fe683560253",
+      "metadata": null,
+      "created_at": "2026-10-24T10:33:10.741602+00:00",
+      "updated_at": "2026-10-24T10:33:10.741602+00:00",
+      "user_id": "cs-03a-mem0-583b3f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6c535f91-2b24-4f4e-9597-1293f0da047f",
+      "memory": "The client associated with Project Kestrel is moving offices in spring, which will require updating hotel search locations later.",
+      "hash": "a4977aa63c227f6acfa5dea4c6dd079b",
+      "metadata": null,
+      "created_at": "2026-10-24T10:33:20.599435+00:00",
+      "updated_at": "2026-10-24T10:33:20.599435+00:00",
+      "user_id": "cs-03a-mem0-583b3f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "869a7330-8aa5-4ba8-8cc0-a139ef69138b",
+      "memory": "For Project Kestrel specifically, flights over 6 hours are booked in premium economy due to User's back issues, overriding the general economy default for long-haul work trips.",
+      "hash": "a7e466a98540c4b2f021f450b9b3ccf9",
+      "metadata": null,
+      "created_at": "2026-10-24T10:33:20.599426+00:00",
+      "updated_at": "2026-10-24T10:33:20.599426+00:00",
+      "user_id": "cs-03a-mem0-583b3f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d3a8b48e-7cb6-40df-aa9a-e6063991ae0f",
+      "memory": "User prefers economy class as the default for business travel flight bookings unless explicitly stated otherwise.",
+      "hash": "e0b1420ca057b7f5ab7e9f5ce7eaca79",
+      "metadata": null,
+      "created_at": "2026-10-24T10:33:10.741570+00:00",
+      "updated_at": "2026-10-24T10:33:10.741570+00:00",
+      "user_id": "cs-03a-mem0-583b3f",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "For Project Kestrel specifically, flights over 6 hours are booked in premium economy due to User's back issues, overriding the general economy default for long-haul work trips.",
+      "score": 0.6058584040955833,
+      "raw": {
+        "id": "869a7330-8aa5-4ba8-8cc0-a139ef69138b",
+        "memory": "For Project Kestrel specifically, flights over 6 hours are booked in premium economy due to User's back issues, overriding the general economy default for long-haul work trips.",
+        "hash": "a7e466a98540c4b2f021f450b9b3ccf9",
+        "metadata": null,
+        "score": 0.6058584040955833,
+        "created_at": "2026-10-24T10:33:20.599426+00:00",
+        "updated_at": "2026-10-24T10:33:20.599426+00:00",
+        "user_id": "cs-03a-mem0-583b3f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is working on Project Kestrel, a client rollout involving frequent business travel.",
+      "score": 0.5243051367469419,
+      "raw": {
+        "id": "27ef5f6c-3a24-402c-8a27-d20955fde8d7",
+        "memory": "User is working on Project Kestrel, a client rollout involving frequent business travel.",
+        "hash": "0bc8289e385235a625cd8fdd68324998",
+        "metadata": null,
+        "score": 0.5243051367469419,
+        "created_at": "2026-10-24T10:33:20.599381+00:00",
+        "updated_at": "2026-10-24T10:33:20.599381+00:00",
+        "user_id": "cs-03a-mem0-583b3f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The client associated with Project Kestrel is moving offices in spring, which will require updating hotel search locations later.",
+      "score": 0.46823718935299424,
+      "raw": {
+        "id": "6c535f91-2b24-4f4e-9597-1293f0da047f",
+        "memory": "The client associated with Project Kestrel is moving offices in spring, which will require updating hotel search locations later.",
+        "hash": "a4977aa63c227f6acfa5dea4c6dd079b",
+        "metadata": null,
+        "score": 0.46823718935299424,
+        "created_at": "2026-10-24T10:33:20.599435+00:00",
+        "updated_at": "2026-10-24T10:33:20.599435+00:00",
+        "user_id": "cs-03a-mem0-583b3f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers economy class as the default for business travel flight bookings unless explicitly stated otherwise.",
+      "score": 0.3659752722390896,
+      "raw": {
+        "id": "d3a8b48e-7cb6-40df-aa9a-e6063991ae0f",
+        "memory": "User prefers economy class as the default for business travel flight bookings unless explicitly stated otherwise.",
+        "hash": "e0b1420ca057b7f5ab7e9f5ce7eaca79",
+        "metadata": null,
+        "score": 0.3659752722390896,
+        "created_at": "2026-10-24T10:33:10.741570+00:00",
+        "updated_at": "2026-10-24T10:33:10.741570+00:00",
+        "user_id": "cs-03a-mem0-583b3f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested that all times be written in 24-hour format (e.g., 21:45) starting from October 24, 2026.",
+      "score": 0.2366920629118381,
+      "raw": {
+        "id": "64e8c238-7d46-49cd-803e-77aa7a227dac",
+        "memory": "User requested that all times be written in 24-hour format (e.g., 21:45) starting from October 24, 2026.",
+        "hash": "dd9d45b35bc06339b4cd1fe683560253",
+        "metadata": null,
+        "score": 0.2366920629118381,
+        "created_at": "2026-10-24T10:33:10.741602+00:00",
+        "updated_at": "2026-10-24T10:33:10.741602+00:00",
+        "user_id": "cs-03a-mem0-583b3f",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-03a-mem0-583b3f",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- For Project Kestrel specifically, flights over 6 hours are booked in premium economy due to User's back issues, overriding the general economy default for long-haul work trips.\n- User is working on Project Kestrel, a client rollout involving frequent business travel.\n- The client associated with Project Kestrel is moving offices in spring, which will require updating hotel search locations later.\n- User prefers economy class as the default for business travel flight bookings unless explicitly stated otherwise.\n- User requested that all times be written in 24-hour format (e.g., 21:45) starting from October 24, 2026.\n\nCurrent request:\nDraft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the Project Kestrel-specific premium economy override for flights over 6 hours and formatted all times in 24-hour notation.\n\n**Booking Request: Project Kestrel Business Travel**\n\n*   **Project:** Project Kestrel\n*   **Traveller Count:** 1\n*   **Flight Duration:** 8 hours\n*   **Cabin Class:** Premium Economy\n    *   *Note: Selected per Project Kestrel policy for flights >6 hours to accommodate User's back issues, overriding the general economy default.*\n*   **Departure Time:** 21:45\n*   **Check-in Closing Time:** 20:45",
+    "first_line": "I applied the Project Kestrel-specific premium economy override for flights over 6 hours and formatted all times in 24-hour notation."
+  },
+  "usage": {
+    "total_cost_usd": 0.000661772,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16868,
+        "completion_tokens": 314,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0005509320000000001
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 294,
+        "completion_tokens": 142,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00011084
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "premium economy",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "premium economy",
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "episode_id": "cs-03a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:50:49+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User typically books economy class for work flights  [scope: standing, condition: none]\n2. User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format  [scope: standing, condition: none]\n3. On Project Kestrel, flights over 6 hours are booked in premium economy class  [scope: project, project: Project Kestrel, condition: duration_hours > 6]",
+  "stored": [
+    {
+      "id": "03161ae6-8b31-4466-9bd3-c45917889427",
+      "memory": "User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format",
+      "hash": "546083b4f8329e6671337ce863b78237",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:51:12.367129+00:00",
+      "updated_at": "2026-10-24T10:51:12.367129+00:00",
+      "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+    },
+    {
+      "id": "3f9541a1-932f-479c-8aea-1ef4fddf77fe",
+      "memory": "User typically books economy class for work flights",
+      "hash": "e536c791a1ea311d7ebf4f2017452ce4",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:51:10.212902+00:00",
+      "updated_at": "2026-10-24T10:51:10.212902+00:00",
+      "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+    },
+    {
+      "id": "c88c7e11-5b1f-4770-a1e0-36dab8303bb8",
+      "memory": "On Project Kestrel, flights over 6 hours are booked in premium economy class",
+      "hash": "58468b1f7e48c08165684709ae50858b",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "duration_hours > 6"
+      },
+      "created_at": "2026-10-24T10:51:15.931005+00:00",
+      "updated_at": "2026-10-24T10:51:15.931005+00:00",
+      "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "On Project Kestrel, flights over 6 hours are booked in premium economy class",
+      "score": 0.6809362639426904,
+      "raw": {
+        "id": "c88c7e11-5b1f-4770-a1e0-36dab8303bb8",
+        "memory": "On Project Kestrel, flights over 6 hours are booked in premium economy class",
+        "hash": "58468b1f7e48c08165684709ae50858b",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Kestrel",
+          "condition": "duration_hours > 6"
+        },
+        "score": 0.6809362639426904,
+        "created_at": "2026-10-24T10:51:15.931005+00:00",
+        "updated_at": "2026-10-24T10:51:15.931005+00:00",
+        "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+      }
+    },
+    {
+      "text": "User typically books economy class for work flights",
+      "score": 0.43405450576329563,
+      "raw": {
+        "id": "3f9541a1-932f-479c-8aea-1ef4fddf77fe",
+        "memory": "User typically books economy class for work flights",
+        "hash": "e536c791a1ea311d7ebf4f2017452ce4",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.43405450576329563,
+        "created_at": "2026-10-24T10:51:10.212902+00:00",
+        "updated_at": "2026-10-24T10:51:10.212902+00:00",
+        "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+      }
+    },
+    {
+      "text": "User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format",
+      "score": 0.21302435238673703,
+      "raw": {
+        "id": "03161ae6-8b31-4466-9bd3-c45917889427",
+        "memory": "User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format",
+        "hash": "546083b4f8329e6671337ce863b78237",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.21302435238673703,
+        "created_at": "2026-10-24T10:51:12.367129+00:00",
+        "updated_at": "2026-10-24T10:51:12.367129+00:00",
+        "user_id": "cs-03a-scope_write_mem0-8f7b8a"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "On Project Kestrel, flights over 6 hours are booked in premium economy class",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "duration_hours > 6"
+      }
+    },
+    {
+      "text": "User typically books economy class for work flights",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Most of the time I book economy for work flights.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Kestrel, flights over 6 hours get booked in premium economy.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "duration_hours > 6"
+      }
+    }
+  ],
+  "namespace": "cs-03a-scope_write_mem0-8f7b8a",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User typically books economy class for work flights  [scope: standing, condition: none]\n2. User prefers all times to be written in 24-hour format (e.g., 21:45) rather than 12-hour AM/PM format  [scope: standing, condition: none]\n3. On Project Kestrel, flights over 6 hours are booked in premium economy class  [scope: project, project: Project Kestrel, condition: duration_hours > 6]\n\nCurrent request:\nDraft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Cabin class: Premium Economy; Time format: 24-hour.\n\n**Booking Request for Project Kestrel**\n\n**Traveller:** One (1)\n**Project:** Project Kestrel\n**Flight Duration:** 8 hours\n**Departure Time:** 21:45\n**Check-in Closing Time:** 20:45\n**Cabin Class:** Premium Economy\n\nPlease proceed with booking the above flight details in Premium Economy class as per Project Kestrel guidelines for flights exceeding 6 hours.",
+    "first_line": "Cabin class: Premium Economy; Time format: 24-hour."
+  },
+  "usage": {
+    "total_cost_usd": 0.000873366,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3566,
+        "completion_tokens": 159,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000197982
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24849,
+        "completion_tokens": 112,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000589718
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 452,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.5666e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "premium economy",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "premium economy",
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-02a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:30:17+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms.\nAssistant: Understood, durations in milliseconds from here on. What are we working on?\nUser: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages?\nAssistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review.\nUser: I go with AsciiDoc for documentation.\nAssistant: Noted, AsciiDoc is your default format for documentation.\nUser: Thanks, that is all for now.\n\nConversation 2:\nUser: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library.\nAssistant: Nice. Do you want to settle the doc format first, or the structure?\nUser: For Project Orchid, use Markdown. The contributors are all more comfortable with it.\nAssistant: Markdown for Project Orchid, got it. I'll start with the getting-started page.\nUser: Sounds good, I'll review it tomorrow.\n\nConversation 3:\nUser: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side.\nAssistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too?\nUser: Yes, the getting-started page is the one they read first.\nAssistant: Understood. I'll convert it first.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms.\nAssistant: Understood, durations in milliseconds from here on. What are we working on?\nUser: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages?\nAssistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review.\nUser: I go with AsciiDoc for documentation.\nAssistant: Noted, AsciiDoc is your default format for documentation.\nUser: Thanks, that is all for now.\n\nConversation 2:\nUser: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library.\nAssistant: Nice. Do you want to settle the doc format first, or the structure?\nUser: For Project Orchid, use Markdown. The contributors are all more comfortable with it.\nAssistant: Markdown for Project Orchid, got it. I'll start with the getting-started page.\nUser: Sounds good, I'll review it tomorrow.\n\nConversation 3:\nUser: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side.\nAssistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too?\nUser: Yes, the getting-started page is the one they read first.\nAssistant: Understood. I'll convert it first.\n\nCurrent request:\nWrite the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using reStructuredText for the Project Orchid documentation.\n\n```rst\nSettings Reference\n==================\n\nThis section documents the configuration settings available in Project Orchid.\n\n.. list-table:: Configuration Settings\n   :header-rows: 1\n   :widths: 25 30 45\n\n   * - Setting Name\n     - Type / Default\n     - Description\n   * - ``accent_color``\n     - Hex color, default ``#1A73E8``\n     - The primary accent color used throughout the generated site's UI components.\n   * - ``cache_ttl``\n     - Duration, default 90000 ms\n     - How long a page stays cached before being regenerated.\n   * - ``retry_delay``\n     - Duration, default 2000 ms\n     - The wait time before a failed sync operation is retried.\n```",
+    "first_line": "I am using reStructuredText for the Project Orchid documentation."
+  },
+  "usage": {
+    "total_cost_usd": 0.00016916,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 523,
+        "completion_tokens": 193,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00016916
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "restructuredtext",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "restructuredtext",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "episode_id": "st-02a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:56:34+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: The card has a title, the ingredients and three or four method steps.  [scope: single_task, only the task where it was said, condition: none]\n2. User: This time, give amounts in cups for this recipe card.  [scope: single_task, only the task where it was said, condition: none]\n3. User: put an Allergens: line under every ingredient list you write  [scope: standing, condition: none]\n4. User: I stick to metric units for recipe amounts  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "KkGxZfbRUkU21FR94M2Bq3",
+      "title": "User: I stick to metric units for recipe amounts",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:57:46.965000Z",
+        "updatedAt": "2026-10-24T16:57:52.564000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "MFhzbqSzKxYeuLwVfBCrnD",
+      "title": "User: put an Allergens: line under every ingredien...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:57:38.376000Z",
+        "updatedAt": "2026-10-24T16:57:44.159000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "xK3ZE757JnSZRSGt5JPfqV",
+      "title": "User: This time, give amounts in cups for this rec...",
+      "type": "text",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:57:01.892000Z",
+        "updatedAt": "2026-10-24T16:57:12.111000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "dszoF37UCr6TgBQkZADNkp",
+      "title": "User: The card has a title, the ingredients and th...",
+      "type": "text",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:56:52.887000Z",
+        "updatedAt": "2026-10-24T16:56:58.405000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: This time, give amounts in cups for this recipe card.",
+      "score": 0.70648485,
+      "raw": {
+        "id": "1bb84157caff4fa3f91fe6",
+        "memory": null,
+        "chunk": "User: This time, give amounts in cups for this recipe card.",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "similarity": 0.70648485,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:57:12.111Z",
+          "created_at": "2026-10-24T16:57:01.892Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: The card has a title, the ingredients and three or four method steps.",
+      "score": 0.6534812999999999,
+      "raw": {
+        "id": "5a506b23bdf05c0e74d48d",
+        "memory": null,
+        "chunk": "User: The card has a title, the ingredients and three or four method steps.",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "similarity": 0.6534812999999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:56:58.405Z",
+          "created_at": "2026-10-24T16:56:52.887Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I stick to metric units for recipe amounts",
+      "score": 0.6331299,
+      "raw": {
+        "id": "85a835e3ef7edb8509964b",
+        "memory": null,
+        "chunk": "User: I stick to metric units for recipe amounts",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.6331299,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:57:52.564Z",
+          "created_at": "2026-10-24T16:57:46.965Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: put an Allergens: line under every ingredient list you write",
+      "score": 0.6145038,
+      "raw": {
+        "id": "bc87ec2c262dcb0353961b",
+        "memory": null,
+        "chunk": "User: put an Allergens: line under every ingredient list you write",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.6145038,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:57:44.159Z",
+          "created_at": "2026-10-24T16:57:38.376Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: This time, give amounts in cups for this recipe card.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: The card has a title, the ingredients and three or four method steps.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I stick to metric units for recipe amounts",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: put an Allergens: line under every ingredient list you write",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "The card has a title, the ingredients and three or four method steps.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "This time, give amounts in cups for this recipe card.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "put an Allergens: line under every ingredient list you write",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I stick to metric units for recipe amounts",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-02a-scope_write_supermemory-869c6b",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: The card has a title, the ingredients and three or four method steps.  [scope: single_task, only the task where it was said, condition: none]\n2. User: This time, give amounts in cups for this recipe card.  [scope: single_task, only the task where it was said, condition: none]\n3. User: put an Allergens: line under every ingredient list you write  [scope: standing, condition: none]\n4. User: I stick to metric units for recipe amounts  [scope: standing, condition: none]\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I will use metric units for all ingredient amounts, as per the standing preference.\n\nIngredients:\n250 g flour\n200 g sugar\n115 g butter\n120 ml milk\n2 eggs\n\nAllergens: Wheat, Dairy, Eggs",
+    "first_line": "I will use metric units for all ingredient amounts, as per the standing preference."
+  },
+  "usage": {
+    "total_cost_usd": 0.000288368,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3571,
+        "completion_tokens": 210,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000222702
+      },
+      "supermemory": {
+        "calls": 5,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 491,
+        "completion_tokens": 56,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.5666e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "metric",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

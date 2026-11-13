@@ -1,0 +1,176 @@
+{
+  "episode_id": "po-02a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:34:37+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Tessera. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- For Project Tessera specifically, User requires tests to be written with unittest instead of pytest due to the container's standard-library-only constraint, overriding their previous general rule.\n- Assistant instructed User to run tests in the Project Tessera container by executing 'python -m unittest discover' from the repo root.\n- User is joining Project Tessera, a payments reconciliation service built in a locked-down container where the CI image only has the standard library.\n- User established a firm rule to never use unittest and strictly stick to pytest for testing frameworks.",
+  "stored": [
+    {
+      "id": "1b6e74e6-a846-44bf-8c26-3ac5a29cad0b",
+      "memory": "User requires unit tests for a slugify helper that lowercases titles and swaps spaces for hyphens, specifically covering odd inputs like empty strings and punctuation.",
+      "hash": "e1dfbc8c8abb4633ad5539258a4080cf",
+      "metadata": null,
+      "created_at": "2026-10-24T10:34:59.001159+00:00",
+      "updated_at": "2026-10-24T10:34:59.001159+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "user"
+    },
+    {
+      "id": "2e825aca-830b-4ae5-a2e0-ccfe3a3d7416",
+      "memory": "For Project Tessera specifically, User requires tests to be written with unittest instead of pytest due to the container's standard-library-only constraint, overriding their previous general rule.",
+      "hash": "87d2cbce156453bb0123e7ab0e965f3a",
+      "metadata": null,
+      "created_at": "2026-10-24T10:35:16.146599+00:00",
+      "updated_at": "2026-10-24T10:35:16.146599+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "user"
+    },
+    {
+      "id": "32a0193a-ae62-4c21-b672-6e69a9bfc009",
+      "memory": "User established a firm rule to never use unittest and strictly stick to pytest for testing frameworks.",
+      "hash": "1253c81131949f5551f66425b6346a01",
+      "metadata": null,
+      "created_at": "2026-10-24T10:34:59.001265+00:00",
+      "updated_at": "2026-10-24T10:34:59.001265+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5e6008e9-1132-4087-b778-726c1587fe60",
+      "memory": "User requested that every answer end with a final line starting with 'Next step:'.",
+      "hash": "d974469708b6cf0c1eec2ba96dc512d1",
+      "metadata": null,
+      "created_at": "2026-10-24T10:34:59.001274+00:00",
+      "updated_at": "2026-10-24T10:34:59.001274+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d691ce2f-4aa8-4a08-9168-1fb66e7b5ffd",
+      "memory": "User is joining Project Tessera, a payments reconciliation service built in a locked-down container where the CI image only has the standard library.",
+      "hash": "b93741d22f1c8363e6f0fc1bdc53d10a",
+      "metadata": null,
+      "created_at": "2026-10-24T10:35:16.146557+00:00",
+      "updated_at": "2026-10-24T10:35:16.146557+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e264a398-9fba-44ac-9db9-2d72369e7768",
+      "memory": "Assistant instructed User to run tests in the Project Tessera container by executing 'python -m unittest discover' from the repo root.",
+      "hash": "18d2872d7afcdcd7f67aaba81c36c75f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:35:16.146609+00:00",
+      "updated_at": "2026-10-24T10:35:16.146609+00:00",
+      "user_id": "po-02a-mem0-0ec0eb",
+      "attributed_to": "assistant"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "For Project Tessera specifically, User requires tests to be written with unittest instead of pytest due to the container's standard-library-only constraint, overriding their previous general rule.",
+      "score": 0.47087587064208525,
+      "raw": {
+        "id": "2e825aca-830b-4ae5-a2e0-ccfe3a3d7416",
+        "memory": "For Project Tessera specifically, User requires tests to be written with unittest instead of pytest due to the container's standard-library-only constraint, overriding their previous general rule.",
+        "hash": "87d2cbce156453bb0123e7ab0e965f3a",
+        "metadata": null,
+        "score": 0.47087587064208525,
+        "created_at": "2026-10-24T10:35:16.146599+00:00",
+        "updated_at": "2026-10-24T10:35:16.146599+00:00",
+        "user_id": "po-02a-mem0-0ec0eb",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "Assistant instructed User to run tests in the Project Tessera container by executing 'python -m unittest discover' from the repo root.",
+      "score": 0.3934054094519773,
+      "raw": {
+        "id": "e264a398-9fba-44ac-9db9-2d72369e7768",
+        "memory": "Assistant instructed User to run tests in the Project Tessera container by executing 'python -m unittest discover' from the repo root.",
+        "hash": "18d2872d7afcdcd7f67aaba81c36c75f",
+        "metadata": null,
+        "score": 0.3934054094519773,
+        "created_at": "2026-10-24T10:35:16.146609+00:00",
+        "updated_at": "2026-10-24T10:35:16.146609+00:00",
+        "user_id": "po-02a-mem0-0ec0eb",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User is joining Project Tessera, a payments reconciliation service built in a locked-down container where the CI image only has the standard library.",
+      "score": 0.28151185035657994,
+      "raw": {
+        "id": "d691ce2f-4aa8-4a08-9168-1fb66e7b5ffd",
+        "memory": "User is joining Project Tessera, a payments reconciliation service built in a locked-down container where the CI image only has the standard library.",
+        "hash": "b93741d22f1c8363e6f0fc1bdc53d10a",
+        "metadata": null,
+        "score": 0.28151185035657994,
+        "created_at": "2026-10-24T10:35:16.146557+00:00",
+        "updated_at": "2026-10-24T10:35:16.146557+00:00",
+        "user_id": "po-02a-mem0-0ec0eb",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User established a firm rule to never use unittest and strictly stick to pytest for testing frameworks.",
+      "score": 0.20021676018587697,
+      "raw": {
+        "id": "32a0193a-ae62-4c21-b672-6e69a9bfc009",
+        "memory": "User established a firm rule to never use unittest and strictly stick to pytest for testing frameworks.",
+        "hash": "1253c81131949f5551f66425b6346a01",
+        "metadata": null,
+        "score": 0.20021676018587697,
+        "created_at": "2026-10-24T10:34:59.001265+00:00",
+        "updated_at": "2026-10-24T10:34:59.001265+00:00",
+        "user_id": "po-02a-mem0-0ec0eb",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "po-02a-mem0-0ec0eb",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- For Project Tessera specifically, User requires tests to be written with unittest instead of pytest due to the container's standard-library-only constraint, overriding their previous general rule.\n- Assistant instructed User to run tests in the Project Tessera container by executing 'python -m unittest discover' from the repo root.\n- User is joining Project Tessera, a payments reconciliation service built in a locked-down container where the CI image only has the standard library.\n- User established a firm rule to never use unittest and strictly stick to pytest for testing frameworks.\n\nCurrent request:\nWrite the complete test file for a function apply_discount(price: float, code: str) -> float in Project Tessera. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool: unittest (standard library only, per Project Tessera container constraint).\n\n```python\nimport unittest\n\n\ndef apply_discount(price: float, code: str) -> float:\n    \"\"\"Apply a discount based on the provided code.\n    \n    SAVE10 takes 10% off, SAVE20 takes 20% off, anything else leaves price unchanged.\n    \"\"\"\n    if code == \"SAVE10\":\n        return price * 0.9\n    elif code == \"SAVE20\":\n        return price * 0.8\n    else:\n        return price\n\n\nclass TestApplyDiscount(unittest.TestCase):\n    def test_save10(self):\n        self.assertAlmostEqual(apply_discount(100.0, \"SAVE10\"), 90.0)\n        self.assertAlmostEqual(apply_discount(50.0, \"SAVE10\"), 45.0)\n        self.assertAlmostEqual(apply_discount(0.0, \"SAVE10\"), 0.0)\n\n    def test_save20(self):\n        self.assertAlmostEqual(apply_discount(100.0, \"SAVE20\"), 80.0)\n        self.assertAlmostEqual(apply_discount(50.0, \"SAVE20\"), 40.0)\n        self.assertAlmostEqual(apply_discount(0.0, \"SAVE20\"), 0.0)\n\n    def test_no_discount_unknown_code(self):\n        self.assertEqual(apply_discount(100.0, \"INVALID\"), 100.0)\n        self.assertEqual(apply_discount(75.5, \"\"), 75.5)\n        self.assertEqual(apply_discount(200.0, \"save10\"), 200.0)  # case-sensitive\n\n    def test_negative_price(self):\n        # Edge case: negative prices should still have discounts applied proportionally\n        self.assertAlmostEqual(apply_discount(-100.0, \"SAVE10\"), -90.0)\n        self.assertAlmostEqual(apply_discount(-100.0, \"SAVE20\"), -80.0)\n        self.assertEqual(apply_discount(-100.0, \"NO_CODE\"), -100.0)\n\n\nif __name__ == \"__main__\":\n    unittest.main()\n```",
+    "first_line": "Tool: unittest (standard library only, per Project Tessera container constraint)."
+  },
+  "usage": {
+    "total_cost_usd": 0.000872042,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17145,
+        "completion_tokens": 329,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000599532
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 272,
+        "completion_tokens": 493,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00027251
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-02",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "unittest",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "unittest",
+    "memory_actions": {
+      "m1": "pytest",
+      "m2": "unittest"
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+  "episode_id": "cs-02a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T15:52:34+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: I've just taken over Project Helios, a warehouse robot rollout. Assistant: Congratulations. Where do things stand? User: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month. Assistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal? User: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates. Assistant: Sure. Who reads the updates? User: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture. Assistant: Understood. Helios updates for the board run exactly eight sentences.\n- User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules. Assistant: Understood, two sentences per status update. Who do you usually write them for? User: Mostly the rollout team and our department leads. Assistant: Good to know. Do you want me to keep a template handy? User: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.",
+  "stored": [
+    {
+      "id": "smWaJxwj1tsVTh79ZCmm2g",
+      "title": "User: I've just taken over Project Helios, a wareh...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:52:47.244000Z",
+        "updatedAt": "2026-10-24T15:52:52.960000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "xfibNup78RRPCjBMJCx9x3",
+      "title": "User: Default to exactly two sentences for any sta...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:52:35.544000Z",
+        "updatedAt": "2026-10-24T15:52:43.331000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I've just taken over Project Helios, a warehouse robot rollout. Assistant: Congratulations. Where do things stand? User: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month. Assistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal? User: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates. Assistant: Sure. Who reads the updates? User: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture. Assistant: Understood. Helios updates for the board run exactly eight sentences.",
+      "score": 0.67343235,
+      "raw": {
+        "id": "dc2376c6f77697afc0f7d9",
+        "memory": null,
+        "chunk": "User: I've just taken over Project Helios, a warehouse robot rollout. Assistant: Congratulations. Where do things stand? User: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month. Assistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal? User: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates. Assistant: Sure. Who reads the updates? User: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture. Assistant: Understood. Helios updates for the board run exactly eight sentences.",
+        "metadata": {},
+        "similarity": 0.67343235,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:52:52.960Z",
+          "created_at": "2026-10-24T15:52:47.244Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules. Assistant: Understood, two sentences per status update. Who do you usually write them for? User: Mostly the rollout team and our department leads. Assistant: Good to know. Do you want me to keep a template handy? User: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.",
+      "score": 0.61092675,
+      "raw": {
+        "id": "a6d2553f95bfbb4fbf93b5",
+        "memory": null,
+        "chunk": "User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules. Assistant: Understood, two sentences per status update. Who do you usually write them for? User: Mostly the rollout team and our department leads. Assistant: Good to know. Do you want me to keep a template handy? User: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.",
+        "metadata": {},
+        "similarity": 0.61092675,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:52:43.331Z",
+          "created_at": "2026-10-24T15:52:35.544Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-02a-supermemory-0a4a0c",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: I've just taken over Project Helios, a warehouse robot rollout. Assistant: Congratulations. Where do things stand? User: Robots are live at a few sites. The hard part is the vendor contract renewal, which lands next month. Assistant: That sounds like a lot to juggle. Do you want help drafting anything for the renewal? User: Not yet, I'll ask when the paperwork arrives. Let's focus on the updates. Assistant: Sure. Who reads the updates? User: For Project Helios, when the update is for the board, make it exactly eight sentences. They like the full picture. Assistant: Understood. Helios updates for the board run exactly eight sentences.\n- User: Default to exactly two sentences for any status update you draft for me. I write a lot of them and want some ground rules. Assistant: Understood, two sentences per status update. Who do you usually write them for? User: Mostly the rollout team and our department leads. Assistant: Good to know. Do you want me to keep a template handy? User: No template. Oh, and write dates as YYYY-MM-DD in anything you draft.\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the specific Project Helios board update rule of exactly eight sentences, overriding the default two-sentence constraint.\n\nRobots are now live at three of the five planned sites for Project Helios. The pick rate has improved significantly from 410 to 520 lines per hour. However, the two remaining sites have slipped by one week due to a conveyor delay. The new sorter successfully passed its acceptance testing this week. Overall project spend is currently tracking four percent under plan. Three operators have finished their required training modules. The recent safety audit was passed without any major issues. The beta review is scheduled for 2027-03-14.",
+    "first_line": "I applied the specific Project Helios board update rule of exactly eight sentences, overriding the default two-sentence constraint."
+  },
+  "usage": {
+    "total_cost_usd": 0.00013236,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 450,
+        "completion_tokens": 138,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00013236
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "eight sentences",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "eight sentences",
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

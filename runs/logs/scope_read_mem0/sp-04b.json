@@ -1,0 +1,195 @@
+{
+  "episode_id": "sp-04b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:19:58+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache  [scope: project, project: Project Kestrel, condition: none]\n2. User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.  [scope: unknown]\n3. User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.  [scope: unknown]\n4. User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.  [scope: project, project: Project Kestrel, condition: freshness_window < 5]",
+  "stored": [
+    {
+      "id": "5f6cf12e-be33-4df4-8db9-fdf1e63f5a21",
+      "memory": "User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "hash": "8ceb82095bb3f01c4cf4fdbe338b93b8",
+      "metadata": null,
+      "created_at": "2026-10-24T11:20:11.527264+00:00",
+      "updated_at": "2026-10-24T11:20:11.527264+00:00",
+      "user_id": "sp-04b-scope_read_mem0-599778",
+      "attributed_to": "user"
+    },
+    {
+      "id": "7d68791e-c99b-4105-827f-d99ddb687839",
+      "memory": "User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache",
+      "hash": "dc358e86c516302f94b1594e6108b6ed",
+      "metadata": null,
+      "created_at": "2026-10-24T11:20:07.526426+00:00",
+      "updated_at": "2026-10-24T11:20:07.526426+00:00",
+      "user_id": "sp-04b-scope_read_mem0-599778"
+    },
+    {
+      "id": "8783d08c-f72f-4030-b9ea-34a3c64bb899",
+      "memory": "User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.",
+      "hash": "5d528fbae8889a1106f47a9dbd87ed90",
+      "metadata": null,
+      "created_at": "2026-10-24T11:20:11.527232+00:00",
+      "updated_at": "2026-10-24T11:20:11.527232+00:00",
+      "user_id": "sp-04b-scope_read_mem0-599778",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c0246488-2a49-44d5-88bf-9a92a2750aa5",
+      "memory": "User requires all code comments to be written in Spanish for every project, effective October 24, 2026",
+      "hash": "8fda61ed59e83d00ca0fb38c9e63bd5a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:20:07.526396+00:00",
+      "updated_at": "2026-10-24T11:20:07.526396+00:00",
+      "user_id": "sp-04b-scope_read_mem0-599778"
+    },
+    {
+      "id": "c46ee04f-9b69-4113-bf39-73903dec233f",
+      "memory": "User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.",
+      "hash": "de987c6e6cd5167b01c200b979de3c7e",
+      "metadata": null,
+      "created_at": "2026-10-24T11:20:11.527256+00:00",
+      "updated_at": "2026-10-24T11:20:11.527256+00:00",
+      "user_id": "sp-04b-scope_read_mem0-599778",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "score": 0.6717655685522855,
+      "raw": {
+        "id": "5f6cf12e-be33-4df4-8db9-fdf1e63f5a21",
+        "memory": "User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+        "hash": "8ceb82095bb3f01c4cf4fdbe338b93b8",
+        "metadata": null,
+        "score": 0.6717655685522855,
+        "created_at": "2026-10-24T11:20:11.527264+00:00",
+        "updated_at": "2026-10-24T11:20:11.527264+00:00",
+        "user_id": "sp-04b-scope_read_mem0-599778",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.",
+      "score": 0.5326678107799844,
+      "raw": {
+        "id": "8783d08c-f72f-4030-b9ea-34a3c64bb899",
+        "memory": "User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.",
+        "hash": "5d528fbae8889a1106f47a9dbd87ed90",
+        "metadata": null,
+        "score": 0.5326678107799844,
+        "created_at": "2026-10-24T11:20:11.527232+00:00",
+        "updated_at": "2026-10-24T11:20:11.527232+00:00",
+        "user_id": "sp-04b-scope_read_mem0-599778",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.",
+      "score": 0.48870249835642515,
+      "raw": {
+        "id": "c46ee04f-9b69-4113-bf39-73903dec233f",
+        "memory": "User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.",
+        "hash": "de987c6e6cd5167b01c200b979de3c7e",
+        "metadata": null,
+        "score": 0.48870249835642515,
+        "created_at": "2026-10-24T11:20:11.527256+00:00",
+        "updated_at": "2026-10-24T11:20:11.527256+00:00",
+        "user_id": "sp-04b-scope_read_mem0-599778",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache",
+      "score": 0.48493122491830776,
+      "raw": {
+        "id": "7d68791e-c99b-4105-827f-d99ddb687839",
+        "memory": "User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache",
+        "hash": "dc358e86c516302f94b1594e6108b6ed",
+        "metadata": null,
+        "score": 0.48493122491830776,
+        "created_at": "2026-10-24T11:20:07.526426+00:00",
+        "updated_at": "2026-10-24T11:20:07.526426+00:00",
+        "user_id": "sp-04b-scope_read_mem0-599778"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "freshness_window < 5"
+      }
+    },
+    {
+      "text": "User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.",
+      "tag": null
+    },
+    {
+      "text": "User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.",
+      "tag": null
+    },
+    {
+      "text": "User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "sp-04b-scope_read_mem0-599778",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that reporting endpoints on Project Kestrel should default to a 90-second TTL cache  [scope: project, project: Project Kestrel, condition: none]\n2. User's dispatch API on Project Kestrel is experiencing slowness primarily due to database queries and repeated calls to the maps service.  [scope: unknown]\n3. User is considering adding an index on the 'pickup_zone' field for the dispatch API on Project Kestrel to improve lookup performance.  [scope: unknown]\n4. User specified a new caching rule for Project Kestrel: whenever the freshness window is under 5 minutes, use no cache and query the database directly.  [scope: project, project: Project Kestrel, condition: freshness_window < 5]\n\nCurrent request:\nOn Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Approach:** Use a 90-second TTL cache, as the 30-minute freshness window does not trigger the \"no cache\" rule (which only applies when the window is under 5 minutes).\n\n```python\n# Caching policy: 90-second TTL cache (freshness window >= 5 minutes)\ndef get_pickup_estimates():\n    # Implementation would go here\n    pass\n```",
+    "first_line": "**Approach:** Use a 90-second TTL cache, as the 30-minute freshness window does not trigger the \"no cache\" rule (which only applies when the window is under 5 minutes)."
+  },
+  "usage": {
+    "total_cost_usd": 0.000680986,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16863,
+        "completion_tokens": 274,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000462774
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1760,
+        "completion_tokens": 165,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000135726
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 506,
+        "completion_tokens": 87,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.2486e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-04",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "90-second ttl cache",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "90-second ttl cache",
+    "memory_actions": {
+      "m1": "90-second ttl cache",
+      "m2": "no cache"
+    }
+  }
+}

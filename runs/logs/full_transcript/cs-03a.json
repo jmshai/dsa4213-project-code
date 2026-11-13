@@ -1,0 +1,47 @@
+{
+  "episode_id": "cs-03a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:29:11+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: I'm sorting out my business travel admin and want you to handle the flight bookings.\nAssistant: Happy to. What should I keep in mind when booking?\nUser: Most of the time I book economy for work flights. Assume that unless I say otherwise.\nAssistant: Got it, economy as the baseline. Anything else?\nUser: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm.\nAssistant: Noted, 24-hour times throughout.\n\nConversation 2:\nUser: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy.\nAssistant: Understood. On Project Kestrel, flights over 6 hours go premium economy.\nUser: By the way, the client is moving offices in spring, so hotel searches will change later.\nAssistant: I'll hold off on hotels until you have the new address. Anything else for now?\nUser: No, that's all. Thanks.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: I'm sorting out my business travel admin and want you to handle the flight bookings.\nAssistant: Happy to. What should I keep in mind when booking?\nUser: Most of the time I book economy for work flights. Assume that unless I say otherwise.\nAssistant: Got it, economy as the baseline. Anything else?\nUser: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm.\nAssistant: Noted, 24-hour times throughout.\n\nConversation 2:\nUser: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy.\nAssistant: Understood. On Project Kestrel, flights over 6 hours go premium economy.\nUser: By the way, the client is moving offices in spring, so hotel searches will change later.\nAssistant: I'll hold off on hotels until you have the new address. Anything else for now?\nUser: No, that's all. Thanks.\n\nCurrent request:\nDraft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the Project Kestrel premium economy rule for flights over 6 hours and converted all times to 24-hour format.\n\n**Booking Request: Project Kestrel**\n\n*   **Traveller:** 1\n*   **Cabin Class:** Premium Economy (Flight duration is 8 hours, exceeding the 6-hour threshold for this project)\n*   **Departure Time:** 21:45\n*   **Check-in Closing Time:** 20:45",
+    "first_line": "I applied the Project Kestrel premium economy rule for flights over 6 hours and converted all times to 24-hour format."
+  },
+  "usage": {
+    "total_cost_usd": 0.00011038,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 410,
+        "completion_tokens": 104,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00011038
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "premium economy",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "premium economy",
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

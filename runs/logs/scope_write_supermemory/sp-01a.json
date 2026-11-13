@@ -1,0 +1,123 @@
+{
+  "episode_id": "sp-01a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:30:18+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function setup_logging() for the dev deploy of our billing-sync service. It should configure the logging module and return the level name it set.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: In general, when a service runs in dev, I go with ERROR-level logging.  [scope: standing, condition: env == dev]",
+  "stored": [
+    {
+      "id": "79Dm5JXjdDrpqXyAXubbmq",
+      "title": "User: In general, when a service runs in dev, I go...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing",
+        "condition": "env == dev"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:30:31.853000Z",
+        "updatedAt": "2026-10-24T16:30:37.713000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: In general, when a service runs in dev, I go with ERROR-level logging.",
+      "score": 0.69887966,
+      "raw": {
+        "id": "4936fc9a71b7129d6b9211",
+        "memory": null,
+        "chunk": "User: In general, when a service runs in dev, I go with ERROR-level logging.",
+        "metadata": {
+          "scope": "standing",
+          "condition": "env == dev"
+        },
+        "similarity": 0.69887966,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:30:37.713Z",
+          "created_at": "2026-10-24T16:30:31.853Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: In general, when a service runs in dev, I go with ERROR-level logging.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == dev"
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "In general, when a service runs in dev, I go with ERROR-level logging.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == dev"
+      }
+    }
+  ],
+  "namespace": "sp-01a-scope_write_supermemory-e0be62",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: In general, when a service runs in dev, I go with ERROR-level logging.  [scope: standing, condition: env == dev]\n\nCurrent request:\nWrite a Python function setup_logging() for the dev deploy of our billing-sync service. It should configure the logging module and return the level name it set.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "ERROR-level logging\n\n```python\nimport logging\n\ndef setup_logging():\n    \"\"\"\n    Configure the logging module for the dev deploy of the billing-sync service.\n    \n    Returns:\n        str: The name of the logging level that was set (e.g., \"ERROR\").\n    \"\"\"\n    # Set the root logger to ERROR level as per standing preference for dev environments\n    logging.basicConfig(level=logging.ERROR)\n    \n    # Return the name of the level that was set\n    return logging.getLevelName(logging.ERROR)\n```",
+    "first_line": "ERROR-level logging"
+  },
+  "usage": {
+    "total_cost_usd": 0.000260978,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3509,
+        "completion_tokens": 158,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00018896199999999998
+      },
+      "supermemory": {
+        "calls": 2,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 361,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.2016e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-01",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "error",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": "error",
+    "memory_actions": {
+      "m1": "debug",
+      "m2": "error"
+    }
+  }
+}

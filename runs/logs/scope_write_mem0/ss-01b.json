@@ -1,0 +1,254 @@
+{
+  "episode_id": "ss-01b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:01:31+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Lantern should use FastAPI as its framework or technology stack  [scope: project, project: Project Lantern, condition: none]\n2. User switched Project Lantern's framework from FastAPI to Django on October 24, 2026  [scope: project, project: Project Lantern, condition: none]\n3. User usually reaches for Falcon as their preferred framework for building web services  [scope: standing, condition: none]\n4. User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "533f3b59-514e-4de0-9746-f2d247a1728d",
+      "memory": "User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line",
+      "hash": "00f8037b70b1570d8a6197acfd64c0ba",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:02:06.442240+00:00",
+      "updated_at": "2026-10-24T11:02:06.442240+00:00",
+      "user_id": "ss-01b-scope_write_mem0-9bd433",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a9a5f780-af2a-457e-95da-d912fca61452",
+      "memory": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "hash": "8cb9982c2c1cd8e1abd2cbff95905d21",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:45.927403+00:00",
+      "updated_at": "2026-10-24T11:01:45.927403+00:00",
+      "user_id": "ss-01b-scope_write_mem0-9bd433"
+    },
+    {
+      "id": "aa357cbd-baea-4eee-907f-49fe88bc1ea1",
+      "memory": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "hash": "9c1c0d7be5f90b434f3b1aaf49db6e20",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:01:53.808379+00:00",
+      "updated_at": "2026-10-24T11:01:53.808379+00:00",
+      "user_id": "ss-01b-scope_write_mem0-9bd433",
+      "attributed_to": "user"
+    },
+    {
+      "id": "b8928925-74f4-4504-9d78-c5b6c0d96a44",
+      "memory": "User usually reaches for Falcon as their preferred framework for building web services",
+      "hash": "b6b6b08ecca211c99785b06f8bdb4351",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:02:04.024492+00:00",
+      "updated_at": "2026-10-24T11:02:04.024492+00:00",
+      "user_id": "ss-01b-scope_write_mem0-9bd433"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User usually reaches for Falcon as their preferred framework for building web services",
+      "score": 0.26856141649579307,
+      "raw": {
+        "id": "b8928925-74f4-4504-9d78-c5b6c0d96a44",
+        "memory": "User usually reaches for Falcon as their preferred framework for building web services",
+        "hash": "b6b6b08ecca211c99785b06f8bdb4351",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.26856141649579307,
+        "created_at": "2026-10-24T11:02:04.024492+00:00",
+        "updated_at": "2026-10-24T11:02:04.024492+00:00",
+        "user_id": "ss-01b-scope_write_mem0-9bd433"
+      }
+    },
+    {
+      "text": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "score": 0.1179076861018771,
+      "raw": {
+        "id": "a9a5f780-af2a-457e-95da-d912fca61452",
+        "memory": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+        "hash": "8cb9982c2c1cd8e1abd2cbff95905d21",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.1179076861018771,
+        "created_at": "2026-10-24T11:01:45.927403+00:00",
+        "updated_at": "2026-10-24T11:01:45.927403+00:00",
+        "user_id": "ss-01b-scope_write_mem0-9bd433"
+      }
+    },
+    {
+      "text": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "score": 0.11587869590654931,
+      "raw": {
+        "id": "aa357cbd-baea-4eee-907f-49fe88bc1ea1",
+        "memory": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+        "hash": "9c1c0d7be5f90b434f3b1aaf49db6e20",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.11587869590654931,
+        "created_at": "2026-10-24T11:01:53.808379+00:00",
+        "updated_at": "2026-10-24T11:01:53.808379+00:00",
+        "user_id": "ss-01b-scope_write_mem0-9bd433",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line",
+      "score": 0.10449665372252723,
+      "raw": {
+        "id": "533f3b59-514e-4de0-9746-f2d247a1728d",
+        "memory": "User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line",
+        "hash": "00f8037b70b1570d8a6197acfd64c0ba",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.10449665372252723,
+        "created_at": "2026-10-24T11:02:06.442240+00:00",
+        "updated_at": "2026-10-24T11:02:06.442240+00:00",
+        "user_id": "ss-01b-scope_write_mem0-9bd433",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User usually reaches for Falcon as their preferred framework for building web services",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User specified that Project Lantern should use FastAPI as its framework or technology stack",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User switched Project Lantern's framework from FastAPI to Django on October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "For Project Lantern, use FastAPI.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "one response covers a whole shelf",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Lantern, switch to Django",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually reach for Falcon for web services.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "start every Python file you give me with the first line # owner: platform-team.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-01b-scope_write_mem0-9bd433",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Project Lantern should use FastAPI as its framework or technology stack  [scope: project, project: Project Lantern, condition: none]\n2. User switched Project Lantern's framework from FastAPI to Django on October 24, 2026  [scope: project, project: Project Lantern, condition: none]\n3. User usually reaches for Falcon as their preferred framework for building web services  [scope: standing, condition: none]\n4. User requires all Python files provided by the assistant to start with the comment '# owner: platform-team' on the first line  [scope: standing, condition: none]\n\nCurrent request:\nScaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: Falcon\n\n```python\n# owner: platform-team\nimport falcon\nimport json\n\nclass HealthResource:\n    def on_get(self, req, resp):\n        resp.text = json.dumps({\"status\": \"ok\"})\n        resp.content_type = falcon.MEDIA_JSON\n\napp = falcon.App()\napp.add_route('/health', HealthResource())\n```",
+    "first_line": "Framework: Falcon"
+  },
+  "usage": {
+    "total_cost_usd": 0.0012649920000000002,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5325,
+        "completion_tokens": 258,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000268234
+      },
+      "mem0": {
+        "calls": 5,
+        "prompt_tokens": 41423,
+        "completion_tokens": 205,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0009240720000000001
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 472,
+        "completion_tokens": 77,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.2686e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "falcon",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "falcon",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

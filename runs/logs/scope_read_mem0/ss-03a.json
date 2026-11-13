@@ -1,0 +1,329 @@
+{
+  "episode_id": "ss-03a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:22:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Set up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.  [scope: unknown]\n2. Project Sable uses pytest for testing and GitHub Actions for CI.  [scope: unknown]\n3. User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.  [scope: project, project: Project Sable, condition: none]\n4. User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.  [scope: unknown]\n5. The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.  [scope: unknown]\n6. User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.  [scope: project, project: Project Sable, condition: pdf_text_layer == empty]\n7. The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.  [scope: unknown]\n8. User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "0ccecfaa-0251-4a41-af4f-125abefb6065",
+      "memory": "User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.",
+      "hash": "e6c67f15837c450cf5d7d57503aff12a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:20.753094+00:00",
+      "updated_at": "2026-10-24T11:22:20.753094+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5aa8b780-4e14-40bf-89f6-02cc35487130",
+      "memory": "User requires commit subjects to be written in lowercase with no trailing period.",
+      "hash": "3d4395a01c38ecb78a7f61b57e19443c",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:25.461482+00:00",
+      "updated_at": "2026-10-24T11:22:25.461482+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6a06787b-7d28-4e4d-9ac4-0234b0ae58c8",
+      "memory": "Project Sable uses pytest for testing and GitHub Actions for CI.",
+      "hash": "0589206d8acf8a0cacb440d6213bf34c",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:16.631463+00:00",
+      "updated_at": "2026-10-24T11:22:16.631463+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6d0db4c1-de1d-4030-93ec-533ef795868e",
+      "memory": "The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.",
+      "hash": "e3e22e8fa1862fa142255dfa8eeed961",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:20.753101+00:00",
+      "updated_at": "2026-10-24T11:22:20.753101+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6d9bec20-2709-4958-a218-82eea5e5145a",
+      "memory": "User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.",
+      "hash": "7d39a2c59a998dc8903629525107c29c",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:20.753065+00:00",
+      "updated_at": "2026-10-24T11:22:20.753065+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "71873601-9bf8-465d-a1b4-545e0d634f74",
+      "memory": "User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.",
+      "hash": "96f6899d56327cd1a35b4a0d438dd302",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:16.631472+00:00",
+      "updated_at": "2026-10-24T11:22:16.631472+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "818f1478-2bb2-48b1-a842-dd4d88c1c763",
+      "memory": "User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.",
+      "hash": "28567b313e3013c1dde2d2edc53ede27",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:16.631440+00:00",
+      "updated_at": "2026-10-24T11:22:16.631440+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "8c34e101-4607-4aaa-8f9f-c5b64e01e16b",
+      "memory": "User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.",
+      "hash": "cd7b8a879ffea51922da6160c6f81d27",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:25.461471+00:00",
+      "updated_at": "2026-10-24T11:22:25.461471+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "af308c80-3d94-44bf-8b88-e82d57e35441",
+      "memory": "The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.",
+      "hash": "aff7a1cd8be4405834febeadec5baf93",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:20.753086+00:00",
+      "updated_at": "2026-10-24T11:22:20.753086+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    },
+    {
+      "id": "fead04dc-22fe-4e0b-9f6b-59e7f3ee33be",
+      "memory": "User believes pre-commit hooks can slow developers down if they run heavy checks, but keeping them to fast linters and formatters usually avoids the problem.",
+      "hash": "a1a7ad63667a5d0f69c7ab8286b9085f",
+      "metadata": null,
+      "created_at": "2026-10-24T11:22:25.461430+00:00",
+      "updated_at": "2026-10-24T11:22:25.461430+00:00",
+      "user_id": "ss-03a-scope_read_mem0-0a7766",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.",
+      "score": 0.7513489759292751,
+      "raw": {
+        "id": "818f1478-2bb2-48b1-a842-dd4d88c1c763",
+        "memory": "User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.",
+        "hash": "28567b313e3013c1dde2d2edc53ede27",
+        "metadata": null,
+        "score": 0.7513489759292751,
+        "created_at": "2026-10-24T11:22:16.631440+00:00",
+        "updated_at": "2026-10-24T11:22:16.631440+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.",
+      "score": 0.6451436190197586,
+      "raw": {
+        "id": "6d9bec20-2709-4958-a218-82eea5e5145a",
+        "memory": "User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.",
+        "hash": "7d39a2c59a998dc8903629525107c29c",
+        "metadata": null,
+        "score": 0.6451436190197586,
+        "created_at": "2026-10-24T11:22:20.753065+00:00",
+        "updated_at": "2026-10-24T11:22:20.753065+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "Project Sable uses pytest for testing and GitHub Actions for CI.",
+      "score": 0.588676984457313,
+      "raw": {
+        "id": "6a06787b-7d28-4e4d-9ac4-0234b0ae58c8",
+        "memory": "Project Sable uses pytest for testing and GitHub Actions for CI.",
+        "hash": "0589206d8acf8a0cacb440d6213bf34c",
+        "metadata": null,
+        "score": 0.588676984457313,
+        "created_at": "2026-10-24T11:22:16.631463+00:00",
+        "updated_at": "2026-10-24T11:22:16.631463+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.",
+      "score": 0.5539285472097819,
+      "raw": {
+        "id": "71873601-9bf8-465d-a1b4-545e0d634f74",
+        "memory": "User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.",
+        "hash": "96f6899d56327cd1a35b4a0d438dd302",
+        "metadata": null,
+        "score": 0.5539285472097819,
+        "created_at": "2026-10-24T11:22:16.631472+00:00",
+        "updated_at": "2026-10-24T11:22:16.631472+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.",
+      "score": 0.4585670192554937,
+      "raw": {
+        "id": "af308c80-3d94-44bf-8b88-e82d57e35441",
+        "memory": "The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.",
+        "hash": "aff7a1cd8be4405834febeadec5baf93",
+        "metadata": null,
+        "score": 0.4585670192554937,
+        "created_at": "2026-10-24T11:22:20.753086+00:00",
+        "updated_at": "2026-10-24T11:22:20.753086+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.",
+      "score": 0.39646043741823556,
+      "raw": {
+        "id": "6d0db4c1-de1d-4030-93ec-533ef795868e",
+        "memory": "The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.",
+        "hash": "e3e22e8fa1862fa142255dfa8eeed961",
+        "metadata": null,
+        "score": 0.39646043741823556,
+        "created_at": "2026-10-24T11:22:20.753101+00:00",
+        "updated_at": "2026-10-24T11:22:20.753101+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.",
+      "score": 0.3707945079787699,
+      "raw": {
+        "id": "0ccecfaa-0251-4a41-af4f-125abefb6065",
+        "memory": "User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.",
+        "hash": "e6c67f15837c450cf5d7d57503aff12a",
+        "metadata": null,
+        "score": 0.3707945079787699,
+        "created_at": "2026-10-24T11:22:20.753094+00:00",
+        "updated_at": "2026-10-24T11:22:20.753094+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.",
+      "score": 0.33795027075409245,
+      "raw": {
+        "id": "8c34e101-4607-4aaa-8f9f-c5b64e01e16b",
+        "memory": "User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.",
+        "hash": "cd7b8a879ffea51922da6160c6f81d27",
+        "metadata": null,
+        "score": 0.33795027075409245,
+        "created_at": "2026-10-24T11:22:25.461471+00:00",
+        "updated_at": "2026-10-24T11:22:25.461471+00:00",
+        "user_id": "ss-03a-scope_read_mem0-0a7766",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.",
+      "tag": null
+    },
+    {
+      "text": "User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.",
+      "tag": null
+    },
+    {
+      "text": "Project Sable uses pytest for testing and GitHub Actions for CI.",
+      "tag": null
+    },
+    {
+      "text": "User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.",
+      "tag": null
+    },
+    {
+      "text": "The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.",
+      "tag": null
+    },
+    {
+      "text": "User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": "pdf_text_layer == empty"
+      }
+    },
+    {
+      "text": "User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "ss-03a-scope_read_mem0-0a7766",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is taking over the Project Sable repository from Dana in the week of October 24, 2026. Project Sable is a Python package that parses vendor invoices.  [scope: unknown]\n2. Project Sable uses pytest for testing and GitHub Actions for CI.  [scope: unknown]\n3. User specified that Ruff should be used for linting on Project Sable, while formatting decisions are deferred to a later time.  [scope: project, project: Project Sable, condition: none]\n4. User switched the linting tool for Project Sable from Ruff to Pylint because the security team's scanner requires Pylint's report format.  [scope: unknown]\n5. The invoice parser in Project Sable fails on scanned PDFs that lack a text layer during the extraction step, not field-matching.  [scope: unknown]\n6. User plans to implement an OCR fallback using Tesseract in the next sprint for Project Sable, triggered only when the PDF text layer is empty.  [scope: project, project: Project Sable, condition: pdf_text_layer == empty]\n7. The vendor for Project Sable has indicated they will eventually send native PDFs instead of scanned ones.  [scope: unknown]\n8. User's general linting preference is to never use Pylint and instead stick to flake8 for all projects.  [scope: standing, condition: none]\n\nCurrent request:\nSet up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using Pylint for linting Project Sable.\n\n**Config file name:** `.pylintrc`\n\n**Commit message:**\n```text\nchore: add Pylint configuration for security scanner compliance\n\n- Introduce .pylintrc to configure Pylint for the src/invoices package.\n- Target Python 3.11 compatibility.\n- Switch from Ruff to Pylint as required by the security team's scanner report format.\n```",
+    "first_line": "I am using Pylint for linting Project Sable."
+  },
+  "usage": {
+    "total_cost_usd": 0.001250756,
+    "by_component": {
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 25750,
+        "completion_tokens": 608,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000923684
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1875,
+        "completion_tokens": 299,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000215956
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 653,
+        "completion_tokens": 101,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000111116
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-03",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "pylint",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "pylint",
+    "memory_actions": {
+      "m1": "flake8",
+      "m2": "ruff",
+      "m3": "pylint"
+    }
+  }
+}

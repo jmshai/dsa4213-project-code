@@ -1,0 +1,231 @@
+{
+  "episode_id": "st-01b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:55:18+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "New task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: This time, export the client churn file as CSV.  [scope: single_task, only the task where it was said, condition: none]\n2. User: I usually export tables as parquet.  [scope: standing, condition: none]\n3. User: use pathlib.Path for every file path in code you write.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "dJj8pYXQYiuXx7nL8Uijtk",
+      "title": "User: use pathlib.Path for every file path in code...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:56:10.643000Z",
+        "updatedAt": "2026-10-24T16:56:16.121000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "poUYfgmaZ33H8LApHtCFcx",
+      "title": "User: I usually export tables as parquet.",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:56:02.132000Z",
+        "updatedAt": "2026-10-24T16:56:08.980000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "nS3EWP3fgJSL2kp6QKHixa",
+      "title": "User: This time, export the client churn file as C...",
+      "type": "text",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:55:30.894000Z",
+        "updatedAt": "2026-10-24T16:55:36.172000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: This time, export the client churn file as CSV.",
+      "score": 0.67152292,
+      "raw": {
+        "id": "b831f1baa9aa4832b4bb87",
+        "memory": null,
+        "chunk": "User: This time, export the client churn file as CSV.",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "similarity": 0.67152292,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:55:36.172Z",
+          "created_at": "2026-10-24T16:55:30.894Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: use pathlib.Path for every file path in code you write.",
+      "score": 0.5890076799999999,
+      "raw": {
+        "id": "2dec4571c469b013e8d9ae",
+        "memory": null,
+        "chunk": "User: use pathlib.Path for every file path in code you write.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.5890076799999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:56:16.121Z",
+          "created_at": "2026-10-24T16:56:10.643Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I usually export tables as parquet.",
+      "score": 0.58194697,
+      "raw": {
+        "id": "3f06ca69ea4a727b0abdc5",
+        "memory": null,
+        "chunk": "User: I usually export tables as parquet.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.58194697,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:56:08.980Z",
+          "created_at": "2026-10-24T16:56:02.132Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: This time, export the client churn file as CSV.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: use pathlib.Path for every file path in code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I usually export tables as parquet.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "This time, export the client churn file as CSV.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually export tables as parquet.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "use pathlib.Path for every file path in code you write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-01b-scope_write_supermemory-3eddda",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: This time, export the client churn file as CSV.  [scope: single_task, only the task where it was said, condition: none]\n2. User: I usually export tables as parquet.  [scope: standing, condition: none]\n3. User: use pathlib.Path for every file path in code you write.  [scope: standing, condition: none]\n\nCurrent request:\nNew task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: Parquet (using `pathlib.Path` for the file path argument).\n\n```python\nimport pandas as pd\nfrom pathlib import Path\n\ndef save_cleaned_customers(customers_df: pd.DataFrame, output_path: Path) -> None:\n    \"\"\"\n    Saves the cleaned customers dataframe to a parquet file.\n    \n    Args:\n        customers_df: The cleaned DataFrame containing customer data.\n        output_path: A pathlib.Path object specifying where to save the file.\n    \"\"\"\n    # Ensure the parent directory exists\n    output_path.parent.mkdir(parents=True, exist_ok=True)\n    \n    # Save as parquet per standing preference\n    customers_df.to_parquet(output_path, index=False)\n```",
+    "first_line": "Format: Parquet (using `pathlib.Path` for the file path argument)."
+  },
+  "usage": {
+    "total_cost_usd": 0.00025771400000000003,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3553,
+        "completion_tokens": 156,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000160318
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 408,
+        "completion_tokens": 150,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.7396e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-01",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "parquet",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "parquet",
+    "memory_actions": {
+      "m1": "parquet",
+      "m2": "csv"
+    }
+  }
+}

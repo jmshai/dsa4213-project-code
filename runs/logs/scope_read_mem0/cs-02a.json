@@ -1,0 +1,250 @@
+{
+  "episode_id": "cs-02a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:12:45+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.  [scope: standing, condition: none]\n2. User primarily writes status updates for the rollout team and department leads, and does not want a template used.  [scope: standing, condition: none]\n3. User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.  [scope: unknown]\n4. Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.  [scope: unknown]\n5. User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.  [scope: project, project: Project Helios, condition: audience == board]\n6. User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.  [scope: unknown]",
+  "stored": [
+    {
+      "id": "09bb19b0-476c-47f3-a1c4-956555ebc2ae",
+      "memory": "User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.",
+      "hash": "768b211fddbac2a6baed19a832e31b00",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:53.547076+00:00",
+      "updated_at": "2026-10-24T11:12:53.547076+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    },
+    {
+      "id": "112234c8-9692-4f0a-864d-f4e04cb6ddec",
+      "memory": "User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.",
+      "hash": "eca09c6feead7c822769d419ad2e4602",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:57.798256+00:00",
+      "updated_at": "2026-10-24T11:12:57.798256+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    },
+    {
+      "id": "25017462-5c7f-4294-b581-2a5273c68ecb",
+      "memory": "User primarily writes status updates for the rollout team and department leads, and does not want a template used.",
+      "hash": "b6f81f79a6e39f91cd055040c2d600e6",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:53.547096+00:00",
+      "updated_at": "2026-10-24T11:12:53.547096+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    },
+    {
+      "id": "75baf064-ac85-4c9c-b29e-dac77aa20745",
+      "memory": "Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.",
+      "hash": "bc280934f2945a763a3094dda8726a43",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:57.798238+00:00",
+      "updated_at": "2026-10-24T11:12:57.798238+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    },
+    {
+      "id": "9316791b-0054-49d1-8e7b-eb983a3b6eba",
+      "memory": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+      "hash": "49646f9cbd3837dde76ba737ced51ddf",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:57.798195+00:00",
+      "updated_at": "2026-10-24T11:12:57.798195+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    },
+    {
+      "id": "97a70913-7f4b-454f-b680-822b5ae437d3",
+      "memory": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.",
+      "hash": "5b45ed726fe07d826445eb8380dfa3b5",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:57.798248+00:00",
+      "updated_at": "2026-10-24T11:12:57.798248+00:00",
+      "user_id": "cs-02a-scope_read_mem0-cdbc85",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.",
+      "score": 0.7268272470046353,
+      "raw": {
+        "id": "75baf064-ac85-4c9c-b29e-dac77aa20745",
+        "memory": "Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.",
+        "hash": "bc280934f2945a763a3094dda8726a43",
+        "metadata": null,
+        "score": 0.7268272470046353,
+        "created_at": "2026-10-24T11:12:57.798238+00:00",
+        "updated_at": "2026-10-24T11:12:57.798238+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+      "score": 0.6706300644847826,
+      "raw": {
+        "id": "9316791b-0054-49d1-8e7b-eb983a3b6eba",
+        "memory": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+        "hash": "49646f9cbd3837dde76ba737ced51ddf",
+        "metadata": null,
+        "score": 0.6706300644847826,
+        "created_at": "2026-10-24T11:12:57.798195+00:00",
+        "updated_at": "2026-10-24T11:12:57.798195+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.",
+      "score": 0.44888827475425397,
+      "raw": {
+        "id": "97a70913-7f4b-454f-b680-822b5ae437d3",
+        "memory": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.",
+        "hash": "5b45ed726fe07d826445eb8380dfa3b5",
+        "metadata": null,
+        "score": 0.44888827475425397,
+        "created_at": "2026-10-24T11:12:57.798248+00:00",
+        "updated_at": "2026-10-24T11:12:57.798248+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.",
+      "score": 0.2578204872925811,
+      "raw": {
+        "id": "112234c8-9692-4f0a-864d-f4e04cb6ddec",
+        "memory": "User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.",
+        "hash": "eca09c6feead7c822769d419ad2e4602",
+        "metadata": null,
+        "score": 0.2578204872925811,
+        "created_at": "2026-10-24T11:12:57.798256+00:00",
+        "updated_at": "2026-10-24T11:12:57.798256+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.",
+      "score": 0.20199857329622095,
+      "raw": {
+        "id": "09bb19b0-476c-47f3-a1c4-956555ebc2ae",
+        "memory": "User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.",
+        "hash": "768b211fddbac2a6baed19a832e31b00",
+        "metadata": null,
+        "score": 0.20199857329622095,
+        "created_at": "2026-10-24T11:12:53.547076+00:00",
+        "updated_at": "2026-10-24T11:12:53.547076+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User primarily writes status updates for the rollout team and department leads, and does not want a template used.",
+      "score": 0.1333011452055926,
+      "raw": {
+        "id": "25017462-5c7f-4294-b581-2a5273c68ecb",
+        "memory": "User primarily writes status updates for the rollout team and department leads, and does not want a template used.",
+        "hash": "b6f81f79a6e39f91cd055040c2d600e6",
+        "metadata": null,
+        "score": 0.1333011452055926,
+        "created_at": "2026-10-24T11:12:53.547096+00:00",
+        "updated_at": "2026-10-24T11:12:53.547096+00:00",
+        "user_id": "cs-02a-scope_read_mem0-cdbc85",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.",
+      "tag": null
+    },
+    {
+      "text": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+      "tag": null
+    },
+    {
+      "text": "User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Helios",
+        "condition": "audience == board"
+      }
+    },
+    {
+      "text": "User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.",
+      "tag": null
+    },
+    {
+      "text": "User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User primarily writes status updates for the rollout team and department leads, and does not want a template used.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "cs-02a-scope_read_mem0-cdbc85",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers status updates to be exactly two sentences long and wants dates formatted as YYYY-MM-DD in all drafted documents.  [scope: standing, condition: none]\n2. User primarily writes status updates for the rollout team and department leads, and does not want a template used.  [scope: standing, condition: none]\n3. User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.  [scope: unknown]\n4. Project Helios currently has robots live at a few sites, with the vendor contract renewal landing in November 2026.  [scope: unknown]\n5. User prefers status updates for Project Helios intended for the board to be exactly eight sentences long, whereas general status updates remain two sentences.  [scope: project, project: Project Helios, condition: audience == board]\n6. User declined immediate help drafting content for the Project Helios vendor contract renewal and will request assistance when the paperwork arrives.  [scope: unknown]\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the Project Helios board-specific memory to draft an eight-sentence status update.\n\nProject Helios currently has robots live at three of five sites, with pick rates rising from 410 to 520 lines per hour. The two remaining sites experienced a one-week slip due to a conveyor delay. The new sorter successfully passed acceptance testing this week. Overall spend remains four percent under plan. Three operators have finished their required training. The recent safety audit was passed without issues. The beta review is scheduled for 2027-03-14. We will continue monitoring progress toward full deployment across all sites.",
+    "first_line": "I applied the Project Helios board-specific memory to draft an eight-sentence status update."
+  },
+  "usage": {
+    "total_cost_usd": 0.0008373740000000001,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16836,
+        "completion_tokens": 313,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000545662
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1807,
+        "completion_tokens": 227,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000171916
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 620,
+        "completion_tokens": 130,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000119796
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "eight sentences",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

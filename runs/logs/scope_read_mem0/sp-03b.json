@@ -1,0 +1,281 @@
+{
+  "episode_id": "sp-03b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:19:16+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.  [scope: standing, condition: none]\n2. User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.  [scope: standing, condition: none]\n3. User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.  [scope: standing, condition: none]\n4. User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.  [scope: standing, condition: guests > 50]\n5. User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.  [scope: standing, condition: none]\n6. User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.  [scope: standing, condition: none]\n7. User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "0bfecede-511e-4cec-b5a4-fac62f860931",
+      "memory": "User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.",
+      "hash": "7b7a9199859812d426d5680a951e086d",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:33.842811+00:00",
+      "updated_at": "2026-10-24T11:19:33.842811+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "1abfe564-dcf2-4c30-89fa-bcabc3f22c6f",
+      "memory": "User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.",
+      "hash": "830bb56d50bfe8ba89e7a157163ab04e",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:30.530860+00:00",
+      "updated_at": "2026-10-24T11:19:30.530860+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "2c295209-0a1e-4394-8f93-5145a0dd9ca6",
+      "memory": "User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.",
+      "hash": "55e3d87b8a23c3356b2258e954b97cbf",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:33.842841+00:00",
+      "updated_at": "2026-10-24T11:19:33.842841+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "2f2a5a2c-f39f-4e54-a0d0-b8c361e46ceb",
+      "memory": "User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.",
+      "hash": "a8dd504465c02baa3796cfa73b0a1f6d",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:33.842851+00:00",
+      "updated_at": "2026-10-24T11:19:33.842851+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "49a03409-f2d8-435c-b4bb-fc408beeb0e3",
+      "memory": "User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.",
+      "hash": "c4198973954cfda655a31fef3c75c4e9",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:30.530826+00:00",
+      "updated_at": "2026-10-24T11:19:30.530826+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "77624975-f78a-47cd-8b32-a81cfe88a7d2",
+      "memory": "User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.",
+      "hash": "a7e2367f2941c6e0181e7c24b1cd10b0",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:30.530870+00:00",
+      "updated_at": "2026-10-24T11:19:30.530870+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    },
+    {
+      "id": "daa51310-169b-4414-8507-4cb55d61778f",
+      "memory": "User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.",
+      "hash": "680485a0cffde3eee6e701b479ce0046",
+      "metadata": null,
+      "created_at": "2026-10-24T11:19:30.530877+00:00",
+      "updated_at": "2026-10-24T11:19:30.530877+00:00",
+      "user_id": "sp-03b-scope_read_mem0-709e79"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.",
+      "score": 0.5877945004453725,
+      "raw": {
+        "id": "49a03409-f2d8-435c-b4bb-fc408beeb0e3",
+        "memory": "User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.",
+        "hash": "c4198973954cfda655a31fef3c75c4e9",
+        "metadata": null,
+        "score": 0.5877945004453725,
+        "created_at": "2026-10-24T11:19:30.530826+00:00",
+        "updated_at": "2026-10-24T11:19:30.530826+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.",
+      "score": 0.44062747226555987,
+      "raw": {
+        "id": "0bfecede-511e-4cec-b5a4-fac62f860931",
+        "memory": "User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.",
+        "hash": "7b7a9199859812d426d5680a951e086d",
+        "metadata": null,
+        "score": 0.44062747226555987,
+        "created_at": "2026-10-24T11:19:33.842811+00:00",
+        "updated_at": "2026-10-24T11:19:33.842811+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.",
+      "score": 0.32887622239417025,
+      "raw": {
+        "id": "daa51310-169b-4414-8507-4cb55d61778f",
+        "memory": "User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.",
+        "hash": "680485a0cffde3eee6e701b479ce0046",
+        "metadata": null,
+        "score": 0.32887622239417025,
+        "created_at": "2026-10-24T11:19:30.530877+00:00",
+        "updated_at": "2026-10-24T11:19:30.530877+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.",
+      "score": 0.2856777841342011,
+      "raw": {
+        "id": "2f2a5a2c-f39f-4e54-a0d0-b8c361e46ceb",
+        "memory": "User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.",
+        "hash": "a8dd504465c02baa3796cfa73b0a1f6d",
+        "metadata": null,
+        "score": 0.2856777841342011,
+        "created_at": "2026-10-24T11:19:33.842851+00:00",
+        "updated_at": "2026-10-24T11:19:33.842851+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.",
+      "score": 0.26086182468325747,
+      "raw": {
+        "id": "1abfe564-dcf2-4c30-89fa-bcabc3f22c6f",
+        "memory": "User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.",
+        "hash": "830bb56d50bfe8ba89e7a157163ab04e",
+        "metadata": null,
+        "score": 0.26086182468325747,
+        "created_at": "2026-10-24T11:19:30.530860+00:00",
+        "updated_at": "2026-10-24T11:19:30.530860+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.",
+      "score": 0.2560318853777207,
+      "raw": {
+        "id": "2c295209-0a1e-4394-8f93-5145a0dd9ca6",
+        "memory": "User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.",
+        "hash": "55e3d87b8a23c3356b2258e954b97cbf",
+        "metadata": null,
+        "score": 0.2560318853777207,
+        "created_at": "2026-10-24T11:19:33.842841+00:00",
+        "updated_at": "2026-10-24T11:19:33.842841+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    },
+    {
+      "text": "User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.",
+      "score": 0.11016784779748544,
+      "raw": {
+        "id": "77624975-f78a-47cd-8b32-a81cfe88a7d2",
+        "memory": "User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.",
+        "hash": "a7e2367f2941c6e0181e7c24b1cd10b0",
+        "metadata": null,
+        "score": 0.11016784779748544,
+        "created_at": "2026-10-24T11:19:30.530870+00:00",
+        "updated_at": "2026-10-24T11:19:30.530870+00:00",
+        "user_id": "sp-03b-scope_read_mem0-709e79"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "guests > 50"
+      }
+    },
+    {
+      "text": "User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "sp-03b-scope_read_mem0-709e79",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is planning their aunt's retirement party and several other family events in 2026, focusing on venue selection and catering numbers.  [scope: standing, condition: none]\n2. User prefers to order food for approximately 90% of the invite list for events, a practice validated by the assistant as common for local guest bases.  [scope: standing, condition: none]\n3. User struggles with tracking RSVP responses and was advised to use a simple sheet with yes/no/maybe columns.  [scope: standing, condition: none]\n4. User has a specific preference for sending handwritten postcards to wrap up any event that has more than 50 guests.  [scope: standing, condition: guests > 50]\n5. User is planning a cousin's wedding shower, distinct from the previously mentioned aunt's retirement party.  [scope: standing, condition: none]\n6. User prefers to send a single thank-you post in the family WhatsApp group for event thank-yous, rather than individual messages or cards.  [scope: standing, condition: none]\n7. User requires all dates to be written in ISO format (e.g., 2026-03-04) and frequently forgets this preference.  [scope: standing, condition: none]\n\nCurrent request:\nMy aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Channel: Family WhatsApp group; Reminder: Thank guests for the 2026-06-12 retirement party via the family WhatsApp group.",
+    "first_line": "Channel: Family WhatsApp group; Reminder: Thank guests for the 2026-06-12 retirement party via the family WhatsApp group."
+  },
+  "usage": {
+    "total_cost_usd": 0.000761736,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17022,
+        "completion_tokens": 286,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0004922640000000001
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1847,
+        "completion_tokens": 264,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000195306
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 626,
+        "completion_tokens": 31,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.4166e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "whatsapp group post",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

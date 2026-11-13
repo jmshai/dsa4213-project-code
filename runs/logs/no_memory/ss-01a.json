@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-01a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:56+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nScaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: FastAPI (Python)\n\n```python\n# main.py\nfrom fastapi import FastAPI\n\napp = FastAPI()\n\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"ok\"}\n```",
+    "first_line": "Framework: FastAPI (Python)"
+  },
+  "usage": {
+    "total_cost_usd": 4.553e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 150,
+        "completion_tokens": 49,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.553e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "django",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "fastapi",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

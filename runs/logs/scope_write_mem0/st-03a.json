@@ -1,0 +1,350 @@
+{
+  "episode_id": "st-03a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:08:44+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Still working on the route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User uses matplotlib for all their charts  [scope: standing, condition: none]\n2. User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'  [scope: standing, condition: none]\n3. User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib  [scope: project, project: Project Lantern, condition: none]\n4. User requested a chart for Project Lantern covering monthly points from January to December 2025  [scope: single_task, only the task where it was said, condition: none]\n5. The depot map for Project Lantern is currently on hold as of October 24, 2026  [scope: standing, condition: none]\n6. User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "19947dc1-129d-4a3e-a90d-bbd450bb6ae4",
+      "memory": "User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'",
+      "hash": "18fe57109642825f919f7a7523d0b9f5",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:09:06.293531+00:00",
+      "updated_at": "2026-10-24T11:09:06.293531+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713",
+      "attributed_to": "user"
+    },
+    {
+      "id": "460a7b5f-e48c-41af-b0c2-450acb0a64f7",
+      "memory": "User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance",
+      "hash": "230c171b41457fc93c6406aab9989c9b",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "created_at": "2026-10-24T11:09:23.850597+00:00",
+      "updated_at": "2026-10-24T11:09:23.850597+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713",
+      "attributed_to": "user"
+    },
+    {
+      "id": "47ca383b-7776-4ca5-8c37-a0f7703144d8",
+      "memory": "User uses matplotlib for all their charts",
+      "hash": "3f76204a57446ce19ef771c68676e991",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:09:03.193666+00:00",
+      "updated_at": "2026-10-24T11:09:03.193666+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713",
+      "attributed_to": "user"
+    },
+    {
+      "id": "7fae873f-19ff-4888-bc16-4e44520a4ecd",
+      "memory": "The depot map for Project Lantern is currently on hold as of October 24, 2026",
+      "hash": "cc84c88206579c83809ad596611b86b7",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:09:21.698405+00:00",
+      "updated_at": "2026-10-24T11:09:21.698405+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713",
+      "attributed_to": "user"
+    },
+    {
+      "id": "91747d43-5e74-4f10-97be-a7e5f914995e",
+      "memory": "User requested a chart for Project Lantern covering monthly points from January to December 2025",
+      "hash": "5a3d576486d87823db79552d84c89270",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "created_at": "2026-10-24T11:09:19.784792+00:00",
+      "updated_at": "2026-10-24T11:09:19.784792+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713"
+    },
+    {
+      "id": "ef3d63ab-b364-4aea-b0eb-80edc79445c4",
+      "memory": "User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib",
+      "hash": "7b575be1ff5e0919714549ea8afeec23",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "created_at": "2026-10-24T11:09:11.354770+00:00",
+      "updated_at": "2026-10-24T11:09:11.354770+00:00",
+      "user_id": "st-03a-scope_write_mem0-3e5713"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User requested a chart for Project Lantern covering monthly points from January to December 2025",
+      "score": 0.5382511992271249,
+      "raw": {
+        "id": "91747d43-5e74-4f10-97be-a7e5f914995e",
+        "memory": "User requested a chart for Project Lantern covering monthly points from January to December 2025",
+        "hash": "5a3d576486d87823db79552d84c89270",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "score": 0.5382511992271249,
+        "created_at": "2026-10-24T11:09:19.784792+00:00",
+        "updated_at": "2026-10-24T11:09:19.784792+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713"
+      }
+    },
+    {
+      "text": "User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib",
+      "score": 0.3905273051961394,
+      "raw": {
+        "id": "ef3d63ab-b364-4aea-b0eb-80edc79445c4",
+        "memory": "User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib",
+        "hash": "7b575be1ff5e0919714549ea8afeec23",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "score": 0.3905273051961394,
+        "created_at": "2026-10-24T11:09:11.354770+00:00",
+        "updated_at": "2026-10-24T11:09:11.354770+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713"
+      }
+    },
+    {
+      "text": "User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'",
+      "score": 0.3723353786505983,
+      "raw": {
+        "id": "19947dc1-129d-4a3e-a90d-bbd450bb6ae4",
+        "memory": "User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'",
+        "hash": "18fe57109642825f919f7a7523d0b9f5",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.3723353786505983,
+        "created_at": "2026-10-24T11:09:06.293531+00:00",
+        "updated_at": "2026-10-24T11:09:06.293531+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User uses matplotlib for all their charts",
+      "score": 0.37184436363197093,
+      "raw": {
+        "id": "47ca383b-7776-4ca5-8c37-a0f7703144d8",
+        "memory": "User uses matplotlib for all their charts",
+        "hash": "3f76204a57446ce19ef771c68676e991",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.37184436363197093,
+        "created_at": "2026-10-24T11:09:03.193666+00:00",
+        "updated_at": "2026-10-24T11:09:03.193666+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance",
+      "score": 0.3036404994988074,
+      "raw": {
+        "id": "460a7b5f-e48c-41af-b0c2-450acb0a64f7",
+        "memory": "User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance",
+        "hash": "230c171b41457fc93c6406aab9989c9b",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "score": 0.3036404994988074,
+        "created_at": "2026-10-24T11:09:23.850597+00:00",
+        "updated_at": "2026-10-24T11:09:23.850597+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The depot map for Project Lantern is currently on hold as of October 24, 2026",
+      "score": 0.2830137357289189,
+      "raw": {
+        "id": "7fae873f-19ff-4888-bc16-4e44520a4ecd",
+        "memory": "The depot map for Project Lantern is currently on hold as of October 24, 2026",
+        "hash": "cc84c88206579c83809ad596611b86b7",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.2830137357289189,
+        "created_at": "2026-10-24T11:09:21.698405+00:00",
+        "updated_at": "2026-10-24T11:09:21.698405+00:00",
+        "user_id": "st-03a-scope_write_mem0-3e5713",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User requested a chart for Project Lantern covering monthly points from January to December 2025",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User uses matplotlib for all their charts",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "The depot map for Project Lantern is currently on hold as of October 24, 2026",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "I go with matplotlib for all my charts.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Lantern, use plotly for every chart.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "Back on Project Lantern.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "It's a slide export with one line per route.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "January to December 2025, monthly points.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "The depot map is still on hold, by the way.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "Just for this one, use altair for the chart.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-03a-scope_write_mem0-3e5713",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User uses matplotlib for all their charts  [scope: standing, condition: none]\n2. User requires all charts to have units in square brackets in axis labels, such as 'Revenue [USD]'  [scope: standing, condition: none]\n3. User requires plotly for every chart on Project Lantern, overriding their general preference for matplotlib  [scope: project, project: Project Lantern, condition: none]\n4. User requested a chart for Project Lantern covering monthly points from January to December 2025  [scope: single_task, only the task where it was said, condition: none]\n5. The depot map for Project Lantern is currently on hold as of October 24, 2026  [scope: standing, condition: none]\n6. User requested to use altair for a specific chart on Project Lantern, overriding the general plotly preference for that project just for this one instance  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nStill working on the route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool: plotly (Project Lantern standard, overriding general matplotlib preference)\n\n```python\nimport pandas as pd\nimport plotly.express as px\n\n\ndef draw_route_fuel_cost_chart(df: pd.DataFrame) -> \"plotly.graph_objs.Figure\":\n    \"\"\"\n    Draws a line chart of monthly fuel cost in USD for each route.\n\n    Parameters\n    ----------\n    df : pd.DataFrame\n        Must contain columns: 'month', 'route', 'fuel_cost_usd'.\n\n    Returns\n    -------\n    plotly.graph_objs.Figure\n        The generated Plotly figure object.\n    \"\"\"\n    fig = px.line(\n        df,\n        x=\"month\",\n        y=\"fuel_cost_usd\",\n        color=\"route\",\n        labels={\n            \"month\": \"Month\",\n            \"fuel_cost_usd\": \"Fuel Cost [USD]\",\n            \"route\": \"Route\"\n        },\n        title=\"Monthly Fuel Cost by Route\"\n    )\n    \n    # Ensure the axis label includes units in square brackets as per standing requirement\n    fig.update_yaxes(title_text=\"Fuel Cost [USD]\")\n    \n    return fig\n```",
+    "first_line": "Tool: plotly (Project Lantern standard, overriding general matplotlib preference)"
+  },
+  "usage": {
+    "total_cost_usd": 0.0020391059999999997,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5330,
+        "completion_tokens": 384,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000362508
+      },
+      "mem0": {
+        "calls": 8,
+        "prompt_tokens": 66795,
+        "completion_tokens": 291,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.001511412
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 556,
+        "completion_tokens": 247,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000165186
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-03",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "altair",
+    "expected_memory": "m3",
+    "deciding_rule": 2,
+    "action_first_mentioned": "plotly",
+    "memory_actions": {
+      "m1": "matplotlib",
+      "m2": "plotly",
+      "m3": "altair"
+    }
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "episode_id": "po-02a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:26:54+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Tessera. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite the complete test file for a function apply_discount(price: float, code: str) -> float in Project Tessera. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: pytest with parametrize for concise coverage of valid codes, invalid codes, and edge cases.\n\n```python\nimport pytest\nfrom tessera.discount import apply_discount  # Adjust import path as needed\n\n\n@pytest.mark.parametrize(\n    \"price, code, expected\",\n    [\n        # Valid discount codes\n        (100.0, \"SAVE10\", 90.0),\n        (50.0, \"SAVE20\", 40.0),\n        (0.0, \"SAVE10\", 0.0),\n        (0.0, \"SAVE20\", 0.0),\n        (19.99, \"SAVE10\", 17.991),\n        (19.99, \"SAVE20\", 15.992),\n        # Invalid or unknown codes leave price unchanged\n        (100.0, \"INVALID\", 100.0),\n        (100.0, \"\", 100.0),\n        (100.0, \"save10\", 100.0),  # Case-sensitive check\n        (100.0, \"SAVE30\", 100.0),\n        # Negative prices (edge case \u2013 behavior depends on spec; here we assume no special handling)\n        (-50.0, \"SAVE10\", -45.0),\n        (-50.0, \"SAVE20\", -40.0),\n        (-50.0, \"UNKNOWN\", -50.0),\n    ],\n)\ndef test_apply_discount(price, code, expected):\n    result = apply_discount(price, code)\n    assert result == pytest.approx(expected, abs=1e-9)\n\n\ndef test_apply_discount_returns_float():\n    \"\"\"Ensure the return type is float even when input is int-like.\"\"\"\n    result = apply_discount(100, \"SAVE10\")\n    assert isinstance(result, float)\n    assert result == 90.0\n\n\ndef test_apply_discount_zero_price_any_code():\n    \"\"\"Zero price should remain zero regardless of code.\"\"\"\n    assert apply_discount(0.0, \"SAVE10\") == 0.0\n    assert apply_discount(0.0, \"SAVE20\") == 0.0\n    assert apply_discount(0.0, \"NOPE\") == 0.0\n```",
+    "first_line": "Approach: pytest with parametrize for concise coverage of valid codes, invalid codes, and edge cases."
+  },
+  "usage": {
+    "total_cost_usd": 0.00027605,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 164,
+        "completion_tokens": 535,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00027605
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-02",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "unittest",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "pytest",
+    "memory_actions": {
+      "m1": "pytest",
+      "m2": "unittest"
+    }
+  }
+}

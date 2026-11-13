@@ -1,0 +1,239 @@
+{
+  "episode_id": "cs-04a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:13:59+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting Project Vega, a billing sync service for the finance team.  [scope: project, project: Project Vega, condition: none]\n2. User requires all projects to use Google-style docstrings going forward to address recurring review comments.  [scope: standing, condition: none]\n3. The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.  [scope: project, project: Project Vega, condition: none]\n4. On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.  [scope: project, project: Project Vega, condition: timeout_seconds > 30]\n5. User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "43b57fdb-705f-4c72-9c0b-3c3f12d32d84",
+      "memory": "User requires all projects to use Google-style docstrings going forward to address recurring review comments.",
+      "hash": "6083860185c00702b04ff2382cafe6f8",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:12.353182+00:00",
+      "updated_at": "2026-10-24T11:14:12.353182+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5568ba6e-a09d-44be-9c46-b48f9bd0432d",
+      "memory": "User is reviewing old scripts, specifically focusing on HTTP calls that contain uncontrolled handwritten retry loops with sleeps and counters.",
+      "hash": "0dc643ebe3e0f617303bd73dfb2ea3ea",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:15.597390+00:00",
+      "updated_at": "2026-10-24T11:14:15.597390+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "74080b47-a29a-42a4-a864-040ab175911f",
+      "memory": "On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.",
+      "hash": "a9b37a25e68031c1928eea07cf94e5af",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:12.353198+00:00",
+      "updated_at": "2026-10-24T11:14:12.353198+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "91d8e50a-0bca-41b5-a26f-1146b326d1a1",
+      "memory": "User is starting Project Vega, a billing sync service for the finance team.",
+      "hash": "d763fda66d6396ac62de707cfe282d27",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:12.353151+00:00",
+      "updated_at": "2026-10-24T11:14:12.353151+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bdd86b33-0b56-4508-858b-6fea1e9ac853",
+      "memory": "The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.",
+      "hash": "28492925fcdedbd6bcf8951816cf5700",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:12.353191+00:00",
+      "updated_at": "2026-10-24T11:14:12.353191+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    },
+    {
+      "id": "df1277b0-e717-4a86-b753-54af61a8e9f6",
+      "memory": "User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.",
+      "hash": "2192360395587eed2ed16815701984fa",
+      "metadata": null,
+      "created_at": "2026-10-24T11:14:15.597412+00:00",
+      "updated_at": "2026-10-24T11:14:15.597412+00:00",
+      "user_id": "cs-04a-scope_read_mem0-f84c4e",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.",
+      "score": 0.542127698023818,
+      "raw": {
+        "id": "bdd86b33-0b56-4508-858b-6fea1e9ac853",
+        "memory": "The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.",
+        "hash": "28492925fcdedbd6bcf8951816cf5700",
+        "metadata": null,
+        "score": 0.542127698023818,
+        "created_at": "2026-10-24T11:14:12.353191+00:00",
+        "updated_at": "2026-10-24T11:14:12.353191+00:00",
+        "user_id": "cs-04a-scope_read_mem0-f84c4e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is starting Project Vega, a billing sync service for the finance team.",
+      "score": 0.4882709025203133,
+      "raw": {
+        "id": "91d8e50a-0bca-41b5-a26f-1146b326d1a1",
+        "memory": "User is starting Project Vega, a billing sync service for the finance team.",
+        "hash": "d763fda66d6396ac62de707cfe282d27",
+        "metadata": null,
+        "score": 0.4882709025203133,
+        "created_at": "2026-10-24T11:14:12.353151+00:00",
+        "updated_at": "2026-10-24T11:14:12.353151+00:00",
+        "user_id": "cs-04a-scope_read_mem0-f84c4e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.",
+      "score": 0.4312512251472489,
+      "raw": {
+        "id": "74080b47-a29a-42a4-a864-040ab175911f",
+        "memory": "On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.",
+        "hash": "a9b37a25e68031c1928eea07cf94e5af",
+        "metadata": null,
+        "score": 0.4312512251472489,
+        "created_at": "2026-10-24T11:14:12.353198+00:00",
+        "updated_at": "2026-10-24T11:14:12.353198+00:00",
+        "user_id": "cs-04a-scope_read_mem0-f84c4e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.",
+      "score": 0.13994347599838486,
+      "raw": {
+        "id": "df1277b0-e717-4a86-b753-54af61a8e9f6",
+        "memory": "User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.",
+        "hash": "2192360395587eed2ed16815701984fa",
+        "metadata": null,
+        "score": 0.13994347599838486,
+        "created_at": "2026-10-24T11:14:15.597412+00:00",
+        "updated_at": "2026-10-24T11:14:15.597412+00:00",
+        "user_id": "cs-04a-scope_read_mem0-f84c4e",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires all projects to use Google-style docstrings going forward to address recurring review comments.",
+      "score": 0.12210306727858744,
+      "raw": {
+        "id": "43b57fdb-705f-4c72-9c0b-3c3f12d32d84",
+        "memory": "User requires all projects to use Google-style docstrings going forward to address recurring review comments.",
+        "hash": "6083860185c00702b04ff2382cafe6f8",
+        "metadata": null,
+        "score": 0.12210306727858744,
+        "created_at": "2026-10-24T11:14:12.353182+00:00",
+        "updated_at": "2026-10-24T11:14:12.353182+00:00",
+        "user_id": "cs-04a-scope_read_mem0-f84c4e",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": null
+      }
+    },
+    {
+      "text": "User is starting Project Vega, a billing sync service for the finance team.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout_seconds > 30"
+      }
+    },
+    {
+      "text": "User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User requires all projects to use Google-style docstrings going forward to address recurring review comments.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "cs-04a-scope_read_mem0-f84c4e",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting Project Vega, a billing sync service for the finance team.  [scope: project, project: Project Vega, condition: none]\n2. User requires all projects to use Google-style docstrings going forward to address recurring review comments.  [scope: standing, condition: none]\n3. The invoice export feature for Project Vega is due by Friday (October 30, 2026), while the monthly CSV recap is deferred until the sync is stable.  [scope: project, project: Project Vega, condition: none]\n4. On Project Vega, API calls with timeouts over 30 seconds must fail fast with no retries because the gateway upstream already handles retries.  [scope: project, project: Project Vega, condition: timeout_seconds > 30]\n5. User established a standard for all projects: HTTP calls must always use the tenacity library to retry transient failures three times, never using handwritten loops.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "No retry logic (fail fast) using a direct HTTP call.\n\nThe request involves Project Vega with a timeout of 45 seconds, which triggers the condition `timeout_seconds > 30`. According to memory #4 (project scope), API calls in this scenario must fail fast with no retries because the gateway handles them. This specific project rule overrides the standing rule in memory #5 (which mandates tenacity retries for all projects) based on the precedence order: narrowest scope (project vs. standing) takes priority when conditions apply. Additionally, memory #2 requires Google-style docstrings.",
+    "first_line": "No retry logic (fail fast) using a direct HTTP call."
+  },
+  "usage": {
+    "total_cost_usd": 0.000854214,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17048,
+        "completion_tokens": 352,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0005957919999999999
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1783,
+        "completion_tokens": 200,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000155626
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 538,
+        "completion_tokens": 120,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000102796
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "fail fast",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "fail fast",
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

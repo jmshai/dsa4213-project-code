@@ -1,0 +1,202 @@
+{
+  "episode_id": "sp-02b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:58:10+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line  [scope: standing, condition: none]\n2. User wants every email to a neighbour to start with the first line 'Hey there,'  [scope: standing, condition: recipient == neighbour]\n3. User wants every email to open with 'To whom it may concern,' by default  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "17c69015-6b1e-4990-a12e-350fd11c94ad",
+      "memory": "User wants every email to open with 'To whom it may concern,' by default",
+      "hash": "0fabe570a30c74c020dfadaa9da2eb6c",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:58:31.655810+00:00",
+      "updated_at": "2026-10-24T10:58:31.655810+00:00",
+      "user_id": "sp-02b-scope_write_mem0-07f08f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "3c703f8a-02ac-4758-80dc-db082ca1e43f",
+      "memory": "User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line",
+      "hash": "5a69525a45d463e97fa7b7e071a53448",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:58:25.152967+00:00",
+      "updated_at": "2026-10-24T10:58:25.152967+00:00",
+      "user_id": "sp-02b-scope_write_mem0-07f08f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d7380422-eff2-4e43-be9e-17f1b96168c1",
+      "memory": "User wants every email to a neighbour to start with the first line 'Hey there,'",
+      "hash": "5a639e9744e4f84fb31095c4af17144f",
+      "metadata": {
+        "scope": "standing",
+        "condition": "recipient == neighbour"
+      },
+      "created_at": "2026-10-24T10:58:28.273576+00:00",
+      "updated_at": "2026-10-24T10:58:28.273576+00:00",
+      "user_id": "sp-02b-scope_write_mem0-07f08f",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User wants every email to a neighbour to start with the first line 'Hey there,'",
+      "score": 0.24163143816921046,
+      "raw": {
+        "id": "d7380422-eff2-4e43-be9e-17f1b96168c1",
+        "memory": "User wants every email to a neighbour to start with the first line 'Hey there,'",
+        "hash": "5a639e9744e4f84fb31095c4af17144f",
+        "metadata": {
+          "scope": "standing",
+          "condition": "recipient == neighbour"
+        },
+        "score": 0.24163143816921046,
+        "created_at": "2026-10-24T10:58:28.273576+00:00",
+        "updated_at": "2026-10-24T10:58:28.273576+00:00",
+        "user_id": "sp-02b-scope_write_mem0-07f08f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line",
+      "score": 0.1664737092588414,
+      "raw": {
+        "id": "3c703f8a-02ac-4758-80dc-db082ca1e43f",
+        "memory": "User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line",
+        "hash": "5a69525a45d463e97fa7b7e071a53448",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.1664737092588414,
+        "created_at": "2026-10-24T10:58:25.152967+00:00",
+        "updated_at": "2026-10-24T10:58:25.152967+00:00",
+        "user_id": "sp-02b-scope_write_mem0-07f08f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User wants every email to open with 'To whom it may concern,' by default",
+      "score": 0.11516761891411523,
+      "raw": {
+        "id": "17c69015-6b1e-4990-a12e-350fd11c94ad",
+        "memory": "User wants every email to open with 'To whom it may concern,' by default",
+        "hash": "0fabe570a30c74c020dfadaa9da2eb6c",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.11516761891411523,
+        "created_at": "2026-10-24T10:58:31.655810+00:00",
+        "updated_at": "2026-10-24T10:58:31.655810+00:00",
+        "user_id": "sp-02b-scope_write_mem0-07f08f",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User wants every email to a neighbour to start with the first line 'Hey there,'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    },
+    {
+      "text": "User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User wants every email to open with 'To whom it may concern,' by default",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, end every email with 'Regards, Priya' on its own last line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "From now on, when I write to a neighbour, make the first line 'Hey there,'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    },
+    {
+      "text": "By default, open every email with 'To whom it may concern,'.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "sp-02b-scope_write_mem0-07f08f",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User's name is Priya and she wants every email to end with 'Regards, Priya' on its own last line  [scope: standing, condition: none]\n2. User wants every email to a neighbour to start with the first line 'Hey there,'  [scope: standing, condition: recipient == neighbour]\n3. User wants every email to open with 'To whom it may concern,' by default  [scope: standing, condition: none]\n\nCurrent request:\nWrite the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use the default opening 'To whom it may concern,' and the mandatory closing 'Regards, Priya', as the landlord is not identified as a neighbour.\n\nTo whom it may concern,\n\nI am writing to ask if it would be possible for us to swap parking spots 14 and 15 starting from 1 April. Please let me know if this arrangement works for you or if there are any administrative steps I need to take to facilitate the change.\n\nThank you for your time and assistance.\n\nRegards, Priya",
+    "first_line": "Approach: Use the default opening 'To whom it may concern,' and the mandatory closing 'Regards, Priya', as the landlord is not identified as a neighbour."
+  },
+  "usage": {
+    "total_cost_usd": 0.000876362,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3578,
+        "completion_tokens": 184,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000177228
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24866,
+        "completion_tokens": 167,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000618118
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 421,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.1016e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "to whom it may concern",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "to whom it may concern",
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

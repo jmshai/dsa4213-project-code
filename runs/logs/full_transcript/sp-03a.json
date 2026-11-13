@@ -1,0 +1,47 @@
+{
+  "episode_id": "sp-03a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:30:07+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 80-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: I'm planning my aunt's retirement party and a few other family events this year.\nAssistant: Nice. What do you need help with first?\nUser: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list?\nAssistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling.\nUser: Good to know. I also keep losing track of who has replied.\nAssistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events?\nUser: Whenever an event has more than 50 guests, I'd rather send handwritten postcards.\nAssistant: Noted: for events with more than 50 guests, handwritten postcards.\n\nConversation 2:\nUser: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous.\nAssistant: A WhatsApp group post for event thank-yous, noted. Anything else?\nUser: One thing I keep forgetting: write every date in ISO format, like 2026-03-04.\nAssistant: Got it, ISO dates everywhere.\nUser: That's everything for now.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: I'm planning my aunt's retirement party and a few other family events this year.\nAssistant: Nice. What do you need help with first?\nUser: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list?\nAssistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling.\nUser: Good to know. I also keep losing track of who has replied.\nAssistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events?\nUser: Whenever an event has more than 50 guests, I'd rather send handwritten postcards.\nAssistant: Noted: for events with more than 50 guests, handwritten postcards.\n\nConversation 2:\nUser: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous.\nAssistant: A WhatsApp group post for event thank-yous, noted. Anything else?\nUser: One thing I keep forgetting: write every date in ISO format, like 2026-03-04.\nAssistant: Got it, ISO dates everywhere.\nUser: That's everything for now.\n\nCurrent request:\nMy aunt's 80-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Channel: Family WhatsApp group post.\n\nReminder: Thank guests for the 2026-06-12 retirement party via a single post in the family WhatsApp group.",
+    "first_line": "Channel: Family WhatsApp group post."
+  },
+  "usage": {
+    "total_cost_usd": 8.399e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 444,
+        "completion_tokens": 37,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.399e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "handwritten postcards",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": "whatsapp group post",
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

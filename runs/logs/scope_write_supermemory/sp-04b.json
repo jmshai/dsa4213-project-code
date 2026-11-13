@@ -1,0 +1,237 @@
+{
+  "episode_id": "sp-04b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:38:57+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, in every project, write every code comment in Spanish  [scope: standing, condition: none]\n2. User: On Project Kestrel, default to a 90-second TTL cache  [scope: project, project: Project Kestrel, condition: none]\n3. User: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.  [scope: project, project: Project Kestrel, condition: freshness_window < 5]",
+  "stored": [
+    {
+      "id": "APqAzSTY9T5VpP58RuTXoW",
+      "title": "User: On Project Kestrel, whenever the freshness w...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "freshness_window < 5"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:39:53.685000Z",
+        "updatedAt": "2026-10-24T16:40:00.219000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "yyCGdcVVEq2vxUxgDd5rw6",
+      "title": "User: On Project Kestrel, default to a 90-second T...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Kestrel"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:39:19.623000Z",
+        "updatedAt": "2026-10-24T16:39:25.323000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "fuF9nmvupbAVJYZkF4Rqce",
+      "title": "User: from now on, in every project, write every c...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:39:10.922000Z",
+        "updatedAt": "2026-10-24T16:39:17.460000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "score": 0.67434472,
+      "raw": {
+        "id": "38f85dc2e0e6b06cedb822",
+        "memory": null,
+        "chunk": "User: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Kestrel",
+          "condition": "freshness_window < 5"
+        },
+        "similarity": 0.67434472,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:40:00.219Z",
+          "created_at": "2026-10-24T16:39:53.685Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: On Project Kestrel, default to a 90-second TTL cache",
+      "score": 0.66885287,
+      "raw": {
+        "id": "f28e323441e7397d6b523b",
+        "memory": null,
+        "chunk": "User: On Project Kestrel, default to a 90-second TTL cache",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Kestrel"
+        },
+        "similarity": 0.66885287,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:39:25.323Z",
+          "created_at": "2026-10-24T16:39:19.623Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: from now on, in every project, write every code comment in Spanish",
+      "score": 0.53973377,
+      "raw": {
+        "id": "118818904ab21ac752cda7",
+        "memory": null,
+        "chunk": "User: from now on, in every project, write every code comment in Spanish",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.53973377,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:39:17.460Z",
+          "created_at": "2026-10-24T16:39:10.922Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "freshness_window < 5"
+      }
+    },
+    {
+      "text": "User: On Project Kestrel, default to a 90-second TTL cache",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: from now on, in every project, write every code comment in Spanish",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, in every project, write every code comment in Spanish",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Kestrel, default to a 90-second TTL cache",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Kestrel",
+        "condition": "freshness_window < 5"
+      }
+    }
+  ],
+  "namespace": "sp-04b-scope_write_supermemory-4aa1fa",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, in every project, write every code comment in Spanish  [scope: standing, condition: none]\n2. User: On Project Kestrel, default to a 90-second TTL cache  [scope: project, project: Project Kestrel, condition: none]\n3. User: On Project Kestrel, whenever the freshness window is under 5 minutes, use no cache and query the database directly.  [scope: project, project: Project Kestrel, condition: freshness_window < 5]\n\nCurrent request:\nOn Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use a 90-second TTL cache, as the freshness window (30 minutes) is not under 5 minutes.\n\n```python\n# Pol\u00edtica de cach\u00e9: TTL de 90 segundos (la ventana de frescura es mayor a 5 minutos).\ndef get_pickup_estimates():\n    # Implementaci\u00f3n de la l\u00f3gica para obtener estimaciones de recogida\n    pass\n```",
+    "first_line": "Approach: Use a 90-second TTL cache, as the freshness window (30 minutes) is not under 5 minutes."
+  },
+  "usage": {
+    "total_cost_usd": 0.00024610400000000003,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3578,
+        "completion_tokens": 174,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000172528
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 456,
+        "completion_tokens": 84,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.3576e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-04",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "90-second ttl cache",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "90-second ttl cache",
+    "memory_actions": {
+      "m1": "90-second ttl cache",
+      "m2": "no cache"
+    }
+  }
+}

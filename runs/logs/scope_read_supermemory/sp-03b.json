@@ -1,0 +1,151 @@
+{
+  "episode_id": "sp-03b",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:24:27+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm planning my aunt's retirement party and a few other family events this year. Assistant: Nice. What do you need help with first? User: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list? Assistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling. User: Good to know. I also keep losing track of who has replied. Assistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events? User: Whenever an event has more than 50 guests, I'd rather send handwritten postcards. Assistant: Noted: for events with more than 50 guests, handwritten postcards.  [scope: standing, condition: none]\n2. User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous. Assistant: A WhatsApp group post for event thank-yous, noted. Anything else? User: One thing I keep forgetting: write every date in ISO format, like 2026-03-04. Assistant: Got it, ISO dates everywhere. User: That's everything for now.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "7wLiNf9DAvQ89DtKXydHxo",
+      "title": "User: Different event now, my cousin's wedding sho...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:24:49.470000Z",
+        "updatedAt": "2026-10-24T17:24:57.090000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "rz7EuJXZBpjG5jWNPWNnzR",
+      "title": "User: I'm planning my aunt's retirement party and...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:24:38.624000Z",
+        "updatedAt": "2026-10-24T17:24:46.584000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous. Assistant: A WhatsApp group post for event thank-yous, noted. Anything else? User: One thing I keep forgetting: write every date in ISO format, like 2026-03-04. Assistant: Got it, ISO dates everywhere. User: That's everything for now.",
+      "score": 0.6864661000000001,
+      "raw": {
+        "id": "80b07f652ffff08ec140c5",
+        "memory": null,
+        "chunk": "User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous. Assistant: A WhatsApp group post for event thank-yous, noted. Anything else? User: One thing I keep forgetting: write every date in ISO format, like 2026-03-04. Assistant: Got it, ISO dates everywhere. User: That's everything for now.",
+        "metadata": {},
+        "similarity": 0.6864661000000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:24:57.090Z",
+          "created_at": "2026-10-24T17:24:49.470Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I'm planning my aunt's retirement party and a few other family events this year. Assistant: Nice. What do you need help with first? User: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list? Assistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling. User: Good to know. I also keep losing track of who has replied. Assistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events? User: Whenever an event has more than 50 guests, I'd rather send handwritten postcards. Assistant: Noted: for events with more than 50 guests, handwritten postcards.",
+      "score": 0.66277695,
+      "raw": {
+        "id": "faafe3fa03373620c647d8",
+        "memory": null,
+        "chunk": "User: I'm planning my aunt's retirement party and a few other family events this year. Assistant: Nice. What do you need help with first? User: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list? Assistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling. User: Good to know. I also keep losing track of who has replied. Assistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events? User: Whenever an event has more than 50 guests, I'd rather send handwritten postcards. Assistant: Noted: for events with more than 50 guests, handwritten postcards.",
+        "metadata": {},
+        "similarity": 0.66277695,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:24:46.584Z",
+          "created_at": "2026-10-24T17:24:38.624Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous. Assistant: A WhatsApp group post for event thank-yous, noted. Anything else? User: One thing I keep forgetting: write every date in ISO format, like 2026-03-04. Assistant: Got it, ISO dates everywhere. User: That's everything for now.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I'm planning my aunt's retirement party and a few other family events this year. Assistant: Nice. What do you need help with first? User: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list? Assistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling. User: Good to know. I also keep losing track of who has replied. Assistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events? User: Whenever an event has more than 50 guests, I'd rather send handwritten postcards. Assistant: Noted: for events with more than 50 guests, handwritten postcards.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "sp-03b-scope_read_supermemory-b0ba21",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm planning my aunt's retirement party and a few other family events this year. Assistant: Nice. What do you need help with first? User: Mostly the venue and the catering numbers. Is it normal to order food for about 90% of the invite list? Assistant: Yes, 85 to 90 percent is common when most guests are local, a bit lower if many are travelling. User: Good to know. I also keep losing track of who has replied. Assistant: A simple RSVP sheet with a yes/no/maybe column helps. Anything about how you like to wrap up events? User: Whenever an event has more than 50 guests, I'd rather send handwritten postcards. Assistant: Noted: for events with more than 50 guests, handwritten postcards.  [scope: standing, condition: none]\n2. User: Different event now, my cousin's wedding shower. In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous. Assistant: A WhatsApp group post for event thank-yous, noted. Anything else? User: One thing I keep forgetting: write every date in ISO format, like 2026-03-04. Assistant: Got it, ISO dates everywhere. User: That's everything for now.  [scope: standing, condition: none]\n\nCurrent request:\nMy aunt's 30-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Channel: Family WhatsApp group post; Date format: ISO 8601.\n\nReminder: Send a thank-you post in the family WhatsApp group for the retirement party on 2026-06-12.",
+    "first_line": "Channel: Family WhatsApp group post; Date format: ISO 8601."
+  },
+  "usage": {
+    "total_cost_usd": 0.00015368400000000001,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1911,
+        "completion_tokens": 124,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000104802
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 636,
+        "completion_tokens": 47,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.8882e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "whatsapp group post",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "whatsapp group post",
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

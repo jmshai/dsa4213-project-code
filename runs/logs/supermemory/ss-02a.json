@@ -1,0 +1,163 @@
+{
+  "episode_id": "ss-02a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T16:02:52+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.\n- User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.\n- User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+  "stored": [
+    {
+      "id": "v7e5tdaL53Ydhnv9zK7E6F",
+      "title": "User: Quick update from the design team. Change of...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:03:10.703000Z",
+        "updatedAt": "2026-10-24T16:03:17.377000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "nwFkwai7xnUW8J9ri2vvNs",
+      "title": "User: Starting on the docs for Project Orchid. It'...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:03:01.949000Z",
+        "updatedAt": "2026-10-24T16:03:07.476000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "nDRhQx9wPVagExizVizFE3",
+      "title": "User: Before we start: whenever you write docs for...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:02:53.300000Z",
+        "updatedAt": "2026-10-24T16:03:00.291000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.",
+      "score": 0.6772171300000001,
+      "raw": {
+        "id": "653e5d89cf1534d70f1779",
+        "memory": null,
+        "chunk": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.",
+        "metadata": {},
+        "similarity": 0.6772171300000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:03:07.476Z",
+          "created_at": "2026-10-24T16:03:01.949Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.",
+      "score": 0.65639448,
+      "raw": {
+        "id": "5122ca95f095f2ccaa85b1",
+        "memory": null,
+        "chunk": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.",
+        "metadata": {},
+        "similarity": 0.65639448,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:03:00.291Z",
+          "created_at": "2026-10-24T16:02:53.300Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+      "score": 0.637124,
+      "raw": {
+        "id": "a50f7b6621d2c176023f1e",
+        "memory": null,
+        "chunk": "User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+        "metadata": {},
+        "similarity": 0.637124,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:03:17.377Z",
+          "created_at": "2026-10-24T16:03:10.703Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-02a-supermemory-830127",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.\n- User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.\n- User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.\n\nCurrent request:\nWrite the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: reStructuredText\n\n```rst\nSettings Reference\n==================\n\nThis document describes the configuration settings for Project Orchid.\n\naccent_color\n------------\n\n**Type:** Hex color string  \n**Default:** ``#1A73E8``  \n\nThe primary accent color used throughout the component library documentation site. This value should be a valid hexadecimal color code (e.g., #RRGGBB).\n\ncache_ttl\n---------\n\n**Type:** Integer (milliseconds)  \n**Default:** 90000 ms  \n\nSpecifies how long a generated page remains cached before it is regenerated. The value must be provided in milliseconds. For example, to cache pages for 5 minutes, set this to 300000 ms.\n\nretry_delay\n-----------\n\n**Type:** Integer (milliseconds)  \n**Default:** 2000 ms  \n\nDefines the wait time before a failed synchronization attempt is retried. The value must be provided in milliseconds. For example, to wait 10 seconds between retries, set this to 10000 ms.\n```",
+    "first_line": "Format: reStructuredText"
+  },
+  "usage": {
+    "total_cost_usd": 0.00017904,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 498,
+        "completion_tokens": 222,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00017904
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "restructuredtext",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "restructuredtext",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

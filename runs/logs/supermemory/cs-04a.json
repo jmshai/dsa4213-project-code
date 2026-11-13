@@ -1,0 +1,127 @@
+{
+  "episode_id": "cs-04a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T15:54:18+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Starting on Project Vega, a billing sync service for the finance team. Assistant: Sounds good. Where do you want to begin? User: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it. Assistant: Will do, Google-style docstrings. User: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait. Assistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API? User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries. Assistant: Understood. On Vega, long-timeout calls fail fast with no retries. User: Good. We'll start on the client code next time.\n- User: Different topic, I'm reviewing some old scripts of mine. Assistant: Okay. What are you looking for? User: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere. Assistant: That's common. Do you have a standard you want me to follow? User: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+  "stored": [
+    {
+      "id": "ex86p6Ay3zLXooZgYJDZdC",
+      "title": "User: Different topic, I'm reviewing some old scri...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:54:28.188000Z",
+        "updatedAt": "2026-10-24T15:54:34.959000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Z7HBwAA4R68LztPFwfpoDV",
+      "title": "User: Starting on Project Vega, a billing sync ser...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:54:19.795000Z",
+        "updatedAt": "2026-10-24T15:54:25.454000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Starting on Project Vega, a billing sync service for the finance team. Assistant: Sounds good. Where do you want to begin? User: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it. Assistant: Will do, Google-style docstrings. User: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait. Assistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API? User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries. Assistant: Understood. On Vega, long-timeout calls fail fast with no retries. User: Good. We'll start on the client code next time.",
+      "score": 0.59869868,
+      "raw": {
+        "id": "be0cc8a2b89b0b2586dcc1",
+        "memory": null,
+        "chunk": "User: Starting on Project Vega, a billing sync service for the finance team. Assistant: Sounds good. Where do you want to begin? User: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it. Assistant: Will do, Google-style docstrings. User: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait. Assistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API? User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries. Assistant: Understood. On Vega, long-timeout calls fail fast with no retries. User: Good. We'll start on the client code next time.",
+        "metadata": {},
+        "similarity": 0.59869868,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:54:25.454Z",
+          "created_at": "2026-10-24T15:54:19.795Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Different topic, I'm reviewing some old scripts of mine. Assistant: Okay. What are you looking for? User: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere. Assistant: That's common. Do you have a standard you want me to follow? User: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "score": 0.5807479,
+      "raw": {
+        "id": "9f4b0508ea8f1829175d70",
+        "memory": null,
+        "chunk": "User: Different topic, I'm reviewing some old scripts of mine. Assistant: Okay. What are you looking for? User: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere. Assistant: That's common. Do you have a standard you want me to follow? User: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+        "metadata": {},
+        "similarity": 0.5807479,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:54:34.959Z",
+          "created_at": "2026-10-24T15:54:28.188Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-04a-supermemory-171e8c",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Starting on Project Vega, a billing sync service for the finance team. Assistant: Sounds good. Where do you want to begin? User: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it. Assistant: Will do, Google-style docstrings. User: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait. Assistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API? User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries. Assistant: Understood. On Vega, long-timeout calls fail fast with no retries. User: Good. We'll start on the client code next time.\n- User: Different topic, I'm reviewing some old scripts of mine. Assistant: Okay. What are you looking for? User: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere. Assistant: That's common. Do you have a standard you want me to follow? User: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Approach:** Fail-fast with no retries using `httpx` (or standard library) due to the 45-second timeout exceeding Project Vega's 30-second threshold.\n\n```python\nimport httpx\nfrom typing import Dict, Any\n\ndef fetch_invoice(invoice_id: str) -> Dict[str, Any]:\n    \"\"\"Fetches an invoice by ID from the Project Vega billing API.\n\n    Args:\n        invoice_id: The unique identifier for the invoice.\n\n    Returns:\n        A dictionary containing the invoice data.\n\n    Raises:\n        httpx.HTTPStatusError: If the API returns a non-2xx status code.\n        httpx.RequestError: If the request fails due to network issues or timeout.\n    \"\"\"\n    # Project Vega constraint: Timeout > 30s means fail fast with NO retries.\n    # We use a simple client call without any retry logic (e.g., tenacity).\n    url = f\"https://api.projectvega.example.com/invoices/{invoice_id}\"\n    \n    # Using httpx as it is a modern, robust HTTP client. \n    # Note: In a real implementation, you might inject a client instance for testing.\n    response = httpx.get(url, timeout=45.0)\n    \n    # Raise exception for bad status codes\n    response.raise_for_status()\n    \n    return response.json()\n```",
+    "first_line": "**Approach:** Fail-fast with no retries using `httpx` (or standard library) due to the 45-second timeout exceeding Project Vega's 30-second threshold."
+  },
+  "usage": {
+    "total_cost_usd": 0.00020088,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 418,
+        "completion_tokens": 294,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00020088
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "fail fast",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

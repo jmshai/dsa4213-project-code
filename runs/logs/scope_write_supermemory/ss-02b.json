@@ -1,0 +1,291 @@
+{
+  "episode_id": "ss-02b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:45:36+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: whenever you write docs for me, give every duration in milliseconds  [scope: standing, condition: none]\n2. User: I go with AsciiDoc for documentation.  [scope: standing, condition: none]\n3. User: For Project Orchid, use Markdown.  [scope: project, project: Project Orchid, condition: none]\n4. User: for Project Orchid, write the docs in reStructuredText instead  [scope: project, project: Project Orchid, condition: none]",
+  "stored": [
+    {
+      "id": "7HpFZ2FgCPNkgdLRprC3BF",
+      "title": "User: for Project Orchid, write the docs in reStru...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:47:05.795000Z",
+        "updatedAt": "2026-10-24T16:47:11.903000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "2QvNsWxs2mSrqCxucHo7mP",
+      "title": "User: For Project Orchid, use Markdown.",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:46:32.410000Z",
+        "updatedAt": "2026-10-24T16:46:40.060000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "obB3fSqMCAd4gRs2tt3DtP",
+      "title": "User: I go with AsciiDoc for documentation.",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:46:02.547000Z",
+        "updatedAt": "2026-10-24T16:46:08.311000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "wVhU5PJK6XzaWxk9m1eePi",
+      "title": "User: whenever you write docs for me, give every d...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:45:50.094000Z",
+        "updatedAt": "2026-10-24T16:45:57.503000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: whenever you write docs for me, give every duration in milliseconds",
+      "score": 0.64590836,
+      "raw": {
+        "id": "5fe388487aa3dba0638d4c",
+        "memory": null,
+        "chunk": "User: whenever you write docs for me, give every duration in milliseconds",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.64590836,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:45:57.503Z",
+          "created_at": "2026-10-24T16:45:50.094Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: for Project Orchid, write the docs in reStructuredText instead",
+      "score": 0.63174224,
+      "raw": {
+        "id": "1e6e2abf07e64c91a69b22",
+        "memory": null,
+        "chunk": "User: for Project Orchid, write the docs in reStructuredText instead",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "similarity": 0.63174224,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:47:11.903Z",
+          "created_at": "2026-10-24T16:47:05.795Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I go with AsciiDoc for documentation.",
+      "score": 0.62884134,
+      "raw": {
+        "id": "f2564be9ee418ac8a208dd",
+        "memory": null,
+        "chunk": "User: I go with AsciiDoc for documentation.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.62884134,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:46:08.311Z",
+          "created_at": "2026-10-24T16:46:02.547Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: For Project Orchid, use Markdown.",
+      "score": 0.6074530499999999,
+      "raw": {
+        "id": "49a8c706f7e5ed1df2e648",
+        "memory": null,
+        "chunk": "User: For Project Orchid, use Markdown.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "similarity": 0.6074530499999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:46:40.060Z",
+          "created_at": "2026-10-24T16:46:32.410Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: whenever you write docs for me, give every duration in milliseconds",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: for Project Orchid, write the docs in reStructuredText instead",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I go with AsciiDoc for documentation.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: For Project Orchid, use Markdown.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "whenever you write docs for me, give every duration in milliseconds",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I go with AsciiDoc for documentation.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Orchid, use Markdown.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Orchid, write the docs in reStructuredText instead",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-02b-scope_write_supermemory-ff380a",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: whenever you write docs for me, give every duration in milliseconds  [scope: standing, condition: none]\n2. User: I go with AsciiDoc for documentation.  [scope: standing, condition: none]\n3. User: For Project Orchid, use Markdown.  [scope: project, project: Project Orchid, condition: none]\n4. User: for Project Orchid, write the docs in reStructuredText instead  [scope: project, project: Project Orchid, condition: none]\n\nCurrent request:\nWrite the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: AsciiDoc\n\n```asciidoc\n= Project Quill Settings Reference\n\nThis document describes the configuration settings for Project Quill.\n\n== accent_color\n\n* **Type:** Hex color string\n* **Default:** `#1A73E8`\n* **Description:** The primary accent color used in the user interface.\n\n== cache_ttl\n\n* **Type:** Duration (milliseconds)\n* **Default:** 90000 ms\n* **Description:** How long a page stays cached before being refreshed.\n\n== retry_delay\n\n* **Type:** Duration (milliseconds)\n* **Default:** 2000 ms\n* **Description:** The wait time before a failed sync is retried.\n```",
+    "first_line": "Format: AsciiDoc"
+  },
+  "usage": {
+    "total_cost_usd": 0.00034848,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5311,
+        "completion_tokens": 201,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000239344
+      },
+      "supermemory": {
+        "calls": 5,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 480,
+        "completion_tokens": 152,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000109136
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "asciidoc",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "asciidoc",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

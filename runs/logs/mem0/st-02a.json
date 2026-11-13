@@ -1,0 +1,206 @@
+{
+  "episode_id": "st-02a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:45:29+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Continue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.\n- User prefers ingredient quantities on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.\n- User is preparing a pancake recipe for Sunday brunch and prefers metric units (grams and millilitres) for this specific recipe, contrasting with their preference for cups in the lemon loaf card.\n- User is creating a recipe card for their lemon loaf to distribute at a school bake sale.\n- User requires an 'Allergens:' line under every ingredient list in recipe cards because they cook for many children with allergies.\n- User plans to send pancake recipe notes on October 25, 2026, after purchasing maple syrup.",
+  "stored": [
+    {
+      "id": "3be0cdcf-3805-458d-bcb2-337cb752c4fb",
+      "memory": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+      "hash": "f1c0cd529854f4b74d29686f7f7e6e6e",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:50.024814+00:00",
+      "updated_at": "2026-10-24T10:45:50.024814+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    },
+    {
+      "id": "52367e7a-504c-4102-a14f-b3ae0ccb0f4d",
+      "memory": "User requires an 'Allergens:' line under every ingredient list in recipe cards because they cook for many children with allergies.",
+      "hash": "78f370eb7eff62b5f0bb95b968fbda4e",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:58.909151+00:00",
+      "updated_at": "2026-10-24T10:45:58.909151+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    },
+    {
+      "id": "56842831-0ee1-418b-b9bd-28a16462de5f",
+      "memory": "User plans to send pancake recipe notes on October 25, 2026, after purchasing maple syrup.",
+      "hash": "41f0c81854e274762cdba7008ee2f08e",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:58.909191+00:00",
+      "updated_at": "2026-10-24T10:45:58.909191+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    },
+    {
+      "id": "89740aea-0f5f-4c80-a2cd-1bc7ac5a6351",
+      "memory": "User is preparing a pancake recipe for Sunday brunch and prefers metric units (grams and millilitres) for this specific recipe, contrasting with their preference for cups in the lemon loaf card.",
+      "hash": "d5dc9dd29f8070412701a531260a7f3f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:58.909182+00:00",
+      "updated_at": "2026-10-24T10:45:58.909182+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    },
+    {
+      "id": "94abdbdd-1123-44a1-9fab-45b330f7356f",
+      "memory": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+      "hash": "0051acf4343fbb4a331e831cc8979a8b",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:50.024789+00:00",
+      "updated_at": "2026-10-24T10:45:50.024789+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bf2b74f7-e9aa-4faa-917d-9ed11c844aec",
+      "memory": "User prefers ingredient quantities on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+      "hash": "59075b3f0530b9344f3c42ff49786f77",
+      "metadata": null,
+      "created_at": "2026-10-24T10:45:50.024822+00:00",
+      "updated_at": "2026-10-24T10:45:50.024822+00:00",
+      "user_id": "st-02a-mem0-0e5690",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+      "score": 0.7125590421389327,
+      "raw": {
+        "id": "3be0cdcf-3805-458d-bcb2-337cb752c4fb",
+        "memory": "User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.",
+        "hash": "f1c0cd529854f4b74d29686f7f7e6e6e",
+        "metadata": null,
+        "score": 0.7125590421389327,
+        "created_at": "2026-10-24T10:45:50.024814+00:00",
+        "updated_at": "2026-10-24T10:45:50.024814+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers ingredient quantities on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+      "score": 0.6568172709118292,
+      "raw": {
+        "id": "bf2b74f7-e9aa-4faa-917d-9ed11c844aec",
+        "memory": "User prefers ingredient quantities on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.",
+        "hash": "59075b3f0530b9344f3c42ff49786f77",
+        "metadata": null,
+        "score": 0.6568172709118292,
+        "created_at": "2026-10-24T10:45:50.024822+00:00",
+        "updated_at": "2026-10-24T10:45:50.024822+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is preparing a pancake recipe for Sunday brunch and prefers metric units (grams and millilitres) for this specific recipe, contrasting with their preference for cups in the lemon loaf card.",
+      "score": 0.5579030397312761,
+      "raw": {
+        "id": "89740aea-0f5f-4c80-a2cd-1bc7ac5a6351",
+        "memory": "User is preparing a pancake recipe for Sunday brunch and prefers metric units (grams and millilitres) for this specific recipe, contrasting with their preference for cups in the lemon loaf card.",
+        "hash": "d5dc9dd29f8070412701a531260a7f3f",
+        "metadata": null,
+        "score": 0.5579030397312761,
+        "created_at": "2026-10-24T10:45:58.909182+00:00",
+        "updated_at": "2026-10-24T10:45:58.909182+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+      "score": 0.5337209917650606,
+      "raw": {
+        "id": "94abdbdd-1123-44a1-9fab-45b330f7356f",
+        "memory": "User is creating a recipe card for their lemon loaf to distribute at a school bake sale.",
+        "hash": "0051acf4343fbb4a331e831cc8979a8b",
+        "metadata": null,
+        "score": 0.5337209917650606,
+        "created_at": "2026-10-24T10:45:50.024789+00:00",
+        "updated_at": "2026-10-24T10:45:50.024789+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires an 'Allergens:' line under every ingredient list in recipe cards because they cook for many children with allergies.",
+      "score": 0.2184014128992191,
+      "raw": {
+        "id": "52367e7a-504c-4102-a14f-b3ae0ccb0f4d",
+        "memory": "User requires an 'Allergens:' line under every ingredient list in recipe cards because they cook for many children with allergies.",
+        "hash": "78f370eb7eff62b5f0bb95b968fbda4e",
+        "metadata": null,
+        "score": 0.2184014128992191,
+        "created_at": "2026-10-24T10:45:58.909151+00:00",
+        "updated_at": "2026-10-24T10:45:58.909151+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User plans to send pancake recipe notes on October 25, 2026, after purchasing maple syrup.",
+      "score": 0.13650144547017307,
+      "raw": {
+        "id": "56842831-0ee1-418b-b9bd-28a16462de5f",
+        "memory": "User plans to send pancake recipe notes on October 25, 2026, after purchasing maple syrup.",
+        "hash": "41f0c81854e274762cdba7008ee2f08e",
+        "metadata": null,
+        "score": 0.13650144547017307,
+        "created_at": "2026-10-24T10:45:58.909191+00:00",
+        "updated_at": "2026-10-24T10:45:58.909191+00:00",
+        "user_id": "st-02a-mem0-0e5690",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "st-02a-mem0-0e5690",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User's lemon loaf recipe card format includes a title, ingredients, and three or four method steps, with oven instructions identical to their banana bread card.\n- User prefers ingredient quantities on the lemon loaf recipe card to be written in cups because most parents attending the school bake sale only own cup measures.\n- User is preparing a pancake recipe for Sunday brunch and prefers metric units (grams and millilitres) for this specific recipe, contrasting with their preference for cups in the lemon loaf card.\n- User is creating a recipe card for their lemon loaf to distribute at a school bake sale.\n- User requires an 'Allergens:' line under every ingredient list in recipe cards because they cook for many children with allergies.\n- User plans to send pancake recipe notes on October 25, 2026, after purchasing maple syrup.\n\nCurrent request:\nContinue the lemon loaf recipe card from earlier: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I used cups as the sole unit of measurement for all ingredients, excluding metric values.\n\n**Ingredients:**\n*   2 cups flour\n*   1 cup sugar\n*   1/2 cup butter\n*   1/2 cup milk\n*   2 eggs\n\nAllergens:",
+    "first_line": "I used cups as the sole unit of measurement for all ingredients, excluding metric values."
+  },
+  "usage": {
+    "total_cost_usd": 0.0006669919999999999,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16920,
+        "completion_tokens": 368,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0005841119999999999
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 352,
+        "completion_tokens": 64,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.288e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "cups",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "cups",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

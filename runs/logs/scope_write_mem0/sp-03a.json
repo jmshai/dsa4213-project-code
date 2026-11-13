@@ -1,0 +1,200 @@
+{
+  "episode_id": "sp-03a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:58:34+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My aunt's 80-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to send handwritten postcards for events with more than 50 guests.  [scope: standing, condition: guests > 50]\n2. User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.  [scope: standing, condition: none]\n3. User prefers all dates to be written in ISO format (e.g., 2026-03-04).  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "47e0257d-48c4-4520-a70a-924239dcd02e",
+      "memory": "User prefers all dates to be written in ISO format (e.g., 2026-03-04).",
+      "hash": "320176bac10caa5a233713c96fc86369",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:59:03.231419+00:00",
+      "updated_at": "2026-10-24T10:59:03.231419+00:00",
+      "user_id": "sp-03a-scope_write_mem0-b36e59"
+    },
+    {
+      "id": "61539836-1aa0-45a6-b7d4-508768b0bdb5",
+      "memory": "User prefers to send handwritten postcards for events with more than 50 guests.",
+      "hash": "7bee983d11d54a1f7490fc056c419598",
+      "metadata": {
+        "scope": "standing",
+        "condition": "guests > 50"
+      },
+      "created_at": "2026-10-24T10:58:56.420384+00:00",
+      "updated_at": "2026-10-24T10:58:56.420384+00:00",
+      "user_id": "sp-03a-scope_write_mem0-b36e59",
+      "attributed_to": "user"
+    },
+    {
+      "id": "fea64ba6-9980-48bf-874c-1ad4aa6872cf",
+      "memory": "User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.",
+      "hash": "1ccbee306d8364230261e3c85e3557c5",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:59:01.317480+00:00",
+      "updated_at": "2026-10-24T10:59:01.317480+00:00",
+      "user_id": "sp-03a-scope_write_mem0-b36e59",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers to send handwritten postcards for events with more than 50 guests.",
+      "score": 0.3500023580056134,
+      "raw": {
+        "id": "61539836-1aa0-45a6-b7d4-508768b0bdb5",
+        "memory": "User prefers to send handwritten postcards for events with more than 50 guests.",
+        "hash": "7bee983d11d54a1f7490fc056c419598",
+        "metadata": {
+          "scope": "standing",
+          "condition": "guests > 50"
+        },
+        "score": 0.3500023580056134,
+        "created_at": "2026-10-24T10:58:56.420384+00:00",
+        "updated_at": "2026-10-24T10:58:56.420384+00:00",
+        "user_id": "sp-03a-scope_write_mem0-b36e59",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers all dates to be written in ISO format (e.g., 2026-03-04).",
+      "score": 0.2997290325653499,
+      "raw": {
+        "id": "47e0257d-48c4-4520-a70a-924239dcd02e",
+        "memory": "User prefers all dates to be written in ISO format (e.g., 2026-03-04).",
+        "hash": "320176bac10caa5a233713c96fc86369",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.2997290325653499,
+        "created_at": "2026-10-24T10:59:03.231419+00:00",
+        "updated_at": "2026-10-24T10:59:03.231419+00:00",
+        "user_id": "sp-03a-scope_write_mem0-b36e59"
+      }
+    },
+    {
+      "text": "User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.",
+      "score": 0.2780204350193669,
+      "raw": {
+        "id": "fea64ba6-9980-48bf-874c-1ad4aa6872cf",
+        "memory": "User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.",
+        "hash": "1ccbee306d8364230261e3c85e3557c5",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.2780204350193669,
+        "created_at": "2026-10-24T10:59:01.317480+00:00",
+        "updated_at": "2026-10-24T10:59:01.317480+00:00",
+        "user_id": "sp-03a-scope_write_mem0-b36e59",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers to send handwritten postcards for events with more than 50 guests.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "guests > 50"
+      }
+    },
+    {
+      "text": "User prefers all dates to be written in ISO format (e.g., 2026-03-04).",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Whenever an event has more than 50 guests, I'd rather send handwritten postcards.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "guests > 50"
+      }
+    },
+    {
+      "text": "In general, I stick to one thank-you post in the family WhatsApp group for event thank-yous.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "write every date in ISO format, like 2026-03-04.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "sp-03a-scope_write_mem0-b36e59",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to send handwritten postcards for events with more than 50 guests.  [scope: standing, condition: guests > 50]\n2. User generally sticks to sending one thank-you post in the family WhatsApp group for event thank-yous.  [scope: standing, condition: none]\n3. User prefers all dates to be written in ISO format (e.g., 2026-03-04).  [scope: standing, condition: none]\n\nCurrent request:\nMy aunt's 80-guest retirement party was on 12 June 2026. Name the one channel I should use to thank the guests, then write a one-line reminder for my notes that names the channel and the party date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Channel: family WhatsApp group; Reminder: Thank guests for the retirement party held on 2026-03-12 via the family WhatsApp group.",
+    "first_line": "Channel: family WhatsApp group; Reminder: Thank guests for the retirement party held on 2026-03-12 via the family WhatsApp group."
+  },
+  "usage": {
+    "total_cost_usd": 0.000867916,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3595,
+        "completion_tokens": 192,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000217842
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24860,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000600768
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 454,
+        "completion_tokens": 33,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.9306e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-03",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "handwritten postcards",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "whatsapp group post",
+      "m2": "handwritten postcards"
+    }
+  }
+}

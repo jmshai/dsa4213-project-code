@@ -1,0 +1,289 @@
+{
+  "episode_id": "st-04a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T17:04:15+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Same job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: in every query you write for me, write select lists comma-first, with the comma at the start of each line  [scope: standing, condition: none]\n2. User: I standardize on inline subqueries for multi-step SQL  [scope: standing, condition: none]\n3. User: On Project Marlin, never use subqueries, use CTEs.  [scope: project, project: Project Marlin, condition: none]\n4. User: For this one, build it with views instead of CTEs or subqueries.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "qYWFS6KQPinR5pF7Vw8tpM",
+      "title": "User: For this one, build it with views instead of...",
+      "type": "text",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:05:40.788000Z",
+        "updatedAt": "2026-10-24T17:05:49.162000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "uMReSpsRcbse7Gfyiu88tp",
+      "title": "User: On Project Marlin, never use subqueries, use...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Marlin"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:05:09.101000Z",
+        "updatedAt": "2026-10-24T17:05:15.228000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "98p1wrdMVe8hVT7uU8PsCz",
+      "title": "User: I standardize on inline subqueries for multi...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:04:36.254000Z",
+        "updatedAt": "2026-10-24T17:04:44.311000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "BUyM7ynjNDPVdNqveYj2vP",
+      "title": "User: in every query you write for me, write selec...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:04:27.918000Z",
+        "updatedAt": "2026-10-24T17:04:33.814000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Marlin, never use subqueries, use CTEs.",
+      "score": 0.59537792,
+      "raw": {
+        "id": "80ab6e454ba65295131358",
+        "memory": null,
+        "chunk": "User: On Project Marlin, never use subqueries, use CTEs.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Marlin"
+        },
+        "similarity": 0.59537792,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:05:15.228Z",
+          "created_at": "2026-10-24T17:05:09.101Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: For this one, build it with views instead of CTEs or subqueries.",
+      "score": 0.5872847400000001,
+      "raw": {
+        "id": "587b7f52f44f8c43257c24",
+        "memory": null,
+        "chunk": "User: For this one, build it with views instead of CTEs or subqueries.",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "similarity": 0.5872847400000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:05:49.162Z",
+          "created_at": "2026-10-24T17:05:40.788Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I standardize on inline subqueries for multi-step SQL",
+      "score": 0.56864983,
+      "raw": {
+        "id": "58a3193878cdbc8e967962",
+        "memory": null,
+        "chunk": "User: I standardize on inline subqueries for multi-step SQL",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.56864983,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:04:44.311Z",
+          "created_at": "2026-10-24T17:04:36.254Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: in every query you write for me, write select lists comma-first, with the comma at the start of each line",
+      "score": 0.53651655,
+      "raw": {
+        "id": "b82cb3d54f56f88933ebb2",
+        "memory": null,
+        "chunk": "User: in every query you write for me, write select lists comma-first, with the comma at the start of each line",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.53651655,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:04:33.814Z",
+          "created_at": "2026-10-24T17:04:27.918Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Marlin, never use subqueries, use CTEs.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: For this one, build it with views instead of CTEs or subqueries.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I standardize on inline subqueries for multi-step SQL",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: in every query you write for me, write select lists comma-first, with the comma at the start of each line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "in every query you write for me, write select lists comma-first, with the comma at the start of each line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I standardize on inline subqueries for multi-step SQL",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Marlin, never use subqueries, use CTEs.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "For this one, build it with views instead of CTEs or subqueries.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-04a-scope_write_supermemory-18cfde",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: in every query you write for me, write select lists comma-first, with the comma at the start of each line  [scope: standing, condition: none]\n2. User: I standardize on inline subqueries for multi-step SQL  [scope: standing, condition: none]\n3. User: On Project Marlin, never use subqueries, use CTEs.  [scope: project, project: Project Marlin, condition: none]\n4. User: For this one, build it with views instead of CTEs or subqueries.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nSame job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use CTEs for multi-step SQL logic, comma-first select lists, and filter regions above the overall average revenue.\n\n```sql\nWITH overall_avg AS (\n    SELECT AVG(revenue) AS avg_revenue\n    FROM sales\n),\nregional_avg AS (\n    SELECT region\n        , AVG(revenue) AS avg_region_revenue\n    FROM sales\n    GROUP BY region\n)\nSELECT r.region\n    , r.avg_region_revenue\nFROM regional_avg r\nCROSS JOIN overall_avg o\nWHERE r.avg_region_revenue > o.avg_revenue;\n```",
+    "first_line": "Approach: Use CTEs for multi-step SQL logic, comma-first select lists, and filter regions above the overall average revenue."
+  },
+  "usage": {
+    "total_cost_usd": 0.000386984,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5290,
+        "completion_tokens": 243,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000290238
+      },
+      "supermemory": {
+        "calls": 5,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 482,
+        "completion_tokens": 125,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.6746e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-04",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "views",
+    "expected_memory": "m3",
+    "deciding_rule": 2,
+    "action_first_mentioned": "ctes",
+    "memory_actions": {
+      "m1": "subqueries",
+      "m2": "ctes",
+      "m3": "views"
+    }
+  }
+}

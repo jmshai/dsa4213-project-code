@@ -1,0 +1,127 @@
+{
+  "episode_id": "cs-03a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T15:53:26+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy. Assistant: Understood. On Project Kestrel, flights over 6 hours go premium economy. User: By the way, the client is moving offices in spring, so hotel searches will change later. Assistant: I'll hold off on hotels until you have the new address. Anything else for now? User: No, that's all. Thanks.\n- User: I'm sorting out my business travel admin and want you to handle the flight bookings. Assistant: Happy to. What should I keep in mind when booking? User: Most of the time I book economy for work flights. Assume that unless I say otherwise. Assistant: Got it, economy as the baseline. Anything else? User: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm. Assistant: Noted, 24-hour times throughout.",
+  "stored": [
+    {
+      "id": "uJWMhKnTt8MyUUGBdx9GSG",
+      "title": "User: Project Kestrel is a client rollout and I'll...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:53:36.462000Z",
+        "updatedAt": "2026-10-24T15:53:43.879000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "iPGB2UktFpJYRKbfmnW6F9",
+      "title": "User: I'm sorting out my business travel admin and...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:53:27.794000Z",
+        "updatedAt": "2026-10-24T15:53:33.383000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy. Assistant: Understood. On Project Kestrel, flights over 6 hours go premium economy. User: By the way, the client is moving offices in spring, so hotel searches will change later. Assistant: I'll hold off on hotels until you have the new address. Anything else for now? User: No, that's all. Thanks.",
+      "score": 0.7246998,
+      "raw": {
+        "id": "26c194c9b4ee3ee981aaae",
+        "memory": null,
+        "chunk": "User: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy. Assistant: Understood. On Project Kestrel, flights over 6 hours go premium economy. User: By the way, the client is moving offices in spring, so hotel searches will change later. Assistant: I'll hold off on hotels until you have the new address. Anything else for now? User: No, that's all. Thanks.",
+        "metadata": {},
+        "similarity": 0.7246998,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:53:43.879Z",
+          "created_at": "2026-10-24T15:53:36.462Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I'm sorting out my business travel admin and want you to handle the flight bookings. Assistant: Happy to. What should I keep in mind when booking? User: Most of the time I book economy for work flights. Assume that unless I say otherwise. Assistant: Got it, economy as the baseline. Anything else? User: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm. Assistant: Noted, 24-hour times throughout.",
+      "score": 0.7003851,
+      "raw": {
+        "id": "8eabe5f7225dbdb3b63412",
+        "memory": null,
+        "chunk": "User: I'm sorting out my business travel admin and want you to handle the flight bookings. Assistant: Happy to. What should I keep in mind when booking? User: Most of the time I book economy for work flights. Assume that unless I say otherwise. Assistant: Got it, economy as the baseline. Anything else? User: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm. Assistant: Noted, 24-hour times throughout.",
+        "metadata": {},
+        "similarity": 0.7003851,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:53:33.383Z",
+          "created_at": "2026-10-24T15:53:27.794Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-03a-supermemory-21a0bd",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Project Kestrel is a client rollout and I'll be flying a lot for it. On Project Kestrel, flights over 6 hours get booked in premium economy. My back can't take a long haul in economy. Assistant: Understood. On Project Kestrel, flights over 6 hours go premium economy. User: By the way, the client is moving offices in spring, so hotel searches will change later. Assistant: I'll hold off on hotels until you have the new address. Anything else for now? User: No, that's all. Thanks.\n- User: I'm sorting out my business travel admin and want you to handle the flight bookings. Assistant: Happy to. What should I keep in mind when booking? User: Most of the time I book economy for work flights. Assume that unless I say otherwise. Assistant: Got it, economy as the baseline. Anything else? User: Yes, one more thing: from now on, write all times in 24-hour format, like 21:45 rather than 9:45 pm. Assistant: Noted, 24-hour times throughout.\n\nCurrent request:\nDraft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the Project Kestrel premium economy rule for flights over 6 hours and converted all times to the requested 24-hour format.\n\n**Booking Request: Project Kestrel**\n\n*   **Traveller:** 1\n*   **Cabin Class:** Premium Economy\n*   **Departure Time:** 21:45\n*   **Check-in Closing Time:** 20:45",
+    "first_line": "I applied the Project Kestrel premium economy rule for flights over 6 hours and converted all times to the requested 24-hour format."
+  },
+  "usage": {
+    "total_cost_usd": 0.00010031,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 393,
+        "completion_tokens": 88,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00010031
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "premium economy",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "premium economy",
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

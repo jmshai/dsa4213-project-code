@@ -1,0 +1,47 @@
+{
+  "episode_id": "cs-04b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:26:49+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 10-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 10-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I will use the `requests` library with a GET request, explicit timeout parameter, and JSON parsing to implement this function.\n\n```python\nimport requests\n\ndef fetch_invoice(invoice_id: str) -> dict:\n    \"\"\"\n    Fetches an invoice by invoice_id from the Project Vega billing API.\n    \n    Args:\n        invoice_id (str): The unique identifier for the invoice.\n        \n    Returns:\n        dict: The invoice data as a dictionary.\n        \n    Raises:\n        requests.exceptions.RequestException: If the request fails or times out.\n        ValueError: If the response is not valid JSON.\n    \"\"\"\n    # Note: Replace 'https://api.projectvega.com/billing/invoices' with the actual endpoint URL\n    url = f\"https://api.projectvega.com/billing/invoices/{invoice_id}\"\n    \n    try:\n        response = requests.get(url, timeout=10)\n        response.raise_for_status()  # Raise an exception for HTTP errors (4xx/5xx)\n        return response.json()\n    except requests.exceptions.Timeout:\n        raise requests.exceptions.RequestException(f\"Request timed out after 10 seconds for invoice {invoice_id}\")\n    except requests.exceptions.HTTPError as e:\n        raise requests.exceptions.RequestException(f\"HTTP error occurred: {e}\")\n    except requests.exceptions.RequestException as e:\n        raise requests.exceptions.RequestException(f\"An error occurred while fetching invoice {invoice_id}: {e}\")\n    except ValueError:\n        raise ValueError(\"Response content was not valid JSON\")\n```",
+    "first_line": "I will use the `requests` library with a GET request, explicit timeout parameter, and JSON parsing to implement this function."
+  },
+  "usage": {
+    "total_cost_usd": 0.00017655,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 143,
+        "completion_tokens": 330,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00017655
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "tenacity",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

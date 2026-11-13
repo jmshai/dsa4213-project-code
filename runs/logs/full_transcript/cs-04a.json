@@ -1,0 +1,47 @@
+{
+  "episode_id": "cs-04a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:29:15+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: Starting on Project Vega, a billing sync service for the finance team.\nAssistant: Sounds good. Where do you want to begin?\nUser: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it.\nAssistant: Will do, Google-style docstrings.\nUser: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait.\nAssistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API?\nUser: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries.\nAssistant: Understood. On Vega, long-timeout calls fail fast with no retries.\nUser: Good. We'll start on the client code next time.\n\nConversation 2:\nUser: Different topic, I'm reviewing some old scripts of mine.\nAssistant: Okay. What are you looking for?\nUser: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere.\nAssistant: That's common. Do you have a standard you want me to follow?\nUser: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: Starting on Project Vega, a billing sync service for the finance team.\nAssistant: Sounds good. Where do you want to begin?\nUser: While we're at it, from now on, in every project, write docstrings in Google style. I keep getting review comments about it.\nAssistant: Will do, Google-style docstrings.\nUser: First up is the invoice export, which finance wants by Friday. They also want a monthly CSV recap, but that can wait.\nAssistant: Fine, we can leave the recap until the sync is stable. Any constraints on how the service calls the billing API?\nUser: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries. The gateway upstream already retries.\nAssistant: Understood. On Vega, long-timeout calls fail fast with no retries.\nUser: Good. We'll start on the client code next time.\n\nConversation 2:\nUser: Different topic, I'm reviewing some old scripts of mine.\nAssistant: Okay. What are you looking for?\nUser: Mostly the HTTP calls. Some have handwritten retry loops that grew out of control, with sleeps and counters everywhere.\nAssistant: That's common. Do you have a standard you want me to follow?\nUser: Yes. For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use `requests` with a 45-second timeout and fail fast (no retries) as per Project Vega constraints, returning the JSON response as a dict.\n\n```python\nimport requests\n\ndef fetch_invoice(invoice_id: str) -> dict:\n    \"\"\"Fetches an invoice by ID from the Project Vega billing API.\n\n    Args:\n        invoice_id: The unique identifier for the invoice to retrieve.\n\n    Returns:\n        A dictionary containing the invoice data.\n\n    Raises:\n        requests.exceptions.RequestException: If the request fails or times out.\n    \"\"\"\n    # Project Vega constraint: Timeout > 30s means fail fast with no retries.\n    # The gateway upstream handles retries, so we do not use tenacity here.\n    url = f\"https://billing-api.example.com/v1/invoices/{invoice_id}\"\n    \n    response = requests.get(url, timeout=45)\n    response.raise_for_status()\n    \n    return response.json()\n```",
+    "first_line": "Approach: Use `requests` with a 45-second timeout and fail fast (no retries) as per Project Vega constraints, returning the JSON response as a dict."
+  },
+  "usage": {
+    "total_cost_usd": 0.0001644,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 438,
+        "completion_tokens": 210,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0001644
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "fail fast",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "fail fast",
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

@@ -1,0 +1,237 @@
+{
+  "episode_id": "ss-01a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:40:51+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User kicked off Project Lantern on October 24, 2026. It is an internal service that exposes inventory counts to warehouse dashboards.\n- User decided to use FastAPI for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).\n- The warehouse team requires the stock endpoint for Project Lantern to return inventory counts per bin.\n- User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and wants the ORM there.\n- Project Lantern's shelf endpoint returns all bins in a single response without pagination, as the largest shelf contains about 40 bins.\n- User usually prefers the Falcon framework for building web services.",
+  "stored": [
+    {
+      "id": "1fdcaa09-1367-4f54-92b6-b8d75ed41a76",
+      "memory": "User asked if Falcon 4 dropped support for Python 3.8.",
+      "hash": "5c00c962757ece96814493d81919164c",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:24.615487+00:00",
+      "updated_at": "2026-10-24T10:41:24.615487+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "2c564168-f952-48b6-bc1b-cd5cc582428a",
+      "memory": "Project Lantern's shelf endpoint returns all bins in a single response without pagination, as the largest shelf contains about 40 bins.",
+      "hash": "71889273e71f9fdf8066071b4b9f805d",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:16.296429+00:00",
+      "updated_at": "2026-10-24T10:41:16.296429+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "69de4eb5-d9bd-4662-95eb-801a4d734987",
+      "memory": "User asked whether Postgres or SQLite is better for a dashboard cache that gets rewritten every minute.",
+      "hash": "d9c19de35684eadea693aad4f66da95f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:11.798167+00:00",
+      "updated_at": "2026-10-24T10:41:11.798167+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "735e7e36-f8b3-42ca-9178-b8fa83ab1af1",
+      "memory": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and wants the ORM there.",
+      "hash": "051a0ad3520c0b021ad39da47aaff109",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:16.296437+00:00",
+      "updated_at": "2026-10-24T10:41:16.296437+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "9b1c6cc8-2a1e-4ab5-b686-57aaebce9bd7",
+      "memory": "The warehouse team requires the stock endpoint for Project Lantern to return inventory counts per bin.",
+      "hash": "54d586601236c097cd2066f16c4ff0fd",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:16.296403+00:00",
+      "updated_at": "2026-10-24T10:41:16.296403+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a07334df-3f28-45fa-88ca-c6cf15e8b5a1",
+      "memory": "User usually prefers the Falcon framework for building web services.",
+      "hash": "d94963ac3a1a78bfe47c28d5f54d1cf2",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:24.615459+00:00",
+      "updated_at": "2026-10-24T10:41:24.615459+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "aba67ba4-841d-4e05-952c-8aac8b9e64f3",
+      "memory": "User kicked off Project Lantern on October 24, 2026. It is an internal service that exposes inventory counts to warehouse dashboards.",
+      "hash": "f4caae211ce6253ada78e46c490c9b44",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:11.798136+00:00",
+      "updated_at": "2026-10-24T10:41:11.798136+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "b8429bc5-772c-460b-a840-fbd6c3c355e7",
+      "memory": "User decided to use FastAPI for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+      "hash": "aecebb228f377b4111ecf09a9f3afa2d",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:11.798158+00:00",
+      "updated_at": "2026-10-24T10:41:11.798158+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c9715072-d407-40a0-8c77-095754f1c701",
+      "memory": "User requires every Python file provided by the assistant to start with the comment line '# owner: platform-team'.",
+      "hash": "0e26711c4f05620971258f1720bacb08",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:24.615479+00:00",
+      "updated_at": "2026-10-24T10:41:24.615479+00:00",
+      "user_id": "ss-01a-mem0-a00d81",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User kicked off Project Lantern on October 24, 2026. It is an internal service that exposes inventory counts to warehouse dashboards.",
+      "score": 0.41767473940176414,
+      "raw": {
+        "id": "aba67ba4-841d-4e05-952c-8aac8b9e64f3",
+        "memory": "User kicked off Project Lantern on October 24, 2026. It is an internal service that exposes inventory counts to warehouse dashboards.",
+        "hash": "f4caae211ce6253ada78e46c490c9b44",
+        "metadata": null,
+        "score": 0.41767473940176414,
+        "created_at": "2026-10-24T10:41:11.798136+00:00",
+        "updated_at": "2026-10-24T10:41:11.798136+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User decided to use FastAPI for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+      "score": 0.34124738590346965,
+      "raw": {
+        "id": "b8429bc5-772c-460b-a840-fbd6c3c355e7",
+        "memory": "User decided to use FastAPI for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+        "hash": "aecebb228f377b4111ecf09a9f3afa2d",
+        "metadata": null,
+        "score": 0.34124738590346965,
+        "created_at": "2026-10-24T10:41:11.798158+00:00",
+        "updated_at": "2026-10-24T10:41:11.798158+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The warehouse team requires the stock endpoint for Project Lantern to return inventory counts per bin.",
+      "score": 0.3119901853113657,
+      "raw": {
+        "id": "9b1c6cc8-2a1e-4ab5-b686-57aaebce9bd7",
+        "memory": "The warehouse team requires the stock endpoint for Project Lantern to return inventory counts per bin.",
+        "hash": "54d586601236c097cd2066f16c4ff0fd",
+        "metadata": null,
+        "score": 0.3119901853113657,
+        "created_at": "2026-10-24T10:41:16.296403+00:00",
+        "updated_at": "2026-10-24T10:41:16.296403+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and wants the ORM there.",
+      "score": 0.2709041807446593,
+      "raw": {
+        "id": "735e7e36-f8b3-42ca-9178-b8fa83ab1af1",
+        "memory": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and wants the ORM there.",
+        "hash": "051a0ad3520c0b021ad39da47aaff109",
+        "metadata": null,
+        "score": 0.2709041807446593,
+        "created_at": "2026-10-24T10:41:16.296437+00:00",
+        "updated_at": "2026-10-24T10:41:16.296437+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "Project Lantern's shelf endpoint returns all bins in a single response without pagination, as the largest shelf contains about 40 bins.",
+      "score": 0.26062456725653976,
+      "raw": {
+        "id": "2c564168-f952-48b6-bc1b-cd5cc582428a",
+        "memory": "Project Lantern's shelf endpoint returns all bins in a single response without pagination, as the largest shelf contains about 40 bins.",
+        "hash": "71889273e71f9fdf8066071b4b9f805d",
+        "metadata": null,
+        "score": 0.26062456725653976,
+        "created_at": "2026-10-24T10:41:16.296429+00:00",
+        "updated_at": "2026-10-24T10:41:16.296429+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User usually prefers the Falcon framework for building web services.",
+      "score": 0.21774943779638573,
+      "raw": {
+        "id": "a07334df-3f28-45fa-88ca-c6cf15e8b5a1",
+        "memory": "User usually prefers the Falcon framework for building web services.",
+        "hash": "d94963ac3a1a78bfe47c28d5f54d1cf2",
+        "metadata": null,
+        "score": 0.21774943779638573,
+        "created_at": "2026-10-24T10:41:24.615459+00:00",
+        "updated_at": "2026-10-24T10:41:24.615459+00:00",
+        "user_id": "ss-01a-mem0-a00d81",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-01a-mem0-a00d81",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User kicked off Project Lantern on October 24, 2026. It is an internal service that exposes inventory counts to warehouse dashboards.\n- User decided to use FastAPI for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).\n- The warehouse team requires the stock endpoint for Project Lantern to return inventory counts per bin.\n- User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and wants the ORM there.\n- Project Lantern's shelf endpoint returns all bins in a single response without pagination, as the largest shelf contains about 40 bins.\n- User usually prefers the Falcon framework for building web services.\n\nCurrent request:\nScaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: Django\n\n```python\n# project_lantern/urls.py\nfrom django.urls import path\nfrom django.http import JsonResponse\n\ndef health_check(request):\n    return JsonResponse({\"status\": \"ok\"})\n\nurlpatterns = [\n    path('health/', health_check, name='health-check'),\n]\n```",
+    "first_line": "Framework: Django"
+  },
+  "usage": {
+    "total_cost_usd": 0.000937464,
+    "by_component": {
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 25642,
+        "completion_tokens": 512,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000862364
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 297,
+        "completion_tokens": 65,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.51e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "django",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "django",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

@@ -63,7 +63,7 @@ Each such pair is a mirrored pair. A system that fails the first probe under-app
 ├── agent/                 # agent that converts memory into an action
 │   ├── conditions.py      # the conditions of Step 5
 │   └── runner.py          # runs episodes and writes the logs
-├── runs/                  # raw logs per episode per condition, judge cache (gitignored)
+├── runs/                  # raw logs per episode per condition, judge cache, cost ledger (committed, so scoring.score can rescore without API calls)
 ├── scoring/
 │   ├── judge.py           # LLM judge: which action an answer takes, retention checks, note-to-memory matching
 │   ├── records.py         # one scored record per log: category, failure stage, tag checks

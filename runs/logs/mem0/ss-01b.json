@@ -1,0 +1,237 @@
+{
+  "episode_id": "ss-01b",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:41:27+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User usually prefers the Falcon framework for web services.\n- User decided to use the FastAPI framework for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).\n- User requires every Python file provided to start with the comment line '# owner: platform-team'.\n- User kicked off Project Lantern on October 24, 2026. It is an internal service designed to expose inventory counts to warehouse dashboards.\n- User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and requires the Django ORM.\n- The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin.",
+  "stored": [
+    {
+      "id": "12ec2c1a-1a79-45a5-9aad-a0ef591d124a",
+      "memory": "User inquired whether Falcon 4 dropped support for Python 3.8.",
+      "hash": "3c1307115dc1aa1756ab9963189c0402",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:52.298569+00:00",
+      "updated_at": "2026-10-24T10:41:52.298569+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "2932e66f-a04a-4fe6-868d-1adce9ddaf5a",
+      "memory": "User requires every Python file provided to start with the comment line '# owner: platform-team'.",
+      "hash": "7c16a3016a36f2b9deb71ee6e45b0ea1",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:52.298561+00:00",
+      "updated_at": "2026-10-24T10:41:52.298561+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "3c92003d-4210-4b6c-b356-2100617dfc0b",
+      "memory": "User decided to use the FastAPI framework for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+      "hash": "a6e66059776fce6d3e6b94560a596b64",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:44.756140+00:00",
+      "updated_at": "2026-10-24T10:41:44.756140+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "81fbfb27-1452-4f46-831d-7faa774d6456",
+      "memory": "User kicked off Project Lantern on October 24, 2026. It is an internal service designed to expose inventory counts to warehouse dashboards.",
+      "hash": "e88e9989a7c2a8c17c2275fd87cd37e0",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:44.756115+00:00",
+      "updated_at": "2026-10-24T10:41:44.756115+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "a3ef4b66-e320-48a9-b026-fc4c5cd56720",
+      "memory": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin.",
+      "hash": "6c732fc54493265d3f3075afdb5d3f63",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:49.120093+00:00",
+      "updated_at": "2026-10-24T10:41:49.120093+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "bd8c3a40-8f3d-482e-8c5a-a8fd8f39ad7a",
+      "memory": "Project Lantern's largest shelf contains about 40 bins, and the API design specifies one response covers a whole shelf without pagination.",
+      "hash": "fd85bcf8262dd6a3ce9322dc190f0e4f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:49.120114+00:00",
+      "updated_at": "2026-10-24T10:41:49.120114+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "ca591767-0a53-4edd-8285-28511172a0a0",
+      "memory": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and requires the Django ORM.",
+      "hash": "d4f8c419783423abd2a4a762d87dcd6e",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:49.120126+00:00",
+      "updated_at": "2026-10-24T10:41:49.120126+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d12c9898-dc10-44f6-a683-b102efd30dd8",
+      "memory": "User usually prefers the Falcon framework for web services.",
+      "hash": "0a4e80285822d4020a3a322e13ae492d",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:52.298539+00:00",
+      "updated_at": "2026-10-24T10:41:52.298539+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "de406b43-f77a-490b-9d15-0117888c0098",
+      "memory": "User asked whether Postgres or SQLite is better for a dashboard cache that gets rewritten every minute.",
+      "hash": "d9c19de35684eadea693aad4f66da95f",
+      "metadata": null,
+      "created_at": "2026-10-24T10:41:44.756148+00:00",
+      "updated_at": "2026-10-24T10:41:44.756148+00:00",
+      "user_id": "ss-01b-mem0-e9ee7a",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User usually prefers the Falcon framework for web services.",
+      "score": 0.24075081232403933,
+      "raw": {
+        "id": "d12c9898-dc10-44f6-a683-b102efd30dd8",
+        "memory": "User usually prefers the Falcon framework for web services.",
+        "hash": "0a4e80285822d4020a3a322e13ae492d",
+        "metadata": null,
+        "score": 0.24075081232403933,
+        "created_at": "2026-10-24T10:41:52.298539+00:00",
+        "updated_at": "2026-10-24T10:41:52.298539+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User decided to use the FastAPI framework for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+      "score": 0.19423819039763385,
+      "raw": {
+        "id": "3c92003d-4210-4b6c-b356-2100617dfc0b",
+        "memory": "User decided to use the FastAPI framework for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).",
+        "hash": "a6e66059776fce6d3e6b94560a596b64",
+        "metadata": null,
+        "score": 0.19423819039763385,
+        "created_at": "2026-10-24T10:41:44.756140+00:00",
+        "updated_at": "2026-10-24T10:41:44.756140+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires every Python file provided to start with the comment line '# owner: platform-team'.",
+      "score": 0.1179644994903493,
+      "raw": {
+        "id": "2932e66f-a04a-4fe6-868d-1adce9ddaf5a",
+        "memory": "User requires every Python file provided to start with the comment line '# owner: platform-team'.",
+        "hash": "7c16a3016a36f2b9deb71ee6e45b0ea1",
+        "metadata": null,
+        "score": 0.1179644994903493,
+        "created_at": "2026-10-24T10:41:52.298561+00:00",
+        "updated_at": "2026-10-24T10:41:52.298561+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User kicked off Project Lantern on October 24, 2026. It is an internal service designed to expose inventory counts to warehouse dashboards.",
+      "score": 0.11782201617147164,
+      "raw": {
+        "id": "81fbfb27-1452-4f46-831d-7faa774d6456",
+        "memory": "User kicked off Project Lantern on October 24, 2026. It is an internal service designed to expose inventory counts to warehouse dashboards.",
+        "hash": "e88e9989a7c2a8c17c2275fd87cd37e0",
+        "metadata": null,
+        "score": 0.11782201617147164,
+        "created_at": "2026-10-24T10:41:44.756115+00:00",
+        "updated_at": "2026-10-24T10:41:44.756115+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and requires the Django ORM.",
+      "score": 0.11403024077210139,
+      "raw": {
+        "id": "ca591767-0a53-4edd-8285-28511172a0a0",
+        "memory": "User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and requires the Django ORM.",
+        "hash": "d4f8c419783423abd2a4a762d87dcd6e",
+        "metadata": null,
+        "score": 0.11403024077210139,
+        "created_at": "2026-10-24T10:41:49.120126+00:00",
+        "updated_at": "2026-10-24T10:41:49.120126+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin.",
+      "score": 0.10278245007580558,
+      "raw": {
+        "id": "a3ef4b66-e320-48a9-b026-fc4c5cd56720",
+        "memory": "The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin.",
+        "hash": "6c732fc54493265d3f3075afdb5d3f63",
+        "metadata": null,
+        "score": 0.10278245007580558,
+        "created_at": "2026-10-24T10:41:49.120093+00:00",
+        "updated_at": "2026-10-24T10:41:49.120093+00:00",
+        "user_id": "ss-01b-mem0-e9ee7a",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-01b-mem0-e9ee7a",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User usually prefers the Falcon framework for web services.\n- User decided to use the FastAPI framework for Project Lantern and plans to send the endpoint list tomorrow (October 25, 2026).\n- User requires every Python file provided to start with the comment line '# owner: platform-team'.\n- User kicked off Project Lantern on October 24, 2026. It is an internal service designed to expose inventory counts to warehouse dashboards.\n- User switched Project Lantern from FastAPI to Django because the ops team is bringing in admin tooling and requires the Django ORM.\n- The warehouse team requested that the stock endpoint for Project Lantern return inventory counts per bin.\n\nCurrent request:\nScaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Framework: Falcon\n\n```python\n# owner: platform-team\nimport falcon\nfrom falcon import App, Response, Request\n\nclass HealthResource:\n    def on_get(self, req: Request, resp: Response):\n        resp.media = {\"status\": \"ok\"}\n\napp = App()\napp.add_route('/health', HealthResource())\n```",
+    "first_line": "Framework: Falcon"
+  },
+  "usage": {
+    "total_cost_usd": 0.000873236,
+    "by_component": {
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 25648,
+        "completion_tokens": 512,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000794656
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 292,
+        "completion_tokens": 74,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.858e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "falcon",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "falcon",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

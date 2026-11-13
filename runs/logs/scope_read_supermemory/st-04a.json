@@ -1,0 +1,195 @@
+{
+  "episode_id": "st-04a",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:39:14+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Same job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today. Assistant: Comma-first it is. Which queries are we starting with? User: The weekly signups report and the churn rollup, both against the warehouse. Assistant: Do you want me to keep their structure or restructure them? User: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight. Assistant: Inline subqueries as your default, understood. Send them whenever you're ready.  [scope: standing, condition: none]\n2. User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse. Assistant: Nice. Any conventions I should follow in the SQL? User: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them. Assistant: Understood. On Project Marlin I'll use CTEs and no subqueries. User: Great. The first queries come next week.  [scope: project, project: Project Marlin, condition: none]\n3. User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries. Assistant: Views for this one, then. What is the query computing? User: The average sale revenue per region, and which regions sit above the overall average. Assistant: Got it. Send the table definition when you have it.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "QcxCdeprSKidWVzgfbePKu",
+      "title": "User: I'm on a Project Marlin query now. For this...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:39:42.147000Z",
+        "updatedAt": "2026-10-24T17:39:49.081000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "M1Jb7DgpEpFbX48M3to4qL",
+      "title": "User: Starting a new analytics project, Project Ma...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:39:33.760000Z",
+        "updatedAt": "2026-10-24T17:39:40.504000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "k4XvmEkGwu4XnWMLAc3p2s",
+      "title": "User: Quick style note before anything else: in ev...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:39:24.992000Z",
+        "updatedAt": "2026-10-24T17:39:31.898000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries. Assistant: Views for this one, then. What is the query computing? User: The average sale revenue per region, and which regions sit above the overall average. Assistant: Got it. Send the table definition when you have it.",
+      "score": 0.70923936,
+      "raw": {
+        "id": "156dc271697277802dfd05",
+        "memory": null,
+        "chunk": "User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries. Assistant: Views for this one, then. What is the query computing? User: The average sale revenue per region, and which regions sit above the overall average. Assistant: Got it. Send the table definition when you have it.",
+        "metadata": {},
+        "similarity": 0.70923936,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:39:49.081Z",
+          "created_at": "2026-10-24T17:39:42.147Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse. Assistant: Nice. Any conventions I should follow in the SQL? User: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them. Assistant: Understood. On Project Marlin I'll use CTEs and no subqueries. User: Great. The first queries come next week.",
+      "score": 0.6030734200000001,
+      "raw": {
+        "id": "596c067f06e8d4198fd99d",
+        "memory": null,
+        "chunk": "User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse. Assistant: Nice. Any conventions I should follow in the SQL? User: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them. Assistant: Understood. On Project Marlin I'll use CTEs and no subqueries. User: Great. The first queries come next week.",
+        "metadata": {},
+        "similarity": 0.6030734200000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:39:40.504Z",
+          "created_at": "2026-10-24T17:39:33.760Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today. Assistant: Comma-first it is. Which queries are we starting with? User: The weekly signups report and the churn rollup, both against the warehouse. Assistant: Do you want me to keep their structure or restructure them? User: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight. Assistant: Inline subqueries as your default, understood. Send them whenever you're ready.",
+      "score": 0.5563435,
+      "raw": {
+        "id": "e797caa4b139ab9cd10940",
+        "memory": null,
+        "chunk": "User: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today. Assistant: Comma-first it is. Which queries are we starting with? User: The weekly signups report and the churn rollup, both against the warehouse. Assistant: Do you want me to keep their structure or restructure them? User: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight. Assistant: Inline subqueries as your default, understood. Send them whenever you're ready.",
+        "metadata": {},
+        "similarity": 0.5563435,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:39:31.898Z",
+          "created_at": "2026-10-24T17:39:24.992Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries. Assistant: Views for this one, then. What is the query computing? User: The average sale revenue per region, and which regions sit above the overall average. Assistant: Got it. Send the table definition when you have it.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse. Assistant: Nice. Any conventions I should follow in the SQL? User: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them. Assistant: Understood. On Project Marlin I'll use CTEs and no subqueries. User: Great. The first queries come next week.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today. Assistant: Comma-first it is. Which queries are we starting with? User: The weekly signups report and the churn rollup, both against the warehouse. Assistant: Do you want me to keep their structure or restructure them? User: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight. Assistant: Inline subqueries as your default, understood. Send them whenever you're ready.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "st-04a-scope_read_supermemory-944418",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today. Assistant: Comma-first it is. Which queries are we starting with? User: The weekly signups report and the churn rollup, both against the warehouse. Assistant: Do you want me to keep their structure or restructure them? User: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight. Assistant: Inline subqueries as your default, understood. Send them whenever you're ready.  [scope: standing, condition: none]\n2. User: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse. Assistant: Nice. Any conventions I should follow in the SQL? User: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them. Assistant: Understood. On Project Marlin I'll use CTEs and no subqueries. User: Great. The first queries come next week.  [scope: project, project: Project Marlin, condition: none]\n3. User: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries. Assistant: Views for this one, then. What is the query computing? User: The average sale revenue per region, and which regions sit above the overall average. Assistant: Got it. Send the table definition when you have it.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nSame job as before, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use views instead of CTEs or subqueries, with comma-first select lists.\n\n```sql\nCREATE VIEW regional_avg AS\nSELECT region\n      ,AVG(revenue) AS avg_revenue\nFROM sales\nGROUP BY region;\n\nCREATE VIEW overall_avg AS\nSELECT AVG(revenue) AS total_avg\nFROM sales;\n\nSELECT r.region\n      ,r.avg_revenue\nFROM regional_avg r\nCROSS JOIN overall_avg o\nWHERE r.avg_revenue > o.total_avg;\n```",
+    "first_line": "Approach: Use views instead of CTEs or subqueries, with comma-first select lists."
+  },
+  "usage": {
+    "total_cost_usd": 0.00026258200000000003,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1947,
+        "completion_tokens": 121,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000143096
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 690,
+        "completion_tokens": 107,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000119486
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-04",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "views",
+    "expected_memory": "m3",
+    "deciding_rule": 2,
+    "action_first_mentioned": "views",
+    "memory_actions": {
+      "m1": "subqueries",
+      "m2": "ctes",
+      "m3": "views"
+    }
+  }
+}

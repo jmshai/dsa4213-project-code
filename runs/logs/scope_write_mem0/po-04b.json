@@ -1,0 +1,210 @@
+{
+  "episode_id": "po-04b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:55:56+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "For Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to standardize on APA 7 citation style for all their writing  [scope: standing, condition: none]\n2. User requested that all future written content from the assistant use APA 7 citations  [scope: standing, condition: none]\n3. User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.  [scope: project, project: Project Lumen, condition: none]",
+  "stored": [
+    {
+      "id": "2f728cb2-cb4a-4226-8ee4-a3e800c9c80c",
+      "memory": "User requested that all future written content from the assistant use APA 7 citations",
+      "hash": "3af6f720c716a5b3ee1e2e0ba0683c81",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:56:17.545392+00:00",
+      "updated_at": "2026-10-24T10:56:17.545392+00:00",
+      "user_id": "po-04b-scope_write_mem0-e4b632"
+    },
+    {
+      "id": "6adc2e05-3b57-47fb-a1ca-44d0fa0e4893",
+      "memory": "User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.",
+      "hash": "04ea8951c104aa7e05cd4f124255e005",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lumen"
+      },
+      "created_at": "2026-10-24T10:56:30.750528+00:00",
+      "updated_at": "2026-10-24T10:56:30.750528+00:00",
+      "user_id": "po-04b-scope_write_mem0-e4b632",
+      "attributed_to": "user"
+    },
+    {
+      "id": "9816f3b3-690c-4024-8188-64518f48c19c",
+      "memory": "User prefers that all explanations provided by the assistant be kept to exactly two sentences by default.",
+      "hash": "f5e38291648169e849a45953d175cfe4",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:56:20.660222+00:00",
+      "updated_at": "2026-10-24T10:56:20.660222+00:00",
+      "user_id": "po-04b-scope_write_mem0-e4b632",
+      "attributed_to": "user"
+    },
+    {
+      "id": "9e44c75a-9868-4f32-b01d-b1876ac4c659",
+      "memory": "User prefers to standardize on APA 7 citation style for all their writing",
+      "hash": "20f219782a9aea5d52f02734cfeedbb9",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:56:17.545370+00:00",
+      "updated_at": "2026-10-24T10:56:17.545370+00:00",
+      "user_id": "po-04b-scope_write_mem0-e4b632"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.",
+      "score": 0.3781523389868321,
+      "raw": {
+        "id": "6adc2e05-3b57-47fb-a1ca-44d0fa0e4893",
+        "memory": "User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.",
+        "hash": "04ea8951c104aa7e05cd4f124255e005",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lumen"
+        },
+        "score": 0.3781523389868321,
+        "created_at": "2026-10-24T10:56:30.750528+00:00",
+        "updated_at": "2026-10-24T10:56:30.750528+00:00",
+        "user_id": "po-04b-scope_write_mem0-e4b632",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested that all future written content from the assistant use APA 7 citations",
+      "score": 0.33609223196062804,
+      "raw": {
+        "id": "2f728cb2-cb4a-4226-8ee4-a3e800c9c80c",
+        "memory": "User requested that all future written content from the assistant use APA 7 citations",
+        "hash": "3af6f720c716a5b3ee1e2e0ba0683c81",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.33609223196062804,
+        "created_at": "2026-10-24T10:56:17.545392+00:00",
+        "updated_at": "2026-10-24T10:56:17.545392+00:00",
+        "user_id": "po-04b-scope_write_mem0-e4b632"
+      }
+    },
+    {
+      "text": "User prefers to standardize on APA 7 citation style for all their writing",
+      "score": 0.30964547857418423,
+      "raw": {
+        "id": "9e44c75a-9868-4f32-b01d-b1876ac4c659",
+        "memory": "User prefers to standardize on APA 7 citation style for all their writing",
+        "hash": "20f219782a9aea5d52f02734cfeedbb9",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.30964547857418423,
+        "created_at": "2026-10-24T10:56:17.545370+00:00",
+        "updated_at": "2026-10-24T10:56:17.545370+00:00",
+        "user_id": "po-04b-scope_write_mem0-e4b632"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    },
+    {
+      "text": "User requested that all future written content from the assistant use APA 7 citations",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers to standardize on APA 7 citation style for all their writing",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "Standardize on APA 7 for citations in anything I write.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "by default, keep any explanation you give me to exactly two sentences.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For the Project Lumen thesis, use Chicago notes-bibliography.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lumen",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "po-04b-scope_write_mem0-e4b632",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers to standardize on APA 7 citation style for all their writing  [scope: standing, condition: none]\n2. User requested that all future written content from the assistant use APA 7 citations  [scope: standing, condition: none]\n3. User specified that the Project Lumen thesis should use Chicago notes-bibliography citation style, distinct from their general preference for APA 7.  [scope: project, project: Project Lumen, condition: none]\n\nCurrent request:\nFor Project Sable, I need to cite a journal article. Author: Maya Okafor. Title: Coastal Erosion and Policy Delay. Journal: Journal of Shoreline Studies, volume 14, issue 2, pages 201 to 225, published 2021. I am quoting page 214. Give me the reference entry and the in-text citation for the quote, then add a short note on how you formatted them.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I used APA 7 citation style for Project Sable.\n\n**Reference Entry:**\nOkafor, M. (2021). Coastal erosion and policy delay. *Journal of Shoreline Studies*, *14*(2), 201\u2013225.\n\n**In-text Citation:**\n(Okafor, 2021, p. 214)\n\n**Formatting Note:**\nI applied your standing preference for APA 7 style because the specific exception for Chicago notes-bibliography applies only to \"Project Lumen,\" not \"Project Sable.\" The reference entry follows APA 7 rules: author last name first, publication year in parentheses, article title in sentence case, journal title and volume number in italics, issue number in parentheses (not italicized), page range with an en dash, and no DOI provided. The in-text citation includes the author, year, and specific page number for the direct quote.",
+    "first_line": "I used APA 7 citation style for Project Sable."
+  },
+  "usage": {
+    "total_cost_usd": 0.00082556,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3601,
+        "completion_tokens": 148,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000163758
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24869,
+        "completion_tokens": 196,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000529286
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 498,
+        "completion_tokens": 196,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000132516
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-04",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "apa",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "apa",
+    "memory_actions": {
+      "m1": "apa",
+      "m2": "chicago"
+    }
+  }
+}

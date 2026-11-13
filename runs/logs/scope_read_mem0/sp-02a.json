@@ -1,0 +1,229 @@
+{
+  "episode_id": "sp-02a",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:18:12+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.  [scope: standing, condition: none]\n2. User prefers emails to neighbours in their building to start with the first line 'Hey there,'.  [scope: standing, condition: recipient == neighbour]\n3. User is currently sorting out their inbox and reviewing old drafts.  [scope: single_task, only the task where it was said, condition: none]\n4. User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.  [scope: single_task, only the task where it was said, condition: none]\n5. User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "084e8d21-ba01-4e80-ad3e-118006eff739",
+      "memory": "User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.",
+      "hash": "c2e80b78f39acbb894ebc5677174e44a",
+      "metadata": null,
+      "created_at": "2026-10-24T11:18:25.269882+00:00",
+      "updated_at": "2026-10-24T11:18:25.269882+00:00",
+      "user_id": "sp-02a-scope_read_mem0-99a5c9",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "0d1619b2-8c5a-4d35-9b8b-3495faee89c6",
+      "memory": "User prefers emails to neighbours in their building to start with the first line 'Hey there,'.",
+      "hash": "828900738b1bef860cd643ee2c87d81b",
+      "metadata": null,
+      "created_at": "2026-10-24T11:18:21.311345+00:00",
+      "updated_at": "2026-10-24T11:18:21.311345+00:00",
+      "user_id": "sp-02a-scope_read_mem0-99a5c9",
+      "attributed_to": "user"
+    },
+    {
+      "id": "0f646f1f-9ff4-4813-8c8e-8a8bd2e9903e",
+      "memory": "User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.",
+      "hash": "8c109da06a597c790fbc2dd0fd89b6b0",
+      "metadata": null,
+      "created_at": "2026-10-24T11:18:25.269890+00:00",
+      "updated_at": "2026-10-24T11:18:25.269890+00:00",
+      "user_id": "sp-02a-scope_read_mem0-99a5c9",
+      "attributed_to": "user"
+    },
+    {
+      "id": "1dc5f659-e750-487b-88f7-87756bca018c",
+      "memory": "User is currently sorting out their inbox and reviewing old drafts.",
+      "hash": "1f9b420ccf4b019b4ce143927a28c54b",
+      "metadata": null,
+      "created_at": "2026-10-24T11:18:25.269862+00:00",
+      "updated_at": "2026-10-24T11:18:25.269862+00:00",
+      "user_id": "sp-02a-scope_read_mem0-99a5c9",
+      "attributed_to": "user"
+    },
+    {
+      "id": "2598c3ab-3a42-404f-887c-e3340041ea22",
+      "memory": "User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.",
+      "hash": "174d1a286915a0eab4d57ad116e12363",
+      "metadata": null,
+      "created_at": "2026-10-24T11:18:21.311325+00:00",
+      "updated_at": "2026-10-24T11:18:21.311325+00:00",
+      "user_id": "sp-02a-scope_read_mem0-99a5c9",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers emails to neighbours in their building to start with the first line 'Hey there,'.",
+      "score": 0.2964907279715211,
+      "raw": {
+        "id": "0d1619b2-8c5a-4d35-9b8b-3495faee89c6",
+        "memory": "User prefers emails to neighbours in their building to start with the first line 'Hey there,'.",
+        "hash": "828900738b1bef860cd643ee2c87d81b",
+        "metadata": null,
+        "score": 0.2964907279715211,
+        "created_at": "2026-10-24T11:18:21.311345+00:00",
+        "updated_at": "2026-10-24T11:18:21.311345+00:00",
+        "user_id": "sp-02a-scope_read_mem0-99a5c9",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.",
+      "score": 0.26435987755420165,
+      "raw": {
+        "id": "084e8d21-ba01-4e80-ad3e-118006eff739",
+        "memory": "User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.",
+        "hash": "c2e80b78f39acbb894ebc5677174e44a",
+        "metadata": null,
+        "score": 0.26435987755420165,
+        "created_at": "2026-10-24T11:18:25.269882+00:00",
+        "updated_at": "2026-10-24T11:18:25.269882+00:00",
+        "user_id": "sp-02a-scope_read_mem0-99a5c9",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.",
+      "score": 0.18406603454929324,
+      "raw": {
+        "id": "2598c3ab-3a42-404f-887c-e3340041ea22",
+        "memory": "User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.",
+        "hash": "174d1a286915a0eab4d57ad116e12363",
+        "metadata": null,
+        "score": 0.18406603454929324,
+        "created_at": "2026-10-24T11:18:21.311325+00:00",
+        "updated_at": "2026-10-24T11:18:21.311325+00:00",
+        "user_id": "sp-02a-scope_read_mem0-99a5c9",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is currently sorting out their inbox and reviewing old drafts.",
+      "score": 0.14311369481692493,
+      "raw": {
+        "id": "1dc5f659-e750-487b-88f7-87756bca018c",
+        "memory": "User is currently sorting out their inbox and reviewing old drafts.",
+        "hash": "1f9b420ccf4b019b4ce143927a28c54b",
+        "metadata": null,
+        "score": 0.14311369481692493,
+        "created_at": "2026-10-24T11:18:25.269862+00:00",
+        "updated_at": "2026-10-24T11:18:25.269862+00:00",
+        "user_id": "sp-02a-scope_read_mem0-99a5c9",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.",
+      "score": 0.1313680160932283,
+      "raw": {
+        "id": "0f646f1f-9ff4-4813-8c8e-8a8bd2e9903e",
+        "memory": "User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.",
+        "hash": "8c109da06a597c790fbc2dd0fd89b6b0",
+        "metadata": null,
+        "score": 0.1313680160932283,
+        "created_at": "2026-10-24T11:18:25.269890+00:00",
+        "updated_at": "2026-10-24T11:18:25.269890+00:00",
+        "user_id": "sp-02a-scope_read_mem0-99a5c9",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers emails to neighbours in their building to start with the first line 'Hey there,'.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    },
+    {
+      "text": "User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User is currently sorting out their inbox and reviewing old drafts.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "sp-02a-scope_read_mem0-99a5c9",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User's name is Priya and prefers all emails to end with 'Regards, Priya' on its own last line.  [scope: standing, condition: none]\n2. User prefers emails to neighbours in their building to start with the first line 'Hey there,'.  [scope: standing, condition: recipient == neighbour]\n3. User is currently sorting out their inbox and reviewing old drafts.  [scope: single_task, only the task where it was said, condition: none]\n4. User was advised that waiting a week is polite for non-urgent email reminders, or a few days if there is a deadline.  [scope: single_task, only the task where it was said, condition: none]\n5. User prefers emails to open with 'To whom it may concern,' by default, unless specified otherwise.  [scope: standing, condition: none]\n\nCurrent request:\nWrite the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: Email with neighbour-specific greeting and standing signature.\n\nHey there,\n\nI hope you are doing well. I was wondering if we could swap our parking spots, 14 and 15, starting from 1 April? Please let me know if this works for you.\n\nRegards, Priya",
+    "first_line": "Format: Email with neighbour-specific greeting and standing signature."
+  },
+  "usage": {
+    "total_cost_usd": 0.000755564,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16881,
+        "completion_tokens": 276,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000535022
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1760,
+        "completion_tokens": 193,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000148886
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 509,
+        "completion_tokens": 63,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.1656e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "hey there",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

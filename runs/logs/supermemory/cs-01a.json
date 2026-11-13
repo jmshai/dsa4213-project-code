@@ -1,0 +1,127 @@
+{
+  "episode_id": "cs-01a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T15:51:38+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.\n- User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+  "stored": [
+    {
+      "id": "WVTazAeKb8UBGDqBVFpueN",
+      "title": "User: Quick correction before we start: you used o...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:51:48.193000Z",
+        "updatedAt": "2026-10-24T15:51:55.445000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "kSnq5ovR9QUkgw7uSeT3Uu",
+      "title": "User: I'm starting on Project Marlin, an archive o...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:51:39.766000Z",
+        "updatedAt": "2026-10-24T15:51:46.191000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.",
+      "score": 0.6475177999999999,
+      "raw": {
+        "id": "7d326005a57800e0ee44b0",
+        "memory": null,
+        "chunk": "User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.",
+        "metadata": {},
+        "similarity": 0.6475177999999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:51:46.191Z",
+          "created_at": "2026-10-24T15:51:39.766Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+      "score": 0.59465152,
+      "raw": {
+        "id": "cccfbf22bd63c57a4acbbd",
+        "memory": null,
+        "chunk": "User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+        "metadata": {},
+        "similarity": 0.59465152,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:51:55.445Z",
+          "created_at": "2026-10-24T15:51:48.193Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-01a-supermemory-2bf5c6",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.\n- User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.\n\nCurrent request:\nWrite a Python function that saves the 250MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I used the Feather format (via pyarrow) and pathlib.Path for file handling.\n\n```python\nimport pyarrow as pa\nimport pyarrow.feather as feather\nfrom pathlib import Path\nfrom typing import List, Dict\n\ndef save_marlin_export(data: List[Dict], output_dir: str) -> None:\n    \"\"\"\n    Saves a large telemetry export (>100MB) as a Feather file.\n    \n    Args:\n        data: A list of dictionaries representing the telemetry records.\n        output_dir: The directory where the file should be saved.\n    \"\"\"\n    # Ensure the output directory exists\n    out_path = Path(output_dir)\n    out_path.mkdir(parents=True, exist_ok=True)\n    \n    # Define the filename with .feather extension per Project Marlin rules\n    file_name = \"telemetry_export_250mb.feather\"\n    full_file_path = out_path / file_name\n    \n    # Convert list of dicts to Arrow Table\n    table = pa.Table.from_pylist(data)\n    \n    # Write to Feather format\n    feather.write_feather(table, full_file_path)\n\n# Example usage:\n# save_marlin_export(my_telemetry_data, \"/path/to/archive\")\n```\n\n.feather",
+    "first_line": "I used the Feather format (via pyarrow) and pathlib.Path for file handling."
+  },
+  "usage": {
+    "total_cost_usd": 0.00018365,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 394,
+        "completion_tokens": 265,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00018365
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "feather",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "feather",
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

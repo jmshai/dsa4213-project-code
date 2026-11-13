@@ -1,0 +1,348 @@
+{
+  "episode_id": "ss-03a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:47:28+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Set up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Sable, use Ruff for linting.  [scope: project, project: Project Sable, condition: none]\n2. User: let's try that next sprint  [scope: project, project: Project Sable, condition: none]\n3. User: for Project Sable, switch to Pylint for linting  [scope: project, project: Project Sable, condition: none]\n4. User: In general, never use Pylint, stick to flake8.  [scope: standing, condition: none]\n5. User: write every commit subject in lowercase with no trailing period.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "zgcmDFtCkztWUkgMeUp95h",
+      "title": "User: write every commit subject in lowercase with...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:49:04.110000Z",
+        "updatedAt": "2026-10-24T16:49:10.209000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "wdHDXVbV1d5G6BcmGmGd3q",
+      "title": "User: In general, never use Pylint, stick to flake...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:48:54.385000Z",
+        "updatedAt": "2026-10-24T16:49:00.040000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "PPkXos96TBoNBHWhcuuuBt",
+      "title": "User: for Project Sable, switch to Pylint for lint...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:48:19.428000Z",
+        "updatedAt": "2026-10-24T16:48:30.132000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "41W9jAi6bjddD52yjPbFuE",
+      "title": "User: let's try that next sprint",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:48:10.908000Z",
+        "updatedAt": "2026-10-24T16:48:18.131000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "YMBZ5iRjrVDZvaQfsd6wL5",
+      "title": "User: On Project Sable, use Ruff for linting.",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:47:40.367000Z",
+        "updatedAt": "2026-10-24T16:47:46.890000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Sable, use Ruff for linting.",
+      "score": 0.76199353,
+      "raw": {
+        "id": "8a2b50b2d0e612beb3ea08",
+        "memory": null,
+        "chunk": "User: On Project Sable, use Ruff for linting.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "similarity": 0.76199353,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:47:46.890Z",
+          "created_at": "2026-10-24T16:47:40.367Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: for Project Sable, switch to Pylint for linting",
+      "score": 0.7482929199999999,
+      "raw": {
+        "id": "41ac9e568fd5fed8c019e2",
+        "memory": null,
+        "chunk": "User: for Project Sable, switch to Pylint for linting",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "similarity": 0.7482929199999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:48:30.132Z",
+          "created_at": "2026-10-24T16:48:19.428Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: In general, never use Pylint, stick to flake8.",
+      "score": 0.678761,
+      "raw": {
+        "id": "b9a582d65c9f42095e2bd1",
+        "memory": null,
+        "chunk": "User: In general, never use Pylint, stick to flake8.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.678761,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:49:00.040Z",
+          "created_at": "2026-10-24T16:48:54.385Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: write every commit subject in lowercase with no trailing period.",
+      "score": 0.63995945,
+      "raw": {
+        "id": "7bc16885584b745ddfcb2e",
+        "memory": null,
+        "chunk": "User: write every commit subject in lowercase with no trailing period.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.63995945,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:49:10.209Z",
+          "created_at": "2026-10-24T16:49:04.110Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: let's try that next sprint",
+      "score": 0.57183915,
+      "raw": {
+        "id": "902e5c49f153d48949a85a",
+        "memory": null,
+        "chunk": "User: let's try that next sprint",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "similarity": 0.57183915,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:48:18.131Z",
+          "created_at": "2026-10-24T16:48:10.908Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Sable, use Ruff for linting.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: for Project Sable, switch to Pylint for linting",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: In general, never use Pylint, stick to flake8.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: write every commit subject in lowercase with no trailing period.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: let's try that next sprint",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Sable, use Ruff for linting.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "let's try that next sprint",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Sable, switch to Pylint for linting",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "In general, never use Pylint, stick to flake8.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "write every commit subject in lowercase with no trailing period.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-03a-scope_write_supermemory-f6bf59",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: On Project Sable, use Ruff for linting.  [scope: project, project: Project Sable, condition: none]\n2. User: let's try that next sprint  [scope: project, project: Project Sable, condition: none]\n3. User: for Project Sable, switch to Pylint for linting  [scope: project, project: Project Sable, condition: none]\n4. User: In general, never use Pylint, stick to flake8.  [scope: standing, condition: none]\n5. User: write every commit subject in lowercase with no trailing period.  [scope: standing, condition: none]\n\nCurrent request:\nSet up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Linter: Ruff\n\n**Reasoning for Choice:**\n1.  **Memory 3** (Project Sable, switch to Pylint) conflicts with **Memory 4** (Standing, never use Pylint). According to the rules, we prefer the narrowest scope first? No, wait. The rule says: \"When several memories answer the same question... 2. Prefer the narrowest scope: single_task over project over standing.\" However, Memory 4 is a *standing* instruction (\"never use Pylint\"). Memory 3 is a *project* instruction (\"switch to Pylint\"). Usually, specific overrides general. But let's look at the conflict resolution order again.\n    *   Rule 1: Ignore non-applicable. Both apply to Project Sable linting.\n    *   Rule 2: Prefer narrowest scope. Project (Mem 3) is narrower than Standing (Mem 4). So Mem 3 would win if they were just about preference.\n    *   *However*, there is also **Memory 1** (Project Sable, use Ruff) and **Memory 3** (Project Sable, switch to Pylint). These are both Project scope. They conflict directly on which tool to use.\n    *   Rule 4: If they still conflict, prefer the later memory. Memory 3 is listed after Memory 1. So between Mem 1 and Mem 3, Mem 3 (Pylint) wins.\n    *   Now compare winning Project memory (Mem 3: Pylint) vs Standing memory (Mem 4: Never Pylint).\n    *   Does \"Prefer narrowest scope\" mean Project beats Standing even if it violates a hard constraint? Or does \"Never use Pylint\" act as a filter?\n    *   Let's re-read carefully: \"When several memories answer the same question... choose between them in this order... 2. Prefer the narrowest scope\". This implies that if a Project memory says \"Use X\" and a Standing memory says \"Don't use X\", the Project memory takes precedence because it is narrower/more specific to the context.\n    *   *Wait*, let's look at Memory 5. It's about commit messages.\n    *   Let's look at the dates/order. Memories are listed oldest first.\n        *   1. Use Ruff (Project)\n        *   2. Try next sprint (Project - vague)\n        *   3. Switch to Pylint (Project) -> This supersedes #1 based on recency within same scope.\n        *   4. Never use Pylint (Standing) -> This contradicts #3.\n    *   If I follow strict scope priority, Project (#3) > Standing (#4). So I should use Pylint.\n    *   *But*, often \"Never do X\" is a safety guardrail. Let's look at the prompt again. \"Prefer the narrowest scope\". This is an explicit algorithmic instruction. Therefore, the Project-specific instruction to use Pylint overrides the general instruction to avoid Pylint.\n    *   *Correction*: Let's look at Memory 1 vs Memory 3. Both are Project. Memory 3 is later. So Memory 3 (Pylint) is the active Project directive.\n    *   Memory 4 (Standing: Never Pylint).\n    *   Conflict: Project says Pylint, Standing says No Pylint.\n    *   Resolution: Narrowest scope wins. Project is narrower than Standing.\n    *   Result: Use Pylint.\n\n    *Alternative Interpretation*: Is \"Never use Pylint\" a condition that invalidates the applicability of \"Switch to Pylint\"? No, the condition field is \"none\".\n\n    Let's double check if I missed anything.\n    Memory 1: Use Ruff.\n    Memory 3: Switch to Pylint.\n    Since 3 is later than 1, 3 replaces 1.\n    Memory 4: Never use Pylint.\n    Scope comparison: Project (3) vs Standing (4). Project is narrower.\n    Therefore, Pylint is selected.\n\n    *Self-Correction/Refinement*: In many real-world scenarios, a global \"Never\" might be intended to override local configs. But the prompt gives a very specific tie-breaking algorithm: \"Prefer the narrowest scope\". I must follow the algorithm provided in the system prompt strictly.\n\n    **Tool**: Pylint\n    **Config File Name**: `.pylintrc` (Standard for Pylint) or `pyproject.toml` (if using modern config, but `.pylintrc` is the distinct file name usually associated with standalone Pylint setup",
+    "first_line": "Linter: Ruff"
+  },
+  "usage": {
+    "total_cost_usd": 0.0008393439999999999,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5385,
+        "completion_tokens": 272,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000318118
+      },
+      "supermemory": {
+        "calls": 6,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 495,
+        "completion_tokens": 1024,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000521226
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-03",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "pylint",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "ruff",
+    "memory_actions": {
+      "m1": "flake8",
+      "m2": "ruff",
+      "m3": "pylint"
+    }
+  }
+}

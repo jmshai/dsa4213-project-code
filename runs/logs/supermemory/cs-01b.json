@@ -1,0 +1,127 @@
+{
+  "episode_id": "cs-01b",
+  "condition": "supermemory",
+  "ts": "2026-10-24T15:52:07+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.\n- User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+  "stored": [
+    {
+      "id": "9VN6MUf1XtiSEzW8i53zdn",
+      "title": "User: Quick correction before we start: you used o...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:52:16.233000Z",
+        "updatedAt": "2026-10-24T15:52:23.092000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "EXekAQtEErQ81HEfijBxjN",
+      "title": "User: I'm starting on Project Marlin, an archive o...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T15:52:07.887000Z",
+        "updatedAt": "2026-10-24T15:52:13.666000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.",
+      "score": 0.64247626,
+      "raw": {
+        "id": "d2c8d0b6cae71fd7455fbb",
+        "memory": null,
+        "chunk": "User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.",
+        "metadata": {},
+        "similarity": 0.64247626,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:52:13.666Z",
+          "created_at": "2026-10-24T15:52:07.887Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+      "score": 0.5937636,
+      "raw": {
+        "id": "41146af8476e3d0a9019e8",
+        "memory": null,
+        "chunk": "User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.",
+        "metadata": {},
+        "similarity": 0.5937636,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T15:52:23.092Z",
+          "created_at": "2026-10-24T15:52:16.233Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-01b-supermemory-10509e",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: I'm starting on Project Marlin, an archive of telemetry from our ops fleet. Assistant: Sounds good. What are you tackling first? User: Mostly the ingestion cron job. It keeps timing out on the Monday run. Assistant: Timeouts on one weekday usually point to load, so we can dig into that next time. Meanwhile, any rules for how the exported files should look? User: On Project Marlin, make anything over 100MB a Feather file. The archive gets read by an Arrow-based tool. Assistant: Understood. Marlin exports over 100MB go out as Feather files. User: Thanks, we'll tackle the ingest job next time.\n- User: Quick correction before we start: you used os.path.join in my last script. Use pathlib.Path for file paths in any code you write. Assistant: Fair point, pathlib.Path from here on. What are we working on? User: Cleaning up our export scripts. Standardize on JSON Lines for exports in general. Assistant: Got it, JSON Lines unless you say otherwise. Want me to refactor the existing scripts? User: Not today, thanks. That's all for now.\n\nCurrent request:\nWrite a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: JSON Lines (`.jsonl`)\n\n```python\nimport json\nfrom pathlib import Path\n\ndef save_telemetry_export(telemetry_data: list[dict], output_dir: str) -> Path:\n    \"\"\"\n    Saves the telemetry export as a JSON Lines file.\n    \n    Args:\n        telemetry_data: A list of dictionaries containing telemetry records.\n        output_dir: The directory where the file should be saved.\n        \n    Returns:\n        The Path object to the created file.\n    \"\"\"\n    # Ensure output directory exists\n    dir_path = Path(output_dir)\n    dir_path.mkdir(parents=True, exist_ok=True)\n    \n    # Define the file path using pathlib\n    file_path = dir_path / \"telemetry_export.jsonl\"\n    \n    # Write data in JSON Lines format\n    with open(file_path, 'w', encoding='utf-8') as f:\n        for record in telemetry_data:\n            f.write(json.dumps(record) + '\\n')\n            \n    return file_path\n```\n\n.jsonl",
+    "first_line": "Format: JSON Lines (`.jsonl`)"
+  },
+  "usage": {
+    "total_cost_usd": 0.000128986,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 393,
+        "completion_tokens": 222,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000128986
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "jsonl",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "jsonl",
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

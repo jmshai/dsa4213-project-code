@@ -1,0 +1,233 @@
+{
+  "episode_id": "sp-02b",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:33:52+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, end every email with 'Regards, Priya' on its own last line  [scope: standing, condition: none]\n2. User: From now on, when I write to a neighbour, make the first line 'Hey there,'  [scope: standing, condition: recipient == neighbour]\n3. User: By default, open every email with 'To whom it may concern,'.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "rTK12rg3472gsxNajMf2nm",
+      "title": "User: By default, open every email with 'To whom i...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:34:45.232000Z",
+        "updatedAt": "2026-10-24T16:34:53.112000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "cwXzELG7wsRynFVCgxk22K",
+      "title": "User: From now on, when I write to a neighbour, ma...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing",
+        "condition": "recipient == neighbour"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:34:15.300000Z",
+        "updatedAt": "2026-10-24T16:34:20.806000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "ke8UE6DTzDb1TMJuDdXTtw",
+      "title": "User: from now on, end every email with 'Regards,...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:34:06.377000Z",
+        "updatedAt": "2026-10-24T16:34:12.644000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: From now on, when I write to a neighbour, make the first line 'Hey there,'",
+      "score": 0.6172340000000001,
+      "raw": {
+        "id": "3241213392d4cc358f1be8",
+        "memory": null,
+        "chunk": "User: From now on, when I write to a neighbour, make the first line 'Hey there,'",
+        "metadata": {
+          "scope": "standing",
+          "condition": "recipient == neighbour"
+        },
+        "similarity": 0.6172340000000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:34:20.806Z",
+          "created_at": "2026-10-24T16:34:15.300Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: By default, open every email with 'To whom it may concern,'.",
+      "score": 0.5984848700000001,
+      "raw": {
+        "id": "ed9e1a8a0a30adba8184ba",
+        "memory": null,
+        "chunk": "User: By default, open every email with 'To whom it may concern,'.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.5984848700000001,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:34:53.112Z",
+          "created_at": "2026-10-24T16:34:45.232Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: from now on, end every email with 'Regards, Priya' on its own last line",
+      "score": 0.58467788,
+      "raw": {
+        "id": "293099e057bce101277bbe",
+        "memory": null,
+        "chunk": "User: from now on, end every email with 'Regards, Priya' on its own last line",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.58467788,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:34:12.644Z",
+          "created_at": "2026-10-24T16:34:06.377Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: From now on, when I write to a neighbour, make the first line 'Hey there,'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    },
+    {
+      "text": "User: By default, open every email with 'To whom it may concern,'.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: from now on, end every email with 'Regards, Priya' on its own last line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, end every email with 'Regards, Priya' on its own last line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "From now on, when I write to a neighbour, make the first line 'Hey there,'",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "recipient == neighbour"
+      }
+    },
+    {
+      "text": "By default, open every email with 'To whom it may concern,'.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "sp-02b-scope_write_supermemory-95af5e",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, end every email with 'Regards, Priya' on its own last line  [scope: standing, condition: none]\n2. User: From now on, when I write to a neighbour, make the first line 'Hey there,'  [scope: standing, condition: recipient == neighbour]\n3. User: By default, open every email with 'To whom it may concern,'.  [scope: standing, condition: none]\n\nCurrent request:\nWrite the full email to my landlord asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I applied the standing salutation and sign-off rules while ignoring the neighbour-specific rule since the recipient is a landlord.\n\nTo whom it may concern,\n\nI am writing to ask if it would be possible for us to swap parking spots 14 and 15 starting from 1 April. Please let me know if this arrangement works for you or if there are any steps I need to take to facilitate the change.\n\nRegards, Priya",
+    "first_line": "I applied the standing salutation and sign-off rules while ignoring the neighbour-specific rule since the recipient is a landlord."
+  },
+  "usage": {
+    "total_cost_usd": 0.00023865399999999998,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3578,
+        "completion_tokens": 163,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000167358
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 422,
+        "completion_tokens": 90,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.1296e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "to whom it may concern",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

@@ -1,0 +1,235 @@
+{
+  "episode_id": "cs-04a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:17:31+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, in every project, write docstrings in Google style  [scope: standing, condition: none]\n2. User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries  [scope: project, project: Project Vega, condition: timeout > 30]\n3. User: For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "mmKxba7pSNginPxYGYQZGh",
+      "title": "User: For HTTP calls, always retry transient failu...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:18:25.955000Z",
+        "updatedAt": "2026-10-24T16:18:32.491000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Q8Dtb9hMr6EnWUzBgccw5m",
+      "title": "User: On Project Vega, when the timeout is over 30...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:17:55.636000Z",
+        "updatedAt": "2026-10-24T16:18:02.220000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "62NTZk1V4wMHAQneku3VYm",
+      "title": "User: from now on, in every project, write docstri...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:17:46.422000Z",
+        "updatedAt": "2026-10-24T16:17:53.086000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries",
+      "score": 0.6550135,
+      "raw": {
+        "id": "9556d081d7b3cacb6d2dd2",
+        "memory": null,
+        "chunk": "User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Vega",
+          "condition": "timeout > 30"
+        },
+        "similarity": 0.6550135,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:18:02.220Z",
+          "created_at": "2026-10-24T16:17:55.636Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "score": 0.59542423,
+      "raw": {
+        "id": "201740e1b8d92b22167561",
+        "memory": null,
+        "chunk": "User: For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.59542423,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:18:32.491Z",
+          "created_at": "2026-10-24T16:18:25.955Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: from now on, in every project, write docstrings in Google style",
+      "score": 0.49482360000000003,
+      "raw": {
+        "id": "961f71db3a6cf0e6fe16b4",
+        "memory": null,
+        "chunk": "User: from now on, in every project, write docstrings in Google style",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.49482360000000003,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:17:53.086Z",
+          "created_at": "2026-10-24T16:17:46.422Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      }
+    },
+    {
+      "text": "User: For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: from now on, in every project, write docstrings in Google style",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, in every project, write docstrings in Google style",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      }
+    },
+    {
+      "text": "For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "cs-04a-scope_write_supermemory-9e34dc",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: from now on, in every project, write docstrings in Google style  [scope: standing, condition: none]\n2. User: On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries  [scope: project, project: Project Vega, condition: timeout > 30]\n3. User: For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use `tenacity` for retries on transient failures, but configure the retry logic to fail fast (no retries) when the timeout exceeds 30 seconds, as per Project Vega's specific rule.\n\n```python\nimport requests\nfrom tenacity import retry, stop_after_attempt, wait_exponential, RetryError\n\n# Project Vega rule: If timeout > 30s, fail fast with no retries.\n# Standing rule: For HTTP calls, always retry transient failures three times with tenacity.\n# Conflict resolution: The Project Vega rule is narrower in scope and applies specifically \n# when timeout > 30. Since the requested timeout is 45s (> 30s), we must NOT retry.\n# However, the standing rule says \"always retry... never with a handwritten loop\".\n# To satisfy both: We use tenacity, but configure it to stop after 1 attempt (effectively no retries)\n# because the condition \"timeout > 30\" triggers the \"fail fast\" behavior.\n\ndef fetch_invoice_by_id(invoice_id: str, base_url: str = \"https://api.projectvega.com/billing\") -> dict:\n    \"\"\"Fetches an invoice by ID from the Project Vega billing API.\n\n    Args:\n        invoice_id: The unique identifier of the invoice.\n        base_url: The base URL for the billing API.\n\n    Returns:\n        A dictionary containing the invoice data.\n\n    Raises:\n        requests.exceptions.RequestException: If the request fails.\n    \"\"\"\n    url = f\"{base_url}/invoices/{invoice_id}\"\n    timeout_seconds = 45\n\n    # Define a helper function that performs the actual request\n    def _make_request():\n        response = requests.get(url, timeout=timeout_seconds)\n        response.raise_for_status()\n        return response.json()\n\n    # Apply tenacity decorator.\n    # Since timeout (45s) > 30s, Project Vega rules dictate \"fail fast with no retries\".\n    # We implement this using tenacity by setting stop_after_attempt(1).\n    # This satisfies the standing rule (use tenacity, not handwritten loops) \n    # while adhering to the project-specific constraint (no retries when timeout > 30s).\n    \n    @retry(stop=stop_after_attempt(1), reraise=True)\n    def _fetch_with_no_retries():\n        return _make_request()\n\n    try:\n        return _fetch_with_no_retries()\n    except RetryError as e:\n        # Reraise the original exception if tenacity stops due to max attempts\n        raise e.last_attempt.exception()\n```",
+    "first_line": "Approach: Use `tenacity` for retries on transient failures, but configure the retry logic to fail fast (no retries) when the timeout exceeds 30 seconds, as per Project Vega's specific rule."
+  },
+  "usage": {
+    "total_cost_usd": 0.000515948,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3609,
+        "completion_tokens": 191,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000219472
+      },
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 438,
+        "completion_tokens": 564,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000296476
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "fail fast",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "tenacity",
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

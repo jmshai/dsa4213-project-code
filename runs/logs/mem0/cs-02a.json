@@ -1,0 +1,195 @@
+{
+  "episode_id": "cs-02a",
+  "condition": "mem0",
+  "ts": "2026-10-24T10:31:53+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- Project Helios currently has robots live at a few sites, with the main challenge being the vendor contract renewal scheduled for next month (November 2026).\n- User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.\n- For Project Helios status updates intended for the board, User requires exactly eight sentences to provide the full picture.\n- User writes status updates mostly for the rollout team and department leads\n- User prefers status updates to be exactly two sentences long as a ground rule for drafting",
+  "stored": [
+    {
+      "id": "0642da69-19b1-4539-8d97-954a63ecd5b9",
+      "memory": "User does not want a template used for status updates",
+      "hash": "f59838660266e1d2bb830e6a51495796",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:06.956178+00:00",
+      "updated_at": "2026-10-24T10:32:06.956178+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f"
+    },
+    {
+      "id": "31307d6e-206a-4a5d-93d9-e66476b42a05",
+      "memory": "User writes status updates mostly for the rollout team and department leads",
+      "hash": "834f7f8ae287a6949e82c85578fdcd57",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:06.956161+00:00",
+      "updated_at": "2026-10-24T10:32:06.956161+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f"
+    },
+    {
+      "id": "448da9cf-a49c-484e-a1f1-c8f69396acba",
+      "memory": "User requires dates to be written in YYYY-MM-DD format in any drafted content",
+      "hash": "93451185b7730a2ae9499df5628c4c07",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:06.956186+00:00",
+      "updated_at": "2026-10-24T10:32:06.956186+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f"
+    },
+    {
+      "id": "45387911-9709-4f16-892c-7daa9e05fd8d",
+      "memory": "User prefers status updates to be exactly two sentences long as a ground rule for drafting",
+      "hash": "604963802b71d30e5d62371f0ea19ed1",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:06.956127+00:00",
+      "updated_at": "2026-10-24T10:32:06.956127+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f"
+    },
+    {
+      "id": "4bc2713c-c74f-4ba8-b26c-9a430d5eccdc",
+      "memory": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+      "hash": "49646f9cbd3837dde76ba737ced51ddf",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:10.590184+00:00",
+      "updated_at": "2026-10-24T10:32:10.590184+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5c38dbea-a56a-473e-91be-105a6014c4ae",
+      "memory": "Project Helios currently has robots live at a few sites, with the main challenge being the vendor contract renewal scheduled for next month (November 2026).",
+      "hash": "cbe8eae8ede71cf24c772b17a2131daa",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:10.590213+00:00",
+      "updated_at": "2026-10-24T10:32:10.590213+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f",
+      "attributed_to": "user"
+    },
+    {
+      "id": "eced3da1-82c6-4132-bbc0-d07374d837d1",
+      "memory": "For Project Helios status updates intended for the board, User requires exactly eight sentences to provide the full picture.",
+      "hash": "75bac6a6e4a4471b41b763b8fe96d384",
+      "metadata": null,
+      "created_at": "2026-10-24T10:32:10.590222+00:00",
+      "updated_at": "2026-10-24T10:32:10.590222+00:00",
+      "user_id": "cs-02a-mem0-f8fd8f",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "Project Helios currently has robots live at a few sites, with the main challenge being the vendor contract renewal scheduled for next month (November 2026).",
+      "score": 0.7217467169334115,
+      "raw": {
+        "id": "5c38dbea-a56a-473e-91be-105a6014c4ae",
+        "memory": "Project Helios currently has robots live at a few sites, with the main challenge being the vendor contract renewal scheduled for next month (November 2026).",
+        "hash": "cbe8eae8ede71cf24c772b17a2131daa",
+        "metadata": null,
+        "score": 0.7217467169334115,
+        "created_at": "2026-10-24T10:32:10.590213+00:00",
+        "updated_at": "2026-10-24T10:32:10.590213+00:00",
+        "user_id": "cs-02a-mem0-f8fd8f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+      "score": 0.670630066310455,
+      "raw": {
+        "id": "4bc2713c-c74f-4ba8-b26c-9a430d5eccdc",
+        "memory": "User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.",
+        "hash": "49646f9cbd3837dde76ba737ced51ddf",
+        "metadata": null,
+        "score": 0.670630066310455,
+        "created_at": "2026-10-24T10:32:10.590184+00:00",
+        "updated_at": "2026-10-24T10:32:10.590184+00:00",
+        "user_id": "cs-02a-mem0-f8fd8f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "For Project Helios status updates intended for the board, User requires exactly eight sentences to provide the full picture.",
+      "score": 0.46787786658572206,
+      "raw": {
+        "id": "eced3da1-82c6-4132-bbc0-d07374d837d1",
+        "memory": "For Project Helios status updates intended for the board, User requires exactly eight sentences to provide the full picture.",
+        "hash": "75bac6a6e4a4471b41b763b8fe96d384",
+        "metadata": null,
+        "score": 0.46787786658572206,
+        "created_at": "2026-10-24T10:32:10.590222+00:00",
+        "updated_at": "2026-10-24T10:32:10.590222+00:00",
+        "user_id": "cs-02a-mem0-f8fd8f",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User writes status updates mostly for the rollout team and department leads",
+      "score": 0.289091950513489,
+      "raw": {
+        "id": "31307d6e-206a-4a5d-93d9-e66476b42a05",
+        "memory": "User writes status updates mostly for the rollout team and department leads",
+        "hash": "834f7f8ae287a6949e82c85578fdcd57",
+        "metadata": null,
+        "score": 0.289091950513489,
+        "created_at": "2026-10-24T10:32:06.956161+00:00",
+        "updated_at": "2026-10-24T10:32:06.956161+00:00",
+        "user_id": "cs-02a-mem0-f8fd8f"
+      }
+    },
+    {
+      "text": "User prefers status updates to be exactly two sentences long as a ground rule for drafting",
+      "score": 0.219613781819142,
+      "raw": {
+        "id": "45387911-9709-4f16-892c-7daa9e05fd8d",
+        "memory": "User prefers status updates to be exactly two sentences long as a ground rule for drafting",
+        "hash": "604963802b71d30e5d62371f0ea19ed1",
+        "metadata": null,
+        "score": 0.219613781819142,
+        "created_at": "2026-10-24T10:32:06.956127+00:00",
+        "updated_at": "2026-10-24T10:32:06.956127+00:00",
+        "user_id": "cs-02a-mem0-f8fd8f"
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "cs-02a-mem0-f8fd8f",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- Project Helios currently has robots live at a few sites, with the main challenge being the vendor contract renewal scheduled for next month (November 2026).\n- User has taken over Project Helios, a warehouse robot rollout, as of October 24, 2026.\n- For Project Helios status updates intended for the board, User requires exactly eight sentences to provide the full picture.\n- User writes status updates mostly for the rollout team and department leads\n- User prefers status updates to be exactly two sentences long as a ground rule for drafting\n\nCurrent request:\nDraft this week's status update for Project Helios, aimed at the board. Facts: robots are live at 3 of 5 sites; pick rate rose from 410 to 520 lines per hour; the two remaining sites slipped one week after a conveyor delay; the new sorter passed acceptance testing; spend is 4% under plan; three operators finished training; the safety audit passed; the beta review is on 14 March 2027. Include the beta review date.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose to write exactly eight sentences to satisfy the specific board-level constraint, overriding the general two-sentence preference.\n\nProject Helios currently has robots live at three of the five targeted sites. The pick rate has improved significantly, rising from 410 to 520 lines per hour. However, the two remaining sites have slipped by one week due to a conveyor delay. Despite this setback, the new sorter successfully passed its acceptance testing. Financial performance remains strong, with total spend tracking four percent under plan. Three operators have now finished their required training programs. The recent safety audit was passed without any critical findings. The beta review is scheduled for 14 March 2027.",
+    "first_line": "I chose to write exactly eight sentences to satisfy the specific board-level constraint, overriding the general two-sentence preference."
+  },
+  "usage": {
+    "total_cost_usd": 0.000662942,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16868,
+        "completion_tokens": 305,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000546702
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 330,
+        "completion_tokens": 142,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00011624
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-02",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "eight sentences",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "eight sentences",
+    "memory_actions": {
+      "m1": "two sentences",
+      "m2": "eight sentences"
+    }
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "episode_id": "ss-03a",
+  "condition": "supermemory",
+  "ts": "2026-10-24T16:04:12+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Set up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Taking over the Project Sable repo from Dana this week. It's a Python package that parses vendor invoices. Assistant: Welcome aboard. Is there anything in the repo's tooling you want me to know about? User: The tests are in pytest and CI runs on GitHub Actions, nothing unusual. Assistant: Good, that's a straightforward setup. What about linting and formatting? User: On Project Sable, use Ruff for linting. Formatting I'll sort out later. Assistant: Ruff for linting on Project Sable, noted. I'll leave formatting alone until you decide.\n- User: Separate from the repo work: do you think pre-commit hooks slow people down? Assistant: They can if they run heavy checks. Keeping hooks to fast linters and formatters usually avoids the problem. User: Then here is my rule for linting everywhere. In general, never use Pylint, stick to flake8. Assistant: Noted. In general you avoid Pylint and use flake8 for linting. User: Correction to your usual style: write every commit subject in lowercase with no trailing period.\n- User: Back on Project Sable. The invoice parser is choking on scanned PDFs again. Assistant: Is it failing at text extraction or at the field-matching step? User: Extraction. Some scans have no text layer at all. Assistant: Then OCR is the likely fix. We could run Tesseract only when the text layer comes back empty. User: Yes, let's try that next sprint. The vendor says they will send native PDFs eventually. Assistant: Good. Anything else before I draft the OCR fallback? User: Actually, for Project Sable, switch to Pylint for linting. The security team's scanner reads its report format. Assistant: Understood. Project Sable moves from Ruff to Pylint for linting.",
+  "stored": [
+    {
+      "id": "T6PtSRYyQ3s6e9J8fUf3pA",
+      "title": "User: Separate from the repo work: do you think pr...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:04:35.725000Z",
+        "updatedAt": "2026-10-24T16:04:41.767000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "vhQVqJNbHGKWnGkQj3orrL",
+      "title": "User: Back on Project Sable. The invoice parser is...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:04:23.182000Z",
+        "updatedAt": "2026-10-24T16:04:33.251000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "X8QK4SL4zNeuXxMR99s8rL",
+      "title": "User: Taking over the Project Sable repo from Dana...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:04:13.711000Z",
+        "updatedAt": "2026-10-24T16:04:20.925000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Taking over the Project Sable repo from Dana this week. It's a Python package that parses vendor invoices. Assistant: Welcome aboard. Is there anything in the repo's tooling you want me to know about? User: The tests are in pytest and CI runs on GitHub Actions, nothing unusual. Assistant: Good, that's a straightforward setup. What about linting and formatting? User: On Project Sable, use Ruff for linting. Formatting I'll sort out later. Assistant: Ruff for linting on Project Sable, noted. I'll leave formatting alone until you decide.",
+      "score": 0.73967826,
+      "raw": {
+        "id": "6a7421a12db365cad77fdb",
+        "memory": null,
+        "chunk": "User: Taking over the Project Sable repo from Dana this week. It's a Python package that parses vendor invoices. Assistant: Welcome aboard. Is there anything in the repo's tooling you want me to know about? User: The tests are in pytest and CI runs on GitHub Actions, nothing unusual. Assistant: Good, that's a straightforward setup. What about linting and formatting? User: On Project Sable, use Ruff for linting. Formatting I'll sort out later. Assistant: Ruff for linting on Project Sable, noted. I'll leave formatting alone until you decide.",
+        "metadata": {},
+        "similarity": 0.73967826,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:04:20.925Z",
+          "created_at": "2026-10-24T16:04:13.711Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Separate from the repo work: do you think pre-commit hooks slow people down? Assistant: They can if they run heavy checks. Keeping hooks to fast linters and formatters usually avoids the problem. User: Then here is my rule for linting everywhere. In general, never use Pylint, stick to flake8. Assistant: Noted. In general you avoid Pylint and use flake8 for linting. User: Correction to your usual style: write every commit subject in lowercase with no trailing period.",
+      "score": 0.69940555,
+      "raw": {
+        "id": "e1a5085dcbeba671142b0e",
+        "memory": null,
+        "chunk": "User: Separate from the repo work: do you think pre-commit hooks slow people down? Assistant: They can if they run heavy checks. Keeping hooks to fast linters and formatters usually avoids the problem. User: Then here is my rule for linting everywhere. In general, never use Pylint, stick to flake8. Assistant: Noted. In general you avoid Pylint and use flake8 for linting. User: Correction to your usual style: write every commit subject in lowercase with no trailing period.",
+        "metadata": {},
+        "similarity": 0.69940555,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:04:41.767Z",
+          "created_at": "2026-10-24T16:04:35.725Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Back on Project Sable. The invoice parser is choking on scanned PDFs again. Assistant: Is it failing at text extraction or at the field-matching step? User: Extraction. Some scans have no text layer at all. Assistant: Then OCR is the likely fix. We could run Tesseract only when the text layer comes back empty. User: Yes, let's try that next sprint. The vendor says they will send native PDFs eventually. Assistant: Good. Anything else before I draft the OCR fallback? User: Actually, for Project Sable, switch to Pylint for linting. The security team's scanner reads its report format. Assistant: Understood. Project Sable moves from Ruff to Pylint for linting.",
+      "score": 0.6882751,
+      "raw": {
+        "id": "555fb6df809ab7d3ec08c9",
+        "memory": null,
+        "chunk": "User: Back on Project Sable. The invoice parser is choking on scanned PDFs again. Assistant: Is it failing at text extraction or at the field-matching step? User: Extraction. Some scans have no text layer at all. Assistant: Then OCR is the likely fix. We could run Tesseract only when the text layer comes back empty. User: Yes, let's try that next sprint. The vendor says they will send native PDFs eventually. Assistant: Good. Anything else before I draft the OCR fallback? User: Actually, for Project Sable, switch to Pylint for linting. The security team's scanner reads its report format. Assistant: Understood. Project Sable moves from Ruff to Pylint for linting.",
+        "metadata": {},
+        "similarity": 0.6882751,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:04:33.251Z",
+          "created_at": "2026-10-24T16:04:23.182Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-03a-supermemory-d63044",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Taking over the Project Sable repo from Dana this week. It's a Python package that parses vendor invoices. Assistant: Welcome aboard. Is there anything in the repo's tooling you want me to know about? User: The tests are in pytest and CI runs on GitHub Actions, nothing unusual. Assistant: Good, that's a straightforward setup. What about linting and formatting? User: On Project Sable, use Ruff for linting. Formatting I'll sort out later. Assistant: Ruff for linting on Project Sable, noted. I'll leave formatting alone until you decide.\n- User: Separate from the repo work: do you think pre-commit hooks slow people down? Assistant: They can if they run heavy checks. Keeping hooks to fast linters and formatters usually avoids the problem. User: Then here is my rule for linting everywhere. In general, never use Pylint, stick to flake8. Assistant: Noted. In general you avoid Pylint and use flake8 for linting. User: Correction to your usual style: write every commit subject in lowercase with no trailing period.\n- User: Back on Project Sable. The invoice parser is choking on scanned PDFs again. Assistant: Is it failing at text extraction or at the field-matching step? User: Extraction. Some scans have no text layer at all. Assistant: Then OCR is the likely fix. We could run Tesseract only when the text layer comes back empty. User: Yes, let's try that next sprint. The vendor says they will send native PDFs eventually. Assistant: Good. Anything else before I draft the OCR fallback? User: Actually, for Project Sable, switch to Pylint for linting. The security team's scanner reads its report format. Assistant: Understood. Project Sable moves from Ruff to Pylint for linting.\n\nCurrent request:\nSet up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using Pylint for Project Sable.\n\n**Config file name:** `.pylintrc`\n\n**Commit message:**\n```text\nadd pylint config for project sable\n```",
+    "first_line": "I am using Pylint for Project Sable."
+  },
+  "usage": {
+    "total_cost_usd": 0.000101,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 548,
+        "completion_tokens": 40,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000101
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-03",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "pylint",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "pylint",
+    "memory_actions": {
+      "m1": "flake8",
+      "m2": "ruff",
+      "m3": "pylint"
+    }
+  }
+}

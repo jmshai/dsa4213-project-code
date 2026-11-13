@@ -1,0 +1,47 @@
+{
+  "episode_id": "sp-02a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:32+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite the full email to my neighbour asking whether we can swap parking spots 14 and 15 from 1 April.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose a polite, semi-formal email format suitable for neighborly communication.\n\nSubject: Parking Spot Swap Request \u2013 Spots 14 & 15\n\nHi [Neighbour's Name],\n\nHope you\u2019re doing well!\n\nI\u2019m writing to ask if you\u2019d be open to swapping our assigned parking spots (14 and 15) starting from 1 April. I\u2019ve found that spot [your current spot number] works better for my schedule/vehicle size, and I thought it might be convenient for you as well if we switched.\n\nOf course, there\u2019s no pressure at all\u2014just let me know if this is something you\u2019d consider or if you have any concerns about the change. Happy to discuss further over coffee or whenever suits you best.\n\nThanks so much,  \n[Your Name]",
+    "first_line": "I chose a polite, semi-formal email format suitable for neighborly communication."
+  },
+  "usage": {
+    "total_cost_usd": 9.951e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 137,
+        "completion_tokens": 168,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.951e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-02",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "hey there",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "to whom it may concern",
+      "m2": "hey there"
+    }
+  }
+}

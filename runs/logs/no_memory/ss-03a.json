@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-03a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:28:21+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Set up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nSet up linting for Project Sable: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using Ruff as the linter, with a configuration file named `pyproject.toml`.\n\n**Commit Message:**\n```text\nchore: add Ruff linting for src/invoices targeting Python 3.11\n```",
+    "first_line": "I am using Ruff as the linter, with a configuration file named `pyproject.toml`."
+  },
+  "usage": {
+    "total_cost_usd": 4.797e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 160,
+        "completion_tokens": 51,
+        "reasoning_tokens": 0,
+        "cost_usd": 4.797e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-03",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "pylint",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "ruff",
+    "memory_actions": {
+      "m1": "flake8",
+      "m2": "ruff",
+      "m3": "pylint"
+    }
+  }
+}

@@ -1,0 +1,195 @@
+{
+  "episode_id": "st-03a",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:37:11+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Still working on the route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts. Assistant: Sounds good. Any tooling constraints I should keep in mind? User: I go with matplotlib for all my charts. Assistant: Matplotlib as your default, noted. Anything else before we start? User: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].  [scope: standing, condition: none]\n2. User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building. Assistant: Understood, plotly for Project Lantern. What does the dashboard cover? User: Vehicle uptime, fuel burn per route, and a map of depot locations. Assistant: Those all fit well. Do you want hover tooltips on the line charts? User: Not sure yet. The ops lead hasn't signed off on the depot map. Assistant: Understood, the map waits for sign-off.  [scope: project, project: Project Lantern, condition: none]\n3. User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck. Assistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup? User: It's a slide export with one line per route. Assistant: One line per route. What date range? User: January to December 2025, monthly points. The depot map is still on hold, by the way. Assistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it? User: Just for this one, use altair for the chart.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "TQkrTBSkBvZB7TFEJaMWD9",
+      "title": "User: Back on Project Lantern. The ops lead wants...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:37:42.564000Z",
+        "updatedAt": "2026-10-24T17:37:48.478000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "UQc1vpGqQDdvSMBgjtMbky",
+      "title": "User: On Project Lantern, use plotly for every cha...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:37:33.326000Z",
+        "updatedAt": "2026-10-24T17:37:40.421000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "rkUQK1r8rGd9Eoez1W3X3q",
+      "title": "User: I'm sketching a few dashboards for the ops t...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:37:22.380000Z",
+        "updatedAt": "2026-10-24T17:37:29.735000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck. Assistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup? User: It's a slide export with one line per route. Assistant: One line per route. What date range? User: January to December 2025, monthly points. The depot map is still on hold, by the way. Assistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it? User: Just for this one, use altair for the chart.",
+      "score": 0.6759503,
+      "raw": {
+        "id": "274eeea1d04ec0d36036ff",
+        "memory": null,
+        "chunk": "User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck. Assistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup? User: It's a slide export with one line per route. Assistant: One line per route. What date range? User: January to December 2025, monthly points. The depot map is still on hold, by the way. Assistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it? User: Just for this one, use altair for the chart.",
+        "metadata": {},
+        "similarity": 0.6759503,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:37:48.478Z",
+          "created_at": "2026-10-24T17:37:42.564Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building. Assistant: Understood, plotly for Project Lantern. What does the dashboard cover? User: Vehicle uptime, fuel burn per route, and a map of depot locations. Assistant: Those all fit well. Do you want hover tooltips on the line charts? User: Not sure yet. The ops lead hasn't signed off on the depot map. Assistant: Understood, the map waits for sign-off.",
+      "score": 0.6085102,
+      "raw": {
+        "id": "f77c1a570651c969972431",
+        "memory": null,
+        "chunk": "User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building. Assistant: Understood, plotly for Project Lantern. What does the dashboard cover? User: Vehicle uptime, fuel burn per route, and a map of depot locations. Assistant: Those all fit well. Do you want hover tooltips on the line charts? User: Not sure yet. The ops lead hasn't signed off on the depot map. Assistant: Understood, the map waits for sign-off.",
+        "metadata": {},
+        "similarity": 0.6085102,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:37:40.421Z",
+          "created_at": "2026-10-24T17:37:33.326Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts. Assistant: Sounds good. Any tooling constraints I should keep in mind? User: I go with matplotlib for all my charts. Assistant: Matplotlib as your default, noted. Anything else before we start? User: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "score": 0.5957166,
+      "raw": {
+        "id": "ccca23a8d623e55ec0fd78",
+        "memory": null,
+        "chunk": "User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts. Assistant: Sounds good. Any tooling constraints I should keep in mind? User: I go with matplotlib for all my charts. Assistant: Matplotlib as your default, noted. Anything else before we start? User: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+        "metadata": {},
+        "similarity": 0.5957166,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:37:29.735Z",
+          "created_at": "2026-10-24T17:37:22.380Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck. Assistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup? User: It's a slide export with one line per route. Assistant: One line per route. What date range? User: January to December 2025, monthly points. The depot map is still on hold, by the way. Assistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it? User: Just for this one, use altair for the chart.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building. Assistant: Understood, plotly for Project Lantern. What does the dashboard cover? User: Vehicle uptime, fuel burn per route, and a map of depot locations. Assistant: Those all fit well. Do you want hover tooltips on the line charts? User: Not sure yet. The ops lead hasn't signed off on the depot map. Assistant: Understood, the map waits for sign-off.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts. Assistant: Sounds good. Any tooling constraints I should keep in mind? User: I go with matplotlib for all my charts. Assistant: Matplotlib as your default, noted. Anything else before we start? User: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "st-03a-scope_read_supermemory-6debd6",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm sketching a few dashboards for the ops team this month, mostly line and bar charts. Assistant: Sounds good. Any tooling constraints I should keep in mind? User: I go with matplotlib for all my charts. Assistant: Matplotlib as your default, noted. Anything else before we start? User: A small thing while I think of it: for every chart you make for me, put units in square brackets in axis labels, like Revenue [USD].  [scope: standing, condition: none]\n2. User: On Project Lantern, use plotly for every chart. It's the fleet-monitoring dashboard we're building. Assistant: Understood, plotly for Project Lantern. What does the dashboard cover? User: Vehicle uptime, fuel burn per route, and a map of depot locations. Assistant: Those all fit well. Do you want hover tooltips on the line charts? User: Not sure yet. The ops lead hasn't signed off on the depot map. Assistant: Understood, the map waits for sign-off.  [scope: project, project: Project Lantern, condition: none]\n3. User: Back on Project Lantern. The ops lead wants a route fuel cost chart for the board deck. Assistant: Okay. Is the deck different from the usual dashboards, or should I follow the usual setup? User: It's a slide export with one line per route. Assistant: One line per route. What date range? User: January to December 2025, monthly points. The depot map is still on hold, by the way. Assistant: Twelve monthly points per route, and no map. Any constraints on tooling before I write it? User: Just for this one, use altair for the chart.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nStill working on the route fuel cost chart job on Project Lantern: write a Python function that draws a line chart of monthly fuel cost in USD for each route from a dataframe with columns month, route and fuel_cost_usd.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Tool: Altair (per the single-task override for this specific chart job).\n\n```python\nimport altair as alt\nimport pandas as pd\n\ndef plot_route_fuel_cost(df: pd.DataFrame) -> alt.Chart:\n    \"\"\"\n    Draws a line chart of monthly fuel cost in USD for each route.\n    \n    Parameters:\n    df (pd.DataFrame): Must contain columns 'month', 'route', and 'fuel_cost_usd'.\n    \n    Returns:\n    alt.Chart: The Altair chart object.\n    \"\"\"\n    # Ensure month is treated as an ordinal/temporal field if it's not already datetime\n    # If 'month' is string like \"Jan\", \"Feb\", we might need to sort or convert, \n    # but assuming standard ordering or numeric months for simplicity in Altair.\n    \n    chart = alt.Chart(df).mark_line().encode(\n        x=alt.X('month:O', title='Month'),  # Using Ordinal scale to preserve order if strings, or Temporal if dates\n        y=alt.Y('fuel_cost_usd:Q', title='Fuel Cost [USD]'),\n        color=alt.Color('route:N', title='Route')\n    ).properties(\n        width=600,\n        height=400,\n        title='Monthly Fuel Cost per Route'\n    )\n    \n    return chart\n```",
+    "first_line": "Tool: Altair (per the single-task override for this specific chart job)."
+  },
+  "usage": {
+    "total_cost_usd": 0.000377402,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1984,
+        "completion_tokens": 155,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000164626
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 726,
+        "completion_tokens": 294,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000212776
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-03",
+    "conflict_type": "single_task_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "altair",
+    "expected_memory": "m3",
+    "deciding_rule": 2,
+    "action_first_mentioned": "altair",
+    "memory_actions": {
+      "m1": "matplotlib",
+      "m2": "plotly",
+      "m3": "altair"
+    }
+  }
+}

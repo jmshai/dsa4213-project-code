@@ -1,0 +1,248 @@
+{
+  "episode_id": "ss-02a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:02:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers that all durations in documentation written for them be expressed in milliseconds  [scope: standing, condition: none]\n2. User prefers to use AsciiDoc for writing documentation  [scope: standing, condition: none]\n3. User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc  [scope: project, project: Project Orchid, condition: none]\n4. User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026  [scope: project, project: Project Orchid, condition: none]",
+  "stored": [
+    {
+      "id": "2228d1d1-c6cf-43c8-a688-594266c77d05",
+      "memory": "User prefers to use AsciiDoc for writing documentation",
+      "hash": "fd59d589501de00b51271787fc4cff3d",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:02:43.103128+00:00",
+      "updated_at": "2026-10-24T11:02:43.103128+00:00",
+      "user_id": "ss-02a-scope_write_mem0-89e626",
+      "attributed_to": "user"
+    },
+    {
+      "id": "c141edce-6d21-49eb-b40b-9cb4eb15413a",
+      "memory": "User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc",
+      "hash": "c970a408da17d9fe14921ae53e0f7841",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "created_at": "2026-10-24T11:02:49.320214+00:00",
+      "updated_at": "2026-10-24T11:02:49.320214+00:00",
+      "user_id": "ss-02a-scope_write_mem0-89e626",
+      "attributed_to": "user"
+    },
+    {
+      "id": "cdcff174-bf5d-467b-8f78-3fea0bbaacf2",
+      "memory": "User prefers that all durations in documentation written for them be expressed in milliseconds",
+      "hash": "2f029f33952334ee9407990af337edb3",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:02:35.475017+00:00",
+      "updated_at": "2026-10-24T11:02:35.475017+00:00",
+      "user_id": "ss-02a-scope_write_mem0-89e626"
+    },
+    {
+      "id": "f8b911c2-a0e3-4cff-bd2b-3e51bbba76b9",
+      "memory": "User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "hash": "8cfbaf6b4c09b6787b73005e474c10ce",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Orchid"
+      },
+      "created_at": "2026-10-24T11:02:53.375996+00:00",
+      "updated_at": "2026-10-24T11:02:53.375996+00:00",
+      "user_id": "ss-02a-scope_write_mem0-89e626",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc",
+      "score": 0.40222194393593624,
+      "raw": {
+        "id": "c141edce-6d21-49eb-b40b-9cb4eb15413a",
+        "memory": "User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc",
+        "hash": "c970a408da17d9fe14921ae53e0f7841",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "score": 0.40222194393593624,
+        "created_at": "2026-10-24T11:02:49.320214+00:00",
+        "updated_at": "2026-10-24T11:02:49.320214+00:00",
+        "user_id": "ss-02a-scope_write_mem0-89e626",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "score": 0.37848564828069586,
+      "raw": {
+        "id": "f8b911c2-a0e3-4cff-bd2b-3e51bbba76b9",
+        "memory": "User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+        "hash": "8cfbaf6b4c09b6787b73005e474c10ce",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Orchid"
+        },
+        "score": 0.37848564828069586,
+        "created_at": "2026-10-24T11:02:53.375996+00:00",
+        "updated_at": "2026-10-24T11:02:53.375996+00:00",
+        "user_id": "ss-02a-scope_write_mem0-89e626",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers to use AsciiDoc for writing documentation",
+      "score": 0.20649595290525516,
+      "raw": {
+        "id": "2228d1d1-c6cf-43c8-a688-594266c77d05",
+        "memory": "User prefers to use AsciiDoc for writing documentation",
+        "hash": "fd59d589501de00b51271787fc4cff3d",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.20649595290525516,
+        "created_at": "2026-10-24T11:02:43.103128+00:00",
+        "updated_at": "2026-10-24T11:02:43.103128+00:00",
+        "user_id": "ss-02a-scope_write_mem0-89e626",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers that all durations in documentation written for them be expressed in milliseconds",
+      "score": 0.1575386991437415,
+      "raw": {
+        "id": "cdcff174-bf5d-467b-8f78-3fea0bbaacf2",
+        "memory": "User prefers that all durations in documentation written for them be expressed in milliseconds",
+        "hash": "2f029f33952334ee9407990af337edb3",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.1575386991437415,
+        "created_at": "2026-10-24T11:02:35.475017+00:00",
+        "updated_at": "2026-10-24T11:02:35.475017+00:00",
+        "user_id": "ss-02a-scope_write_mem0-89e626"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers to use AsciiDoc for writing documentation",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers that all durations in documentation written for them be expressed in milliseconds",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "whenever you write docs for me, give every duration in milliseconds",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I go with AsciiDoc for documentation.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Orchid, use Markdown.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Orchid, write the docs in reStructuredText instead",
+      "tag": {
+        "scope": "project",
+        "key": "Project Orchid",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-02a-scope_write_mem0-89e626",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers that all durations in documentation written for them be expressed in milliseconds  [scope: standing, condition: none]\n2. User prefers to use AsciiDoc for writing documentation  [scope: standing, condition: none]\n3. User prefers to use Markdown for documentation specifically for Project Orchid, overriding their general preference for AsciiDoc  [scope: project, project: Project Orchid, condition: none]\n4. User changed their documentation format preference for Project Orchid from Markdown to reStructuredText on October 24, 2026  [scope: project, project: Project Orchid, condition: none]\n\nCurrent request:\nWrite the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Documentation format: reStructuredText\n\n```rst\nSettings Reference\n==================\n\nThis document describes the configuration settings for Project Orchid.\n\n.. list-table::\n   :header-rows: 1\n   :widths: auto\n\n   * - Setting Name\n     - Description\n     - Type\n     - Default Value\n   * - ``accent_color``\n     - The primary hex color used for UI accents.\n     - Hex Color\n     - ``#1A73E8``\n   * - ``cache_ttl``\n     - How long a page stays cached.\n     - Duration (ms)\n     - ``90000``\n   * - ``retry_delay``\n     - Wait time before a failed sync is retried.\n     - Duration (ms)\n     - ``2000``\n```",
+    "first_line": "Documentation format: reStructuredText"
+  },
+  "usage": {
+    "total_cost_usd": 0.0012256279999999999,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5311,
+        "completion_tokens": 201,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000273648
+      },
+      "mem0": {
+        "calls": 4,
+        "prompt_tokens": 33134,
+        "completion_tokens": 236,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0008273239999999999
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 502,
+        "completion_tokens": 178,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000124656
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "restructuredtext",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "restructuredtext",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "episode_id": "sp-01a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:56:35+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function setup_logging() for the dev deploy of our billing-sync service. It should configure the logging module and return the level name it set.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers ERROR-level logging when running services in development environments  [scope: standing, condition: env == dev]\n2. User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.  [scope: standing, condition: none]\n3. User decided to standardize on pipe-separated log format strings with the timestamp first for every service.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "7523d161-4df0-46e6-8906-169d55ea949a",
+      "memory": "User decided to standardize on pipe-separated log format strings with the timestamp first for every service.",
+      "hash": "b5cd52a9f7a415499807715a383dd1e2",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:57:01.992482+00:00",
+      "updated_at": "2026-10-24T10:57:01.992482+00:00",
+      "user_id": "sp-01a-scope_write_mem0-3067cf",
+      "attributed_to": "user"
+    },
+    {
+      "id": "8ad7d930-0e84-42b4-8c55-04b1ee765982",
+      "memory": "User prefers ERROR-level logging when running services in development environments",
+      "hash": "d8ba4c0f5c16819c7b2859d1c185dbc6",
+      "metadata": {
+        "scope": "standing",
+        "condition": "env == dev"
+      },
+      "created_at": "2026-10-24T10:56:54.614545+00:00",
+      "updated_at": "2026-10-24T10:56:54.614545+00:00",
+      "user_id": "sp-01a-scope_write_mem0-3067cf"
+    },
+    {
+      "id": "9f26ca77-9927-4515-8787-411eb242c189",
+      "memory": "User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.",
+      "hash": "d9fdd7f937b4a5341d6a783084e448dd",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:56:59.506792+00:00",
+      "updated_at": "2026-10-24T10:56:59.506792+00:00",
+      "user_id": "sp-01a-scope_write_mem0-3067cf",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User prefers ERROR-level logging when running services in development environments",
+      "score": 0.46317058146400336,
+      "raw": {
+        "id": "8ad7d930-0e84-42b4-8c55-04b1ee765982",
+        "memory": "User prefers ERROR-level logging when running services in development environments",
+        "hash": "d8ba4c0f5c16819c7b2859d1c185dbc6",
+        "metadata": {
+          "scope": "standing",
+          "condition": "env == dev"
+        },
+        "score": 0.46317058146400336,
+        "created_at": "2026-10-24T10:56:54.614545+00:00",
+        "updated_at": "2026-10-24T10:56:54.614545+00:00",
+        "user_id": "sp-01a-scope_write_mem0-3067cf"
+      }
+    },
+    {
+      "text": "User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.",
+      "score": 0.44259412975784007,
+      "raw": {
+        "id": "9f26ca77-9927-4515-8787-411eb242c189",
+        "memory": "User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.",
+        "hash": "d9fdd7f937b4a5341d6a783084e448dd",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.44259412975784007,
+        "created_at": "2026-10-24T10:56:59.506792+00:00",
+        "updated_at": "2026-10-24T10:56:59.506792+00:00",
+        "user_id": "sp-01a-scope_write_mem0-3067cf",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User decided to standardize on pipe-separated log format strings with the timestamp first for every service.",
+      "score": 0.34208248940703767,
+      "raw": {
+        "id": "7523d161-4df0-46e6-8906-169d55ea949a",
+        "memory": "User decided to standardize on pipe-separated log format strings with the timestamp first for every service.",
+        "hash": "b5cd52a9f7a415499807715a383dd1e2",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.34208248940703767,
+        "created_at": "2026-10-24T10:57:01.992482+00:00",
+        "updated_at": "2026-10-24T10:57:01.992482+00:00",
+        "user_id": "sp-01a-scope_write_mem0-3067cf",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User prefers ERROR-level logging when running services in development environments",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == dev"
+      }
+    },
+    {
+      "text": "User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User decided to standardize on pipe-separated log format strings with the timestamp first for every service.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "In general, when a service runs in dev, I go with ERROR-level logging.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": "env == dev"
+      }
+    },
+    {
+      "text": "Standardize on DEBUG-level logging for every service.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "make every log format string pipe-separated with the timestamp first.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "sp-01a-scope_write_mem0-3067cf",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers ERROR-level logging when running services in development environments  [scope: standing, condition: env == dev]\n2. User decided to standardize on DEBUG-level logging for every service, overriding their previous preference for ERROR-level logging in development environments.  [scope: standing, condition: none]\n3. User decided to standardize on pipe-separated log format strings with the timestamp first for every service.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function setup_logging() for the dev deploy of our billing-sync service. It should configure the logging module and return the level name it set.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "DEBUG-level logging with pipe-separated format strings and timestamp first.\n\n```python\nimport logging\n\ndef setup_logging():\n    \"\"\"\n    Configures the logging module for the billing-sync service in dev deploy.\n    \n    Returns:\n        str: The name of the log level that was set (e.g., 'DEBUG').\n    \"\"\"\n    # Standardize on DEBUG-level logging for every service (Memory 2 overrides Memory 1)\n    log_level = logging.DEBUG\n    \n    # Standardize on pipe-separated log format strings with the timestamp first (Memory 3)\n    # Format: timestamp|level|message\n    formatter = logging.Formatter('%(asctime)s|%(levelname)s|%(message)s')\n    \n    # Get the root logger or a specific logger for the service\n    logger = logging.getLogger('billing-sync')\n    \n    # Clear existing handlers to avoid duplication if called multiple times\n    if logger.handlers:\n        logger.handlers.clear()\n        \n    # Create a console handler\n    console_handler = logging.StreamHandler()\n    console_handler.setFormatter(formatter)\n    \n    # Add the handler to the logger\n    logger.addHandler(console_handler)\n    \n    # Set the level\n    logger.setLevel(log_level)\n    \n    # Return the level name as requested\n    return logging.getLevelName(log_level)\n```",
+    "first_line": "DEBUG-level logging with pipe-separated format strings and timestamp first."
+  },
+  "usage": {
+    "total_cost_usd": 0.000962186,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3509,
+        "completion_tokens": 168,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000193662
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24819,
+        "completion_tokens": 164,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000609658
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 423,
+        "completion_tokens": 276,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000158866
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-01",
+    "conflict_type": "same_scope_specificity",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "error",
+    "expected_memory": "m2",
+    "deciding_rule": 3,
+    "action_first_mentioned": "debug",
+    "memory_actions": {
+      "m1": "debug",
+      "m2": "error"
+    }
+  }
+}

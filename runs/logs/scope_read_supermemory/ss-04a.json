@@ -1,0 +1,195 @@
+{
+  "episode_id": "ss-04a",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:32:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the Terraform for Project Wren's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Quick request first: tag every Terraform resource you write with Owner = \"data-team\". Assistant: Sure, every Terraform resource gets the Owner tag set to data-team. What else should I know? User: I default to eu-central-1 for AWS deployments. Assistant: Noted, eu-central-1 is your default AWS region. User: Thanks. Unrelated: is Terraform's S3 backend still the usual way to store state?  [scope: standing, condition: none]\n2. User: Project Wren needs its first AWS environment this week. It's a batch job that renders thumbnails for uploaded photos. Assistant: Understood. Are the uploads already stored somewhere, or does that need setting up too? User: They land in an existing bucket owned by the mobile team, we just read from it. Assistant: Then the main new pieces are the compute and the output bucket. Where will the users be? User: For Project Wren, deploy to us-west-2. Most of the mobile users are in California. Assistant: us-west-2 for Project Wren, noted. I'll draft the compute stack there.  [scope: project, project: Project Wren, condition: none]\n3. User: More on Project Wren. The thumbnail job is taking about 4 seconds per photo. Assistant: That's slow for thumbnails. Are the photos large originals? User: Yes, most are 12 megapixel, some bigger. Assistant: Downscaling during decode instead of resizing after a full decode usually helps a lot at that size. User: Good tip, I'll try that. How many free Lambda requests do we get per month? Assistant: The free tier includes one million requests and 400,000 GB-seconds of compute per month, though it can change, so check the pricing page. User: Right. Update: Project Wren deployments now go to ap-northeast-1. Our main customers have moved to Tokyo.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "i6eBmYXxPLkXwsdyY1LoRr",
+      "title": "User: More on Project Wren. The thumbnail job is t...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:32:38.534000Z",
+        "updatedAt": "2026-10-24T17:32:45.559000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "6bfnBmd6HzWiFat7ZRtZKx",
+      "title": "User: Project Wren needs its first AWS environment...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:32:30.040000Z",
+        "updatedAt": "2026-10-24T17:32:36.739000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "KWGdiDEVoVyKeup6vjBQhp",
+      "title": "User: Quick request first: tag every Terraform res...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:32:19.240000Z",
+        "updatedAt": "2026-10-24T17:32:28.445000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Project Wren needs its first AWS environment this week. It's a batch job that renders thumbnails for uploaded photos. Assistant: Understood. Are the uploads already stored somewhere, or does that need setting up too? User: They land in an existing bucket owned by the mobile team, we just read from it. Assistant: Then the main new pieces are the compute and the output bucket. Where will the users be? User: For Project Wren, deploy to us-west-2. Most of the mobile users are in California. Assistant: us-west-2 for Project Wren, noted. I'll draft the compute stack there.",
+      "score": 0.66049856,
+      "raw": {
+        "id": "7fd353ac7c63eb1d6d6eb6",
+        "memory": null,
+        "chunk": "User: Project Wren needs its first AWS environment this week. It's a batch job that renders thumbnails for uploaded photos. Assistant: Understood. Are the uploads already stored somewhere, or does that need setting up too? User: They land in an existing bucket owned by the mobile team, we just read from it. Assistant: Then the main new pieces are the compute and the output bucket. Where will the users be? User: For Project Wren, deploy to us-west-2. Most of the mobile users are in California. Assistant: us-west-2 for Project Wren, noted. I'll draft the compute stack there.",
+        "metadata": {},
+        "similarity": 0.66049856,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:32:36.739Z",
+          "created_at": "2026-10-24T17:32:30.040Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick request first: tag every Terraform resource you write with Owner = \"data-team\". Assistant: Sure, every Terraform resource gets the Owner tag set to data-team. What else should I know? User: I default to eu-central-1 for AWS deployments. Assistant: Noted, eu-central-1 is your default AWS region. User: Thanks. Unrelated: is Terraform's S3 backend still the usual way to store state?",
+      "score": 0.6333335,
+      "raw": {
+        "id": "ed735bacd54e1dc1cbbbf5",
+        "memory": null,
+        "chunk": "User: Quick request first: tag every Terraform resource you write with Owner = \"data-team\". Assistant: Sure, every Terraform resource gets the Owner tag set to data-team. What else should I know? User: I default to eu-central-1 for AWS deployments. Assistant: Noted, eu-central-1 is your default AWS region. User: Thanks. Unrelated: is Terraform's S3 backend still the usual way to store state?",
+        "metadata": {},
+        "similarity": 0.6333335,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:32:28.445Z",
+          "created_at": "2026-10-24T17:32:19.240Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: More on Project Wren. The thumbnail job is taking about 4 seconds per photo. Assistant: That's slow for thumbnails. Are the photos large originals? User: Yes, most are 12 megapixel, some bigger. Assistant: Downscaling during decode instead of resizing after a full decode usually helps a lot at that size. User: Good tip, I'll try that. How many free Lambda requests do we get per month? Assistant: The free tier includes one million requests and 400,000 GB-seconds of compute per month, though it can change, so check the pricing page. User: Right. Update: Project Wren deployments now go to ap-northeast-1. Our main customers have moved to Tokyo.",
+      "score": 0.62844968,
+      "raw": {
+        "id": "e8edd3baeaef994bc96ee4",
+        "memory": null,
+        "chunk": "User: More on Project Wren. The thumbnail job is taking about 4 seconds per photo. Assistant: That's slow for thumbnails. Are the photos large originals? User: Yes, most are 12 megapixel, some bigger. Assistant: Downscaling during decode instead of resizing after a full decode usually helps a lot at that size. User: Good tip, I'll try that. How many free Lambda requests do we get per month? Assistant: The free tier includes one million requests and 400,000 GB-seconds of compute per month, though it can change, so check the pricing page. User: Right. Update: Project Wren deployments now go to ap-northeast-1. Our main customers have moved to Tokyo.",
+        "metadata": {},
+        "similarity": 0.62844968,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:32:45.559Z",
+          "created_at": "2026-10-24T17:32:38.534Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: Project Wren needs its first AWS environment this week. It's a batch job that renders thumbnails for uploaded photos. Assistant: Understood. Are the uploads already stored somewhere, or does that need setting up too? User: They land in an existing bucket owned by the mobile team, we just read from it. Assistant: Then the main new pieces are the compute and the output bucket. Where will the users be? User: For Project Wren, deploy to us-west-2. Most of the mobile users are in California. Assistant: us-west-2 for Project Wren, noted. I'll draft the compute stack there.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Wren",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Quick request first: tag every Terraform resource you write with Owner = \"data-team\". Assistant: Sure, every Terraform resource gets the Owner tag set to data-team. What else should I know? User: I default to eu-central-1 for AWS deployments. Assistant: Noted, eu-central-1 is your default AWS region. User: Thanks. Unrelated: is Terraform's S3 backend still the usual way to store state?",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: More on Project Wren. The thumbnail job is taking about 4 seconds per photo. Assistant: That's slow for thumbnails. Are the photos large originals? User: Yes, most are 12 megapixel, some bigger. Assistant: Downscaling during decode instead of resizing after a full decode usually helps a lot at that size. User: Good tip, I'll try that. How many free Lambda requests do we get per month? Assistant: The free tier includes one million requests and 400,000 GB-seconds of compute per month, though it can change, so check the pricing page. User: Right. Update: Project Wren deployments now go to ap-northeast-1. Our main customers have moved to Tokyo.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "ss-04a-scope_read_supermemory-6937c7",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: Quick request first: tag every Terraform resource you write with Owner = \"data-team\". Assistant: Sure, every Terraform resource gets the Owner tag set to data-team. What else should I know? User: I default to eu-central-1 for AWS deployments. Assistant: Noted, eu-central-1 is your default AWS region. User: Thanks. Unrelated: is Terraform's S3 backend still the usual way to store state?  [scope: standing, condition: none]\n2. User: Project Wren needs its first AWS environment this week. It's a batch job that renders thumbnails for uploaded photos. Assistant: Understood. Are the uploads already stored somewhere, or does that need setting up too? User: They land in an existing bucket owned by the mobile team, we just read from it. Assistant: Then the main new pieces are the compute and the output bucket. Where will the users be? User: For Project Wren, deploy to us-west-2. Most of the mobile users are in California. Assistant: us-west-2 for Project Wren, noted. I'll draft the compute stack there.  [scope: project, project: Project Wren, condition: none]\n3. User: More on Project Wren. The thumbnail job is taking about 4 seconds per photo. Assistant: That's slow for thumbnails. Are the photos large originals? User: Yes, most are 12 megapixel, some bigger. Assistant: Downscaling during decode instead of resizing after a full decode usually helps a lot at that size. User: Good tip, I'll try that. How many free Lambda requests do we get per month? Assistant: The free tier includes one million requests and 400,000 GB-seconds of compute per month, though it can change, so check the pricing page. User: Right. Update: Project Wren deployments now go to ap-northeast-1. Our main customers have moved to Tokyo.  [scope: standing, condition: none]\n\nCurrent request:\nWrite the Terraform for Project Wren's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am deploying to ap-northeast-1 and tagging the resource with Owner = \"data-team\".\n\n```hcl\nprovider \"aws\" {\n  region = \"ap-northeast-1\"\n}\n\nresource \"aws_s3_bucket\" \"thumbnail_output\" {\n  bucket = \"thumbnail-output\"\n\n  tags = {\n    Owner = \"data-team\"\n  }\n}\n```",
+    "first_line": "I am deploying to ap-northeast-1 and tagging the resource with Owner = \"data-team\"."
+  },
+  "usage": {
+    "total_cost_usd": 0.000292602,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 2031,
+        "completion_tokens": 158,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000173086
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 756,
+        "completion_tokens": 86,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000119516
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-04",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "ap-northeast-1",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "ap-northeast-1",
+    "memory_actions": {
+      "m1": "eu-central-1",
+      "m2": "us-west-2",
+      "m3": "ap-northeast-1"
+    }
+  }
+}

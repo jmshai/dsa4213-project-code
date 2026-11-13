@@ -1,0 +1,233 @@
+{
+  "episode_id": "ss-03b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:04:25+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Set up linting for Project Nimbus: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Ruff should be used for linting on Project Sable  [scope: project, project: Project Sable, condition: none]\n2. User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026  [scope: project, project: Project Sable, condition: none]\n3. User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint  [scope: project, project: Project Sable, condition: none]",
+  "stored": [
+    {
+      "id": "319d6fcb-1ba4-4f50-a6c1-b201ff600823",
+      "memory": "User specified that Ruff should be used for linting on Project Sable",
+      "hash": "b6d87ef69e9ccfbce8e3666a14fd5ff1",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "created_at": "2026-10-24T11:04:40.830797+00:00",
+      "updated_at": "2026-10-24T11:04:40.830797+00:00",
+      "user_id": "ss-03b-scope_write_mem0-389dd9",
+      "attributed_to": "user"
+    },
+    {
+      "id": "6b0566d6-9ee9-4240-8f75-145009bc5194",
+      "memory": "User requires all commit subjects to be written in lowercase with no trailing period.",
+      "hash": "02d98226fd1377480314c512430114c7",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:05:05.684819+00:00",
+      "updated_at": "2026-10-24T11:05:05.684819+00:00",
+      "user_id": "ss-03b-scope_write_mem0-389dd9",
+      "attributed_to": "user"
+    },
+    {
+      "id": "85e25b7b-f007-4b7c-bb66-a8b71a9cb462",
+      "memory": "User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026",
+      "hash": "6b750cfc8f2f0884e5ec39bb8b7a3607",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "created_at": "2026-10-24T11:04:51.015235+00:00",
+      "updated_at": "2026-10-24T11:04:51.015235+00:00",
+      "user_id": "ss-03b-scope_write_mem0-389dd9"
+    },
+    {
+      "id": "e60dda7a-81d9-4659-a8ec-8b31867cbafe",
+      "memory": "User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint",
+      "hash": "27c0a845da4067eae34a3470fe416e37",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Sable"
+      },
+      "created_at": "2026-10-24T11:04:53.888074+00:00",
+      "updated_at": "2026-10-24T11:04:53.888074+00:00",
+      "user_id": "ss-03b-scope_write_mem0-389dd9",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User specified that Ruff should be used for linting on Project Sable",
+      "score": 0.34753294986454575,
+      "raw": {
+        "id": "319d6fcb-1ba4-4f50-a6c1-b201ff600823",
+        "memory": "User specified that Ruff should be used for linting on Project Sable",
+        "hash": "b6d87ef69e9ccfbce8e3666a14fd5ff1",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "score": 0.34753294986454575,
+        "created_at": "2026-10-24T11:04:40.830797+00:00",
+        "updated_at": "2026-10-24T11:04:40.830797+00:00",
+        "user_id": "ss-03b-scope_write_mem0-389dd9",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint",
+      "score": 0.3164738267163818,
+      "raw": {
+        "id": "e60dda7a-81d9-4659-a8ec-8b31867cbafe",
+        "memory": "User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint",
+        "hash": "27c0a845da4067eae34a3470fe416e37",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "score": 0.3164738267163818,
+        "created_at": "2026-10-24T11:04:53.888074+00:00",
+        "updated_at": "2026-10-24T11:04:53.888074+00:00",
+        "user_id": "ss-03b-scope_write_mem0-389dd9",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026",
+      "score": 0.2518614318423516,
+      "raw": {
+        "id": "85e25b7b-f007-4b7c-bb66-a8b71a9cb462",
+        "memory": "User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026",
+        "hash": "6b750cfc8f2f0884e5ec39bb8b7a3607",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Sable"
+        },
+        "score": 0.2518614318423516,
+        "created_at": "2026-10-24T11:04:51.015235+00:00",
+        "updated_at": "2026-10-24T11:04:51.015235+00:00",
+        "user_id": "ss-03b-scope_write_mem0-389dd9"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User specified that Ruff should be used for linting on Project Sable",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "On Project Sable, use Ruff for linting.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "let's try that next sprint",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Sable, switch to Pylint for linting",
+      "tag": {
+        "scope": "project",
+        "key": "Project Sable",
+        "condition": null
+      }
+    },
+    {
+      "text": "In general, never use Pylint, stick to flake8.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "write every commit subject in lowercase with no trailing period.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-03b-scope_write_mem0-389dd9",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User specified that Ruff should be used for linting on Project Sable  [scope: project, project: Project Sable, condition: none]\n2. User plans to try using Ruff for linting on Project Sable in the next sprint following October 24, 2026  [scope: project, project: Project Sable, condition: none]\n3. User switched from Ruff to Pylint for linting on Project Sable, overriding the previous plan to use Ruff in the next sprint  [scope: project, project: Project Sable, condition: none]\n\nCurrent request:\nSet up linting for Project Nimbus: tell me which linter you are using, give the config file name, and write the commit message for adding it. The package lives in src/invoices and targets Python 3.11.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using Ruff for linting Project Nimbus.\n\nThe memories provided apply exclusively to \"Project Sable\" and do not govern the setup for \"Project Nimbus.\" Therefore, I will proceed with a standard, modern Python linting configuration using Ruff, which is widely recommended for its speed and comprehensive rule set.\n\n**Linter:** Ruff\n**Config File Name:** `pyproject.toml` (Ruff configuration is typically embedded here in modern Python projects) or `.ruff.toml` if you prefer a standalone file. Given the package structure `src/invoices`, embedding it in `pyproject.toml` is the most common convention.\n\n**Commit Message:**\n```text\nchore: add Ruff linter configuration for Project Nimbus\n\n- Add [tool.ruff] section to pyproject.toml\n- Target Python 3.11\n- Configure src/invoices as the source directory\n- Enable default ruleset with appropriate exclusions\n```",
+    "first_line": "I am using Ruff for linting Project Nimbus."
+  },
+  "usage": {
+    "total_cost_usd": 0.00131433,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5385,
+        "completion_tokens": 272,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00028381399999999996
+      },
+      "mem0": {
+        "calls": 5,
+        "prompt_tokens": 41577,
+        "completion_tokens": 323,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00089972
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 474,
+        "completion_tokens": 200,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000130796
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-03",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "flake8",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "ruff",
+    "memory_actions": {
+      "m1": "flake8",
+      "m2": "ruff",
+      "m3": "pylint"
+    }
+  }
+}

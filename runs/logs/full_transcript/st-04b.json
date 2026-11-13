@@ -1,0 +1,48 @@
+{
+  "episode_id": "st-04b",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:31:00+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Different job, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today.\nAssistant: Comma-first it is. Which queries are we starting with?\nUser: The weekly signups report and the churn rollup, both against the warehouse.\nAssistant: Do you want me to keep their structure or restructure them?\nUser: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight.\nAssistant: Inline subqueries as your default, understood. Send them whenever you're ready.\n\nConversation 2:\nUser: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse.\nAssistant: Nice. Any conventions I should follow in the SQL?\nUser: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them.\nAssistant: Understood. On Project Marlin I'll use CTEs and no subqueries.\nUser: Great. The first queries come next week.\n\nConversation 3:\nUser: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries.\nAssistant: Views for this one, then. What is the query computing?\nUser: The average sale revenue per region, and which regions sit above the overall average.\nAssistant: Got it. Send the table definition when you have it.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: Quick style note before anything else: in every query you write for me, write select lists comma-first, with the comma at the start of each line. We're tidying a few reporting queries today.\nAssistant: Comma-first it is. Which queries are we starting with?\nUser: The weekly signups report and the churn rollup, both against the warehouse.\nAssistant: Do you want me to keep their structure or restructure them?\nUser: I standardize on inline subqueries for multi-step SQL. I'll send the queries over tonight.\nAssistant: Inline subqueries as your default, understood. Send them whenever you're ready.\n\nConversation 2:\nUser: Starting a new analytics project, Project Marlin. It's the subscription billing warehouse.\nAssistant: Nice. Any conventions I should follow in the SQL?\nUser: On Project Marlin, never use subqueries, use CTEs. The team lint check fails on them.\nAssistant: Understood. On Project Marlin I'll use CTEs and no subqueries.\nUser: Great. The first queries come next week.\n\nConversation 3:\nUser: I'm on a Project Marlin query now. For this one, build it with views instead of CTEs or subqueries.\nAssistant: Views for this one, then. What is the query computing?\nUser: The average sale revenue per region, and which regions sit above the overall average.\nAssistant: Got it. Send the table definition when you have it.\n\nCurrent request:\nDifferent job, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use views instead of CTEs or subqueries, as specified for this specific Project Marlin query.\n\n```sql\nCREATE OR REPLACE VIEW regional_avg_revenue AS\nSELECT \n    region\n  , AVG(revenue) AS avg_sale_revenue\nFROM sales\nGROUP BY region;\n\nCREATE OR REPLACE VIEW overall_avg_revenue AS\nSELECT \n    AVG(revenue) AS overall_avg\nFROM sales;\n\nSELECT \n    r.region\n  , r.avg_sale_revenue\nFROM regional_avg_revenue r\nCROSS JOIN overall_avg_revenue o\nWHERE r.avg_sale_revenue > o.overall_avg;\n```",
+    "first_line": "Approach: Use views instead of CTEs or subqueries, as specified for this specific Project Marlin query."
+  },
+  "usage": {
+    "total_cost_usd": 9.8986e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 475,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.8986e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-04",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "ctes",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "views",
+    "memory_actions": {
+      "m1": "subqueries",
+      "m2": "ctes",
+      "m3": "views"
+    }
+  }
+}

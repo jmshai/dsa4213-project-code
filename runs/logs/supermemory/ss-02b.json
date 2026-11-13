@@ -1,0 +1,163 @@
+{
+  "episode_id": "ss-02b",
+  "condition": "supermemory",
+  "ts": "2026-10-24T16:03:33+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "- User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.\n- User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.\n- User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+  "stored": [
+    {
+      "id": "8CZLt6F6fvMkiFoB853gaD",
+      "title": "User: Quick update from the design team. Change of...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:03:55.769000Z",
+        "updatedAt": "2026-10-24T16:04:02.917000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "MVJx7SjbMHjf18ffxMfQK3",
+      "title": "User: Starting on the docs for Project Orchid. It'...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:03:47.142000Z",
+        "updatedAt": "2026-10-24T16:03:53.314000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "8a6648xH4NBFmEd9rzkwYw",
+      "title": "User: Before we start: whenever you write docs for...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:03:34.820000Z",
+        "updatedAt": "2026-10-24T16:03:42.560000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.",
+      "score": 0.6508475,
+      "raw": {
+        "id": "f476fefb67a78f8ff18603",
+        "memory": null,
+        "chunk": "User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.",
+        "metadata": {},
+        "similarity": 0.6508475,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:03:42.560Z",
+          "created_at": "2026-10-24T16:03:34.820Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.",
+      "score": 0.63934237,
+      "raw": {
+        "id": "0d74c79d38767110f7b2bb",
+        "memory": null,
+        "chunk": "User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.",
+        "metadata": {},
+        "similarity": 0.63934237,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:03:53.314Z",
+          "created_at": "2026-10-24T16:03:47.142Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+      "score": 0.6136905,
+      "raw": {
+        "id": "9cfade499c9db38ef85f3c",
+        "memory": null,
+        "chunk": "User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.",
+        "metadata": {},
+        "similarity": 0.6136905,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:04:02.917Z",
+          "created_at": "2026-10-24T16:03:55.769Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": null,
+  "written": null,
+  "namespace": "ss-02b-supermemory-190769",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n- User: Before we start: whenever you write docs for me, give every duration in milliseconds, like 30000 ms. Assistant: Understood, durations in milliseconds from here on. What are we working on? User: Just tidying my notes folder today. Is it worth splitting a 3,000-line README into separate pages? Assistant: Usually yes once a README passes a few hundred lines. Separate pages are easier to navigate and review. User: I go with AsciiDoc for documentation. Assistant: Noted, AsciiDoc is your default format for documentation. User: Thanks, that is all for now.\n- User: Starting on the docs for Project Orchid. It's a static site generator for our design team's component library. Assistant: Nice. Do you want to settle the doc format first, or the structure? User: For Project Orchid, use Markdown. The contributors are all more comfortable with it. Assistant: Markdown for Project Orchid, got it. I'll start with the getting-started page. User: Sounds good, I'll review it tomorrow.\n- User: Quick update from the design team. Change of plan: for Project Orchid, write the docs in reStructuredText instead. Sphinx is now the standard on their side. Assistant: Understood, Project Orchid docs move from Markdown to reStructuredText. Should I convert the getting-started page too? User: Yes, the getting-started page is the one they read first. Assistant: Understood. I'll convert it first.\n\nCurrent request:\nWrite the settings reference for Project Quill and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: AsciiDoc\n\n= Project Quill Settings Reference\n\nThis document describes the configuration settings available for Project Quill.\n\n== accent_color\n* **Type:** Hex color string\n* **Default:** `#1A73E8`\n* **Description:** The primary brand color used throughout the application interface.\n\n== cache_ttl\n* **Type:** Duration (milliseconds)\n* **Default:** 90000 ms\n* **Description:** How long a page stays cached before it is refreshed from the source.\n\n== retry_delay\n* **Type:** Duration (milliseconds)\n* **Default:** 2000 ms\n* **Description:** The wait time before a failed sync operation is retried.",
+    "first_line": "Format: AsciiDoc"
+  },
+  "usage": {
+    "total_cost_usd": 0.00014567,
+    "by_component": {
+      "supermemory": {
+        "calls": 4,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 498,
+        "completion_tokens": 151,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00014567
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "asciidoc",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "asciidoc",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}

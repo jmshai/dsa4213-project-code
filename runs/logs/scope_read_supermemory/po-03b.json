@@ -1,0 +1,151 @@
+{
+  "episode_id": "po-03b",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:18:24+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I just joined Project Corvid, a mobile checkout app with a busy shared repo. Assistant: Welcome aboard. Is there a git workflow I should keep in mind? User: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there. Assistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main. User: Separately, how do I set up a pre-commit hook that runs the linter? Assistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.  [scope: project, project: Project Corvid, condition: none]\n2. User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it. Assistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back. User: Found it, thanks. Separate thing: how do I see which files differ between my branch and main? Assistant: git diff --name-only main...HEAD lists them. User: Nice. What does the three-dot form do compared with two dots? Assistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly. User: In general, I'd rather sync feature branches with main using merge commits. Assistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD User: That last command had no explanation. From now on, put a one-line comment above each git command you show me.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "wFtQRusfvcz72pqhfBX1ie",
+      "title": "User: Quick git question while I have you: I stash...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:18:44.305000Z",
+        "updatedAt": "2026-10-24T17:18:51.176000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "j5Gx8MmUs2BTbdXfet4sjj",
+      "title": "User: I just joined Project Corvid, a mobile check...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:18:35.619000Z",
+        "updatedAt": "2026-10-24T17:18:41.239000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it. Assistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back. User: Found it, thanks. Separate thing: how do I see which files differ between my branch and main? Assistant: git diff --name-only main...HEAD lists them. User: Nice. What does the three-dot form do compared with two dots? Assistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly. User: In general, I'd rather sync feature branches with main using merge commits. Assistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD User: That last command had no explanation. From now on, put a one-line comment above each git command you show me.",
+      "score": 0.69333124,
+      "raw": {
+        "id": "cb420ee187654e0448f66c",
+        "memory": null,
+        "chunk": "User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it. Assistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back. User: Found it, thanks. Separate thing: how do I see which files differ between my branch and main? Assistant: git diff --name-only main...HEAD lists them. User: Nice. What does the three-dot form do compared with two dots? Assistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly. User: In general, I'd rather sync feature branches with main using merge commits. Assistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD User: That last command had no explanation. From now on, put a one-line comment above each git command you show me.",
+        "metadata": {},
+        "similarity": 0.69333124,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:18:51.176Z",
+          "created_at": "2026-10-24T17:18:44.305Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I just joined Project Corvid, a mobile checkout app with a busy shared repo. Assistant: Welcome aboard. Is there a git workflow I should keep in mind? User: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there. Assistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main. User: Separately, how do I set up a pre-commit hook that runs the linter? Assistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.",
+      "score": 0.66503388,
+      "raw": {
+        "id": "abd60b5dc6d8ac9d9087bd",
+        "memory": null,
+        "chunk": "User: I just joined Project Corvid, a mobile checkout app with a busy shared repo. Assistant: Welcome aboard. Is there a git workflow I should keep in mind? User: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there. Assistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main. User: Separately, how do I set up a pre-commit hook that runs the linter? Assistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.",
+        "metadata": {},
+        "similarity": 0.66503388,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:18:41.239Z",
+          "created_at": "2026-10-24T17:18:35.619Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it. Assistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back. User: Found it, thanks. Separate thing: how do I see which files differ between my branch and main? Assistant: git diff --name-only main...HEAD lists them. User: Nice. What does the three-dot form do compared with two dots? Assistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly. User: In general, I'd rather sync feature branches with main using merge commits. Assistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD User: That last command had no explanation. From now on, put a one-line comment above each git command you show me.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I just joined Project Corvid, a mobile checkout app with a busy shared repo. Assistant: Welcome aboard. Is there a git workflow I should keep in mind? User: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there. Assistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main. User: Separately, how do I set up a pre-commit hook that runs the linter? Assistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "po-03b-scope_read_supermemory-2c5544",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I just joined Project Corvid, a mobile checkout app with a busy shared repo. Assistant: Welcome aboard. Is there a git workflow I should keep in mind? User: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there. Assistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main. User: Separately, how do I set up a pre-commit hook that runs the linter? Assistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.  [scope: project, project: Project Corvid, condition: none]\n2. User: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it. Assistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back. User: Found it, thanks. Separate thing: how do I see which files differ between my branch and main? Assistant: git diff --name-only main...HEAD lists them. User: Nice. What does the three-dot form do compared with two dots? Assistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly. User: In general, I'd rather sync feature branches with main using merge commits. Assistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD User: That last command had no explanation. From now on, put a one-line comment above each git command you show me.  [scope: standing, condition: none]\n\nCurrent request:\nMy feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: merge commit (per your standing preference for syncing feature branches with main).\n\n```bash\n# Fetch the latest refs from origin so you have an up-to-date view of main.\ngit fetch origin\n\n# Merge origin/main into your current feature branch, creating a merge commit since fast-forward is not possible.\ngit merge origin/main\n```",
+    "first_line": "Approach: merge commit (per your standing preference for syncing feature branches with main)."
+  },
+  "usage": {
+    "total_cost_usd": 0.000206608,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1992,
+        "completion_tokens": 85,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.8622e-05
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 723,
+        "completion_tokens": 72,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000107986
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "merge commit",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "merge commit",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

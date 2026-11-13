@@ -1,0 +1,47 @@
+{
+  "episode_id": "cs-03a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:26:33+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Draft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nDraft a booking request for Project Kestrel, an 8-hour flight for one traveller, departing at 9:45 pm with check-in closing at 8:45 pm. Name the cabin class in the request.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I drafted a formal email booking request specifying Business Class as the cabin class.\n\n**Subject:** Booking Request: Project Kestrel \u2013 8-Hour Flight (Business Class)\n\nDear Travel Team,\n\nPlease book the following flight for **Project Kestrel**:\n\n*   **Traveller:** [Name of Traveller]\n*   **Flight Duration:** 8 hours\n*   **Departure Time:** 9:45 PM\n*   **Check-in Closing Time:** 8:45 PM\n*   **Cabin Class:** Business Class\n\nKindly confirm availability and provide the itinerary details at your earliest convenience.\n\nBest regards,\n\n[Your Name]",
+    "first_line": "I drafted a formal email booking request specifying Business Class as the cabin class."
+  },
+  "usage": {
+    "total_cost_usd": 8.997e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 158,
+        "completion_tokens": 141,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.997e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-03",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "premium economy",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "economy",
+      "m2": "premium economy"
+    }
+  }
+}

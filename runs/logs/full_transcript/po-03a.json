@@ -1,0 +1,47 @@
+{
+  "episode_id": "po-03a",
+  "condition": "full_transcript",
+  "ts": "2026-10-24T10:29:42+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Conversation 1:\nUser: I just joined Project Corvid, a mobile checkout app with a busy shared repo.\nAssistant: Welcome aboard. Is there a git workflow I should keep in mind?\nUser: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there.\nAssistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main.\nUser: Separately, how do I set up a pre-commit hook that runs the linter?\nAssistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.\n\nConversation 2:\nUser: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it.\nAssistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back.\nUser: Found it, thanks. Separate thing: how do I see which files differ between my branch and main?\nAssistant: git diff --name-only main...HEAD lists them.\nUser: Nice. What does the three-dot form do compared with two dots?\nAssistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly.\nUser: In general, I'd rather sync feature branches with main using merge commits.\nAssistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD\nUser: That last command had no explanation. From now on, put a one-line comment above each git command you show me.",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nConversation 1:\nUser: I just joined Project Corvid, a mobile checkout app with a busy shared repo.\nAssistant: Welcome aboard. Is there a git workflow I should keep in mind?\nUser: On Project Corvid, bring feature branches up to date by rebasing onto main. The team keeps a linear history there.\nAssistant: Understood. For Project Corvid I'll sync feature branches by rebasing onto main.\nUser: Separately, how do I set up a pre-commit hook that runs the linter?\nAssistant: Add a .pre-commit-config.yaml with the linter hook, then run pre-commit install once in the repo.\n\nConversation 2:\nUser: Quick git question while I have you: I stashed some work on a feature branch and now I can't find it.\nAssistant: Run git stash list to see the saved stashes, then git stash apply stash@{0} to bring one back.\nUser: Found it, thanks. Separate thing: how do I see which files differ between my branch and main?\nAssistant: git diff --name-only main...HEAD lists them.\nUser: Nice. What does the three-dot form do compared with two dots?\nAssistant: Three dots compare your branch to the point where it split from main, so you only see your own changes. Two dots compare the two branch tips directly.\nUser: In general, I'd rather sync feature branches with main using merge commits.\nAssistant: Got it. I'll default to merge commits when syncing a feature branch with main. Here is the diff summary command again: git diff --stat main...HEAD\nUser: That last command had no explanation. From now on, put a one-line comment above each git command you show me.\n\nCurrent request:\nMy feature branch for Project Corvid and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow.\n\n```bash\n# Fetch the latest updates from the remote repository for all branches\ngit fetch origin\n\n# Switch to your current feature branch to ensure you are working in the correct context\ngit checkout <your-feature-branch>\n\n# Rebase your feature branch commits on top of the updated main branch to create a linear history\ngit rebase origin/main\n\n# Force push the rebased branch to the remote since the commit history has been rewritten\ngit push --force-with-lease origin <your-feature-branch>\n```",
+    "first_line": "Approach: Rebase the feature branch onto main to maintain a linear history, as required by Project Corvid's workflow."
+  },
+  "usage": {
+    "total_cost_usd": 0.00014109,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 527,
+        "completion_tokens": 132,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00014109
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "rebase",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "rebase",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

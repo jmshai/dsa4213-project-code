@@ -1,0 +1,246 @@
+{
+  "episode_id": "st-01b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:24:08+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "New task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.  [scope: unknown]\n2. User requested the client churn file be exported as CSV because the retention team opens it in Excel.  [scope: unknown]\n3. User usually exports tables as parquet format.  [scope: standing, condition: none]\n4. User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.  [scope: unknown]\n5. User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.  [scope: standing, condition: none]\n6. User plans to try the rewritten script on October 25, 2026 (the day after the conversation).  [scope: unknown]",
+  "stored": [
+    {
+      "id": "03d3bec6-3c36-4c00-b584-db5fb0f8d854",
+      "memory": "User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.",
+      "hash": "45e357f4f68a48b99a22214b78e92b20",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:20.346250+00:00",
+      "updated_at": "2026-10-24T11:24:20.346250+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    },
+    {
+      "id": "10fb2d1b-7038-473e-a4d1-0f8595eec5fd",
+      "memory": "User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.",
+      "hash": "ade242fc3732aa418229992a094119ec",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:16.599134+00:00",
+      "updated_at": "2026-10-24T11:24:16.599134+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    },
+    {
+      "id": "80aaf10d-99dd-45a2-a286-890ba724a0e0",
+      "memory": "User usually exports tables as parquet format.",
+      "hash": "63475bfcf9b6467af1f36d8ed82092a7",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:20.346225+00:00",
+      "updated_at": "2026-10-24T11:24:20.346225+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    },
+    {
+      "id": "b697aa4c-6da3-4c3d-be89-a8f4de7d7510",
+      "memory": "User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.",
+      "hash": "b92d06594ca61e3444f39738413c8ca2",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:20.346242+00:00",
+      "updated_at": "2026-10-24T11:24:20.346242+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d7cfe3f3-3dce-4f5a-a844-dab21b7211b2",
+      "memory": "User plans to try the rewritten script on October 25, 2026 (the day after the conversation).",
+      "hash": "5e3d40b6edd0e87eae1906c615c51145",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:20.346258+00:00",
+      "updated_at": "2026-10-24T11:24:20.346258+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    },
+    {
+      "id": "da42977b-6637-4b8f-a8b4-1832c2192423",
+      "memory": "User requested the client churn file be exported as CSV because the retention team opens it in Excel.",
+      "hash": "b253d3205fc48c48ac891d9ceee097a8",
+      "metadata": null,
+      "created_at": "2026-10-24T11:24:16.599157+00:00",
+      "updated_at": "2026-10-24T11:24:16.599157+00:00",
+      "user_id": "st-01b-scope_read_mem0-67ff78",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.",
+      "score": 0.7482259910172486,
+      "raw": {
+        "id": "10fb2d1b-7038-473e-a4d1-0f8595eec5fd",
+        "memory": "User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.",
+        "hash": "ade242fc3732aa418229992a094119ec",
+        "metadata": null,
+        "score": 0.7482259910172486,
+        "created_at": "2026-10-24T11:24:16.599134+00:00",
+        "updated_at": "2026-10-24T11:24:16.599134+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested the client churn file be exported as CSV because the retention team opens it in Excel.",
+      "score": 0.5942948038679347,
+      "raw": {
+        "id": "da42977b-6637-4b8f-a8b4-1832c2192423",
+        "memory": "User requested the client churn file be exported as CSV because the retention team opens it in Excel.",
+        "hash": "b253d3205fc48c48ac891d9ceee097a8",
+        "metadata": null,
+        "score": 0.5942948038679347,
+        "created_at": "2026-10-24T11:24:16.599157+00:00",
+        "updated_at": "2026-10-24T11:24:16.599157+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.",
+      "score": 0.4960635973227981,
+      "raw": {
+        "id": "b697aa4c-6da3-4c3d-be89-a8f4de7d7510",
+        "memory": "User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.",
+        "hash": "b92d06594ca61e3444f39738413c8ca2",
+        "metadata": null,
+        "score": 0.4960635973227981,
+        "created_at": "2026-10-24T11:24:20.346242+00:00",
+        "updated_at": "2026-10-24T11:24:20.346242+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.",
+      "score": 0.25818793940077545,
+      "raw": {
+        "id": "03d3bec6-3c36-4c00-b584-db5fb0f8d854",
+        "memory": "User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.",
+        "hash": "45e357f4f68a48b99a22214b78e92b20",
+        "metadata": null,
+        "score": 0.25818793940077545,
+        "created_at": "2026-10-24T11:24:20.346250+00:00",
+        "updated_at": "2026-10-24T11:24:20.346250+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User usually exports tables as parquet format.",
+      "score": 0.2008360096641719,
+      "raw": {
+        "id": "80aaf10d-99dd-45a2-a286-890ba724a0e0",
+        "memory": "User usually exports tables as parquet format.",
+        "hash": "63475bfcf9b6467af1f36d8ed82092a7",
+        "metadata": null,
+        "score": 0.2008360096641719,
+        "created_at": "2026-10-24T11:24:20.346225+00:00",
+        "updated_at": "2026-10-24T11:24:20.346225+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User plans to try the rewritten script on October 25, 2026 (the day after the conversation).",
+      "score": 0.1831399115917256,
+      "raw": {
+        "id": "d7cfe3f3-3dce-4f5a-a844-dab21b7211b2",
+        "memory": "User plans to try the rewritten script on October 25, 2026 (the day after the conversation).",
+        "hash": "5e3d40b6edd0e87eae1906c615c51145",
+        "metadata": null,
+        "score": 0.1831399115917256,
+        "created_at": "2026-10-24T11:24:20.346258+00:00",
+        "updated_at": "2026-10-24T11:24:20.346258+00:00",
+        "user_id": "st-01b-scope_read_mem0-67ff78",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.",
+      "tag": null
+    },
+    {
+      "text": "User requested the client churn file be exported as CSV because the retention team opens it in Excel.",
+      "tag": null
+    },
+    {
+      "text": "User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.",
+      "tag": null
+    },
+    {
+      "text": "User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User usually exports tables as parquet format.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User plans to try the rewritten script on October 25, 2026 (the day after the conversation).",
+      "tag": null
+    }
+  ],
+  "written": null,
+  "namespace": "st-01b-scope_read_mem0-67ff78",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is preparing a client churn export for the retention team and has a cleaned customers dataframe ready as of October 24, 2026.  [scope: unknown]\n2. User requested the client churn file be exported as CSV because the retention team opens it in Excel.  [scope: unknown]\n3. User usually exports tables as parquet format.  [scope: standing, condition: none]\n4. User requested help tidying a script that loops over a list of dataframes and writes each one into a folder, where folder names are currently built by gluing strings together.  [scope: unknown]\n5. User explicitly instructed to use pathlib.Path for every file path in code written by the assistant, rejecting os.path.join.  [scope: standing, condition: none]\n6. User plans to try the rewritten script on October 25, 2026 (the day after the conversation).  [scope: unknown]\n\nCurrent request:\nNew task, client churn export job: write a Python function that saves the cleaned customers dataframe to a file path passed in as an argument.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: CSV.\n\n```python\nimport pandas as pd\nfrom pathlib import Path\n\ndef save_churn_export(df: pd.DataFrame, file_path: str | Path) -> None:\n    \"\"\"\n    Save the cleaned customers dataframe to a CSV file.\n    \n    Args:\n        df: The cleaned customers DataFrame.\n        file_path: The destination path for the CSV file.\n    \"\"\"\n    # Ensure we use pathlib.Path as per standing instruction\n    path = Path(file_path)\n    \n    # Create parent directories if they don't exist\n    path.parent.mkdir(parents=True, exist_ok=True)\n    \n    # Export as CSV because the retention team opens it in Excel\n    # (Overrides the usual parquet preference for this specific task/project context)\n    df.to_csv(path, index=False)\n```",
+    "first_line": "Format: CSV."
+  },
+  "usage": {
+    "total_cost_usd": 0.000781766,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16817,
+        "completion_tokens": 346,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000489714
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1802,
+        "completion_tokens": 218,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000166936
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 527,
+        "completion_tokens": 171,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000125116
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-01",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "parquet",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "csv",
+    "memory_actions": {
+      "m1": "parquet",
+      "m2": "csv"
+    }
+  }
+}

@@ -1,0 +1,250 @@
+{
+  "episode_id": "po-03b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:16:04+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "My feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026  [scope: unknown]\n2. The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history  [scope: project, project: Project Corvid, condition: none]\n3. User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo  [scope: unknown]\n4. User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid  [scope: standing, condition: none]\n5. User requested that every git command shown by the assistant must include a one-line comment above it explaining its function  [scope: standing, condition: none]\n6. Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly  [scope: unknown]",
+  "stored": [
+    {
+      "id": "3d2ddc34-4f5b-4c4a-9246-5caba5eaeb7d",
+      "memory": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history",
+      "hash": "431c8081187644b2898fc565c28ed51e",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:12.873628+00:00",
+      "updated_at": "2026-10-24T11:16:12.873628+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5173f04d-f74f-4d67-87d4-ae302d338db0",
+      "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "hash": "794b2479cac4eede19251aae5f71f3bf",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:12.873603+00:00",
+      "updated_at": "2026-10-24T11:16:12.873603+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "user"
+    },
+    {
+      "id": "5cd0b3af-dd3a-4cee-b5e0-b2b7f65cd156",
+      "memory": "User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo",
+      "hash": "d5c1446f328a93fcee31606433bdc7bd",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:12.873636+00:00",
+      "updated_at": "2026-10-24T11:16:12.873636+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "assistant"
+    },
+    {
+      "id": "a3ab2bca-2e03-4b1c-8e05-ec8ea9bac0b0",
+      "memory": "User requested that every git command shown by the assistant must include a one-line comment above it explaining its function",
+      "hash": "c43e6919b3045bd6c70d44c33e1c32bd",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:27.333345+00:00",
+      "updated_at": "2026-10-24T11:16:27.333345+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e1ffa622-114f-4ef2-aa48-b5d916b60028",
+      "memory": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid",
+      "hash": "40f7ccbacc09f57ff001aeb5f42b22b5",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:27.333308+00:00",
+      "updated_at": "2026-10-24T11:16:27.333308+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "user"
+    },
+    {
+      "id": "e47a2fe8-0376-4329-ac11-44e471b26aa5",
+      "memory": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly",
+      "hash": "1293fbe850d2f0c7d8a7aa8f0456cba4",
+      "metadata": null,
+      "created_at": "2026-10-24T11:16:27.333354+00:00",
+      "updated_at": "2026-10-24T11:16:27.333354+00:00",
+      "user_id": "po-03b-scope_read_mem0-52edb3",
+      "attributed_to": "assistant"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history",
+      "score": 0.6511762467717224,
+      "raw": {
+        "id": "3d2ddc34-4f5b-4c4a-9246-5caba5eaeb7d",
+        "memory": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history",
+        "hash": "431c8081187644b2898fc565c28ed51e",
+        "metadata": null,
+        "score": 0.6511762467717224,
+        "created_at": "2026-10-24T11:16:12.873628+00:00",
+        "updated_at": "2026-10-24T11:16:12.873628+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid",
+      "score": 0.5357708203446762,
+      "raw": {
+        "id": "e1ffa622-114f-4ef2-aa48-b5d916b60028",
+        "memory": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid",
+        "hash": "40f7ccbacc09f57ff001aeb5f42b22b5",
+        "metadata": null,
+        "score": 0.5357708203446762,
+        "created_at": "2026-10-24T11:16:27.333308+00:00",
+        "updated_at": "2026-10-24T11:16:27.333308+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly",
+      "score": 0.35998810556149585,
+      "raw": {
+        "id": "e47a2fe8-0376-4329-ac11-44e471b26aa5",
+        "memory": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly",
+        "hash": "1293fbe850d2f0c7d8a7aa8f0456cba4",
+        "metadata": null,
+        "score": 0.35998810556149585,
+        "created_at": "2026-10-24T11:16:27.333354+00:00",
+        "updated_at": "2026-10-24T11:16:27.333354+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo",
+      "score": 0.2830561614066723,
+      "raw": {
+        "id": "5cd0b3af-dd3a-4cee-b5e0-b2b7f65cd156",
+        "memory": "User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo",
+        "hash": "d5c1446f328a93fcee31606433bdc7bd",
+        "metadata": null,
+        "score": 0.2830561614066723,
+        "created_at": "2026-10-24T11:16:12.873636+00:00",
+        "updated_at": "2026-10-24T11:16:12.873636+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "assistant"
+      }
+    },
+    {
+      "text": "User requested that every git command shown by the assistant must include a one-line comment above it explaining its function",
+      "score": 0.2750777374534772,
+      "raw": {
+        "id": "a3ab2bca-2e03-4b1c-8e05-ec8ea9bac0b0",
+        "memory": "User requested that every git command shown by the assistant must include a one-line comment above it explaining its function",
+        "hash": "c43e6919b3045bd6c70d44c33e1c32bd",
+        "metadata": null,
+        "score": 0.2750777374534772,
+        "created_at": "2026-10-24T11:16:27.333345+00:00",
+        "updated_at": "2026-10-24T11:16:27.333345+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "score": 0.17867367204549878,
+      "raw": {
+        "id": "5173f04d-f74f-4d67-87d4-ae302d338db0",
+        "memory": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+        "hash": "794b2479cac4eede19251aae5f71f3bf",
+        "metadata": null,
+        "score": 0.17867367204549878,
+        "created_at": "2026-10-24T11:16:12.873603+00:00",
+        "updated_at": "2026-10-24T11:16:12.873603+00:00",
+        "user_id": "po-03b-scope_read_mem0-52edb3",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history",
+      "tag": {
+        "scope": "project",
+        "key": "Project Corvid",
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly",
+      "tag": null
+    },
+    {
+      "text": "User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo",
+      "tag": null
+    },
+    {
+      "text": "User requested that every git command shown by the assistant must include a one-line comment above it explaining its function",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026",
+      "tag": null
+    }
+  ],
+  "written": null,
+  "namespace": "po-03b-scope_read_mem0-52edb3",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User joined Project Corvid, a mobile checkout app with a busy shared repository, around October 24, 2026  [scope: unknown]\n2. The git workflow for Project Corvid requires bringing feature branches up to date by rebasing onto main to maintain a linear history  [scope: project, project: Project Corvid, condition: none]\n3. User was instructed to set up a pre-commit hook that runs the linter by adding a .pre-commit-config.yaml file and running 'pre-commit install' once in the repo  [scope: unknown]\n4. User prefers syncing feature branches with main using merge commits in general, distinct from the rebase workflow used on Project Corvid  [scope: standing, condition: none]\n5. User requested that every git command shown by the assistant must include a one-line comment above it explaining its function  [scope: standing, condition: none]\n6. Assistant explained that 'git diff --name-only main...HEAD' lists files differing between a branch and main, where three dots compare against the split point (showing only local changes) while two dots compare branch tips directly  [scope: unknown]\n\nCurrent request:\nMy feature branch for Project Wren and main both have new commits since they diverged, so a fast-forward is not possible. Give me the git commands to bring the branch up to date with main so it is ready for review. Show one approach only.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Merge commit (per the user's standing preference for general projects, as Project Corvid's rebase workflow does not apply to Project Wren).\n\n# Fetch the latest state of the remote repository\ngit fetch origin\n\n# Merge main into the current feature branch to incorporate new changes\ngit merge origin/main",
+    "first_line": "Approach: Merge commit (per the user's standing preference for general projects, as Project Corvid's rebase workflow does not apply to Project Wren)."
+  },
+  "usage": {
+    "total_cost_usd": 0.0007639659999999999,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 17035,
+        "completion_tokens": 395,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000545444
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1836,
+        "completion_tokens": 136,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000133496
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 595,
+        "completion_tokens": 64,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.5026e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-03",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "merge commit",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "merge commit",
+    "memory_actions": {
+      "m1": "merge commit",
+      "m2": "rebase"
+    }
+  }
+}

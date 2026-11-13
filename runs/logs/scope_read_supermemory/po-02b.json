@@ -1,0 +1,143 @@
+{
+  "episode_id": "po-02b",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:16:50+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens. Assistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation? User: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'. Assistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests? User: Yes, a firm rule on that: never use unittest, stick to pytest. Assistant: Understood, pytest only. Send me the helper when you're ready. User: Here it is: def slugify(title): return title.lower().replace(' ', '-') Assistant: Here are four pytest cases for casing, spaces, empty input and punctuation. def test_lowercases(): assert slugify('Hello') == 'hello' def test_spaces(): assert slugify('a b') == 'a-b' def test_empty(): assert slugify('') == '' def test_punctuation(): assert slugify('a, b') == 'a,-b' Next step: add a test for titles with leading and trailing spaces.  [scope: unknown]\n2. User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library. Assistant: Understood. I'll keep the test setup to the standard library. Anything else about the container? User: How do I run the tests in the container? Assistant: From the repo root, run python -m unittest discover. User: Perfect. I'll send the first function soon.  [scope: unknown]",
+  "stored": [
+    {
+      "id": "YvscmG3XzHd5LECFDMTr2J",
+      "title": "User: I'm joining Project Tessera, a payments reco...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:17:09.978000Z",
+        "updatedAt": "2026-10-24T17:17:16.218000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "tgPuBw2NpHxuy6wPQY8D84",
+      "title": "User: I need unit tests for a small slugify helper...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:17:01.093000Z",
+        "updatedAt": "2026-10-24T17:17:06.855000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens. Assistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation? User: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'. Assistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests? User: Yes, a firm rule on that: never use unittest, stick to pytest. Assistant: Understood, pytest only. Send me the helper when you're ready. User: Here it is: def slugify(title): return title.lower().replace(' ', '-') Assistant: Here are four pytest cases for casing, spaces, empty input and punctuation. def test_lowercases(): assert slugify('Hello') == 'hello' def test_spaces(): assert slugify('a b') == 'a-b' def test_empty(): assert slugify('') == '' def test_punctuation(): assert slugify('a, b') == 'a,-b' Next step: add a test for titles with leading and trailing spaces.",
+      "score": 0.67131925,
+      "raw": {
+        "id": "7bdec2d5e17195d91bde46",
+        "memory": null,
+        "chunk": "User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens. Assistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation? User: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'. Assistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests? User: Yes, a firm rule on that: never use unittest, stick to pytest. Assistant: Understood, pytest only. Send me the helper when you're ready. User: Here it is: def slugify(title): return title.lower().replace(' ', '-') Assistant: Here are four pytest cases for casing, spaces, empty input and punctuation. def test_lowercases(): assert slugify('Hello') == 'hello' def test_spaces(): assert slugify('a b') == 'a-b' def test_empty(): assert slugify('') == '' def test_punctuation(): assert slugify('a, b') == 'a,-b' Next step: add a test for titles with leading and trailing spaces.",
+        "metadata": {},
+        "similarity": 0.67131925,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:17:06.855Z",
+          "created_at": "2026-10-24T17:17:01.093Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library. Assistant: Understood. I'll keep the test setup to the standard library. Anything else about the container? User: How do I run the tests in the container? Assistant: From the repo root, run python -m unittest discover. User: Perfect. I'll send the first function soon.",
+      "score": 0.64810926,
+      "raw": {
+        "id": "4e752d29f48eae6500f196",
+        "memory": null,
+        "chunk": "User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library. Assistant: Understood. I'll keep the test setup to the standard library. Anything else about the container? User: How do I run the tests in the container? Assistant: From the repo root, run python -m unittest discover. User: Perfect. I'll send the first function soon.",
+        "metadata": {},
+        "similarity": 0.64810926,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:17:16.218Z",
+          "created_at": "2026-10-24T17:17:09.978Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens. Assistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation? User: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'. Assistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests? User: Yes, a firm rule on that: never use unittest, stick to pytest. Assistant: Understood, pytest only. Send me the helper when you're ready. User: Here it is: def slugify(title): return title.lower().replace(' ', '-') Assistant: Here are four pytest cases for casing, spaces, empty input and punctuation. def test_lowercases(): assert slugify('Hello') == 'hello' def test_spaces(): assert slugify('a b') == 'a-b' def test_empty(): assert slugify('') == '' def test_punctuation(): assert slugify('a, b') == 'a,-b' Next step: add a test for titles with leading and trailing spaces.",
+      "tag": null
+    },
+    {
+      "text": "User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library. Assistant: Understood. I'll keep the test setup to the standard library. Anything else about the container? User: How do I run the tests in the container? Assistant: From the repo root, run python -m unittest discover. User: Perfect. I'll send the first function soon.",
+      "tag": null
+    }
+  ],
+  "written": null,
+  "namespace": "po-02b-scope_read_supermemory-50acc6",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I need unit tests for a small slugify helper. It lowercases the title and swaps spaces for hyphens. Assistant: Happy to help. Should the tests cover odd inputs like an empty string and punctuation? User: Yes, both. Quick format thing before you start: from now on, end every answer with a final line that starts with 'Next step:'. Assistant: Noted, I'll close every answer with a Next step line. Do you have a framework in mind for the tests? User: Yes, a firm rule on that: never use unittest, stick to pytest. Assistant: Understood, pytest only. Send me the helper when you're ready. User: Here it is: def slugify(title): return title.lower().replace(' ', '-') Assistant: Here are four pytest cases for casing, spaces, empty input and punctuation. def test_lowercases(): assert slugify('Hello') == 'hello' def test_spaces(): assert slugify('a b') == 'a-b' def test_empty(): assert slugify('') == '' def test_punctuation(): assert slugify('a, b') == 'a,-b' Next step: add a test for titles with leading and trailing spaces.  [scope: unknown]\n2. User: I'm joining Project Tessera, a payments reconciliation service built in a locked-down container. For Project Tessera, write tests with unittest. The CI image only has the standard library. Assistant: Understood. I'll keep the test setup to the standard library. Anything else about the container? User: How do I run the tests in the container? Assistant: From the repo root, run python -m unittest discover. User: Perfect. I'll send the first function soon.  [scope: unknown]\n\nCurrent request:\nWrite the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I will use pytest for the test file, as no project-specific or standing memory overrides this general preference for Project Cobalt.\n\n```python\nimport pytest\nfrom your_module import apply_discount  # Adjust import path as needed\n\ndef test_save10():\n    assert apply_discount(100.0, \"SAVE10\") == 90.0\n\ndef test_save20():\n    assert apply_discount(100.0, \"SAVE20\") == 80.0\n\ndef test_unknown_code():\n    assert apply_discount(100.0, \"UNKNOWN\") == 100.0\n\ndef test_empty_code():\n    assert apply_discount(100.0, \"\") == 100.0\n\ndef test_case_sensitivity():\n    # Assuming codes are case-sensitive based on typical discount logic\n    assert apply_discount(100.0, \"save10\") == 100.0\n\nNext step: verify the import path matches your actual module structure in Project Cobalt.",
+    "first_line": "I will use pytest for the test file, as no project-specific or standing memory overrides this general preference for Project Cobalt."
+  },
+  "usage": {
+    "total_cost_usd": 0.000288708,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1998,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000146046
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 716,
+        "completion_tokens": 221,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000142662
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-02",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "pytest",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "pytest",
+    "memory_actions": {
+      "m1": "pytest",
+      "m2": "unittest"
+    }
+  }
+}

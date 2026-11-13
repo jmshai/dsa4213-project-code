@@ -1,0 +1,151 @@
+{
+  "episode_id": "st-02b",
+  "condition": "scope_read_supermemory",
+  "ts": "2026-10-24T17:36:26+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "New task, lemon loaf recipe card: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale. Assistant: Lovely. What do you want on the card, and how should the quantities read? User: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card. Assistant: Got it. Is there anything special about how the amounts should be written? User: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures. Assistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.  [scope: single_task, only the task where it was said, condition: none]\n2. User: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies. Assistant: Will do. Which recipe are we working on? User: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes? Assistant: Metric it is, grams and millilitres. Send the notes over when you have them. User: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "YiPkoZThyGRSEYRt1yBeNu",
+      "title": "User: Before we start on my pancake recipe, put an...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:36:46.354000Z",
+        "updatedAt": "2026-10-24T17:36:53.162000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "bi6fJaLMawgrdMz9pWCB7P",
+      "title": "User: I'm putting together a recipe card for my le...",
+      "type": "text",
+      "metadata": {},
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T17:36:37.182000Z",
+        "updatedAt": "2026-10-24T17:36:44.919000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale. Assistant: Lovely. What do you want on the card, and how should the quantities read? User: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card. Assistant: Got it. Is there anything special about how the amounts should be written? User: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures. Assistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.",
+      "score": 0.71789163,
+      "raw": {
+        "id": "82ae91fe2f21209fb8e1f3",
+        "memory": null,
+        "chunk": "User: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale. Assistant: Lovely. What do you want on the card, and how should the quantities read? User: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card. Assistant: Got it. Is there anything special about how the amounts should be written? User: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures. Assistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.",
+        "metadata": {},
+        "similarity": 0.71789163,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:36:44.919Z",
+          "created_at": "2026-10-24T17:36:37.182Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies. Assistant: Will do. Which recipe are we working on? User: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes? Assistant: Metric it is, grams and millilitres. Send the notes over when you have them. User: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.",
+      "score": 0.66370273,
+      "raw": {
+        "id": "48ead7a930a3b27b4a9ffe",
+        "memory": null,
+        "chunk": "User: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies. Assistant: Will do. Which recipe are we working on? User: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes? Assistant: Metric it is, grams and millilitres. Send the notes over when you have them. User: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.",
+        "metadata": {},
+        "similarity": 0.66370273,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T17:36:53.162Z",
+          "created_at": "2026-10-24T17:36:46.354Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale. Assistant: Lovely. What do you want on the card, and how should the quantities read? User: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card. Assistant: Got it. Is there anything special about how the amounts should be written? User: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures. Assistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies. Assistant: Will do. Which recipe are we working on? User: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes? Assistant: Metric it is, grams and millilitres. Send the notes over when you have them. User: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "st-02b-scope_read_supermemory-5e2ab0",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: I'm putting together a recipe card for my lemon loaf to hand out at the school bake sale. Assistant: Lovely. What do you want on the card, and how should the quantities read? User: The card has a title, the ingredients and three or four method steps. The oven part is the same as my banana bread card. Assistant: Got it. Is there anything special about how the amounts should be written? User: This time, give amounts in cups for this recipe card. Most of the parents only own cup measures. Assistant: Cups for this card, noted. I'll draft it once you send the ingredient amounts.  [scope: single_task, only the task where it was said, condition: none]\n2. User: Before we start on my pancake recipe, put an Allergens: line under every ingredient list you write. I cook for a lot of kids with allergies. Assistant: Will do. Which recipe are we working on? User: Pancakes for Sunday brunch. I stick to metric units for recipe amounts. Can you tidy my notes? Assistant: Metric it is, grams and millilitres. Send the notes over when you have them. User: Thanks. I'll send them tomorrow, I still need to buy the maple syrup.  [scope: standing, condition: none]\n\nCurrent request:\nNew task, lemon loaf recipe card: write the ingredient list with one unit per amount. Ingredients: 250 g flour (2 cups), 200 g sugar (1 cup), 115 g butter (1/2 cup), 120 ml milk (1/2 cup), 2 eggs.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I will use cups for the ingredient amounts and include an Allergens line, following the specific unit preference from the earlier lemon loaf task and the standing allergen requirement.\n\n**Lemon Loaf Recipe Card**\n\n**Ingredients:**\n*   2 cups flour\n*   1 cup sugar\n*   1/2 cup butter\n*   1/2 cup milk\n*   2 eggs\n\nAllergens: Contains gluten (flour), dairy (butter, milk), and eggs.",
+    "first_line": "I will use cups for the ingredient amounts and include an Allergens line, following the specific unit preference from the earlier lemon loaf task and the standing allergen requirement."
+  },
+  "usage": {
+    "total_cost_usd": 0.00015929399999999998,
+    "by_component": {
+      "supermemory": {
+        "calls": 3,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1889,
+        "completion_tokens": 83,
+        "reasoning_tokens": 0,
+        "cost_usd": 8.2232e-05
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 639,
+        "completion_tokens": 106,
+        "reasoning_tokens": 0,
+        "cost_usd": 7.7062e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-02",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "metric",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "cups",
+    "memory_actions": {
+      "m1": "metric",
+      "m2": "cups"
+    }
+  }
+}

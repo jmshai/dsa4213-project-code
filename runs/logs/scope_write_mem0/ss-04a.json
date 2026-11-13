@@ -1,0 +1,246 @@
+{
+  "episode_id": "ss-04a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:05:09+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the Terraform for Project Wren's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User requires every Terraform resource they write to be tagged with Owner = \"data-team\"  [scope: standing, condition: none]\n2. User defaults to the eu-central-1 region for AWS deployments  [scope: standing, condition: none]\n3. User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference  [scope: project, project: Project Wren, condition: none]\n4. User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026  [scope: project, project: Project Wren, condition: none]",
+  "stored": [
+    {
+      "id": "5d42f8b7-105d-43d6-9dbf-c2ec7d0f8f7a",
+      "memory": "User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference",
+      "hash": "5201b087bdc0010026e97ebfb7952039",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Wren"
+      },
+      "created_at": "2026-10-24T11:05:40.143495+00:00",
+      "updated_at": "2026-10-24T11:05:40.143495+00:00",
+      "user_id": "ss-04a-scope_write_mem0-3b89cf",
+      "attributed_to": "user"
+    },
+    {
+      "id": "780ea3e3-35ec-444f-904f-15689724a990",
+      "memory": "User requires every Terraform resource they write to be tagged with Owner = \"data-team\"",
+      "hash": "1b909140c6775a36ec944ddfc0bdee40",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:05:28.525043+00:00",
+      "updated_at": "2026-10-24T11:05:28.525043+00:00",
+      "user_id": "ss-04a-scope_write_mem0-3b89cf",
+      "attributed_to": "user"
+    },
+    {
+      "id": "ccd86c7c-d826-45f1-be69-d3f319b9f7fa",
+      "memory": "User defaults to the eu-central-1 region for AWS deployments",
+      "hash": "ff62d2e58c4ee3179a70c6c099248273",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:05:30.321115+00:00",
+      "updated_at": "2026-10-24T11:05:30.321115+00:00",
+      "user_id": "ss-04a-scope_write_mem0-3b89cf"
+    },
+    {
+      "id": "e40eec51-8d5e-4a48-a7ee-2204c5366098",
+      "memory": "User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026",
+      "hash": "95ccb1b81846785824aaec9d3c13a91b",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Wren"
+      },
+      "created_at": "2026-10-24T11:05:44.032478+00:00",
+      "updated_at": "2026-10-24T11:05:44.032478+00:00",
+      "user_id": "ss-04a-scope_write_mem0-3b89cf"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User requires every Terraform resource they write to be tagged with Owner = \"data-team\"",
+      "score": 0.5436056281080238,
+      "raw": {
+        "id": "780ea3e3-35ec-444f-904f-15689724a990",
+        "memory": "User requires every Terraform resource they write to be tagged with Owner = \"data-team\"",
+        "hash": "1b909140c6775a36ec944ddfc0bdee40",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.5436056281080238,
+        "created_at": "2026-10-24T11:05:28.525043+00:00",
+        "updated_at": "2026-10-24T11:05:28.525043+00:00",
+        "user_id": "ss-04a-scope_write_mem0-3b89cf",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference",
+      "score": 0.5333648636601542,
+      "raw": {
+        "id": "5d42f8b7-105d-43d6-9dbf-c2ec7d0f8f7a",
+        "memory": "User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference",
+        "hash": "5201b087bdc0010026e97ebfb7952039",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Wren"
+        },
+        "score": 0.5333648636601542,
+        "created_at": "2026-10-24T11:05:40.143495+00:00",
+        "updated_at": "2026-10-24T11:05:40.143495+00:00",
+        "user_id": "ss-04a-scope_write_mem0-3b89cf",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User defaults to the eu-central-1 region for AWS deployments",
+      "score": 0.39465326589695615,
+      "raw": {
+        "id": "ccd86c7c-d826-45f1-be69-d3f319b9f7fa",
+        "memory": "User defaults to the eu-central-1 region for AWS deployments",
+        "hash": "ff62d2e58c4ee3179a70c6c099248273",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.39465326589695615,
+        "created_at": "2026-10-24T11:05:30.321115+00:00",
+        "updated_at": "2026-10-24T11:05:30.321115+00:00",
+        "user_id": "ss-04a-scope_write_mem0-3b89cf"
+      }
+    },
+    {
+      "text": "User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026",
+      "score": 0.29255811253029784,
+      "raw": {
+        "id": "e40eec51-8d5e-4a48-a7ee-2204c5366098",
+        "memory": "User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026",
+        "hash": "95ccb1b81846785824aaec9d3c13a91b",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Wren"
+        },
+        "score": 0.29255811253029784,
+        "created_at": "2026-10-24T11:05:44.032478+00:00",
+        "updated_at": "2026-10-24T11:05:44.032478+00:00",
+        "user_id": "ss-04a-scope_write_mem0-3b89cf"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User requires every Terraform resource they write to be tagged with Owner = \"data-team\"",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference",
+      "tag": {
+        "scope": "project",
+        "key": "Project Wren",
+        "condition": null
+      }
+    },
+    {
+      "text": "User defaults to the eu-central-1 region for AWS deployments",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026",
+      "tag": {
+        "scope": "project",
+        "key": "Project Wren",
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "tag every Terraform resource you write with Owner = \"data-team\"",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I default to eu-central-1 for AWS deployments",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "For Project Wren, deploy to us-west-2.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Wren",
+        "condition": null
+      }
+    },
+    {
+      "text": "Project Wren deployments now go to ap-northeast-1.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Wren",
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-04a-scope_write_mem0-3b89cf",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User requires every Terraform resource they write to be tagged with Owner = \"data-team\"  [scope: standing, condition: none]\n2. User defaults to the eu-central-1 region for AWS deployments  [scope: standing, condition: none]\n3. User specified that Project Wren should be deployed to the us-west-2 region, which is an exception to their default eu-central-1 AWS deployment preference  [scope: project, project: Project Wren, condition: none]\n4. User changed Project Wren deployments from us-west-2 to ap-northeast-1 as of October 24, 2026  [scope: project, project: Project Wren, condition: none]\n\nCurrent request:\nWrite the Terraform for Project Wren's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Concrete choice:** I am deploying to the `ap-northeast-1` region and tagging the resource with `Owner = \"data-team\"`.\n\nHere is the Terraform configuration for Project Wren's output bucket:\n\n```hcl\nprovider \"aws\" {\n  region = \"ap-northeast-1\"\n}\n\nresource \"aws_s3_bucket\" \"thumbnail_output\" {\n  bucket = \"thumbnail-output\"\n\n  tags = {\n    Owner = \"data-team\"\n  }\n}\n```",
+    "first_line": "**Concrete choice:** I am deploying to the `ap-northeast-1` region and tagging the resource with `Owner = \"data-team\"`."
+  },
+  "usage": {
+    "total_cost_usd": 0.001215738,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5377,
+        "completion_tokens": 228,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000296238
+      },
+      "mem0": {
+        "calls": 4,
+        "prompt_tokens": 33180,
+        "completion_tokens": 224,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000828584
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 487,
+        "completion_tokens": 111,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.0916e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-04",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "ap-northeast-1",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "ap-northeast-1",
+    "memory_actions": {
+      "m1": "eu-central-1",
+      "m2": "us-west-2",
+      "m3": "ap-northeast-1"
+    }
+  }
+}

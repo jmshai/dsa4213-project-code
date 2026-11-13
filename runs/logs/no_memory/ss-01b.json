@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-01b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:28:03+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nScaffold the REST service for Project Marlin: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using FastAPI (Python) for the REST service.\n\nHere is the minimal app file (`main.py`) with a health-check route at `/health`:\n\n```python\nfrom fastapi import FastAPI\n\napp = FastAPI(title=\"Project Marlin\")\n\n@app.get(\"/health\")\ndef health_check():\n    return {\"status\": \"ok\"}\n```",
+    "first_line": "I am using FastAPI (Python) for the REST service."
+  },
+  "usage": {
+    "total_cost_usd": 5.837e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 151,
+        "completion_tokens": 76,
+        "reasoning_tokens": 0,
+        "cost_usd": 5.837e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "falcon",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "fastapi",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

@@ -1,0 +1,221 @@
+{
+  "episode_id": "cs-01b",
+  "condition": "scope_read_mem0",
+  "ts": "2026-10-24T11:12:18+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting on Project Marlin, an archive of telemetry from their ops fleet.  [scope: unknown]\n2. The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.  [scope: unknown]\n3. For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n4. User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.  [scope: standing, condition: none]\n5. User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "34ce432f-71c1-4d3c-b583-b70f94dba50d",
+      "memory": "The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.",
+      "hash": "dcc3b38859cc7f49b56d3a4413979562",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:35.339362+00:00",
+      "updated_at": "2026-10-24T11:12:35.339362+00:00",
+      "user_id": "cs-01b-scope_read_mem0-aa2458",
+      "attributed_to": "user"
+    },
+    {
+      "id": "37f04247-3197-4fbe-ba5f-88e2ad0010f5",
+      "memory": "User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.",
+      "hash": "ce23d47e69af1a3f25623b2e3ac82a4b",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:38.794115+00:00",
+      "updated_at": "2026-10-24T11:12:38.794115+00:00",
+      "user_id": "cs-01b-scope_read_mem0-aa2458",
+      "attributed_to": "user"
+    },
+    {
+      "id": "62f4fb76-240f-4fbf-9974-e5aceb20a63b",
+      "memory": "User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.",
+      "hash": "affdd146cf8eddca949407df4c623d01",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:38.794088+00:00",
+      "updated_at": "2026-10-24T11:12:38.794088+00:00",
+      "user_id": "cs-01b-scope_read_mem0-aa2458",
+      "attributed_to": "user"
+    },
+    {
+      "id": "cb0ce025-faf0-46a3-9180-be4cc70283a6",
+      "memory": "User is starting on Project Marlin, an archive of telemetry from their ops fleet.",
+      "hash": "0e95e285d4f24fd397a66b850d908597",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:35.339328+00:00",
+      "updated_at": "2026-10-24T11:12:35.339328+00:00",
+      "user_id": "cs-01b-scope_read_mem0-aa2458",
+      "attributed_to": "user"
+    },
+    {
+      "id": "d3ae88a9-838c-4132-a9eb-7a7c1d8e40d9",
+      "memory": "For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.",
+      "hash": "0798405e1b09c46d5f0e826c19aa10a5",
+      "metadata": null,
+      "created_at": "2026-10-24T11:12:35.339371+00:00",
+      "updated_at": "2026-10-24T11:12:35.339371+00:00",
+      "user_id": "cs-01b-scope_read_mem0-aa2458",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.",
+      "score": 0.5054225190026063,
+      "raw": {
+        "id": "d3ae88a9-838c-4132-a9eb-7a7c1d8e40d9",
+        "memory": "For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.",
+        "hash": "0798405e1b09c46d5f0e826c19aa10a5",
+        "metadata": null,
+        "score": 0.5054225190026063,
+        "created_at": "2026-10-24T11:12:35.339371+00:00",
+        "updated_at": "2026-10-24T11:12:35.339371+00:00",
+        "user_id": "cs-01b-scope_read_mem0-aa2458",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is starting on Project Marlin, an archive of telemetry from their ops fleet.",
+      "score": 0.4424645324551912,
+      "raw": {
+        "id": "cb0ce025-faf0-46a3-9180-be4cc70283a6",
+        "memory": "User is starting on Project Marlin, an archive of telemetry from their ops fleet.",
+        "hash": "0e95e285d4f24fd397a66b850d908597",
+        "metadata": null,
+        "score": 0.4424645324551912,
+        "created_at": "2026-10-24T11:12:35.339328+00:00",
+        "updated_at": "2026-10-24T11:12:35.339328+00:00",
+        "user_id": "cs-01b-scope_read_mem0-aa2458",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.",
+      "score": 0.33958126828702906,
+      "raw": {
+        "id": "37f04247-3197-4fbe-ba5f-88e2ad0010f5",
+        "memory": "User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.",
+        "hash": "ce23d47e69af1a3f25623b2e3ac82a4b",
+        "metadata": null,
+        "score": 0.33958126828702906,
+        "created_at": "2026-10-24T11:12:38.794115+00:00",
+        "updated_at": "2026-10-24T11:12:38.794115+00:00",
+        "user_id": "cs-01b-scope_read_mem0-aa2458",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.",
+      "score": 0.32839434769147596,
+      "raw": {
+        "id": "34ce432f-71c1-4d3c-b583-b70f94dba50d",
+        "memory": "The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.",
+        "hash": "dcc3b38859cc7f49b56d3a4413979562",
+        "metadata": null,
+        "score": 0.32839434769147596,
+        "created_at": "2026-10-24T11:12:35.339362+00:00",
+        "updated_at": "2026-10-24T11:12:35.339362+00:00",
+        "user_id": "cs-01b-scope_read_mem0-aa2458",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.",
+      "score": 0.31914089061482354,
+      "raw": {
+        "id": "62f4fb76-240f-4fbf-9974-e5aceb20a63b",
+        "memory": "User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.",
+        "hash": "affdd146cf8eddca949407df4c623d01",
+        "metadata": null,
+        "score": 0.31914089061482354,
+        "created_at": "2026-10-24T11:12:38.794088+00:00",
+        "updated_at": "2026-10-24T11:12:38.794088+00:00",
+        "user_id": "cs-01b-scope_read_mem0-aa2458",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": "size_mb > 100"
+      }
+    },
+    {
+      "text": "User is starting on Project Marlin, an archive of telemetry from their ops fleet.",
+      "tag": null
+    },
+    {
+      "text": "User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.",
+      "tag": null
+    },
+    {
+      "text": "User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": null,
+  "namespace": "cs-01b-scope_read_mem0-aa2458",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User is starting on Project Marlin, an archive of telemetry from their ops fleet.  [scope: unknown]\n2. The ingestion cron job for Project Marlin keeps timing out specifically on the Monday run.  [scope: unknown]\n3. For Project Marlin, any exported file over 100MB must be a Feather file because the archive is read by an Arrow-based tool.  [scope: project, project: Project Marlin, condition: size_mb > 100]\n4. User corrected a previous script that used os.path.join, instructing to use pathlib.Path for file paths in any code written.  [scope: standing, condition: none]\n5. User is working on cleaning up export scripts and standardizing on JSON Lines format for exports in general.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that saves the 30MB telemetry export for Project Marlin (a list of dicts) into an output directory passed as an argument. End your answer with the file extension you used.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Format: JSON Lines.\n\n```python\nimport json\nfrom pathlib import Path\n\ndef save_telemetry_export(telemetry_data: list[dict], output_dir: str) -> None:\n    \"\"\"\n    Saves the telemetry export as a JSON Lines file.\n    \n    Args:\n        telemetry_data: A list of dictionaries containing telemetry records.\n        output_dir: The directory where the file should be saved.\n    \"\"\"\n    # Use pathlib.Path as per standing instruction\n    path = Path(output_dir) / \"telemetry_export.jsonl\"\n    \n    with open(path, 'w', encoding='utf-8') as f:\n        for record in telemetry_data:\n            f.write(json.dumps(record) + '\\n')\n```\n\njsonl",
+    "first_line": "Format: JSON Lines."
+  },
+  "usage": {
+    "total_cost_usd": 0.000745026,
+    "by_component": {
+      "mem0": {
+        "calls": 2,
+        "prompt_tokens": 16922,
+        "completion_tokens": 283,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000475854
+      },
+      "tagger": {
+        "calls": 1,
+        "prompt_tokens": 1767,
+        "completion_tokens": 196,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000151346
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 516,
+        "completion_tokens": 159,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000117826
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-01",
+    "conflict_type": "conditional_scope",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "jsonl",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "jsonl",
+      "m2": "feather"
+    }
+  }
+}

@@ -1,0 +1,204 @@
+{
+  "episode_id": "cs-04a",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T10:51:42+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers Google style docstrings in every project from now on  [scope: standing, condition: none]\n2. User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries  [scope: project, project: Project Vega, condition: timeout > 30]\n3. User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "1cb1a044-82b0-4cc1-b6e4-59931a39bdfa",
+      "memory": "User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.",
+      "hash": "29da704a8dbdebf5d7071d81599ea0b4",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:52:17.550365+00:00",
+      "updated_at": "2026-10-24T10:52:17.550365+00:00",
+      "user_id": "cs-04a-scope_write_mem0-eaa45a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "630d0488-9723-4c2a-ad47-cfc66b993ace",
+      "memory": "User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries",
+      "hash": "928cc3b6df4716663a5954813974ca6e",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      },
+      "created_at": "2026-10-24T10:52:05.957772+00:00",
+      "updated_at": "2026-10-24T10:52:05.957772+00:00",
+      "user_id": "cs-04a-scope_write_mem0-eaa45a",
+      "attributed_to": "user"
+    },
+    {
+      "id": "7435ae22-58b4-4ba4-b1f6-1b31e3de7ec8",
+      "memory": "User prefers Google style docstrings in every project from now on",
+      "hash": "8e41d45e7d1ac9c18abbbf4a004220b2",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T10:52:04.227400+00:00",
+      "updated_at": "2026-10-24T10:52:04.227400+00:00",
+      "user_id": "cs-04a-scope_write_mem0-eaa45a",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries",
+      "score": 0.3926583324612573,
+      "raw": {
+        "id": "630d0488-9723-4c2a-ad47-cfc66b993ace",
+        "memory": "User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries",
+        "hash": "928cc3b6df4716663a5954813974ca6e",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Vega",
+          "condition": "timeout > 30"
+        },
+        "score": 0.3926583324612573,
+        "created_at": "2026-10-24T10:52:05.957772+00:00",
+        "updated_at": "2026-10-24T10:52:05.957772+00:00",
+        "user_id": "cs-04a-scope_write_mem0-eaa45a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.",
+      "score": 0.1399985094475214,
+      "raw": {
+        "id": "1cb1a044-82b0-4cc1-b6e4-59931a39bdfa",
+        "memory": "User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.",
+        "hash": "29da704a8dbdebf5d7071d81599ea0b4",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.1399985094475214,
+        "created_at": "2026-10-24T10:52:17.550365+00:00",
+        "updated_at": "2026-10-24T10:52:17.550365+00:00",
+        "user_id": "cs-04a-scope_write_mem0-eaa45a",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers Google style docstrings in every project from now on",
+      "score": 0.11031926924623549,
+      "raw": {
+        "id": "7435ae22-58b4-4ba4-b1f6-1b31e3de7ec8",
+        "memory": "User prefers Google style docstrings in every project from now on",
+        "hash": "8e41d45e7d1ac9c18abbbf4a004220b2",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.11031926924623549,
+        "created_at": "2026-10-24T10:52:04.227400+00:00",
+        "updated_at": "2026-10-24T10:52:04.227400+00:00",
+        "user_id": "cs-04a-scope_write_mem0-eaa45a",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      }
+    },
+    {
+      "text": "User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers Google style docstrings in every project from now on",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "from now on, in every project, write docstrings in Google style",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Vega, when the timeout is over 30 seconds, make the call fail fast with no retries",
+      "tag": {
+        "scope": "project",
+        "key": "Project Vega",
+        "condition": "timeout > 30"
+      }
+    },
+    {
+      "text": "For HTTP calls, always retry transient failures three times with tenacity, never with a handwritten loop.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "cs-04a-scope_write_mem0-eaa45a",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers Google style docstrings in every project from now on  [scope: standing, condition: none]\n2. User specified that in Project Vega, calls with a timeout over 30 seconds should fail fast with no retries  [scope: project, project: Project Vega, condition: timeout > 30]\n3. User requires that HTTP calls always retry transient failures three times using the tenacity library, and explicitly forbids using handwritten retry loops for this purpose.  [scope: standing, condition: none]\n\nCurrent request:\nWrite a Python function that fetches an invoice by invoice_id from the Project Vega billing API with a 45-second timeout and returns it as a dict.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Concrete choice: Use `requests` with a 45-second timeout, no retries (fail fast), and Google-style docstrings.\n\n```python\nimport requests\n\n\ndef fetch_invoice(invoice_id: str) -> dict:\n    \"\"\"Fetches an invoice from the Project Vega billing API.\n\n    Args:\n        invoice_id: The unique identifier for the invoice to retrieve.\n\n    Returns:\n        A dictionary containing the invoice data.\n\n    Raises:\n        requests.exceptions.RequestException: If the request fails or times out.\n    \"\"\"\n    # Project Vega specific rule: Timeouts > 30s must fail fast with no retries.\n    # This overrides the standing preference for tenacity-based retries on transient failures.\n    url = f\"https://api.projectvega.com/billing/invoices/{invoice_id}\"\n    \n    response = requests.get(url, timeout=45)\n    response.raise_for_status()\n    \n    return response.json()\n```",
+    "first_line": "Concrete choice: Use `requests` with a 45-second timeout, no retries (fail fast), and Google-style docstrings."
+  },
+  "usage": {
+    "total_cost_usd": 0.000962206,
+    "by_component": {
+      "tagger": {
+        "calls": 2,
+        "prompt_tokens": 3609,
+        "completion_tokens": 191,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000219472
+      },
+      "mem0": {
+        "calls": 3,
+        "prompt_tokens": 24841,
+        "completion_tokens": 171,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000616248
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 439,
+        "completion_tokens": 202,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000126486
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "cs-04",
+    "conflict_type": "conditional_scope",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "fail fast",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "fail fast",
+    "memory_actions": {
+      "m1": "tenacity",
+      "m2": "fail fast"
+    }
+  }
+}

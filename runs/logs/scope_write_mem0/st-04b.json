@@ -1,0 +1,248 @@
+{
+  "episode_id": "st-04b",
+  "condition": "scope_write_mem0",
+  "ts": "2026-10-24T11:11:06+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Different job, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line  [scope: standing, condition: none]\n2. User standardizes on using inline subqueries for multi-step SQL queries  [scope: standing, condition: none]\n3. User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL  [scope: project, project: Project Marlin, condition: none]\n4. User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.  [scope: single_task, only the task where it was said, condition: none]",
+  "stored": [
+    {
+      "id": "6b596276-ebb2-46d8-99c4-4b551cb720e4",
+      "memory": "User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.",
+      "hash": "e4d858bc96c036811b6ce5727c32f31a",
+      "metadata": {
+        "scope": "single_task"
+      },
+      "created_at": "2026-10-24T11:11:41.908360+00:00",
+      "updated_at": "2026-10-24T11:11:41.908360+00:00",
+      "user_id": "st-04b-scope_write_mem0-f53a69",
+      "attributed_to": "user"
+    },
+    {
+      "id": "76f64991-916b-41fc-b84d-b57a5abd61e6",
+      "memory": "User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line",
+      "hash": "aff6bde957f7aad3e1f625a0a22e9584",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:11:19.039772+00:00",
+      "updated_at": "2026-10-24T11:11:19.039772+00:00",
+      "user_id": "st-04b-scope_write_mem0-f53a69",
+      "attributed_to": "user"
+    },
+    {
+      "id": "96306917-9eca-4072-a952-34730e547531",
+      "memory": "User standardizes on using inline subqueries for multi-step SQL queries",
+      "hash": "f7dadaf0fd7db8869d839b877dc10068",
+      "metadata": {
+        "scope": "standing"
+      },
+      "created_at": "2026-10-24T11:11:21.135894+00:00",
+      "updated_at": "2026-10-24T11:11:21.135894+00:00",
+      "user_id": "st-04b-scope_write_mem0-f53a69",
+      "attributed_to": "user"
+    },
+    {
+      "id": "f9186ac6-dba0-4ab9-a92f-c129b7e97477",
+      "memory": "User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL",
+      "hash": "c2d5c0257565052966480bcaf1a6ccb8",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Marlin"
+      },
+      "created_at": "2026-10-24T11:11:30.949558+00:00",
+      "updated_at": "2026-10-24T11:11:30.949558+00:00",
+      "user_id": "st-04b-scope_write_mem0-f53a69",
+      "attributed_to": "user"
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL",
+      "score": 0.4550927504751249,
+      "raw": {
+        "id": "f9186ac6-dba0-4ab9-a92f-c129b7e97477",
+        "memory": "User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL",
+        "hash": "c2d5c0257565052966480bcaf1a6ccb8",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Marlin"
+        },
+        "score": 0.4550927504751249,
+        "created_at": "2026-10-24T11:11:30.949558+00:00",
+        "updated_at": "2026-10-24T11:11:30.949558+00:00",
+        "user_id": "st-04b-scope_write_mem0-f53a69",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.",
+      "score": 0.32784682252972,
+      "raw": {
+        "id": "6b596276-ebb2-46d8-99c4-4b551cb720e4",
+        "memory": "User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.",
+        "hash": "e4d858bc96c036811b6ce5727c32f31a",
+        "metadata": {
+          "scope": "single_task"
+        },
+        "score": 0.32784682252972,
+        "created_at": "2026-10-24T11:11:41.908360+00:00",
+        "updated_at": "2026-10-24T11:11:41.908360+00:00",
+        "user_id": "st-04b-scope_write_mem0-f53a69",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User standardizes on using inline subqueries for multi-step SQL queries",
+      "score": 0.3234532329141627,
+      "raw": {
+        "id": "96306917-9eca-4072-a952-34730e547531",
+        "memory": "User standardizes on using inline subqueries for multi-step SQL queries",
+        "hash": "f7dadaf0fd7db8869d839b877dc10068",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.3234532329141627,
+        "created_at": "2026-10-24T11:11:21.135894+00:00",
+        "updated_at": "2026-10-24T11:11:21.135894+00:00",
+        "user_id": "st-04b-scope_write_mem0-f53a69",
+        "attributed_to": "user"
+      }
+    },
+    {
+      "text": "User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line",
+      "score": 0.25354168000960153,
+      "raw": {
+        "id": "76f64991-916b-41fc-b84d-b57a5abd61e6",
+        "memory": "User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line",
+        "hash": "aff6bde957f7aad3e1f625a0a22e9584",
+        "metadata": {
+          "scope": "standing"
+        },
+        "score": 0.25354168000960153,
+        "created_at": "2026-10-24T11:11:19.039772+00:00",
+        "updated_at": "2026-10-24T11:11:19.039772+00:00",
+        "user_id": "st-04b-scope_write_mem0-f53a69",
+        "attributed_to": "user"
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User standardizes on using inline subqueries for multi-step SQL queries",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "in every query you write for me, write select lists comma-first, with the comma at the start of each line",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "I standardize on inline subqueries for multi-step SQL",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "On Project Marlin, never use subqueries, use CTEs.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Marlin",
+        "condition": null
+      }
+    },
+    {
+      "text": "For this one, build it with views instead of CTEs or subqueries.",
+      "tag": {
+        "scope": "single_task",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "st-04b-scope_write_mem0-f53a69",
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User prefers SQL queries to use comma-first formatting for SELECT lists, with the comma at the start of each line  [scope: standing, condition: none]\n2. User standardizes on using inline subqueries for multi-step SQL queries  [scope: standing, condition: none]\n3. User requires the use of CTEs instead of subqueries specifically for Project Marlin, overriding their general standardization on inline subqueries for multi-step SQL  [scope: project, project: Project Marlin, condition: none]\n4. User requested to build a specific query using views instead of CTEs or subqueries, overriding their general preference for inline subqueries and the Project Marlin rule for CTEs in this instance.  [scope: single_task, only the task where it was said, condition: none]\n\nCurrent request:\nDifferent job, the regional revenue query on Project Marlin: write the SQL that lists each region and its average sale revenue, only for regions above the overall average sale revenue, from sales(region, product, revenue).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Approach: Use CTEs for the multi-step logic, as required by Project Marlin.\n\n```sql\nWITH overall_avg AS (\n    SELECT AVG(revenue) AS avg_revenue\n    FROM sales\n),\nregion_avg AS (\n    SELECT region\n         , AVG(revenue) AS avg_region_revenue\n    FROM sales\n    GROUP BY region\n)\nSELECT ra.region\n     , ra.avg_region_revenue\nFROM region_avg ra\nCROSS JOIN overall_avg oa\nWHERE ra.avg_region_revenue > oa.avg_revenue;\n```",
+    "first_line": "Approach: Use CTEs for the multi-step logic, as required by Project Marlin."
+  },
+  "usage": {
+    "total_cost_usd": 0.001073828,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5290,
+        "completion_tokens": 209,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000239954
+      },
+      "mem0": {
+        "calls": 4,
+        "prompt_tokens": 33242,
+        "completion_tokens": 300,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.000736388
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 512,
+        "completion_tokens": 117,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.7486e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "st-04",
+    "conflict_type": "single_task_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "ctes",
+    "expected_memory": "m2",
+    "deciding_rule": 2,
+    "action_first_mentioned": "ctes",
+    "memory_actions": {
+      "m1": "subqueries",
+      "m2": "ctes",
+      "m3": "views"
+    }
+  }
+}

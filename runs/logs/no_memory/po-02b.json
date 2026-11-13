@@ -1,0 +1,47 @@
+{
+  "episode_id": "po-02b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:01+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite the complete test file for a function apply_discount(price: float, code: str) -> float in Project Cobalt. Codes SAVE10 and SAVE20 take 10% and 20% off, and anything else leaves the price unchanged.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose to write a complete pytest test file using parameterized tests for comprehensive coverage.\n\n```python\nimport pytest\nfrom project_cobalt.discount import apply_discount  # Adjust the import path as needed\n\n\n@pytest.mark.parametrize(\n    \"price, code, expected\",\n    [\n        # SAVE10 cases (10% off)\n        (100.0, \"SAVE10\", 90.0),\n        (50.0, \"SAVE10\", 45.0),\n        (0.0, \"SAVE10\", 0.0),\n        (19.99, \"SAVE10\", 17.991),  # Note: floating point precision may require approx\n        \n        # SAVE20 cases (20% off)\n        (100.0, \"SAVE20\", 80.0),\n        (50.0, \"SAVE20\", 40.0),\n        (0.0, \"SAVE20\", 0.0),\n        \n        # Unknown codes (no discount)\n        (100.0, \"INVALID\", 100.0),\n        (100.0, \"\", 100.0),\n        (100.0, \"save10\", 100.0),   # Case-sensitive check\n        (100.0, \"SAVE30\", 100.0),\n        (100.0, None, 100.0),       # If None is handled gracefully; otherwise this might raise TypeError depending on implementation\n        \n        # Edge cases\n        (-100.0, \"SAVE10\", -90.0),  # Negative price behavior depends on spec; assuming linear application\n    ],\n)\ndef test_apply_discount(price, code, expected):\n    result = apply_discount(price, code)\n    assert result == pytest.approx(expected, abs=1e-9)\n\n\ndef test_apply_discount_type_check():\n    \"\"\"Ensure function returns float.\"\"\"\n    result = apply_discount(100.0, \"SAVE10\")\n    assert isinstance(result, float)\n```",
+    "first_line": "I chose to write a complete pytest test file using parameterized tests for comprehensive coverage."
+  },
+  "usage": {
+    "total_cost_usd": 0.00024973,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 164,
+        "completion_tokens": 479,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00024973
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "po-02",
+    "conflict_type": "project_override",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "pytest",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": "pytest",
+    "memory_actions": {
+      "m1": "pytest",
+      "m2": "unittest"
+    }
+  }
+}

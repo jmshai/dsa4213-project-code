@@ -1,0 +1,405 @@
+{
+  "episode_id": "ss-01a",
+  "condition": "scope_write_supermemory",
+  "ts": "2026-10-24T16:40:15+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Scaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.",
+  "error": null,
+  "attempts": 1,
+  "memories": "Each memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: For Project Lantern, use FastAPI.  [scope: project, project: Project Lantern, condition: none]\n2. User: The warehouse team wants the stock endpoint to return counts per bin.  [scope: project, project: Project Lantern, condition: none]\n3. User: one response covers a whole shelf  [scope: project, project: Project Lantern, condition: none]\n4. User: for Project Lantern, switch to Django  [scope: project, project: Project Lantern, condition: none]\n5. User: I usually reach for Falcon for web services.  [scope: standing, condition: none]\n6. User: start every Python file you give me with the first line # owner: platform-team.  [scope: standing, condition: none]",
+  "stored": [
+    {
+      "id": "j2YtceJYsUPuQwJ7sjiLtx",
+      "title": "User: start every Python file you give me with the...",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:41:59.033000Z",
+        "updatedAt": "2026-10-24T16:42:05.333000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "Gq9xpuVtKymz5wSNHdkY3H",
+      "title": "User: I usually reach for Falcon for web services.",
+      "type": "text",
+      "metadata": {
+        "scope": "standing"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:41:49.642000Z",
+        "updatedAt": "2026-10-24T16:41:56.710000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "8529cZ8UmstPj8nhtvmbZC",
+      "title": "User: for Project Lantern, switch to Django",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:41:19.027000Z",
+        "updatedAt": "2026-10-24T16:41:25.841000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "BRpgjmNAe3v4j9n7mpa9BY",
+      "title": "User: one response covers a whole shelf",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:41:08.472000Z",
+        "updatedAt": "2026-10-24T16:41:13.743000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "1s8Sha83t4NoqUQ4gbrDEQ",
+      "title": "User: The warehouse team wants the stock endpoint...",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:41:01.600000Z",
+        "updatedAt": "2026-10-24T16:41:07.234000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    },
+    {
+      "id": "ZbXwncy5xoookKbJgAXmMB",
+      "title": "User: For Project Lantern, use FastAPI.",
+      "type": "text",
+      "metadata": {
+        "scope": "project",
+        "key": "Project Lantern"
+      },
+      "system": {
+        "status": "done",
+        "createdAt": "2026-10-24T16:40:27.917000Z",
+        "updatedAt": "2026-10-24T16:40:36.727000Z",
+        "dreamingStatus": "dreaming",
+        "memoryCount": 0,
+        "filepath": null
+      },
+      "summary": null,
+      "url": null
+    }
+  ],
+  "retrieved": [
+    {
+      "text": "User: For Project Lantern, use FastAPI.",
+      "score": 0.75540853,
+      "raw": {
+        "id": "141712402e2c184dc0a7fb",
+        "memory": null,
+        "chunk": "User: For Project Lantern, use FastAPI.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "similarity": 0.75540853,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:40:36.727Z",
+          "created_at": "2026-10-24T16:40:27.917Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: I usually reach for Falcon for web services.",
+      "score": 0.6703684999999999,
+      "raw": {
+        "id": "b60581623988d42f7980d4",
+        "memory": null,
+        "chunk": "User: I usually reach for Falcon for web services.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.6703684999999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:41:56.710Z",
+          "created_at": "2026-10-24T16:41:49.642Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: for Project Lantern, switch to Django",
+      "score": 0.63635015,
+      "raw": {
+        "id": "9e21dfc6fc3ccf9575714f",
+        "memory": null,
+        "chunk": "User: for Project Lantern, switch to Django",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "similarity": 0.63635015,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:41:25.841Z",
+          "created_at": "2026-10-24T16:41:19.027Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: one response covers a whole shelf",
+      "score": 0.5444339499999999,
+      "raw": {
+        "id": "badad25016b0acec49071e",
+        "memory": null,
+        "chunk": "User: one response covers a whole shelf",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "similarity": 0.5444339499999999,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:41:13.743Z",
+          "created_at": "2026-10-24T16:41:08.472Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: The warehouse team wants the stock endpoint to return counts per bin.",
+      "score": 0.54370505,
+      "raw": {
+        "id": "dadd0f88883e60313a6262",
+        "memory": null,
+        "chunk": "User: The warehouse team wants the stock endpoint to return counts per bin.",
+        "metadata": {
+          "scope": "project",
+          "key": "Project Lantern"
+        },
+        "similarity": 0.54370505,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:41:07.234Z",
+          "created_at": "2026-10-24T16:41:01.600Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    },
+    {
+      "text": "User: start every Python file you give me with the first line # owner: platform-team.",
+      "score": 0.54156524,
+      "raw": {
+        "id": "454c7f1ced2be40a3abb2d",
+        "memory": null,
+        "chunk": "User: start every Python file you give me with the first line # owner: platform-team.",
+        "metadata": {
+          "scope": "standing"
+        },
+        "similarity": 0.54156524,
+        "is_latest": true,
+        "is_inference": false,
+        "system": {
+          "updated_at": "2026-10-24T16:42:05.333Z",
+          "created_at": "2026-10-24T16:41:59.033Z",
+          "filepath": null
+        },
+        "included": null
+      }
+    }
+  ],
+  "tagged": [
+    {
+      "text": "User: For Project Lantern, use FastAPI.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: I usually reach for Falcon for web services.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "User: for Project Lantern, switch to Django",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: one response covers a whole shelf",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: The warehouse team wants the stock endpoint to return counts per bin.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "User: start every Python file you give me with the first line # owner: platform-team.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "written": [
+    {
+      "text": "For Project Lantern, use FastAPI.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "The warehouse team wants the stock endpoint to return counts per bin.",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "one response covers a whole shelf",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "for Project Lantern, switch to Django",
+      "tag": {
+        "scope": "project",
+        "key": "Project Lantern",
+        "condition": null
+      }
+    },
+    {
+      "text": "I usually reach for Falcon for web services.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    },
+    {
+      "text": "start every Python file you give me with the first line # owner: platform-team.",
+      "tag": {
+        "scope": "standing",
+        "key": null,
+        "condition": null
+      }
+    }
+  ],
+  "namespace": "ss-01a-scope_write_supermemory-4603a6",
+  "cleanup_error": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\nEach memory below is labelled with where it applies:\n- scope \"standing\": applies to every task. \"project\": applies only to tasks of the named project. \"single_task\": applies only to the one task in which it was said.\n- condition: the memory applies only when this condition holds for the current request.\n\nWhen several memories answer the same question, choose between them in this order:\n1. Ignore a memory that does not apply to the current request (a different project, a different task, or a condition that does not hold).\n2. Prefer the narrowest scope: single_task over project over standing.\n3. Within one scope, prefer a memory whose condition holds over an unconditional one.\n4. If they still conflict, prefer the later memory (memories are listed oldest first when times are known).\nMemories about different questions do not compete, so follow every one that applies.\n\n1. User: For Project Lantern, use FastAPI.  [scope: project, project: Project Lantern, condition: none]\n2. User: The warehouse team wants the stock endpoint to return counts per bin.  [scope: project, project: Project Lantern, condition: none]\n3. User: one response covers a whole shelf  [scope: project, project: Project Lantern, condition: none]\n4. User: for Project Lantern, switch to Django  [scope: project, project: Project Lantern, condition: none]\n5. User: I usually reach for Falcon for web services.  [scope: standing, condition: none]\n6. User: start every Python file you give me with the first line # owner: platform-team.  [scope: standing, condition: none]\n\nCurrent request:\nScaffold the REST service for Project Lantern: name the web framework you are using and show the minimal app file with a health-check route at /health that returns {\"status\": \"ok\"}.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "Web framework: Django\n\n```python\n# owner: platform-team\nfrom django.http import JsonResponse\nfrom django.urls import path\n\ndef health_check(request):\n    return JsonResponse({\"status\": \"ok\"})\n\nurlpatterns = [\n    path('health', health_check),\n]\n```",
+    "first_line": "Web framework: Django"
+  },
+  "usage": {
+    "total_cost_usd": 0.000394274,
+    "by_component": {
+      "tagger": {
+        "calls": 3,
+        "prompt_tokens": 5325,
+        "completion_tokens": 307,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00032556800000000004
+      },
+      "supermemory": {
+        "calls": 7,
+        "prompt_tokens": 0,
+        "completion_tokens": 0,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0
+      },
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 505,
+        "completion_tokens": 58,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.8706e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-01",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "django",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "django",
+    "memory_actions": {
+      "m1": "falcon",
+      "m2": "fastapi",
+      "m3": "django"
+    }
+  }
+}

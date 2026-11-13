@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-04b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:28:27+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the Terraform for Project Dune's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite the Terraform for Project Dune's output bucket, named thumbnail-output: say which AWS region you are deploying to and include the provider block and the full bucket resource block.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I chose to deploy to `us-east-1` as a standard default AWS region for this example.\n\n```hcl\nprovider \"aws\" {\n  region = \"us-east-1\"\n}\n\nresource \"aws_s3_bucket\" \"thumbnail_output\" {\n  bucket = \"thumbnail-output\"\n\n  tags = {\n    Project = \"Dune\"\n    Purpose = \"Output Bucket\"\n  }\n}\n```",
+    "first_line": "I chose to deploy to `us-east-1` as a standard default AWS region for this example."
+  },
+  "usage": {
+    "total_cost_usd": 6.529e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 147,
+        "completion_tokens": 92,
+        "reasoning_tokens": 0,
+        "cost_usd": 6.529e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-04",
+    "conflict_type": "same_scope_supersession",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "eu-central-1",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "eu-central-1",
+      "m2": "us-west-2",
+      "m3": "ap-northeast-1"
+    }
+  }
+}

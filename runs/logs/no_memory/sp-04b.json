@@ -1,0 +1,47 @@
+{
+  "episode_id": "sp-04b",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:27:50+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "On Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nOn Project Kestrel, write a Python function get_pickup_estimates() for the dispatch API. The freshness window is 30 minutes. Pick the caching policy and state it in a one-line comment.\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "**Approach: Time-based TTL cache (30-minute freshness window) using `functools.lru_cache` with a custom timestamp check or a dedicated caching library like `cachetools`.**\n\n```python\nimport time\nfrom functools import wraps\nfrom typing import Any, Callable, Dict, Optional\n\n# Caching Policy: Time-To-Live (TTL) of 30 minutes to ensure data freshness while reducing API load.\n\ndef ttl_cache(ttl_seconds: int = 1800):\n    \"\"\"Decorator that caches function results for a specified TTL in seconds.\"\"\"\n    def decorator(func: Callable) -> Callable:\n        cache: Dict[Any, tuple] = {}\n        \n        @wraps(func)\n        def wrapper(*args, **kwargs) -> Any:\n            # Create a unique key based on arguments\n            key = str(args) + str(kwargs)\n            current_time = time.time()\n            \n            if key in cache:\n                result, timestamp = cache[key]\n                if current_time - timestamp < ttl_seconds:\n                    return result\n            \n            # Call the original function and update cache\n            result = func(*args, **kwargs)\n            cache[key] = (result, current_time)\n            return result\n        \n        return wrapper\n    return decorator\n\n@ttl_cache(ttl_seconds=1800)\ndef get_pickup_estimates(vehicle_id: str, location: Dict[str, float]) -> Dict[str, Any]:\n    \"\"\"\n    Fetches pickup estimates from the dispatch API.\n    \n    Args:\n        vehicle_id: The ID of the vehicle requesting estimates.\n        location: A dictionary containing 'lat' and 'lon' keys.\n        \n    Returns:\n        A dictionary containing pickup estimates.\n    \"\"\"\n    # Simulate an API call to the dispatch service\n    # In a real scenario, this would involve an HTTP request to the Project Kestrel dispatch API\n    print(f\"Fetching fresh estimates for vehicle {vehicle_id} at {location}\")\n    \n    # Mock response\n    return {\n        \"vehicle_id\": vehicle_id,\n        \"estimated_pickup_time_minutes\": 5,\n        \"surge_multiplier\": 1.2,\n        \"timestamp\": time.time()\n    }\n```",
+    "first_line": "**Approach: Time-based TTL cache (30-minute freshness window) using `functools.lru_cache` with a custom timestamp check or a dedicated caching library like `cachetools`.**"
+  },
+  "usage": {
+    "total_cost_usd": 0.00024917,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 154,
+        "completion_tokens": 481,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.00024917
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "sp-04",
+    "conflict_type": "same_scope_specificity",
+    "label": "B",
+    "in_scope": false,
+    "expected_action": "90-second ttl cache",
+    "expected_memory": "m1",
+    "deciding_rule": 1,
+    "action_first_mentioned": null,
+    "memory_actions": {
+      "m1": "90-second ttl cache",
+      "m2": "no cache"
+    }
+  }
+}

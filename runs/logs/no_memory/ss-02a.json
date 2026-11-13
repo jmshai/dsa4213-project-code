@@ -1,0 +1,48 @@
+{
+  "episode_id": "ss-02a",
+  "condition": "no_memory",
+  "ts": "2026-10-24T10:28:05+00:00",
+  "model": "qwen/qwen3.8-flash",
+  "probe": "Write the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).",
+  "error": null,
+  "attempts": 1,
+  "memories": "(none)",
+  "stored": null,
+  "retrieved": [],
+  "tagged": null,
+  "written": null,
+  "namespace": null,
+  "prompt": "You are an assistant helping a user with data and software work. Below are memories saved from the user's earlier conversations, followed by their current request. Use the memories that apply to this request and ignore the ones that do not.\n\nMemories:\n(none)\n\nCurrent request:\nWrite the settings reference for Project Orchid and say which documentation format you are using. Document these settings: accent_color (hex color, default #1A73E8), cache_ttl (how long a page stays cached, default 90 seconds) and retry_delay (wait before a failed sync is retried, default 2 seconds).\n\nRespond with your answer. State the concrete choice you made (for example the tool, format or approach) in the first line.\n",
+  "agent": {
+    "model": "qwen/qwen3.8-flash",
+    "response": "I am using Markdown format for the settings reference.\n\n# Project Orchid Settings Reference\n\nThis document outlines the configurable settings for Project Orchid.\n\n| Setting | Type | Default Value | Description |\n| :--- | :--- | :--- | :--- |\n| `accent_color` | Hex Color | `#1A73E8` | The primary accent color used throughout the interface. |\n| `cache_ttl` | Integer (seconds) | `90` | The duration a page remains cached before being refreshed. |\n| `retry_delay` | Integer (seconds) | `2` | The wait time before attempting to retry a failed sync operation. |",
+    "first_line": "I am using Markdown format for the settings reference."
+  },
+  "usage": {
+    "total_cost_usd": 9.342e-05,
+    "by_component": {
+      "agent": {
+        "calls": 1,
+        "prompt_tokens": 181,
+        "completion_tokens": 141,
+        "reasoning_tokens": 0,
+        "cost_usd": 9.342e-05
+      }
+    }
+  },
+  "gold_ref": {
+    "pair_id": "ss-02",
+    "conflict_type": "same_scope_supersession",
+    "label": "A",
+    "in_scope": true,
+    "expected_action": "restructuredtext",
+    "expected_memory": "m3",
+    "deciding_rule": 4,
+    "action_first_mentioned": "markdown",
+    "memory_actions": {
+      "m1": "asciidoc",
+      "m2": "markdown",
+      "m3": "restructuredtext"
+    }
+  }
+}
