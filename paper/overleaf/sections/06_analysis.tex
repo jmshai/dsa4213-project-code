@@ -30,6 +30,11 @@ preference over an applicable exception, carried a
 single-task exception into a new task, or combined
 conflicting instructions (Appendix~\ref{app:failure-cases}).
 
+\paragraph{Costs.}
+The 320 agent runs cost about \$0.15 on OpenRouter
+(Mem0 conditions most, from its internal extraction calls)
+and judging about \$0.06, excluding Supermemory's own billing.
+
 \subsection{Threats to Validity}
 
 The benchmark contains only 20 synthetic pairs
@@ -50,13 +55,8 @@ ordering (oldest first, versus relevance order for the
 baselines). The non-significant gain for read-time
 Supermemory (37/40 versus 34/40; McNemar $p=0.25$)
 therefore cannot be attributed to tags alone;
-rules-only, tags-only, and ordering-only ablations
-would isolate each effect.
+separate ablations would isolate each effect.
 
 Retrieval matching and failure-stage diagnoses were not
 independently validated in full.
-
-Finally, the two probes within each pair are
-dependent, limiting the interpretation of
-episode-level significance tests.
 
